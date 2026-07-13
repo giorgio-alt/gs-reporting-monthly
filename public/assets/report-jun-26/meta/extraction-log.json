@@ -1,0 +1,23 @@
+{
+  "source": "/Users/giorgiotrantina/Downloads/GS Report Jun 26.pptx",
+  "scope": "META slides 36-53",
+  "strategy": "Extracted native PPTX picture shapes ordered by top-to-bottom, left-to-right position. Full slide renders are not used when picture shapes are available.",
+  "extracted_assets": 34,
+  "notes": [
+    {
+      "slide": 36,
+      "status": "no_relevant_picture_shape",
+      "message": "Chapter divider slide; no report screenshot exported."
+    },
+    {
+      "slide": 45,
+      "status": "text_only",
+      "message": "Condro comment slide contains text only; comment is represented in report copy."
+    },
+    {
+      "slide": 49,
+      "status": "text_only",
+      "message": "Lead campaign comment slide contains text only; metric restriction is represented in report copy."
+    }
+  ]
+}

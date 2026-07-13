@@ -1,0 +1,9 @@
+.dashTable tr:last-child td,
+.summaryRow td {
+  font-weight: 780;
+}
+
+.dashTable td,
+.row span {
+  overflow-wrap: anywhere;
+}

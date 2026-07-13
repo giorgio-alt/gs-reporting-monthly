@@ -1,0 +1,580 @@
+[
+  {
+    "id": "slide-37-asset-01",
+    "slide_number": 37,
+    "asset_index": 1,
+    "thumbnail_path": "/assets/report-jun-26/meta/extracted/slide-37-asset-01-thumb.webp",
+    "full_image_path": "/assets/report-jun-26/meta/extracted/slide-37-asset-01.webp",
+    "original_bbox": {
+      "x": 152400,
+      "y": 1203896,
+      "width": 8839204,
+      "height": 1860204
+    },
+    "image_size": {
+      "width": 2048,
+      "height": 431
+    }
+  },
+  {
+    "id": "slide-37-asset-02",
+    "slide_number": 37,
+    "asset_index": 2,
+    "thumbnail_path": "/assets/report-jun-26/meta/extracted/slide-37-asset-02-thumb.webp",
+    "full_image_path": "/assets/report-jun-26/meta/extracted/slide-37-asset-02.webp",
+    "original_bbox": {
+      "x": 152400,
+      "y": 3216500,
+      "width": 8839204,
+      "height": 1674615
+    },
+    "image_size": {
+      "width": 2048,
+      "height": 388
+    }
+  },
+  {
+    "id": "slide-38-asset-01",
+    "slide_number": 38,
+    "asset_index": 1,
+    "thumbnail_path": "/assets/report-jun-26/meta/extracted/slide-38-asset-01-thumb.webp",
+    "full_image_path": "/assets/report-jun-26/meta/extracted/slide-38-asset-01.webp",
+    "original_bbox": {
+      "x": 152400,
+      "y": 920071,
+      "width": 8839204,
+      "height": 2240013
+    },
+    "image_size": {
+      "width": 2048,
+      "height": 519
+    }
+  },
+  {
+    "id": "slide-38-asset-02",
+    "slide_number": 38,
+    "asset_index": 2,
+    "thumbnail_path": "/assets/report-jun-26/meta/extracted/slide-38-asset-02-thumb.webp",
+    "full_image_path": "/assets/report-jun-26/meta/extracted/slide-38-asset-02.webp",
+    "original_bbox": {
+      "x": 152400,
+      "y": 3039900,
+      "width": 8946550,
+      "height": 2018200
+    },
+    "image_size": {
+      "width": 2048,
+      "height": 462
+    }
+  },
+  {
+    "id": "slide-39-asset-01",
+    "slide_number": 39,
+    "asset_index": 1,
+    "thumbnail_path": "/assets/report-jun-26/meta/extracted/slide-39-asset-01-thumb.webp",
+    "full_image_path": "/assets/report-jun-26/meta/extracted/slide-39-asset-01.webp",
+    "original_bbox": {
+      "x": 152400,
+      "y": 1203896,
+      "width": 8839204,
+      "height": 1696195
+    },
+    "image_size": {
+      "width": 2048,
+      "height": 393
+    }
+  },
+  {
+    "id": "slide-39-asset-02",
+    "slide_number": 39,
+    "asset_index": 2,
+    "thumbnail_path": "/assets/report-jun-26/meta/extracted/slide-39-asset-02-thumb.webp",
+    "full_image_path": "/assets/report-jun-26/meta/extracted/slide-39-asset-02.webp",
+    "original_bbox": {
+      "x": 152400,
+      "y": 3318049,
+      "width": 8839199,
+      "height": 1751250
+    },
+    "image_size": {
+      "width": 2048,
+      "height": 488
+    }
+  },
+  {
+    "id": "slide-40-asset-01",
+    "slide_number": 40,
+    "asset_index": 1,
+    "thumbnail_path": "/assets/report-jun-26/meta/extracted/slide-40-asset-01-thumb.webp",
+    "full_image_path": "/assets/report-jun-26/meta/extracted/slide-40-asset-01.webp",
+    "original_bbox": {
+      "x": 152400,
+      "y": 1203896,
+      "width": 8839204,
+      "height": 466130
+    },
+    "image_size": {
+      "width": 2048,
+      "height": 108
+    }
+  },
+  {
+    "id": "slide-40-asset-02",
+    "slide_number": 40,
+    "asset_index": 2,
+    "thumbnail_path": "/assets/report-jun-26/meta/extracted/slide-40-asset-02-thumb.webp",
+    "full_image_path": "/assets/report-jun-26/meta/extracted/slide-40-asset-02.webp",
+    "original_bbox": {
+      "x": 152400,
+      "y": 1822426,
+      "width": 1768921,
+      "height": 3168676
+    },
+    "image_size": {
+      "width": 460,
+      "height": 824
+    }
+  },
+  {
+    "id": "slide-41-asset-01",
+    "slide_number": 41,
+    "asset_index": 1,
+    "thumbnail_path": "/assets/report-jun-26/meta/extracted/slide-41-asset-01-thumb.webp",
+    "full_image_path": "/assets/report-jun-26/meta/extracted/slide-41-asset-01.webp",
+    "original_bbox": {
+      "x": 152400,
+      "y": 1203896,
+      "width": 8839204,
+      "height": 1709143
+    },
+    "image_size": {
+      "width": 2048,
+      "height": 396
+    }
+  },
+  {
+    "id": "slide-41-asset-02",
+    "slide_number": 41,
+    "asset_index": 2,
+    "thumbnail_path": "/assets/report-jun-26/meta/extracted/slide-41-asset-02-thumb.webp",
+    "full_image_path": "/assets/report-jun-26/meta/extracted/slide-41-asset-02.webp",
+    "original_bbox": {
+      "x": 152400,
+      "y": 3065439,
+      "width": 8839204,
+      "height": 1562398
+    },
+    "image_size": {
+      "width": 2048,
+      "height": 362
+    }
+  },
+  {
+    "id": "slide-42-asset-01",
+    "slide_number": 42,
+    "asset_index": 1,
+    "thumbnail_path": "/assets/report-jun-26/meta/extracted/slide-42-asset-01-thumb.webp",
+    "full_image_path": "/assets/report-jun-26/meta/extracted/slide-42-asset-01.webp",
+    "original_bbox": {
+      "x": 152400,
+      "y": 1203896,
+      "width": 8839204,
+      "height": 224433
+    },
+    "image_size": {
+      "width": 2048,
+      "height": 52
+    }
+  },
+  {
+    "id": "slide-42-asset-02",
+    "slide_number": 42,
+    "asset_index": 2,
+    "thumbnail_path": "/assets/report-jun-26/meta/extracted/slide-42-asset-02-thumb.webp",
+    "full_image_path": "/assets/report-jun-26/meta/extracted/slide-42-asset-02.webp",
+    "original_bbox": {
+      "x": 152400,
+      "y": 1580725,
+      "width": 1730600,
+      "height": 3403001
+    },
+    "image_size": {
+      "width": 416,
+      "height": 818
+    }
+  },
+  {
+    "id": "slide-43-asset-01",
+    "slide_number": 43,
+    "asset_index": 1,
+    "thumbnail_path": "/assets/report-jun-26/meta/extracted/slide-43-asset-01-thumb.webp",
+    "full_image_path": "/assets/report-jun-26/meta/extracted/slide-43-asset-01.webp",
+    "original_bbox": {
+      "x": 152400,
+      "y": 948263,
+      "width": 8839204,
+      "height": 2231381
+    },
+    "image_size": {
+      "width": 2048,
+      "height": 517
+    }
+  },
+  {
+    "id": "slide-43-asset-02",
+    "slide_number": 43,
+    "asset_index": 2,
+    "thumbnail_path": "/assets/report-jun-26/meta/extracted/slide-43-asset-02-thumb.webp",
+    "full_image_path": "/assets/report-jun-26/meta/extracted/slide-43-asset-02.webp",
+    "original_bbox": {
+      "x": 152400,
+      "y": 3238400,
+      "width": 8753777,
+      "height": 1825125
+    },
+    "image_size": {
+      "width": 2048,
+      "height": 427
+    }
+  },
+  {
+    "id": "slide-44-asset-01",
+    "slide_number": 44,
+    "asset_index": 1,
+    "thumbnail_path": "/assets/report-jun-26/meta/extracted/slide-44-asset-01-thumb.webp",
+    "full_image_path": "/assets/report-jun-26/meta/extracted/slide-44-asset-01.webp",
+    "original_bbox": {
+      "x": 152400,
+      "y": 1302425,
+      "width": 8839204,
+      "height": 207169
+    },
+    "image_size": {
+      "width": 2048,
+      "height": 48
+    }
+  },
+  {
+    "id": "slide-44-asset-02",
+    "slide_number": 44,
+    "asset_index": 2,
+    "thumbnail_path": "/assets/report-jun-26/meta/extracted/slide-44-asset-02-thumb.webp",
+    "full_image_path": "/assets/report-jun-26/meta/extracted/slide-44-asset-02.webp",
+    "original_bbox": {
+      "x": 152400,
+      "y": 1605550,
+      "width": 1602925,
+      "height": 3371049
+    },
+    "image_size": {
+      "width": 388,
+      "height": 816
+    }
+  },
+  {
+    "id": "slide-46-asset-01",
+    "slide_number": 46,
+    "asset_index": 1,
+    "thumbnail_path": "/assets/report-jun-26/meta/extracted/slide-46-asset-01-thumb.webp",
+    "full_image_path": "/assets/report-jun-26/meta/extracted/slide-46-asset-01.webp",
+    "original_bbox": {
+      "x": 152400,
+      "y": 1615200,
+      "width": 8839204,
+      "height": 1385442
+    },
+    "image_size": {
+      "width": 2048,
+      "height": 321
+    }
+  },
+  {
+    "id": "slide-46-asset-02",
+    "slide_number": 46,
+    "asset_index": 2,
+    "thumbnail_path": "/assets/report-jun-26/meta/extracted/slide-46-asset-02-thumb.webp",
+    "full_image_path": "/assets/report-jun-26/meta/extracted/slide-46-asset-02.webp",
+    "original_bbox": {
+      "x": 42350,
+      "y": 3451290,
+      "width": 8839204,
+      "height": 1407022
+    },
+    "image_size": {
+      "width": 2048,
+      "height": 326
+    }
+  },
+  {
+    "id": "slide-47-asset-01",
+    "slide_number": 47,
+    "asset_index": 1,
+    "thumbnail_path": "/assets/report-jun-26/meta/extracted/slide-47-asset-01-thumb.webp",
+    "full_image_path": "/assets/report-jun-26/meta/extracted/slide-47-asset-01.webp",
+    "original_bbox": {
+      "x": 152400,
+      "y": 1348750,
+      "width": 8839204,
+      "height": 215801
+    },
+    "image_size": {
+      "width": 2048,
+      "height": 50
+    }
+  },
+  {
+    "id": "slide-47-asset-02",
+    "slide_number": 47,
+    "asset_index": 2,
+    "thumbnail_path": "/assets/report-jun-26/meta/extracted/slide-47-asset-02-thumb.webp",
+    "full_image_path": "/assets/report-jun-26/meta/extracted/slide-47-asset-02.webp",
+    "original_bbox": {
+      "x": 152400,
+      "y": 1672350,
+      "width": 1610505,
+      "height": 3237050
+    },
+    "image_size": {
+      "width": 402,
+      "height": 808
+    }
+  },
+  {
+    "id": "slide-48-asset-01",
+    "slide_number": 48,
+    "asset_index": 1,
+    "thumbnail_path": "/assets/report-jun-26/meta/extracted/slide-48-asset-01-thumb.webp",
+    "full_image_path": "/assets/report-jun-26/meta/extracted/slide-48-asset-01.webp",
+    "original_bbox": {
+      "x": 152400,
+      "y": 1111221,
+      "width": 8839204,
+      "height": 1756619
+    },
+    "image_size": {
+      "width": 2048,
+      "height": 407
+    }
+  },
+  {
+    "id": "slide-48-asset-02",
+    "slide_number": 48,
+    "asset_index": 2,
+    "thumbnail_path": "/assets/report-jun-26/meta/extracted/slide-48-asset-02-thumb.webp",
+    "full_image_path": "/assets/report-jun-26/meta/extracted/slide-48-asset-02.webp",
+    "original_bbox": {
+      "x": 152400,
+      "y": 3020240,
+      "width": 8839204,
+      "height": 1842939
+    },
+    "image_size": {
+      "width": 2048,
+      "height": 427
+    }
+  },
+  {
+    "id": "slide-50-asset-01",
+    "slide_number": 50,
+    "asset_index": 1,
+    "thumbnail_path": "/assets/report-jun-26/meta/extracted/slide-50-asset-01-thumb.webp",
+    "full_image_path": "/assets/report-jun-26/meta/extracted/slide-50-asset-01.webp",
+    "original_bbox": {
+      "x": 6633999,
+      "y": 395000,
+      "width": 1588750,
+      "height": 3411625
+    },
+    "image_size": {
+      "width": 380,
+      "height": 816
+    }
+  },
+  {
+    "id": "slide-50-asset-02",
+    "slide_number": 50,
+    "asset_index": 2,
+    "thumbnail_path": "/assets/report-jun-26/meta/extracted/slide-50-asset-02-thumb.webp",
+    "full_image_path": "/assets/report-jun-26/meta/extracted/slide-50-asset-02.webp",
+    "original_bbox": {
+      "x": 152400,
+      "y": 1671425,
+      "width": 6144276,
+      "height": 1134025
+    },
+    "image_size": {
+      "width": 2048,
+      "height": 378
+    }
+  },
+  {
+    "id": "slide-50-asset-03",
+    "slide_number": 50,
+    "asset_index": 3,
+    "thumbnail_path": "/assets/report-jun-26/meta/extracted/slide-50-asset-03-thumb.webp",
+    "full_image_path": "/assets/report-jun-26/meta/extracted/slide-50-asset-03.webp",
+    "original_bbox": {
+      "x": 152400,
+      "y": 3959025,
+      "width": 8839204,
+      "height": 530870
+    },
+    "image_size": {
+      "width": 2048,
+      "height": 123
+    }
+  },
+  {
+    "id": "slide-51-asset-01",
+    "slide_number": 51,
+    "asset_index": 1,
+    "thumbnail_path": "/assets/report-jun-26/meta/extracted/slide-51-asset-01-thumb.webp",
+    "full_image_path": "/assets/report-jun-26/meta/extracted/slide-51-asset-01.webp",
+    "original_bbox": {
+      "x": 6663376,
+      "y": 837750,
+      "width": 2188472,
+      "height": 4000951
+    },
+    "image_size": {
+      "width": 454,
+      "height": 830
+    }
+  },
+  {
+    "id": "slide-51-asset-02",
+    "slide_number": 51,
+    "asset_index": 2,
+    "thumbnail_path": "/assets/report-jun-26/meta/extracted/slide-51-asset-02-thumb.webp",
+    "full_image_path": "/assets/report-jun-26/meta/extracted/slide-51-asset-02.webp",
+    "original_bbox": {
+      "x": 152400,
+      "y": 1565049,
+      "width": 6370176,
+      "height": 1340600
+    },
+    "image_size": {
+      "width": 2048,
+      "height": 431
+    }
+  },
+  {
+    "id": "slide-51-asset-03",
+    "slide_number": 51,
+    "asset_index": 3,
+    "thumbnail_path": "/assets/report-jun-26/meta/extracted/slide-51-asset-03-thumb.webp",
+    "full_image_path": "/assets/report-jun-26/meta/extracted/slide-51-asset-03.webp",
+    "original_bbox": {
+      "x": 317150,
+      "y": 3747076,
+      "width": 6306263,
+      "height": 384900
+    },
+    "image_size": {
+      "width": 2048,
+      "height": 125
+    }
+  },
+  {
+    "id": "slide-52-asset-01",
+    "slide_number": 52,
+    "asset_index": 1,
+    "thumbnail_path": "/assets/report-jun-26/meta/extracted/slide-52-asset-01-thumb.webp",
+    "full_image_path": "/assets/report-jun-26/meta/extracted/slide-52-asset-01.webp",
+    "original_bbox": {
+      "x": 6657599,
+      "y": 990150,
+      "width": 2334001,
+      "height": 2348899
+    },
+    "image_size": {
+      "width": 940,
+      "height": 946
+    }
+  },
+  {
+    "id": "slide-52-asset-02",
+    "slide_number": 52,
+    "asset_index": 2,
+    "thumbnail_path": "/assets/report-jun-26/meta/extracted/slide-52-asset-02-thumb.webp",
+    "full_image_path": "/assets/report-jun-26/meta/extracted/slide-52-asset-02.webp",
+    "original_bbox": {
+      "x": 152400,
+      "y": 1452299,
+      "width": 6352799,
+      "height": 1166325
+    },
+    "image_size": {
+      "width": 2048,
+      "height": 376
+    }
+  },
+  {
+    "id": "slide-52-asset-03",
+    "slide_number": 52,
+    "asset_index": 3,
+    "thumbnail_path": "/assets/report-jun-26/meta/extracted/slide-52-asset-03-thumb.webp",
+    "full_image_path": "/assets/report-jun-26/meta/extracted/slide-52-asset-03.webp",
+    "original_bbox": {
+      "x": 116400,
+      "y": 4132223,
+      "width": 8839204,
+      "height": 785515
+    },
+    "image_size": {
+      "width": 2048,
+      "height": 182
+    }
+  },
+  {
+    "id": "slide-53-asset-01",
+    "slide_number": 53,
+    "asset_index": 1,
+    "thumbnail_path": "/assets/report-jun-26/meta/extracted/slide-53-asset-01-thumb.webp",
+    "full_image_path": "/assets/report-jun-26/meta/extracted/slide-53-asset-01.webp",
+    "original_bbox": {
+      "x": 6866100,
+      "y": 602075,
+      "width": 1961631,
+      "height": 4000951
+    },
+    "image_size": {
+      "width": 404,
+      "height": 824
+    }
+  },
+  {
+    "id": "slide-53-asset-02",
+    "slide_number": 53,
+    "asset_index": 2,
+    "thumbnail_path": "/assets/report-jun-26/meta/extracted/slide-53-asset-02-thumb.webp",
+    "full_image_path": "/assets/report-jun-26/meta/extracted/slide-53-asset-02.webp",
+    "original_bbox": {
+      "x": 152400,
+      "y": 1663700,
+      "width": 6364375,
+      "height": 882575
+    },
+    "image_size": {
+      "width": 2048,
+      "height": 284
+    }
+  },
+  {
+    "id": "slide-53-asset-03",
+    "slide_number": 53,
+    "asset_index": 3,
+    "thumbnail_path": "/assets/report-jun-26/meta/extracted/slide-53-asset-03-thumb.webp",
+    "full_image_path": "/assets/report-jun-26/meta/extracted/slide-53-asset-03.webp",
+    "original_bbox": {
+      "x": 152400,
+      "y": 3069875,
+      "width": 6432748,
+      "height": 348650
+    },
+    "image_size": {
+      "width": 2048,
+      "height": 111
+    }
+  }
+]

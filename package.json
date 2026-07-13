@@ -1,0 +1,15 @@
+{
+  "name": "gs-klub-dashboard",
+  "version": "0.5.1",
+  "private": true,
+  "type": "module",
+  "description": "GS Klub monthly dashboard v0.5.1 June 2026 META update.",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1"
+  },
+  "devDependencies": {
+    "vite": "^7.0.0"
+  }
+}

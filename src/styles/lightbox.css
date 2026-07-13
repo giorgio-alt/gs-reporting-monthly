@@ -1,0 +1,31 @@
+.lightbox {
+  align-items: center;
+  justify-content: center;
+  padding: clamp(18px, 4vw, 42px);
+}
+
+.lightboxInner {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: min(90vw, 1440px);
+  max-width: 90vw;
+  max-height: 85vh;
+  overflow: visible;
+}
+
+.lightbox img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 90vw;
+  max-height: 85vh;
+  object-fit: contain;
+  margin: auto;
+}
+
+.lightboxClose {
+  right: -14px;
+  top: -14px;
+  z-index: 2;
+}

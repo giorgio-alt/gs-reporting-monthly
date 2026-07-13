@@ -1,0 +1,138 @@
+[
+  {
+    "id": "slide-58-engagement-overview",
+    "slide_number": 58,
+    "label": "Engagement · přehled",
+    "thumbnail_path": "/assets/report-jun-26/meta/boosting/slide-58-engagement-overview-thumb.webp",
+    "full_image_path": "/assets/report-jun-26/meta/boosting/slide-58-engagement-overview.webp",
+    "image_size": {
+      "width": 2048,
+      "height": 278
+    },
+    "shape_bbox": {
+      "left": 152400,
+      "top": 1203896,
+      "width": 8839204,
+      "height": 1199853
+    }
+  },
+  {
+    "id": "slide-59-engagement-facebook",
+    "slide_number": 59,
+    "label": "Engagement · Facebook",
+    "thumbnail_path": "/assets/report-jun-26/meta/boosting/slide-59-engagement-facebook-thumb.webp",
+    "full_image_path": "/assets/report-jun-26/meta/boosting/slide-59-engagement-facebook.webp",
+    "image_size": {
+      "width": 430,
+      "height": 750
+    },
+    "shape_bbox": {
+      "left": 427349,
+      "top": 1890997,
+      "width": 1383550,
+      "height": 2571699
+    }
+  },
+  {
+    "id": "slide-59-engagement-instagram",
+    "slide_number": 59,
+    "label": "Engagement · Instagram",
+    "thumbnail_path": "/assets/report-jun-26/meta/boosting/slide-59-engagement-instagram-thumb.webp",
+    "full_image_path": "/assets/report-jun-26/meta/boosting/slide-59-engagement-instagram.webp",
+    "image_size": {
+      "width": 420,
+      "height": 744
+    },
+    "shape_bbox": {
+      "left": 4918650,
+      "top": 1856975,
+      "width": 1383549,
+      "height": 2639725
+    }
+  },
+  {
+    "id": "slide-60-traffic-overview",
+    "slide_number": 60,
+    "label": "Traffic · přehled",
+    "thumbnail_path": "/assets/report-jun-26/meta/boosting/slide-60-traffic-overview-thumb.webp",
+    "full_image_path": "/assets/report-jun-26/meta/boosting/slide-60-traffic-overview.webp",
+    "image_size": {
+      "width": 2048,
+      "height": 817
+    },
+    "shape_bbox": {
+      "left": 152400,
+      "top": 1203896,
+      "width": 8839204,
+      "height": 3526186
+    }
+  },
+  {
+    "id": "slide-61-traffic-facebook-top",
+    "slide_number": 61,
+    "label": "Traffic · Facebook",
+    "thumbnail_path": "/assets/report-jun-26/meta/boosting/slide-61-traffic-facebook-top-thumb.webp",
+    "full_image_path": "/assets/report-jun-26/meta/boosting/slide-61-traffic-facebook-top.webp",
+    "image_size": {
+      "width": 422,
+      "height": 754
+    },
+    "shape_bbox": {
+      "left": 494475,
+      "top": 1988825,
+      "width": 1354949,
+      "height": 2411251
+    }
+  },
+  {
+    "id": "slide-61-traffic-facebook-low",
+    "slide_number": 61,
+    "label": "Traffic · Facebook · slabší varianta",
+    "thumbnail_path": "/assets/report-jun-26/meta/boosting/slide-61-traffic-facebook-low-thumb.webp",
+    "full_image_path": "/assets/report-jun-26/meta/boosting/slide-61-traffic-facebook-low.webp",
+    "image_size": {
+      "width": 422,
+      "height": 748
+    },
+    "shape_bbox": {
+      "left": 2582549,
+      "top": 2007983,
+      "width": 1157701,
+      "height": 2372929
+    }
+  },
+  {
+    "id": "slide-61-traffic-instagram-top",
+    "slide_number": 61,
+    "label": "Traffic · Instagram",
+    "thumbnail_path": "/assets/report-jun-26/meta/boosting/slide-61-traffic-instagram-top-thumb.webp",
+    "full_image_path": "/assets/report-jun-26/meta/boosting/slide-61-traffic-instagram-top.webp",
+    "image_size": {
+      "width": 422,
+      "height": 746
+    },
+    "shape_bbox": {
+      "left": 5021325,
+      "top": 2007975,
+      "width": 1409200,
+      "height": 2380124
+    }
+  },
+  {
+    "id": "slide-61-traffic-instagram-low",
+    "slide_number": 61,
+    "label": "Traffic · Instagram · slabší varianta",
+    "thumbnail_path": "/assets/report-jun-26/meta/boosting/slide-61-traffic-instagram-low-thumb.webp",
+    "full_image_path": "/assets/report-jun-26/meta/boosting/slide-61-traffic-instagram-low.webp",
+    "image_size": {
+      "width": 432,
+      "height": 756
+    },
+    "shape_bbox": {
+      "left": 7102675,
+      "top": 2007975,
+      "width": 1291600,
+      "height": 2380124
+    }
+  }
+]

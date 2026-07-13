@@ -1,0 +1,10 @@
+.gsmark img {
+  display: block;
+  max-width: 132px;
+  max-height: 44px;
+  object-fit: contain;
+}
+
+.container img {
+  max-width: 100%;
+}

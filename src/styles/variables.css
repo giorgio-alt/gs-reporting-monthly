@@ -1,0 +1,17 @@
+:root {
+  --gs-green: #006b3f;
+  --gs-green-2: #0a7a4a;
+  --gs-mint: #e4f2e8;
+  --gs-cream: #f7f3ea;
+  --gs-ink: #10231b;
+  --gs-muted: #6d7c72;
+  --gs-line: rgba(255, 255, 255, 0.62);
+  --gs-card: rgba(255, 255, 255, 0.68);
+  --gs-card-soft: rgba(255, 255, 255, 0.46);
+  --gs-shadow: 0 22px 60px rgba(16, 35, 27, 0.12);
+  --positive-bg: rgba(17, 130, 75, 0.1);
+  --positive-border: rgba(17, 130, 75, 0.24);
+  --negative-bg: rgba(220, 65, 65, 0.1);
+  --negative-border: rgba(220, 65, 65, 0.24);
+  --neutral-bg: rgba(16, 35, 27, 0.06);
+}

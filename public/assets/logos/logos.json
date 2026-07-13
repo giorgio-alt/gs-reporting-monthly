@@ -1,0 +1,47 @@
+{
+  "googleAds": {
+    "label": "Google Ads",
+    "file": "/assets/logos/google-ads.svg",
+    "fallbackFile": "/assets/logos/google-ads.png",
+    "source": "https://cdn.simpleicons.org/googleads",
+    "officialReference": "https://ads.google.com/"
+  },
+  "googleAnalytics": {
+    "label": "Google Analytics / GA4",
+    "file": "/assets/logos/google-analytics.svg",
+    "fallbackFile": "/assets/logos/google-analytics.png",
+    "source": "https://cdn.simpleicons.org/googleanalytics",
+    "officialReference": "https://analytics.google.com/"
+  },
+  "meta": {
+    "label": "Meta",
+    "file": "/assets/logos/meta.svg",
+    "source": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Meta_Platforms_Inc._logo.svg",
+    "officialReference": "https://www.facebook.com/brand/resources/meta/company-brand/"
+  },
+  "seznamSklik": {
+    "label": "Seznam / Sklik",
+    "file": "/assets/logos/seznam.svg",
+    "source": "https://o-seznam.cz/wp-content/themes/seznam/assets/images/logo.svg",
+    "officialReference": "https://www.sklik.cz/"
+  },
+  "heureka": {
+    "label": "Heureka",
+    "file": "/assets/logos/heureka-badge.svg",
+    "source": "local fallback badge; public Heureka pages returned security HTML during download",
+    "officialReference": "https://www.heureka.cz/"
+  },
+  "zbozi": {
+    "label": "Zbozi.cz",
+    "file": "/assets/logos/zbozi.svg",
+    "fallbackFile": "/assets/logos/zbozi.ico",
+    "source": "https://o-seznam.cz/wp-content/uploads/sites/5/2025/08/icon-zbozi.svg",
+    "officialReference": "https://www.zbozi.cz/"
+  },
+  "microsoftClarity": {
+    "label": "Microsoft Clarity",
+    "file": "/assets/logos/microsoft-clarity.ico",
+    "source": "https://claritystatic.azureedge.net/images/logo.ico",
+    "officialReference": "https://clarity.microsoft.com/"
+  }
+}
