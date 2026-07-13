@@ -255,64 +255,64 @@ const boostAssets = [
     id: "slide-58-engagement-overview",
     label: "Engagement · přehled",
     alt: "Engagement přehled boostovaných příspěvků",
-    src: "/assets/report-jun-26/meta/boosting/slide-58-engagement-overview-thumb.webp",
-    fullSrc: "/assets/report-jun-26/meta/boosting/slide-58-engagement-overview.webp",
+    src: "assets/report-jun-26/meta/boosting/slide-58-engagement-overview-thumb.webp",
+    fullSrc: "assets/report-jun-26/meta/boosting/slide-58-engagement-overview.webp",
     image_size: { width: 2048, height: 278 }
   },
   {
     id: "slide-59-engagement-facebook",
     label: "Engagement · Facebook",
     alt: "Engagement vyhodnocení pro Facebook",
-    src: "/assets/report-jun-26/meta/boosting/slide-59-engagement-facebook-thumb.webp",
-    fullSrc: "/assets/report-jun-26/meta/boosting/slide-59-engagement-facebook.webp",
+    src: "assets/report-jun-26/meta/boosting/slide-59-engagement-facebook-thumb.webp",
+    fullSrc: "assets/report-jun-26/meta/boosting/slide-59-engagement-facebook.webp",
     image_size: { width: 430, height: 750 }
   },
   {
     id: "slide-59-engagement-instagram",
     label: "Engagement · Instagram",
     alt: "Engagement vyhodnocení pro Instagram",
-    src: "/assets/report-jun-26/meta/boosting/slide-59-engagement-instagram-thumb.webp",
-    fullSrc: "/assets/report-jun-26/meta/boosting/slide-59-engagement-instagram.webp",
+    src: "assets/report-jun-26/meta/boosting/slide-59-engagement-instagram-thumb.webp",
+    fullSrc: "assets/report-jun-26/meta/boosting/slide-59-engagement-instagram.webp",
     image_size: { width: 420, height: 744 }
   },
   {
     id: "slide-60-traffic-overview",
     label: "Traffic · přehled",
     alt: "Traffic přehled boostovaných příspěvků",
-    src: "/assets/report-jun-26/meta/boosting/slide-60-traffic-overview-thumb.webp",
-    fullSrc: "/assets/report-jun-26/meta/boosting/slide-60-traffic-overview.webp",
+    src: "assets/report-jun-26/meta/boosting/slide-60-traffic-overview-thumb.webp",
+    fullSrc: "assets/report-jun-26/meta/boosting/slide-60-traffic-overview.webp",
     image_size: { width: 2048, height: 817 }
   },
   {
     id: "slide-61-traffic-facebook-top",
     label: "Traffic · Facebook",
     alt: "Traffic vyhodnocení pro Facebook",
-    src: "/assets/report-jun-26/meta/boosting/slide-61-traffic-facebook-top-thumb.webp",
-    fullSrc: "/assets/report-jun-26/meta/boosting/slide-61-traffic-facebook-top.webp",
+    src: "assets/report-jun-26/meta/boosting/slide-61-traffic-facebook-top-thumb.webp",
+    fullSrc: "assets/report-jun-26/meta/boosting/slide-61-traffic-facebook-top.webp",
     image_size: { width: 422, height: 754 }
   },
   {
     id: "slide-61-traffic-facebook-low",
     label: "Traffic · Facebook · slabší varianta",
     alt: "Slabší traffic varianta pro Facebook",
-    src: "/assets/report-jun-26/meta/boosting/slide-61-traffic-facebook-low-thumb.webp",
-    fullSrc: "/assets/report-jun-26/meta/boosting/slide-61-traffic-facebook-low.webp",
+    src: "assets/report-jun-26/meta/boosting/slide-61-traffic-facebook-low-thumb.webp",
+    fullSrc: "assets/report-jun-26/meta/boosting/slide-61-traffic-facebook-low.webp",
     image_size: { width: 422, height: 748 }
   },
   {
     id: "slide-61-traffic-instagram-top",
     label: "Traffic · Instagram",
     alt: "Traffic vyhodnocení pro Instagram",
-    src: "/assets/report-jun-26/meta/boosting/slide-61-traffic-instagram-top-thumb.webp",
-    fullSrc: "/assets/report-jun-26/meta/boosting/slide-61-traffic-instagram-top.webp",
+    src: "assets/report-jun-26/meta/boosting/slide-61-traffic-instagram-top-thumb.webp",
+    fullSrc: "assets/report-jun-26/meta/boosting/slide-61-traffic-instagram-top.webp",
     image_size: { width: 422, height: 746 }
   },
   {
     id: "slide-61-traffic-instagram-low",
     label: "Traffic · Instagram · slabší varianta",
     alt: "Slabší traffic varianta pro Instagram",
-    src: "/assets/report-jun-26/meta/boosting/slide-61-traffic-instagram-low-thumb.webp",
-    fullSrc: "/assets/report-jun-26/meta/boosting/slide-61-traffic-instagram-low.webp",
+    src: "assets/report-jun-26/meta/boosting/slide-61-traffic-instagram-low-thumb.webp",
+    fullSrc: "assets/report-jun-26/meta/boosting/slide-61-traffic-instagram-low.webp",
     image_size: { width: 432, height: 756 }
   }
 ];

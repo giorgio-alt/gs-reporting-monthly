@@ -2,24 +2,24 @@ import { SystemLogo } from "../components/SystemLogo.js";
 
 const ppcAssets = {
   pmaxOverview: {
-    full: "/assets/report-jun-26/ppc/extracted/slide-22-asset-01.webp",
-    thumb: "/assets/report-jun-26/ppc/extracted/slide-22-asset-01-thumb.webp"
+    full: "assets/report-jun-26/ppc/extracted/slide-22-asset-01.webp",
+    thumb: "assets/report-jun-26/ppc/extracted/slide-22-asset-01-thumb.webp"
   },
   pmaxCompare: {
-    full: "/assets/report-jun-26/ppc/extracted/slide-23-asset-01.webp",
-    thumb: "/assets/report-jun-26/ppc/extracted/slide-23-asset-01-thumb.webp"
+    full: "assets/report-jun-26/ppc/extracted/slide-23-asset-01.webp",
+    thumb: "assets/report-jun-26/ppc/extracted/slide-23-asset-01-thumb.webp"
   },
   karsaRoas: {
-    full: "/assets/report-jun-26/ppc/extracted/slide-36-asset-01.webp",
-    thumb: "/assets/report-jun-26/ppc/extracted/slide-36-asset-01-thumb.webp"
+    full: "assets/report-jun-26/ppc/extracted/slide-36-asset-01.webp",
+    thumb: "assets/report-jun-26/ppc/extracted/slide-36-asset-01-thumb.webp"
   },
   karsaClusters: {
-    full: "/assets/report-jun-26/ppc/extracted/slide-38-asset-01.webp",
-    thumb: "/assets/report-jun-26/ppc/extracted/slide-38-asset-01-thumb.webp"
+    full: "assets/report-jun-26/ppc/extracted/slide-38-asset-01.webp",
+    thumb: "assets/report-jun-26/ppc/extracted/slide-38-asset-01-thumb.webp"
   },
   sklik: {
-    full: "/assets/report-jun-26/ppc/extracted/slide-39-asset-01.webp",
-    thumb: "/assets/report-jun-26/ppc/extracted/slide-39-asset-01-thumb.webp"
+    full: "assets/report-jun-26/ppc/extracted/slide-39-asset-01.webp",
+    thumb: "assets/report-jun-26/ppc/extracted/slide-39-asset-01-thumb.webp"
   }
 };
 
@@ -35,9 +35,9 @@ const pmaxClusters = [
     interactions: "7,61 tis.",
     comment: "Cluster 3 je největší objemový tahoun PMax části. ROAS je lehce nad cílem, ale PNO je už potřeba hlídat, protože právě tady leží největší část investice.",
     assets: [
-      { label: "Výkon clusteru", full: "/assets/report-jun-26/ppc/extracted/slide-24-asset-01.webp", thumb: "/assets/report-jun-26/ppc/extracted/slide-24-asset-01-thumb.webp" },
-      { label: "Produktový detail", full: "/assets/report-jun-26/ppc/extracted/slide-25-asset-01.webp", thumb: "/assets/report-jun-26/ppc/extracted/slide-25-asset-01-thumb.webp" },
-      { label: "Trend clusteru", full: "/assets/report-jun-26/ppc/extracted/slide-26-asset-01.webp", thumb: "/assets/report-jun-26/ppc/extracted/slide-26-asset-01-thumb.webp" }
+      { label: "Výkon clusteru", full: "assets/report-jun-26/ppc/extracted/slide-24-asset-01.webp", thumb: "assets/report-jun-26/ppc/extracted/slide-24-asset-01-thumb.webp" },
+      { label: "Produktový detail", full: "assets/report-jun-26/ppc/extracted/slide-25-asset-01.webp", thumb: "assets/report-jun-26/ppc/extracted/slide-25-asset-01-thumb.webp" },
+      { label: "Trend clusteru", full: "assets/report-jun-26/ppc/extracted/slide-26-asset-01.webp", thumb: "assets/report-jun-26/ppc/extracted/slide-26-asset-01-thumb.webp" }
     ]
   },
   {
@@ -51,9 +51,9 @@ const pmaxClusters = [
     interactions: "3,13 tis.",
     comment: "Cluster 2 je nad cílovou ROAS, ale efektivita je slabší než u clusteru 3. Dává smysl sledovat, které produktové skupiny v něm táhnou hodnotu a které pouze spotřebovávají rozpočet.",
     assets: [
-      { label: "Výkon clusteru", full: "/assets/report-jun-26/ppc/extracted/slide-27-asset-01.webp", thumb: "/assets/report-jun-26/ppc/extracted/slide-27-asset-01-thumb.webp" },
-      { label: "Produktový detail", full: "/assets/report-jun-26/ppc/extracted/slide-28-asset-01.webp", thumb: "/assets/report-jun-26/ppc/extracted/slide-28-asset-01-thumb.webp" },
-      { label: "Trend clusteru", full: "/assets/report-jun-26/ppc/extracted/slide-29-asset-01.webp", thumb: "/assets/report-jun-26/ppc/extracted/slide-29-asset-01-thumb.webp" }
+      { label: "Výkon clusteru", full: "assets/report-jun-26/ppc/extracted/slide-27-asset-01.webp", thumb: "assets/report-jun-26/ppc/extracted/slide-27-asset-01-thumb.webp" },
+      { label: "Produktový detail", full: "assets/report-jun-26/ppc/extracted/slide-28-asset-01.webp", thumb: "assets/report-jun-26/ppc/extracted/slide-28-asset-01-thumb.webp" },
+      { label: "Trend clusteru", full: "assets/report-jun-26/ppc/extracted/slide-29-asset-01.webp", thumb: "assets/report-jun-26/ppc/extracted/slide-29-asset-01-thumb.webp" }
     ]
   },
   {
@@ -67,9 +67,9 @@ const pmaxClusters = [
     interactions: "1,99 tis.",
     comment: "Cluster 1 má menší objem, ale drží slušnou efektivitu nad cílem. Je vhodný pro opatrné škálování a kontrolu, zda se růst objemu nezačne rychle promítat do vyššího PNO.",
     assets: [
-      { label: "Výkon clusteru", full: "/assets/report-jun-26/ppc/extracted/slide-30-asset-01.webp", thumb: "/assets/report-jun-26/ppc/extracted/slide-30-asset-01-thumb.webp" },
-      { label: "Produktový detail", full: "/assets/report-jun-26/ppc/extracted/slide-31-asset-01.webp", thumb: "/assets/report-jun-26/ppc/extracted/slide-31-asset-01-thumb.webp" },
-      { label: "Trend clusteru", full: "/assets/report-jun-26/ppc/extracted/slide-32-asset-01.webp", thumb: "/assets/report-jun-26/ppc/extracted/slide-32-asset-01-thumb.webp" }
+      { label: "Výkon clusteru", full: "assets/report-jun-26/ppc/extracted/slide-30-asset-01.webp", thumb: "assets/report-jun-26/ppc/extracted/slide-30-asset-01-thumb.webp" },
+      { label: "Produktový detail", full: "assets/report-jun-26/ppc/extracted/slide-31-asset-01.webp", thumb: "assets/report-jun-26/ppc/extracted/slide-31-asset-01-thumb.webp" },
+      { label: "Trend clusteru", full: "assets/report-jun-26/ppc/extracted/slide-32-asset-01.webp", thumb: "assets/report-jun-26/ppc/extracted/slide-32-asset-01-thumb.webp" }
     ]
   },
   {
@@ -83,9 +83,9 @@ const pmaxClusters = [
     interactions: "1,04 tis.",
     comment: "Cluster 0 je pod cílovou ROAS a má nejslabší efektivitu. V reportu ho držíme jako kandidáta na opatrnou optimalizaci produktového mixu nebo přísnější řízení rozpočtu.",
     assets: [
-      { label: "Výkon clusteru", full: "/assets/report-jun-26/ppc/extracted/slide-33-asset-01.webp", thumb: "/assets/report-jun-26/ppc/extracted/slide-33-asset-01-thumb.webp" },
-      { label: "Produktový detail", full: "/assets/report-jun-26/ppc/extracted/slide-34-asset-01.webp", thumb: "/assets/report-jun-26/ppc/extracted/slide-34-asset-01-thumb.webp" },
-      { label: "Trend clusteru", full: "/assets/report-jun-26/ppc/extracted/slide-35-asset-01.webp", thumb: "/assets/report-jun-26/ppc/extracted/slide-35-asset-01-thumb.webp" }
+      { label: "Výkon clusteru", full: "assets/report-jun-26/ppc/extracted/slide-33-asset-01.webp", thumb: "assets/report-jun-26/ppc/extracted/slide-33-asset-01-thumb.webp" },
+      { label: "Produktový detail", full: "assets/report-jun-26/ppc/extracted/slide-34-asset-01.webp", thumb: "assets/report-jun-26/ppc/extracted/slide-34-asset-01-thumb.webp" },
+      { label: "Trend clusteru", full: "assets/report-jun-26/ppc/extracted/slide-35-asset-01.webp", thumb: "assets/report-jun-26/ppc/extracted/slide-35-asset-01-thumb.webp" }
     ]
   }
 ];

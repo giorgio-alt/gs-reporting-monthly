@@ -1,34 +1,34 @@
 export const systemLogos = {
   googleAds: {
     label: "Google Ads",
-    file: "/assets/logos/google-ads.svg",
-    fallbackFile: "/assets/logos/google-ads.png"
+    file: "assets/logos/google-ads.svg",
+    fallbackFile: "assets/logos/google-ads.png"
   },
   googleAnalytics: {
     label: "Google Analytics / GA4",
-    file: "/assets/logos/google-analytics.svg",
-    fallbackFile: "/assets/logos/google-analytics.png"
+    file: "assets/logos/google-analytics.svg",
+    fallbackFile: "assets/logos/google-analytics.png"
   },
   meta: {
     label: "Meta",
-    file: "/assets/logos/meta.svg"
+    file: "assets/logos/meta.svg"
   },
   seznamSklik: {
     label: "Seznam / Sklik",
-    file: "/assets/logos/seznam.svg"
+    file: "assets/logos/seznam.svg"
   },
   heureka: {
     label: "Heureka",
-    file: "/assets/logos/heureka-badge.svg"
+    file: "assets/logos/heureka-badge.svg"
   },
   zbozi: {
     label: "Zbozi.cz",
-    file: "/assets/logos/zbozi.svg",
-    fallbackFile: "/assets/logos/zbozi.ico"
+    file: "assets/logos/zbozi.svg",
+    fallbackFile: "assets/logos/zbozi.ico"
   },
   microsoftClarity: {
     label: "Microsoft Clarity",
-    file: "/assets/logos/microsoft-clarity.ico"
+    file: "assets/logos/microsoft-clarity.ico"
   }
 };
 
