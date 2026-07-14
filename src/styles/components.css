@@ -208,6 +208,15 @@ h2 .sectionLogo {
   margin-top: 14px;
 }
 
+.dashboardTopGrid {
+  grid-template-columns: 1fr;
+  align-items: start;
+}
+
+.dashboardTopGrid > .panel {
+  min-height: 0;
+}
+
 .dashboardSourcePanel {
   margin-top: 14px;
 }
@@ -386,7 +395,7 @@ h2 .sectionLogo {
 
 .costMatrixTable {
   width: 100%;
-  min-width: max(620px, calc(210px + var(--cost-month-count, 1) * 124px));
+  min-width: max(100%, calc(210px + var(--cost-month-count, 1) * 124px));
   border-collapse: collapse;
   font-size: 13px;
 }
