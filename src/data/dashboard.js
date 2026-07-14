@@ -72,9 +72,6 @@ export const dashboardSectionHtml = `<section class="chapter" id="dashboard">
   </div>
 
   <div class="panel glass dashboardVerdict">
-    <span class="pill">Obchodní realita</span>
-    <h2>Primární obchodní metrikou je Realita 26: 3 750 000 Kč. Červen je pod plánem, ale meziročně roste proti Realita Korekce 2025.</h2>
-    <p>GA4 čísla v dashboardu slouží jako referenční analytický trend pro návštěvnost, objednávky a zdroje. Obchodní vyhodnocení měsíce stojí na metrice Realita 26, plánu, reálných nákladech a PNO z reality.</p>
     <div class="mainKpiGrid dashboardKpis businessKpiGrid">
       <div class="mainKpi primaryBusinessKpi"><span>Realita 26</span><strong>3 750 000 Kč</strong><small>hlavní obchodní realita za červen</small><div class="delta up">+9,77 % vs. Realita Korekce 2025</div></div>
       <div class="mainKpi"><span>Plán 26</span><strong>4 064 219 Kč</strong><small>plán tržeb na červen</small><div class="delta down">plnění 92,27 %</div></div>
