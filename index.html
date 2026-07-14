@@ -8,14 +8,6 @@
   </head>
   <body>
     <div id="app"></div>
-    <script>
-      if (
-        !location.pathname.startsWith("/dist/") &&
-        !["localhost", "127.0.0.1"].includes(location.hostname)
-      ) {
-        location.replace("/dist/");
-      }
-    </script>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
