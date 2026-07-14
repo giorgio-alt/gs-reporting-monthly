@@ -1,7 +1,8 @@
 .gsmark img {
   display: block;
-  max-width: 132px;
-  max-height: 44px;
+  width: 100%;
+  max-width: 228px;
+  max-height: 48px;
   object-fit: contain;
 }
 

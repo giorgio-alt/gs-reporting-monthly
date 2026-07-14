@@ -27,8 +27,7 @@ export const systemLogos = {
     fallbackFile: "assets/logos/zbozi.ico"
   },
   microsoftClarity: {
-    label: "Microsoft Clarity",
-    file: "assets/logos/microsoft-clarity.ico"
+    label: "Clarity"
   }
 };
 

@@ -28,13 +28,111 @@ const ytdSources = [
   { source: "google / organic", visits: "120 306", visitsChange: "-38,94 %", events: "2 063", eventsChange: "-27,38 %", revenue: "1 896 092 Kč", revenueChange: "-24,35 %" }
 ];
 
-const costChannels = [
-  { system: "googleAds", label: "Google Ads", value: "334 390 Kč" },
-  { system: "seznamSklik", label: "Seznam / Sklik", value: "183 262 Kč" },
-  { system: "meta", label: "Meta", value: "182 242 Kč" },
-  { system: "heureka", label: "Heureka", value: "3 781 Kč" },
-  { system: "zbozi", label: "Zboží.cz", value: "4 864 Kč" }
+const monthlyCostModel = [
+  {
+    month: "01/2026",
+    pnoCosts: [
+      { system: "googleAds", label: "Google Ads", value: 248802 },
+      { system: "seznamSklik", label: "Seznam / Sklik", value: 94010 },
+      { system: "meta", label: "Meta", value: 107466 },
+      { system: "heureka", label: "Heureka", value: 14703 },
+      { system: "zbozi", label: "Zboží.cz", value: 9734 }
+    ],
+    brandCosts: [
+      { label: "Brand SoMe", value: 7499 },
+      { label: "Brand Perfect", value: 8822 },
+      { label: "Lipo", value: 0 },
+      { label: "Bacto3", value: 0 }
+    ]
+  },
+  {
+    month: "02/2026",
+    pnoCosts: [
+      { system: "googleAds", label: "Google Ads", value: 191433 },
+      { system: "seznamSklik", label: "Seznam / Sklik", value: 84407 },
+      { system: "meta", label: "Meta", value: 113109 },
+      { system: "heureka", label: "Heureka", value: 5304 },
+      { system: "zbozi", label: "Zboží.cz", value: 5764 }
+    ],
+    brandCosts: [
+      { label: "Brand SoMe", value: 13632 },
+      { label: "Brand Perfect", value: 7645 },
+      { label: "Lipo", value: 42492 },
+      { label: "Bacto3", value: 16018 }
+    ]
+  },
+  {
+    month: "03/2026",
+    pnoCosts: [
+      { system: "googleAds", label: "Google Ads", value: 234756 },
+      { system: "seznamSklik", label: "Seznam / Sklik", value: 65119 },
+      { system: "meta", label: "Meta", value: 128694 },
+      { system: "heureka", label: "Heureka", value: 6001 },
+      { system: "zbozi", label: "Zboží.cz", value: 2443 }
+    ],
+    brandCosts: [
+      { label: "Brand SoMe", value: 9764 },
+      { label: "Brand Perfect", value: 4815 },
+      { label: "Lipo", value: 62046 },
+      { label: "Bacto3", value: 9573 }
+    ]
+  },
+  {
+    month: "04/2026",
+    pnoCosts: [
+      { system: "googleAds", label: "Google Ads", value: 252973 },
+      { system: "seznamSklik", label: "Seznam / Sklik", value: 103073 },
+      { system: "meta", label: "Meta", value: 153956 },
+      { system: "heureka", label: "Heureka", value: 5445 },
+      { system: "zbozi", label: "Zboží.cz", value: 4758 }
+    ],
+    brandCosts: [
+      { label: "Brand SoMe", value: 8142 },
+      { label: "Brand Perfect", value: 17717 },
+      { label: "Lipo", value: 6082 },
+      { label: "Bacto3", value: 9984 }
+    ]
+  },
+  {
+    month: "05/2026",
+    pnoCosts: [
+      { system: "googleAds", label: "Google Ads", value: 274256 },
+      { system: "seznamSklik", label: "Seznam / Sklik", value: 108676 },
+      { system: "meta", label: "Meta", value: 115898 },
+      { system: "heureka", label: "Heureka", value: 5527 },
+      { system: "zbozi", label: "Zboží.cz", value: 4999 }
+    ],
+    brandCosts: [
+      { label: "Brand SoMe", value: 12872 },
+      { label: "Brand Perfect", value: 10389 },
+      { label: "Lipo", value: 0 },
+      { label: "Bacto3", value: 0 }
+    ]
+  },
+  {
+    month: "06/2026",
+    pnoCosts: [
+      { system: "googleAds", label: "Google Ads", value: 334390 },
+      { system: "seznamSklik", label: "Seznam / Sklik", value: 183262 },
+      { system: "meta", label: "Meta", value: 182242 },
+      { system: "heureka", label: "Heureka", value: 3781 },
+      { system: "zbozi", label: "Zboží.cz", value: 4864 }
+    ],
+    brandCosts: [
+      { label: "Brand SoMe", value: 12111 },
+      { label: "Brand Perfect", value: 6229 },
+      { label: "Lipo", value: 0 },
+      { label: "Bacto3", value: 0 }
+    ]
+  }
 ];
+
+const activeCostMonth = monthlyCostModel.at(-1);
+const costChannels = activeCostMonth.pnoCosts;
+const brandCostChannels = activeCostMonth.brandCosts.filter((item) => item.value > 0);
+
+const formatCurrency = (value) => `${new Intl.NumberFormat("cs-CZ").format(value)} Kč`;
+const sumCosts = (items) => items.reduce((sum, item) => sum + item.value, 0);
 
 const changeClass = (value) => value.trim().startsWith("+") ? "good" : value.trim().startsWith("-") ? "bad" : "neutral";
 
@@ -59,7 +157,13 @@ const renderSourceRow = (item) => `
 const renderCostCard = (item) => `
   <div class="miniCard costChannelCard">
     <span>${SystemLogo({ system: item.system, label: item.label, className: "channelLogo" })}${item.label}</span>
-    <strong>${item.value}</strong>
+    <strong>${formatCurrency(item.value)}</strong>
+  </div>`;
+
+const renderBrandCostCard = (item) => `
+  <div class="miniCard costChannelCard brandCostCard">
+    <span>${item.label}</span>
+    <strong>${formatCurrency(item.value)}</strong>
   </div>`;
 
 export const dashboardSectionHtml = `<section class="chapter" id="dashboard">
@@ -99,18 +203,29 @@ export const dashboardSectionHtml = `<section class="chapter" id="dashboard">
       <span class="pill">Reálné náklady a PNO</span>
       <div class="costHero businessCostHero">
         <div class="costTotal">
-          <span>Celkem čerpáno</span>
-          <strong>708 539 Kč</strong>
-          <small>PNO z reality = 708 539 Kč / 3 750 000 Kč</small>
+          <span>Náklady započítané do PNO</span>
+          <strong>${formatCurrency(sumCosts(costChannels))}</strong>
+          <small>PNO z reality = ${formatCurrency(sumCosts(costChannels))} / 3 750 000 Kč</small>
           <div class="spark"><i style="width:100%"></i></div>
+          <div class="brandCostTotal">
+            <span>Brandové náklady mimo PNO</span>
+            <strong>${formatCurrency(sumCosts(brandCostChannels))}</strong>
+          </div>
         </div>
-        <div class="costSplit costSplitCompact">
-          ${costChannels.map(renderCostCard).join("")}
+        <div class="costBreakdown">
+          <div class="costBreakdownGroup">
+            <h3>Náklady započítané do PNO</h3>
+            <div class="costSplit costSplitCompact">
+              ${costChannels.map(renderCostCard).join("")}
+            </div>
+          </div>
+          <div class="costBreakdownGroup brandCostGroup">
+            <h3>Brandové náklady mimo PNO</h3>
+            <div class="costSplit costSplitCompact brandCostSplit">
+              ${brandCostChannels.map(renderBrandCostCard).join("")}
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="sourceSummary compactSummary">
-        <h3>PNO z reality</h3>
-        <p>PNO v dashboardu se počítá z reálných nákladů a metriky Realita 26. Díky tomu obchodní pohled drží jednu logiku: realita tržeb, reálné náklady a jejich poměr.</p>
       </div>
     </div>
   </div>
@@ -122,10 +237,6 @@ export const dashboardSectionHtml = `<section class="chapter" id="dashboard">
       <div class="metricTile"><span>Objednávky</span><strong>3 788</strong><small>vs. 3 587 loni</small><div class="delta up">+5,6 % YoY</div></div>
       <div class="metricTile"><span>Návštěvy</span><strong>95 742</strong><small>prakticky stabilní objem</small><div class="delta down">-0,03 % YoY</div></div>
       <div class="metricTile"><span>Prům. tržba z nákupu</span><strong>926,92 Kč</strong><small>vs. 981,74 Kč loni</small><div class="delta down">-5,58 % YoY</div></div>
-    </div>
-    <div class="sourceSummary compactSummary">
-      <h3>Jak číst GA4 trend</h3>
-      <p>GA4 ukazuje stabilní návštěvnost, růst objednávek a nižší průměrnou hodnotu nákupu. Je to užitečný analytický kompas pro práci se zdroji a chováním uživatelů, ale hlavní obchodní vyhodnocení měsíce zůstává na Realita 26.</p>
     </div>
     <span class="sectionSubhead">Výkon podle zdrojů</span>
     <div class="dashboardTable">

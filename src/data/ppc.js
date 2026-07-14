@@ -104,6 +104,24 @@ const karsaClusterRows = [
   { cluster: "Cluster 3", products: "25", roas: "2,43", value: "237 749 / 97 954", campaign: "PMAX | cluster 3" }
 ];
 
+const karsaSupportAssets = [
+  {
+    label: "Sklik detail výsledků",
+    full: "assets/report-jun-26/ppc/extracted/slide-39-asset-01.webp",
+    thumb: "assets/report-jun-26/ppc/extracted/slide-39-asset-01-thumb.webp"
+  },
+  {
+    label: "Meta výkon kampaně",
+    full: "assets/report-jun-26/meta/extracted/slide-50-asset-01.webp",
+    thumb: "assets/report-jun-26/meta/extracted/slide-50-asset-01-thumb.webp"
+  },
+  {
+    label: "Meta detail kreativy",
+    full: "assets/report-jun-26/meta/extracted/slide-50-asset-02.webp",
+    thumb: "assets/report-jun-26/meta/extracted/slide-50-asset-02-thumb.webp"
+  }
+];
+
 const changeClass = (value) => value.trim().startsWith("+") ? "good" : value.trim().startsWith("-") ? "bad" : "neutral";
 const chip = (value) => `<span class="labelChange ${changeClass(value)}">${value}</span>`;
 
@@ -218,6 +236,15 @@ export const ppcSectionHtml = `<section class="chapter" id="ppc">
     <div class="ppcAssetGrid ppcAssetGridTwo">
       ${renderShot(ppcAssets.karsaRoas, "Karsa AI přehled ROAS vs. tROAS")}
       ${renderShot(ppcAssets.karsaClusters, "Karsa AI produktové clustery")}
+    </div>
+    <div class="karsaSupportGallery">
+      <div>
+        <h3>Navazující kanálové náhledy</h3>
+        <p class="sectionLead">Doplňkové screenshoty drží kontext výkonu napříč Sklikem a Meta kampaněmi. Slouží jako rychlé rozklikávací náhledy vedle Karsa AI produktového pohledu.</p>
+      </div>
+      <div class="ppcAssetGrid karsaChannelGrid">
+        ${karsaSupportAssets.map(renderShot).join("")}
+      </div>
     </div>
   </div>
 

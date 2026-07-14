@@ -106,6 +106,45 @@ const clarityInsights = [
   { label: "Proč to sledovat", value: "Objem vs. průchod", text: "Díky funnelům poznáme, jestli výkon mění návštěvnost, zapojení nebo ztráta v konkrétním kroku." }
 ];
 
+const clarityFrictionMetrics = [
+  {
+    label: "Quick backs",
+    value: "12,82 %",
+    sessions: "6 289 sessions",
+    mom: "bez srovnání",
+    tone: "neutral",
+    max: 15,
+    months: [{ month: "06/2026", value: 12.82 }]
+  },
+  {
+    label: "Dead clicks",
+    value: "7,86 %",
+    sessions: "3 853 sessions",
+    mom: "bez srovnání",
+    tone: "neutral",
+    max: 15,
+    months: [{ month: "06/2026", value: 7.86 }]
+  },
+  {
+    label: "Rage clicks",
+    value: "0,09 %",
+    sessions: "46 sessions",
+    mom: "bez srovnání",
+    tone: "good",
+    max: 2,
+    months: [{ month: "06/2026", value: 0.09 }]
+  },
+  {
+    label: "Excessive scrolling",
+    value: "< 0,01 %",
+    sessions: "2 sessions",
+    mom: "bez srovnání",
+    tone: "good",
+    max: 2,
+    months: [{ month: "06/2026", value: 0.01 }]
+  }
+];
+
 const clarityGlossary = [
   { term: "Dead clicks", text: "Kliknutí na prvek, který nereaguje.", why: "Pomáhá odhalit místa, kde uživatel čeká akci, ale stránka mu ji nenabídne." },
   { term: "Rage clicks", text: "Rychlé opakované klikání na stejné místo.", why: "Typicky ukazuje frustraci nebo nejasný prvek v nákupní cestě." },
@@ -323,6 +362,22 @@ const renderClarityInsight = (item) => `
     <p>${item.text}</p>
   </div>`;
 
+const renderClarityTrend = (metric) => `
+  <div class="clarityMiniTrend" aria-label="Trend ${metric.label}">
+    ${metric.months.map((point) => `<span style="--bar-height:${Math.max(4, Math.min(100, point.value / metric.max * 100))}%" title="${point.month}: ${point.value} %"></span>`).join("")}
+  </div>`;
+
+const renderClarityMetric = (metric) => `
+  <article class="clarityMetricCard ${metric.tone}">
+    <div class="clarityMetricTop">
+      <span>${metric.label}</span>
+      <i>${metric.mom}</i>
+    </div>
+    <strong>${metric.value}</strong>
+    <small>${metric.sessions}</small>
+    ${renderClarityTrend(metric)}
+  </article>`;
+
 const renderGlossaryItem = (item) => `
   <div class="clarityGlossaryItem">
     <b>${item.term}</b>
@@ -428,7 +483,7 @@ export const productsSectionHtml = `<section class="chapter" id="produkty">
   </div>
 
   <div class="panel glass funnelTimeBlock">
-    <span class="pill systemPill">${SystemLogo({ system: "microsoftClarity", label: "Microsoft Clarity", className: "channelLogo" })}MS Clarity · Vývoj funnelů</span>
+    <span class="pill systemPill">${SystemLogo({ system: "microsoftClarity", label: "Clarity", className: "channelLogo" })}Vývoj funnelů</span>
     <h2>Funnel vývoj v čase</h2>
     <p class="sectionLead">Trychtýře ukazují, kde se v čase mění průchod nákupní a obsahovou cestou. Cílem není sledovat jen finální nákup, ale pochopit, ve kterém kroku se výkon zlepšuje nebo ztrácí.</p>
     <div class="clarityOverview">
@@ -438,6 +493,15 @@ export const productsSectionHtml = `<section class="chapter" id="produkty">
       </div>
       <div class="clarityInsightGrid">
         ${clarityInsights.map(renderClarityInsight).join("")}
+      </div>
+    </div>
+    <div class="clarityMetricSection">
+      <div>
+        <h3>Clarity signály chování</h3>
+        <p>Tyto metriky pomáhají rychle odlišit zdravé procházení webu od míst, kde uživatelé narážejí na nejasný prvek, frustraci nebo slabší navigaci.</p>
+      </div>
+      <div class="clarityMetricGrid">
+        ${clarityFrictionMetrics.map(renderClarityMetric).join("")}
       </div>
     </div>
     <div class="funnelTimeGrid">

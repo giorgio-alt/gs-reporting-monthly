@@ -32,7 +32,7 @@ function Footer(meta) {
   return `
     <footer class="footer glass">
       <div class="footerText">${meta.footer}</div>
-      <div class="footerLogoText"><span class="mark"></span><span>deserved</span></div>
+      <img class="footerAgencyLogo" src="${meta.agencyLogo}" alt="deserved" loading="eager" decoding="async">
     </footer>
   `;
 }

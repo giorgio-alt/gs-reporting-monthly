@@ -5,7 +5,8 @@ export const reportMeta = {
   eyebrow: "Měsíční vyhodnocení výkonu",
   version: "Červen 2026",
   footer: "GS Klub · měsíční vyhodnocení výkonu · červen 2026",
-  logo: "assets/extracted/dashboard-asset-01.png",
+  logo: "assets/brand/gs-klub-logo-transparent.png",
+  agencyLogo: "assets/brand/deserved-agency-logo.png",
   navigation: [
     { id: "dashboard", label: "01 Dashboard" },
     { id: "produkty", label: "02 Výkon produktů" },
