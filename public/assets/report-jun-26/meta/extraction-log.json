@@ -1,5 +1,5 @@
 {
-  "source": "/Users/giorgiotrantina/Downloads/GS Report Jun 26.pptx",
+  "source": "GS Report Jun 26.pptx",
   "scope": "META slides 36-53",
   "strategy": "Extracted native PPTX picture shapes ordered by top-to-bottom, left-to-right position. Full slide renders are not used when picture shapes are available.",
   "extracted_assets": 34,

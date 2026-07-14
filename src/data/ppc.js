@@ -122,6 +122,10 @@ const karsaSupportAssets = [
   }
 ];
 
+const googleAdsComment = "Vyšší spend v Google Ads je tažený hlavně větší investicí do PMax kampaní. Ty se teď víc řídí přes produktové clustery, takže dává smysl sledovat výkon po skupinách produktů, ne jen v jednom souhrnném čísle za celou kampaň.";
+const karsaComment = "Clusterový pohled pomáhá rozpadnout PMax výkon podle produktových skupin a lépe vidět, kde vzniká objem a kde efektivita. V rámci PTC manageru zatím zůstává doporučení držet původní tROAS. Dává to smysl, protože po úvodní učící fázi byl výkon ještě poměrně nekonzistentní, takže teď je lepší nejdřív stabilizovat výsledky a až poté řešit výraznější změny cílové návratnosti.";
+const sklikComment = "Sklik se v červnu opírá hlavně o PMax logiku a produktově řízený výkon. Důležité je sledovat nejen celkový spend, ale i to, jak se výkon rozpadá podle produktových skupin a kde vzniká prostor pro další škálování nebo naopak korekci.";
+
 const changeClass = (value) => value.trim().startsWith("+") ? "good" : value.trim().startsWith("-") ? "bad" : "neutral";
 const chip = (value) => `<span class="labelChange ${changeClass(value)}">${value}</span>`;
 
@@ -201,7 +205,7 @@ export const ppcSectionHtml = `<section class="chapter" id="ppc">
     </div>
     <div class="sourceSummary compactSummary">
       <h3>Čtení PMax</h3>
-      <p>Cluster 3 drží největší objem a je lehce nad cílovou ROAS. Cluster 1 je menší, ale efektivní. Cluster 0 je naopak pod cílem a měl by být pod větší kontrolou při práci s produktovým mixem a rozpočtem.</p>
+      <p>${googleAdsComment}</p>
     </div>
     <div class="ppcAssetGrid ppcAssetGridTwo">
       ${renderShot(ppcAssets.pmaxOverview, "PMax přehled výkonu")}
@@ -237,6 +241,10 @@ export const ppcSectionHtml = `<section class="chapter" id="ppc">
       ${renderShot(ppcAssets.karsaRoas, "Karsa AI přehled ROAS vs. tROAS")}
       ${renderShot(ppcAssets.karsaClusters, "Karsa AI produktové clustery")}
     </div>
+    <div class="sourceSummary compactSummary">
+      <h3>Karsa AI / Clusters</h3>
+      <p>${karsaComment}</p>
+    </div>
     <div class="karsaSupportGallery">
       <div>
         <h3>Navazující kanálové náhledy</h3>
@@ -254,6 +262,10 @@ export const ppcSectionHtml = `<section class="chapter" id="ppc">
       <div>
         <h2>Sklik v červnu navýšil objem a snížil CPC.</h2>
         <p class="sectionLead">Sklik přinesl meziročně i meziměsíčně silnější objem prokliků a zobrazení. CPC klesá na 8,22 Kč, takže nárůst čerpání je spojený hlavně s vyšším rozsahem kampaní, ne s dražším klikem.</p>
+        <div class="sourceSummary compactSummary">
+          <h3>Čtení Skliku</h3>
+          <p>${sklikComment}</p>
+        </div>
         <div class="dashboardTable">
           <table class="dashTable ppcNativeTable">
             <thead><tr><th>Metrika</th><th>Červen 2026</th><th>Květen 2026</th><th class="changeCol">Změna</th></tr></thead>
