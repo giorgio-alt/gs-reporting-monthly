@@ -316,7 +316,8 @@ h2 .sectionLogo {
 }
 
 .businessCostHero {
-  grid-template-columns: 0.92fr 1.08fr;
+  display: block;
+  margin-top: 18px;
 }
 
 .costSplitCompact {
@@ -340,18 +341,20 @@ h2 .sectionLogo {
 
 .costBreakdown {
   display: grid;
-  gap: 12px;
+  gap: clamp(18px, 2vw, 26px);
 }
 
-.costBreakdownGroup {
-  padding: 14px;
-  border-radius: 24px;
-  background: rgba(255, 255, 255, 0.48);
-  border: 1px solid rgba(255, 255, 255, 0.72);
+.costMatrixGroup {
+  min-width: 0;
+  padding: clamp(16px, 1.8vw, 22px);
+  border-radius: 26px;
+  background: rgba(255, 255, 255, 0.64);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 14px 34px rgba(16, 35, 27, 0.08);
 }
 
-.costBreakdownGroup h3 {
-  margin: 0 0 10px;
+.costMatrixGroup h3 {
+  margin: 0 0 14px;
   color: var(--gs-green);
   font-size: 14px;
   font-weight: 950;
@@ -360,17 +363,98 @@ h2 .sectionLogo {
 }
 
 .brandCostGroup {
-  background: linear-gradient(145deg, rgba(255, 248, 233, 0.72), rgba(255, 255, 255, 0.5));
-  border-color: rgba(245, 158, 11, 0.22);
+  background: linear-gradient(145deg, rgba(255, 250, 239, 0.78), rgba(255, 255, 255, 0.58));
+  border-color: rgba(202, 138, 4, 0.22);
 }
 
 .brandCostGroup h3 {
   color: #98620a;
 }
 
-.brandCostCard {
+.costMatrixScroll {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 107, 63, 0.08);
   background: rgba(255, 255, 255, 0.7);
-  border-color: rgba(245, 158, 11, 0.18);
+}
+
+.costMatrixScroll:focus-visible {
+  outline: 3px solid rgba(167, 209, 41, 0.58);
+  outline-offset: 4px;
+}
+
+.costMatrixTable {
+  width: 100%;
+  min-width: max(620px, calc(210px + var(--cost-month-count, 1) * 124px));
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.costMatrixTable th,
+.costMatrixTable td {
+  padding: 13px 14px;
+  border-bottom: 1px solid rgba(0, 107, 63, 0.08);
+  text-align: right;
+  white-space: nowrap;
+}
+
+.costMatrixTable thead th {
+  color: #66786e;
+  background: rgba(247, 251, 248, 0.82);
+  font-size: 11px;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.costMatrixTable th:first-child,
+.costMatrixTable td:first-child {
+  text-align: left;
+}
+
+.costMatrixTable tbody th {
+  min-width: 205px;
+  color: #173324;
+  font-weight: 860;
+}
+
+.costMatrixLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.costMatrixTable tbody td {
+  color: #1e3529;
+  font-variant-numeric: tabular-nums;
+  font-weight: 780;
+}
+
+.costMatrixTable tr:last-child th,
+.costMatrixTable tr:last-child td {
+  border-bottom: 0;
+}
+
+.costMatrixTotal th,
+.costMatrixTotal td {
+  background: rgba(0, 107, 63, 0.07);
+  color: var(--gs-green) !important;
+  font-weight: 950 !important;
+}
+
+.brandCostGroup .costMatrixScroll {
+  border-color: rgba(202, 138, 4, 0.12);
+}
+
+.brandCostGroup .costMatrixTable thead th {
+  background: rgba(255, 250, 239, 0.86);
+}
+
+.brandCostGroup .costMatrixTotal th,
+.brandCostGroup .costMatrixTotal td {
+  background: rgba(202, 138, 4, 0.09);
+  color: #8a5b09 !important;
 }
 
 .brandCostTotal {
@@ -2173,5 +2257,210 @@ h2 .sectionLogo {
   .metaBoostHighlights,
   .metaBoostVisuals {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Executive spacing and visual weight refinements */
+.chapterCard + .chapterCard {
+  margin-top: clamp(30px, 4vw, 56px);
+}
+
+.chapterCardShell {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.78), rgba(248, 252, 249, 0.52));
+}
+
+.chapterCard[data-open="true"] .chapterCardShell {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(247, 251, 248, 0.68));
+  border-color: rgba(0, 107, 63, 0.16);
+}
+
+.chapterCardNo {
+  color: var(--gs-green);
+  background: rgba(255, 255, 255, 0.76);
+  border: 1px solid rgba(0, 107, 63, 0.14);
+  box-shadow: 0 12px 28px rgba(21, 57, 39, 0.09);
+}
+
+.chapterCardContent {
+  padding-top: clamp(22px, 2.6vw, 34px);
+}
+
+.panel,
+.glass,
+.mainKpi,
+.metricTile,
+.miniCard,
+.stat,
+.sourceSummary,
+.ppcUpdateCard,
+.ppcCluster,
+.funnelTimeCard,
+.clarityMetricCard,
+.clarityInsightItem,
+.metaCampaign,
+.metaBoostSection,
+.metaBoostChannel,
+.project {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.82), rgba(250, 253, 251, 0.58));
+  border-color: rgba(255, 255, 255, 0.82);
+}
+
+.businessKpiGrid .primaryBusinessKpi,
+.costTotal,
+.metaBoostTakeaways,
+.sourceSummary,
+.funnelTimeCard.is-active {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.84), rgba(247, 251, 248, 0.62)) !important;
+  border-color: rgba(0, 107, 63, 0.14);
+}
+
+.mainKpi {
+  padding: clamp(28px, 2.8vw, 38px);
+}
+
+.metricTile,
+.miniCard,
+.stat,
+.metaKpi,
+.metaCompareMetric,
+.metaLeadMetrics > div,
+.metaFlightKpis > div,
+.funnelKpi,
+.funnelStat,
+.clarityMetricCard {
+  padding: clamp(17px, 1.8vw, 24px);
+}
+
+.mainKpi strong {
+  font-size: clamp(30px, 3.1vw, 42px);
+}
+
+.metricTile strong,
+.cumulativeTile strong,
+.sklikMom strong {
+  font-size: clamp(21px, 1.95vw, 27px);
+}
+
+.miniCard strong,
+.stat strong,
+.metaKpi strong,
+.clarityMetricValue {
+  font-size: clamp(16px, 1.35vw, 20px);
+}
+
+.dashboardTopGrid,
+.dashboardBottomGrid,
+.dashboardSourcePanel,
+.productTopGrid,
+.productBottomGrid,
+.productSectionBlock,
+.ppcSummary,
+.ppcSection,
+.metaSectionIntro,
+.metaStack,
+.metaGroupTitle,
+.metaBoostBoard,
+.funnelTimeBlock,
+.projectCards {
+  margin-top: clamp(22px, 3vw, 38px);
+}
+
+.contentGrid,
+.dashboardTopGrid,
+.dashboardBottomGrid,
+.productTopGrid,
+.productBottomGrid,
+.ppcHeroGrid,
+.ppcClusterGrid,
+.metaCompareGrid,
+.metaLeadMetrics,
+.metaBoostChannels,
+.funnelDetailGrid,
+.projectCards {
+  gap: clamp(18px, 2.2vw, 30px);
+}
+
+.panel h2,
+.ppcSummary h2,
+.ppcSection h2,
+.productVerdict h2,
+.funnelTimeBlock h2,
+.metaBoostVerdict h2 {
+  font-size: clamp(28px, 3.2vw, 44px);
+  line-height: 1.04;
+}
+
+.chapterCardHeader h2,
+.chapterTitle h2 {
+  letter-spacing: -0.035em;
+}
+
+.sectionLead,
+.sourceSummary p,
+.project p,
+.metaInterpretation p,
+.metaBoostChannelHead p,
+.funnelComment,
+.chapterCardHeader p {
+  color: #52675c;
+  font-size: clamp(13px, 1vw, 15px);
+  line-height: 1.62;
+}
+
+.pill,
+.sectionSubhead,
+.chapterNo,
+.metricTile span,
+.mainKpi span,
+.miniCard span,
+.stat span,
+.metaKpi span,
+.clarityMetricCard span {
+  color: #6a7d72;
+  letter-spacing: 0.07em;
+}
+
+.projectCards {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.project {
+  min-height: 190px;
+  padding: clamp(26px, 2.4vw, 34px);
+  box-shadow: 0 18px 42px rgba(16, 35, 27, 0.1);
+}
+
+.project .icon {
+  margin-bottom: 16px;
+  font-size: 30px;
+}
+
+.project h3 {
+  font-size: clamp(19px, 1.85vw, 24px);
+  line-height: 1.16;
+}
+
+.projectFocusCallout {
+  margin-top: clamp(22px, 2.6vw, 32px);
+  padding: clamp(20px, 2vw, 28px);
+  background: rgba(255, 255, 255, 0.72);
+  border-color: rgba(255, 255, 255, 0.84);
+  border-left-color: rgba(0, 107, 63, 0.42);
+}
+
+.costBreakdownPanel,
+.clarityMetricSection,
+.metaBoostSection {
+  margin-top: clamp(20px, 2.4vw, 32px);
+}
+
+@media (max-width: 980px) {
+  .projectCards {
+    grid-template-columns: 1fr;
+  }
+
+  .panel,
+  .glass {
+    padding: clamp(22px, 5vw, 30px);
   }
 }

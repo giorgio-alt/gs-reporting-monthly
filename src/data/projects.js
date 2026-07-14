@@ -13,36 +13,6 @@ const projects = [
     icon: "🔎",
     title: "Seznam PMAX okénko",
     text: "Projít prostor pro další práci s PMAX kampaněmi v Seznamu a navazující optimalizaci."
-  },
-  {
-    icon: "🤖",
-    title: "Karsa w/MJ",
-    text: "Navázat na projektový směr ve spolupráci s MJ a propsat poznatky do další optimalizace."
-  },
-  {
-    icon: "✉️",
-    title: "Emaily",
-    text: "Samostatný CRM a e-mailový směr pro rozvoj komunikace a opakovaných nákupů."
-  },
-  {
-    icon: "🚚",
-    title: "Doprava zdarma w/MJ",
-    text: "Vyhodnotit roli dopravy zdarma a její dopad na objednávky, marži a promo plán."
-  },
-  {
-    icon: "🎯",
-    title: "MMV brand kampaň",
-    text: "Dotáhnout vyhodnocení a převést poznatky do další práce s brandovou podporou."
-  },
-  {
-    icon: "✈️",
-    title: "Meta produktové kampaně",
-    text: "Pokračovat v ladění podle PNO, počtu nákupů a prostoru pro bezpečné škálování."
-  },
-  {
-    icon: "🌦️",
-    title: "Betakaroten",
-    text: "Držet rozpočty pružně podle sezónnosti, počasí a aktuální poptávky."
   }
 ];
 
@@ -62,8 +32,8 @@ export const projectsSectionHtml = `<section class="chapter" id="projekty">
     </div>
   </div>
   <div class="projectCards">${projects.map(renderProject).join("")}</div>
-  <div class="callout" style="margin-top:14px">
+  <div class="callout projectFocusCallout">
     <b>📌 Projektový fokus</b>
-    <p>Prioritou je spojit vyhodnocení výkonu s dalšími kroky: lead kampaň, retence, Seznam PMAX a pokračující práce s kampaněmi.</p>
+    <p>Prioritou je navázat na červnový výkon třemi jasnými kroky: vyhodnotit Lead kampaň, odstartovat retenci a projít prostor v Seznam PMAX.</p>
   </div>
 </section>`;

@@ -48,8 +48,8 @@ export const reportMeta = {
       id: "projekty",
       number: "05",
       title: "Projekty",
-      description: "Projektový přehled včetně Karsa, dopravy zdarma, brand kampaně, produktových kampaní a e-mailů.",
-      chips: ["Karsa w/MJ", "Emaily", "MMV brand", "Omega / Betakaroten"]
+      description: "Stručný přehled priorit pro další období: Lead kampaň, retence a Seznam PMAX.",
+      chips: ["Lead kampaň", "Retence", "Seznam PMAX"]
     }
   ]
 };

@@ -39,7 +39,7 @@ const monthlyCostModel = [
       { system: "zbozi", label: "Zboží.cz", value: 9734 }
     ],
     brandCosts: [
-      { label: "Brand SoMe", value: 7499 },
+      { label: "Brand SOME", value: 7499 },
       { label: "Brand Perfect", value: 8822 },
       { label: "Lipo", value: 0 },
       { label: "Bacto3", value: 0 }
@@ -55,7 +55,7 @@ const monthlyCostModel = [
       { system: "zbozi", label: "Zboží.cz", value: 5764 }
     ],
     brandCosts: [
-      { label: "Brand SoMe", value: 13632 },
+      { label: "Brand SOME", value: 13632 },
       { label: "Brand Perfect", value: 7645 },
       { label: "Lipo", value: 42492 },
       { label: "Bacto3", value: 16018 }
@@ -71,7 +71,7 @@ const monthlyCostModel = [
       { system: "zbozi", label: "Zboží.cz", value: 2443 }
     ],
     brandCosts: [
-      { label: "Brand SoMe", value: 9764 },
+      { label: "Brand SOME", value: 9764 },
       { label: "Brand Perfect", value: 4815 },
       { label: "Lipo", value: 62046 },
       { label: "Bacto3", value: 9573 }
@@ -87,7 +87,7 @@ const monthlyCostModel = [
       { system: "zbozi", label: "Zboží.cz", value: 4758 }
     ],
     brandCosts: [
-      { label: "Brand SoMe", value: 8142 },
+      { label: "Brand SOME", value: 8142 },
       { label: "Brand Perfect", value: 17717 },
       { label: "Lipo", value: 6082 },
       { label: "Bacto3", value: 9984 }
@@ -103,7 +103,7 @@ const monthlyCostModel = [
       { system: "zbozi", label: "Zboží.cz", value: 4999 }
     ],
     brandCosts: [
-      { label: "Brand SoMe", value: 12872 },
+      { label: "Brand SOME", value: 12872 },
       { label: "Brand Perfect", value: 10389 },
       { label: "Lipo", value: 0 },
       { label: "Bacto3", value: 0 }
@@ -119,7 +119,7 @@ const monthlyCostModel = [
       { system: "zbozi", label: "Zboží.cz", value: 4864 }
     ],
     brandCosts: [
-      { label: "Brand SoMe", value: 12111 },
+      { label: "Brand SOME", value: 12111 },
       { label: "Brand Perfect", value: 6229 },
       { label: "Lipo", value: 0 },
       { label: "Bacto3", value: 0 }
@@ -128,11 +128,14 @@ const monthlyCostModel = [
 ];
 
 const activeCostMonth = monthlyCostModel.at(-1);
-const costChannels = activeCostMonth.pnoCosts;
-const brandCostChannels = activeCostMonth.brandCosts.filter((item) => item.value > 0);
+const costMonths = monthlyCostModel.map((month) => month.month);
+const pnoCostRows = activeCostMonth.pnoCosts.map(({ system, label }) => ({ system, label }));
+const brandCostRows = [
+  { label: "Brand SOME" },
+  { label: "Brand Perfect" }
+];
 
 const formatCurrency = (value) => `${new Intl.NumberFormat("cs-CZ").format(value)} Kč`;
-const sumCosts = (items) => items.reduce((sum, item) => sum + item.value, 0);
 
 const changeClass = (value) => value.trim().startsWith("+") ? "good" : value.trim().startsWith("-") ? "bad" : "neutral";
 
@@ -154,16 +157,41 @@ const renderSourceRow = (item) => `
     <td class="deltaCell"><span class="labelChange ${changeClass(item.revenueChange)}">${item.revenueChange}</span></td>
   </tr>`;
 
-const renderCostCard = (item) => `
-  <div class="miniCard costChannelCard">
-    <span>${SystemLogo({ system: item.system, label: item.label, className: "channelLogo" })}${item.label}</span>
-    <strong>${formatCurrency(item.value)}</strong>
-  </div>`;
+const costValueForMonth = (month, group, label) => month[group].find((item) => item.label === label)?.value ?? 0;
 
-const renderBrandCostCard = (item) => `
-  <div class="miniCard costChannelCard brandCostCard">
-    <span>${item.label}</span>
-    <strong>${formatCurrency(item.value)}</strong>
+const totalForRows = (month, group, rows) =>
+  rows.reduce((total, row) => total + costValueForMonth(month, group, row.label), 0);
+
+const costRowLabel = (row) => row.system
+  ? `<span class="costMatrixLabel">${SystemLogo({ system: row.system, label: row.label, className: "channelLogo" })}<span>${row.label}</span></span>`
+  : `<span class="costMatrixLabel">${row.label}</span>`;
+
+const renderCostMatrixRow = (row, group) => `
+  <tr>
+    <th scope="row">${costRowLabel(row)}</th>
+    ${monthlyCostModel.map((month) => `<td>${formatCurrency(costValueForMonth(month, group, row.label))}</td>`).join("")}
+  </tr>`;
+
+const renderCostMatrix = ({ title, rows, group, totalLabel, modifier = "" }) => `
+  <div class="costMatrixGroup ${modifier}">
+    <h3>${title}</h3>
+    <div class="costMatrixScroll" tabindex="0" aria-label="${title}">
+      <table class="costMatrixTable" style="--cost-month-count:${costMonths.length}">
+        <thead>
+          <tr>
+            <th>Kanál</th>
+            ${costMonths.map((month) => `<th>${month}</th>`).join("")}
+          </tr>
+        </thead>
+        <tbody>
+          ${rows.map((row) => renderCostMatrixRow(row, group)).join("")}
+          <tr class="costMatrixTotal">
+            <th scope="row">${totalLabel}</th>
+            ${monthlyCostModel.map((month) => `<td>${formatCurrency(totalForRows(month, group, rows))}</td>`).join("")}
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>`;
 
 export const dashboardSectionHtml = `<section class="chapter" id="dashboard">
@@ -202,29 +230,20 @@ export const dashboardSectionHtml = `<section class="chapter" id="dashboard">
     <div class="panel glass">
       <span class="pill">Reálné náklady a PNO</span>
       <div class="costHero businessCostHero">
-        <div class="costTotal">
-          <span>Náklady započítané do PNO</span>
-          <strong>${formatCurrency(sumCosts(costChannels))}</strong>
-          <small>PNO z reality = ${formatCurrency(sumCosts(costChannels))} / 3 750 000 Kč</small>
-          <div class="spark"><i style="width:100%"></i></div>
-          <div class="brandCostTotal">
-            <span>Brandové náklady mimo PNO</span>
-            <strong>${formatCurrency(sumCosts(brandCostChannels))}</strong>
-          </div>
-        </div>
         <div class="costBreakdown">
-          <div class="costBreakdownGroup">
-            <h3>Náklady započítané do PNO</h3>
-            <div class="costSplit costSplitCompact">
-              ${costChannels.map(renderCostCard).join("")}
-            </div>
-          </div>
-          <div class="costBreakdownGroup brandCostGroup">
-            <h3>Brandové náklady mimo PNO</h3>
-            <div class="costSplit costSplitCompact brandCostSplit">
-              ${brandCostChannels.map(renderBrandCostCard).join("")}
-            </div>
-          </div>
+          ${renderCostMatrix({
+            title: "Náklady započítané do PNO",
+            rows: pnoCostRows,
+            group: "pnoCosts",
+            totalLabel: "Celkem započítané do PNO"
+          })}
+          ${renderCostMatrix({
+            title: "Brandové náklady mimo PNO",
+            rows: brandCostRows,
+            group: "brandCosts",
+            totalLabel: "Celkem brand mimo PNO",
+            modifier: "brandCostGroup"
+          })}
         </div>
       </div>
     </div>
