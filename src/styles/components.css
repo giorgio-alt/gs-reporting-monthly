@@ -2473,3 +2473,153 @@ h2 .sectionLogo {
     padding: clamp(22px, 5vw, 30px);
   }
 }
+
+/* Soft motion layer */
+@keyframes reportSoftIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes detailsContentIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.chapterHead,
+.panel,
+.metricTile,
+.miniCard,
+.project,
+.metaCampaign,
+.ppcCluster,
+.funnelTimeCard,
+.costMatrixGroup,
+.clarityMetricCard,
+.clarityInsightItem {
+  animation: reportSoftIn 300ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.panel,
+.metricTile,
+.miniCard,
+.project,
+.metaCampaign,
+.ppcCluster,
+.funnelTimeCard,
+.creativeThumb,
+.visualItem,
+.chapterToggle,
+.detailBtn,
+.funnelCardCta,
+.funnelMetricToggle,
+.detailsCollapseBtn {
+  transition-duration: 220ms;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+details[open] > :not(summary) {
+  animation: detailsContentIn 240ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+details[data-animating="true"] > :not(summary) {
+  animation: none;
+}
+
+details[open] > summary {
+  border-color: rgba(0, 107, 63, 0.18);
+}
+
+.metaCampaign[open] summary,
+.ppcCluster[open] summary {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.78), rgba(246, 251, 248, 0.64));
+}
+
+.creativeThumb::after,
+.visualItem::after,
+.detailBtn,
+.funnelCardCta {
+  transition-property: transform, background, box-shadow, border-color, color, opacity;
+}
+
+.detailsCollapseFooter {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(22px, 3vw, 36px);
+  padding-top: clamp(16px, 2vw, 24px);
+  border-top: 1px solid rgba(0, 107, 63, 0.08);
+}
+
+.detailsCollapseBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 11px 17px;
+  border: 1px solid rgba(0, 107, 63, 0.16);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--gs-green);
+  box-shadow: 0 12px 28px rgba(16, 35, 27, 0.08);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 950;
+}
+
+.detailsCollapseBtn:hover,
+.detailsCollapseBtn:focus-visible {
+  transform: translateY(-2px);
+  border-color: rgba(0, 107, 63, 0.32);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 18px 40px rgba(16, 35, 27, 0.14);
+  outline: none;
+}
+
+.detailsCollapseBtn:focus-visible {
+  outline: 3px solid rgba(167, 209, 41, 0.68);
+  outline-offset: 4px;
+}
+
+.funnelCollapseFooter {
+  grid-column: 1 / -1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+
+  .chapterHead,
+  .panel,
+  .metricTile,
+  .miniCard,
+  .project,
+  .metaCampaign,
+  .ppcCluster,
+  .funnelTimeCard,
+  .costMatrixGroup,
+  .clarityMetricCard,
+  .clarityInsightItem,
+  details[open] > :not(summary) {
+    animation: none !important;
+  }
+}

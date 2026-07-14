@@ -11,6 +11,7 @@ import { initNavigation } from "./components/Navigation.js";
 import { initLightbox } from "./components/Lightbox.js";
 import { initYoYTables } from "./components/DataTable.js";
 import { initFunnelTrendToggles } from "./components/FunnelTrend.js";
+import { initDetailsEnhancements } from "./components/DetailsEnhancements.js";
 
 const root = document.querySelector("#app");
 
@@ -20,3 +21,4 @@ initNavigation();
 initYoYTables();
 initLightbox();
 initFunnelTrendToggles();
+initDetailsEnhancements();

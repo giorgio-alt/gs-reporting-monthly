@@ -353,6 +353,11 @@ const renderFunnelDetailPanel = (funnel, index) => `
       </div>
       <p class="funnelComment">${funnel.comment}</p>
     </div>
+    <div class="detailsCollapseFooter funnelCollapseFooter">
+      <button class="detailsCollapseBtn funnelCollapseBtn" type="button" data-funnel-collapse="${funnel.id}">
+        <span aria-hidden="true">↑</span> Sbalit detail
+      </button>
+    </div>
   </div>`;
 
 const renderClarityInsight = (item) => `

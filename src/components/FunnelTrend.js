@@ -1,4 +1,7 @@
 export function initFunnelTrendToggles() {
+  const shouldReduceMotion = () =>
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
   document.querySelectorAll(".funnelTimeBlock").forEach((block) => {
     const cards = [...block.querySelectorAll("[data-funnel-card]")];
     const panels = [...block.querySelectorAll("[data-funnel-panel]")];
@@ -19,12 +22,43 @@ export function initFunnelTrendToggles() {
       });
     };
 
+    const collapsePanel = (id) => {
+      cards.forEach((card) => {
+        if (card.dataset.funnelCard !== id) return;
+        const cta = card.querySelector(".funnelCardCta");
+        card.classList.remove("is-active");
+        card.setAttribute("aria-expanded", "false");
+        if (cta) cta.textContent = "Zobrazit detail";
+      });
+
+      panels.forEach((panel) => {
+        if (panel.dataset.funnelPanel !== id) return;
+        panel.classList.remove("is-active");
+        panel.hidden = true;
+      });
+    };
+
     cards.forEach((card) => {
       card.addEventListener("click", () => activatePanel(card.dataset.funnelCard));
       card.addEventListener("keydown", (event) => {
         if (event.key !== "Enter" && event.key !== " ") return;
         event.preventDefault();
         activatePanel(card.dataset.funnelCard);
+      });
+    });
+
+    block.querySelectorAll("[data-funnel-collapse]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const id = button.dataset.funnelCollapse;
+        const card = cards.find((item) => item.dataset.funnelCard === id);
+        if (!card) return;
+
+        collapsePanel(id);
+        card.scrollIntoView({
+          behavior: shouldReduceMotion() ? "auto" : "smooth",
+          block: "center"
+        });
+        card.focus({ preventScroll: true });
       });
     });
   });
