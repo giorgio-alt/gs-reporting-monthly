@@ -474,14 +474,16 @@ function metaKpi(label, value, delta) {
   return `<div class="metaKpi"><span>${label}</span><strong>${value}</strong><small class="yoyChip ${delta.tone}">${delta.value}</small></div>`;
 }
 
-const parseMetaMetric = (value) =>
-  Number(String(value).replace(/\s/g, "").replace(/[^\d,.-]/g, "").replace(",", "."));
+function parseMetaMetric(value) {
+  return Number(String(value).replace(/\s/g, "").replace(/[^\d,.-]/g, "").replace(",", "."));
+}
 
-const formatMetaDeltaNumber = (value, decimals = 0) =>
-  new Intl.NumberFormat("cs-CZ", {
+function formatMetaDeltaNumber(value, decimals = 0) {
+  return new Intl.NumberFormat("cs-CZ", {
     minimumFractionDigits: decimals,
     maximumFractionDigits: decimals
   }).format(Math.abs(value));
+}
 
 function metaMetricDelta(label, current, previous) {
   const currentValue = parseMetaMetric(current);
