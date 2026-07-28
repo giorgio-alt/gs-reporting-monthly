@@ -474,14 +474,47 @@ function metaKpi(label, value, delta) {
   return `<div class="metaKpi"><span>${label}</span><strong>${value}</strong><small class="yoyChip ${delta.tone}">${delta.value}</small></div>`;
 }
 
+const parseMetaMetric = (value) =>
+  Number(String(value).replace(/\s/g, "").replace(/[^\d,.-]/g, "").replace(",", "."));
+
+const formatMetaDeltaNumber = (value, decimals = 0) =>
+  new Intl.NumberFormat("cs-CZ", {
+    minimumFractionDigits: decimals,
+    maximumFractionDigits: decimals
+  }).format(Math.abs(value));
+
+function metaMetricDelta(label, current, previous) {
+  const currentValue = parseMetaMetric(current);
+  const previousValue = parseMetaMetric(previous);
+  if (!Number.isFinite(currentValue) || !Number.isFinite(previousValue)) return null;
+
+  const diff = currentValue - previousValue;
+  const arrow = diff > 0 ? "↑" : diff < 0 ? "↓" : "→";
+  const isPercentMetric = current.includes("%") || previous.includes("%");
+  const isCurrencyMetric = current.includes("Kč") || previous.includes("Kč");
+  const formattedValue = isPercentMetric
+    ? `${formatMetaDeltaNumber(diff, 2)} p. b.`
+    : isCurrencyMetric
+      ? `${formatMetaDeltaNumber(diff)} Kč`
+      : formatMetaDeltaNumber(diff, 2);
+  const positiveIsGood = label === "Hodnota nákupů" || label === "CTR";
+  const tone = diff === 0
+    ? "neutral"
+    : positiveIsGood
+      ? diff > 0 ? "good" : "bad"
+      : "neutral";
+
+  return { value: `${arrow} ${formattedValue}`, tone };
+}
+
 function comparisonGrid(campaign) {
   const metrics = [
     ["Nákupy", campaign.current.purchases, campaign.deltas[0], campaign.previous.purchases],
     ["PNO", campaign.current.pno, campaign.deltas[1], campaign.previous.pno],
     ["Investice", campaign.current.spend, campaign.deltas[2], campaign.previous.spend],
-    ["Hodnota nákupů", campaign.current.value, null, campaign.previous.value],
-    ["CTR", campaign.current.ctr, null, campaign.previous.ctr],
-    ["Frekvence", campaign.current.frequency, null, campaign.previous.frequency]
+    ["Hodnota nákupů", campaign.current.value, metaMetricDelta("Hodnota nákupů", campaign.current.value, campaign.previous.value), campaign.previous.value],
+    ["CTR", campaign.current.ctr, metaMetricDelta("CTR", campaign.current.ctr, campaign.previous.ctr), campaign.previous.ctr],
+    ["Frekvence", campaign.current.frequency, metaMetricDelta("Frekvence", campaign.current.frequency, campaign.previous.frequency), campaign.previous.frequency]
   ];
 
   return `<div class="metaCompareGrid">${metrics.map(([label, current, delta, previous]) => `
