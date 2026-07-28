@@ -127,6 +127,15 @@ const monthlyCostModel = [
   }
 ];
 
+const mediaBudget = [
+  { month: "2026-01", planned: 960000, actual: 474714 },
+  { month: "2026-02", planned: 780000, actual: 400017 },
+  { month: "2026-03", planned: 595000, actual: 437013 },
+  { month: "2026-04", planned: 505000, actual: 520205 },
+  { month: "2026-05", planned: 555000, actual: 509356 },
+  { month: "2026-06", planned: 355000, actual: 708539 }
+];
+
 const activeCostMonth = monthlyCostModel.at(-1);
 const costMonths = monthlyCostModel.map((month) => month.month);
 const pnoCostRows = activeCostMonth.pnoCosts.map(({ system, label }) => ({ system, label }));
@@ -135,7 +144,31 @@ const brandCostRows = [
   { label: "Brand Perfect" }
 ];
 
-const formatCurrency = (value) => `${new Intl.NumberFormat("cs-CZ").format(value)} Kč`;
+const normalizeNumberSpacing = (value) => value.replace(/\u00a0/g, " ");
+const formatCurrency = (value) => `${normalizeNumberSpacing(new Intl.NumberFormat("cs-CZ").format(value))} Kč`;
+const formatPercent = (value) => `${normalizeNumberSpacing(new Intl.NumberFormat("cs-CZ", { minimumFractionDigits: 1, maximumFractionDigits: 1 }).format(value))} %`;
+const formatBudgetMonth = (month) => {
+  const [year, monthNumber] = month.split("-");
+  return `${monthNumber}/${year}`;
+};
+
+const budgetTone = (fulfillment) => {
+  if (fulfillment > 110) return "danger";
+  if (fulfillment > 100) return "warning";
+  if (fulfillment >= 85) return "good";
+  return "neutral";
+};
+
+const sumBudget = (key) => mediaBudget.reduce((total, month) => total + month[key], 0);
+const activeBudgetMonth = mediaBudget.at(-1);
+const monthlyFulfillment = (activeBudgetMonth.actual / activeBudgetMonth.planned) * 100;
+const monthlyVariance = activeBudgetMonth.actual - activeBudgetMonth.planned;
+const ytdPlanned = sumBudget("planned");
+const ytdActual = sumBudget("actual");
+const ytdFulfillment = (ytdActual / ytdPlanned) * 100;
+const ytdVariance = ytdActual - ytdPlanned;
+const budgetPeriodLabel = `${formatBudgetMonth(mediaBudget[0].month)}–${formatBudgetMonth(activeBudgetMonth.month)}`;
+const signedCurrency = (value) => `${value > 0 ? "+" : value < 0 ? "-" : ""}${formatCurrency(Math.abs(value))}`;
 
 const changeClass = (value) => value.trim().startsWith("+") ? "good" : value.trim().startsWith("-") ? "bad" : "neutral";
 
@@ -194,6 +227,59 @@ const renderCostMatrix = ({ title, rows, group, totalLabel, modifier = "" }) => 
     </div>
   </div>`;
 
+const renderBudgetCard = ({ title, fulfillment, actual, planned, diffLabel, diffValue, status, tone }) => {
+  const progress = Math.min(fulfillment, 100);
+  const overBudget = Math.max(fulfillment - 100, 0);
+  return `<article class="budgetCard ${tone}" style="--budget-progress:${progress}%">
+    <div class="budgetCardHead">
+      <span>${title}</span>
+      <b>${status}</b>
+    </div>
+    <strong>${formatPercent(fulfillment)}</strong>
+    <p>Plnění budgetu</p>
+    <div class="budgetSpend">${formatCurrency(actual)} <span>z ${formatCurrency(planned)}</span></div>
+    <div class="budgetProgress" aria-label="Plnění budgetu ${formatPercent(fulfillment)}">
+      <i></i>
+    </div>
+    ${overBudget > 0 ? `<div class="budgetOverrun">Přesah nad plán ${formatPercent(overBudget)}</div>` : ""}
+    <dl class="budgetFacts">
+      <div><dt>Plán</dt><dd>${formatCurrency(planned)}</dd></div>
+      <div><dt>Čerpání</dt><dd>${formatCurrency(actual)}</dd></div>
+      <div><dt>${diffLabel}</dt><dd>${diffValue}</dd></div>
+    </dl>
+  </article>`;
+};
+
+const renderMediaBudgetSummary = () => `
+  <div class="mediaBudgetSummary">
+    ${renderBudgetCard({
+      title: `Plnění budgetu · ${formatBudgetMonth(activeBudgetMonth.month)}`,
+      fulfillment: monthlyFulfillment,
+      actual: activeBudgetMonth.actual,
+      planned: activeBudgetMonth.planned,
+      diffLabel: "Rozdíl",
+      diffValue: signedCurrency(monthlyVariance),
+      status: `Přečerpáno o ${formatPercent(monthlyFulfillment - 100)}`,
+      tone: budgetTone(monthlyFulfillment)
+    })}
+    ${renderBudgetCard({
+      title: `Plnění budgetu YTD · ${budgetPeriodLabel}`,
+      fulfillment: ytdFulfillment,
+      actual: ytdActual,
+      planned: ytdPlanned,
+      diffLabel: "Zbývá do plánu",
+      diffValue: formatCurrency(Math.abs(ytdVariance)),
+      status: "V rámci kumulativního plánu",
+      tone: budgetTone(ytdFulfillment)
+    })}
+  </div>
+  <div class="budgetInterpretation">
+    <h3>Čerpání mediálního budgetu</h3>
+    <p>V červnu bylo vyčerpáno ${formatCurrency(activeBudgetMonth.actual)} proti plánovaným ${formatCurrency(activeBudgetMonth.planned)}. Měsíční budget byl naplněn na ${formatPercent(monthlyFulfillment)} a překročen o ${formatCurrency(monthlyVariance)}.</p>
+    <p>V kumulativním pohledu od ledna do června bylo vyčerpáno ${formatCurrency(ytdActual)} z plánovaných ${formatCurrency(ytdPlanned)}. Dosavadní roční plán je tak naplněn na ${formatPercent(ytdFulfillment)} a proti kumulativnímu plánu zbývá ${formatCurrency(Math.abs(ytdVariance))}.</p>
+    <p>Červnové přečerpání tedy zatím neznamená překročení kumulativního budgetu, ale výrazně snížilo rezervu vytvořenou v předchozích měsících.</p>
+  </div>`;
+
 export const dashboardSectionHtml = `<section class="chapter" id="dashboard">
   <div class="chapterHead glass">
     <div class="chapterTitle">
@@ -231,6 +317,7 @@ export const dashboardSectionHtml = `<section class="chapter" id="dashboard">
       <span class="pill">Reálné náklady a PNO</span>
       <div class="costHero businessCostHero">
         <div class="costBreakdown">
+          ${renderMediaBudgetSummary()}
           ${renderCostMatrix({
             title: "Náklady započítané do PNO",
             rows: pnoCostRows,

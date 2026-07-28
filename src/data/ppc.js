@@ -18,8 +18,9 @@ const ppcAssets = {
     thumb: "assets/report-jun-26/ppc/extracted/slide-38-asset-01-thumb.webp"
   },
   sklik: {
-    full: "assets/report-jun-26/ppc/extracted/slide-39-asset-01.webp",
-    thumb: "assets/report-jun-26/ppc/extracted/slide-39-asset-01-thumb.webp"
+    full: "assets/report-jun-26/ppc/sklik-june-2026-account.png",
+    thumb: "assets/report-jun-26/ppc/sklik-june-2026-account-thumb.png",
+    image_size: { width: 4414, height: 1356 }
   }
 };
 
@@ -91,10 +92,14 @@ const pmaxClusters = [
 ];
 
 const sklikRows = [
-  { metric: "Prokliky", current: "22 873", previous: "13 874", change: "+65 %" },
-  { metric: "Zobrazení", current: "5 606 961", previous: "4 081 763", change: "+37 %" },
-  { metric: "CPC", current: "8,22 Kč", previous: "9,22 Kč", change: "-11 %" },
-  { metric: "Cena", current: "188 127 Kč", previous: "127 956 Kč", change: "+47 %" }
+  { metric: "Konverze", current: 241, previous: null, format: "number", primary: true },
+  { metric: "Cena za konverzi", current: 780.61, previous: null, format: "currency", decimals: 2 },
+  { metric: "Hodnota konverzí", current: 244561, previous: null, format: "currency" },
+  { metric: "CTR", current: 0.41, previous: null, format: "percent", decimals: 2 },
+  { metric: "Prokliky", current: 22873, previous: 13874, format: "number" },
+  { metric: "Zobrazení", current: 5606961, previous: 4081763, format: "number" },
+  { metric: "CPC", current: 8.22, previous: 9.22, format: "currency", decimals: 2 },
+  { metric: "Cena", current: 188127, previous: 127956, format: "currency" }
 ];
 
 const karsaClusterRows = [
@@ -104,30 +109,32 @@ const karsaClusterRows = [
   { cluster: "Cluster 3", products: "25", roas: "2,43", value: "237 749 / 97 954", campaign: "PMAX | cluster 3" }
 ];
 
-const karsaSupportAssets = [
-  {
-    label: "Sklik detail výsledků",
-    full: "assets/report-jun-26/ppc/extracted/slide-39-asset-01.webp",
-    thumb: "assets/report-jun-26/ppc/extracted/slide-39-asset-01-thumb.webp"
-  },
-  {
-    label: "Meta výkon kampaně",
-    full: "assets/report-jun-26/meta/extracted/slide-50-asset-01.webp",
-    thumb: "assets/report-jun-26/meta/extracted/slide-50-asset-01-thumb.webp"
-  },
-  {
-    label: "Meta detail kreativy",
-    full: "assets/report-jun-26/meta/extracted/slide-50-asset-02.webp",
-    thumb: "assets/report-jun-26/meta/extracted/slide-50-asset-02-thumb.webp"
-  }
-];
-
 const googleAdsComment = "Vyšší spend v Google Ads je tažený hlavně větší investicí do PMax kampaní. Ty se teď víc řídí přes produktové clustery, takže dává smysl sledovat výkon po skupinách produktů, ne jen v jednom souhrnném čísle za celou kampaň.";
 const karsaComment = "Clusterový pohled pomáhá rozpadnout PMax výkon podle produktových skupin a lépe vidět, kde vzniká objem a kde efektivita. V rámci PTC manageru zatím zůstává doporučení držet původní tROAS. Dává to smysl, protože po úvodní učící fázi byl výkon ještě poměrně nekonzistentní, takže teď je lepší nejdřív stabilizovat výsledky a až poté řešit výraznější změny cílové návratnosti.";
-const sklikComment = "Sklik se v červnu opírá hlavně o PMax logiku a produktově řízený výkon. Důležité je sledovat nejen celkový spend, ale i to, jak se výkon rozpadá podle produktových skupin a kde vzniká prostor pro další škálování nebo naopak korekci.";
+const sklikComment = "Sklik v červnu doručil 241 konverzí při ceně 780,61 Kč za konverzi. Objem prokliků a zobrazení roste, CPC je nižší, takže kanál škáluje levněji; dál dává smysl hlídat hlavně kvalitu konverzí a jejich hodnotu.";
 
 const changeClass = (value) => value.trim().startsWith("+") ? "good" : value.trim().startsWith("-") ? "bad" : "neutral";
 const chip = (value) => `<span class="labelChange ${changeClass(value)}">${value}</span>`;
+const formatNumber = new Intl.NumberFormat("cs-CZ", { maximumFractionDigits: 0 });
+
+const formatSklikValue = (row, value) => {
+  if (value === null || value === undefined) return "—";
+  const decimals = row.decimals ?? 0;
+  const formatter = new Intl.NumberFormat("cs-CZ", {
+    minimumFractionDigits: decimals,
+    maximumFractionDigits: decimals
+  });
+  if (row.format === "currency") return `${formatter.format(value)} Kč`;
+  if (row.format === "percent") return `${formatter.format(value)} %`;
+  return formatNumber.format(value);
+};
+
+const getSklikChange = (row) => {
+  if (!Number.isFinite(row.current) || !Number.isFinite(row.previous) || row.previous === 0) return null;
+  const change = ((row.current / row.previous) - 1) * 100;
+  const sign = change > 0 ? "+" : "";
+  return `${sign}${formatNumber.format(change)} %`;
+};
 
 const renderShot = (item, label = item.label) => `
   <a class="visualItem ppcAssetShot" href="${item.full}">
@@ -155,13 +162,16 @@ const renderCluster = (cluster) => `
     </div>
   </details>`;
 
-const renderSklikRow = (row) => `
-  <tr>
+const renderSklikRow = (row) => {
+  const change = getSklikChange(row);
+  return `
+  <tr class="${row.primary ? "primaryMetricRow" : ""}">
     <td>${row.metric}</td>
-    <td>${row.current}</td>
-    <td>${row.previous}</td>
-    <td class="deltaCell">${chip(row.change)}</td>
+    <td>${formatSklikValue(row, row.current)}</td>
+    <td>${formatSklikValue(row, row.previous)}</td>
+    <td class="deltaCell">${change ? chip(change) : ""}</td>
   </tr>`;
+};
 
 const renderKarsaRow = (row) => `
   <tr>
@@ -245,23 +255,14 @@ export const ppcSectionHtml = `<section class="chapter" id="ppc">
       <h3>Karsa AI / Clusters</h3>
       <p>${karsaComment}</p>
     </div>
-    <div class="karsaSupportGallery">
-      <div>
-        <h3>Navazující kanálové náhledy</h3>
-        <p class="sectionLead">Doplňkové screenshoty drží kontext výkonu napříč Sklikem a Meta kampaněmi. Slouží jako rychlé rozklikávací náhledy vedle Karsa AI produktového pohledu.</p>
-      </div>
-      <div class="ppcAssetGrid karsaChannelGrid">
-        ${karsaSupportAssets.map(renderShot).join("")}
-      </div>
-    </div>
   </div>
 
   <div class="panel glass ppcSection" id="sklik-results">
     <span class="pill orange systemPill">${SystemLogo({ system: "seznamSklik", label: "Seznam / Sklik", className: "channelLogo" })}Sklik výsledky</span>
     <div class="contentGrid wideLeft">
       <div>
-        <h2>Sklik v červnu navýšil objem a snížil CPC.</h2>
-        <p class="sectionLead">Sklik přinesl meziročně i meziměsíčně silnější objem prokliků a zobrazení. CPC klesá na 8,22 Kč, takže nárůst čerpání je spojený hlavně s vyšším rozsahem kampaní, ne s dražším klikem.</p>
+        <h2>Sklik v červnu doručil 241 konverzí a zároveň navýšil objem.</h2>
+        <p class="sectionLead">Hlavním výsledkem Skliku jsou konverze, vedle nich je vidět i silnější objem prokliků a zobrazení. CPC klesá na 8,22 Kč, takže nárůst čerpání je spojený hlavně s vyšším rozsahem kampaní, ne s dražším klikem.</p>
         <div class="sourceSummary compactSummary">
           <h3>Čtení Skliku</h3>
           <p>${sklikComment}</p>

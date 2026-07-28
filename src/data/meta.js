@@ -252,44 +252,52 @@ const flightCampaigns = [
 
 const boostAssets = [
   {
-    id: "bm-engagement-overview",
-    label: "Engagement overview · Business Manager",
-    alt: "Business Manager přehled engagement boostovaných příspěvků",
-    src: "assets/report-jun-26/meta/boosting/bm-engagement-overview-thumb.png",
-    fullSrc: "assets/report-jun-26/meta/boosting/bm-engagement-overview.png",
-    image_size: { width: 3374, height: 830 }
+    id: "boost-engagement-facebook-high",
+    label: "Klíště: jak vybrat",
+    alt: "Facebook příspěvek Klíště jak vybrat s palcem nahoru",
+    src: "assets/report-jun-26/meta/boosting/posts/engagement-facebook-high-thumb.png",
+    fullSrc: "assets/report-jun-26/meta/boosting/posts/engagement-facebook-high.png",
+    image_size: { width: 535, height: 1226 }
   },
   {
-    id: "engagement-fb-ig-detail",
-    label: "Kreativa · klíště jak vybrat",
-    alt: "Engagement kreativa klíště jak vybrat pro Facebook a Instagram",
-    src: "assets/report-jun-26/meta/boosting/engagement-fb-ig-detail-thumb.png",
-    fullSrc: "assets/report-jun-26/meta/boosting/engagement-fb-ig-detail.png",
-    image_size: { width: 3402, height: 1888 }
+    id: "boost-engagement-instagram-high",
+    label: "Klíště: jak vybrat",
+    alt: "Instagram příspěvek Klíště jak vybrat s palcem nahoru",
+    src: "assets/report-jun-26/meta/boosting/posts/engagement-instagram-high-thumb.png",
+    fullSrc: "assets/report-jun-26/meta/boosting/posts/engagement-instagram-high.png",
+    image_size: { width: 560, height: 1234 }
   },
   {
-    id: "bm-traffic-overview",
-    label: "Traffic overview · Business Manager",
-    alt: "Business Manager přehled traffic boostovaných příspěvků",
-    src: "assets/report-jun-26/meta/boosting/bm-traffic-overview-thumb.png",
-    fullSrc: "assets/report-jun-26/meta/boosting/bm-traffic-overview.png",
-    image_size: { width: 3420, height: 1822 }
+    id: "boost-traffic-facebook-high",
+    label: "Netypické příznaky menopauzy",
+    alt: "Facebook příspěvek Netypické příznaky menopauzy s palcem nahoru",
+    src: "assets/report-jun-26/meta/boosting/posts/traffic-facebook-high-thumb.png",
+    fullSrc: "assets/report-jun-26/meta/boosting/posts/traffic-facebook-high.png",
+    image_size: { width: 510, height: 1167 }
   },
   {
-    id: "traffic-facebook-detail",
-    label: "Traffic kreativy · Facebook",
-    alt: "Traffic kreativy pro Facebook: menopauza a letní slevy",
-    src: "assets/report-jun-26/meta/boosting/traffic-facebook-detail-thumb.png",
-    fullSrc: "assets/report-jun-26/meta/boosting/traffic-facebook-detail.png",
-    image_size: { width: 1458, height: 1420 }
+    id: "boost-traffic-facebook-low",
+    label: "Týden letních slev",
+    alt: "Facebook příspěvek Týden letních slev s palcem dolů",
+    src: "assets/report-jun-26/meta/boosting/posts/traffic-facebook-low-thumb.png",
+    fullSrc: "assets/report-jun-26/meta/boosting/posts/traffic-facebook-low.png",
+    image_size: { width: 445, height: 1156 }
   },
   {
-    id: "traffic-instagram-detail",
-    label: "Traffic kreativy · Instagram",
-    alt: "Traffic kreativy pro Instagram: menopauza a letní slevy",
-    src: "assets/report-jun-26/meta/boosting/traffic-instagram-detail-thumb.png",
-    fullSrc: "assets/report-jun-26/meta/boosting/traffic-instagram-detail.png",
-    image_size: { width: 1502, height: 1402 }
+    id: "boost-traffic-instagram-high",
+    label: "Netypické příznaky menopauzy",
+    alt: "Instagram příspěvek Netypické příznaky menopauzy s palcem nahoru",
+    src: "assets/report-jun-26/meta/boosting/posts/traffic-instagram-high-thumb.png",
+    fullSrc: "assets/report-jun-26/meta/boosting/posts/traffic-instagram-high.png",
+    image_size: { width: 540, height: 1132 }
+  },
+  {
+    id: "boost-traffic-instagram-low",
+    label: "Týden letních slev",
+    alt: "Instagram příspěvek Týden letních slev s palcem dolů",
+    src: "assets/report-jun-26/meta/boosting/posts/traffic-instagram-low-thumb.png",
+    fullSrc: "assets/report-jun-26/meta/boosting/posts/traffic-instagram-low.png",
+    image_size: { width: 442, height: 1105 }
   }
 ];
 
@@ -300,14 +308,13 @@ const boostSections = [
     id: "engagement",
     title: "Engagement",
     objective: "Cílem engagement boostu jsou reakce, komentáře, sdílení a interakce s příspěvkem. Tady nejde primárně o návštěvu webu, ale o to, které téma dokáže samo vytáhnout odezvu publika.",
-    overview: "bm-engagement-overview",
     rows: [
       {
         id: "engagement-fb-kliste",
-        rowLabel: "fb | kliste-jak-vybrat | statika | 06-26",
         title: "Klíště: jak vybrat",
         platform: "Facebook",
-        asset: "engagement-fb-ig-detail",
+        asset: "boost-engagement-facebook-high",
+        classification: "high",
         results: 596,
         cost: 0.84,
         reactions: 233,
@@ -323,10 +330,10 @@ const boostSections = [
       },
       {
         id: "engagement-ig-kliste",
-        rowLabel: "ig | kliste-jak-vybrat | statika | 06-26",
         title: "Klíště: jak vybrat",
         platform: "Instagram",
-        asset: "engagement-fb-ig-detail",
+        asset: "boost-engagement-instagram-high",
+        classification: "high",
         results: 263,
         cost: 1.9,
         reactions: 120,
@@ -346,14 +353,13 @@ const boostSections = [
     id: "traffic",
     title: "Traffic",
     objective: "Traffic boost hodnotí schopnost příspěvků přivést uživatele na web nebo landing page. Tady je důležitější klik, cena za návštěvu a CTR než samotná reakce pod příspěvkem.",
-    overview: "bm-traffic-overview",
     rows: [
-      { id: "traffic-ig-menopauza", rowLabel: "ig | netypicke-priznaky-menopauzy | statika", title: "Netypické příznaky menopauzy", platform: "Instagram", asset: "traffic-instagram-detail", results: 341, cost: 1.46, ctr: 4.48, reach: "7 220", impressions: "9 114", spend: "499,31 Kč" },
-      { id: "traffic-fb-menopauza", rowLabel: "fb | netypicke-priznaky-menopauzy | statika", title: "Netypické příznaky menopauzy", platform: "Facebook", asset: "traffic-facebook-detail", results: 286, cost: 1.49, ctr: 4.67, reach: "6 609", impressions: "7 829", spend: "424,86 Kč" },
+      { id: "traffic-ig-menopauza", title: "Netypické příznaky menopauzy", platform: "Instagram", asset: "boost-traffic-instagram-high", classification: "high", results: 341, cost: 1.46, ctr: 4.48, reach: "7 220", impressions: "9 114", spend: "499,31 Kč" },
+      { id: "traffic-fb-menopauza", title: "Netypické příznaky menopauzy", platform: "Facebook", asset: "boost-traffic-facebook-high", classification: "high", results: 286, cost: 1.49, ctr: 4.67, reach: "6 609", impressions: "7 829", spend: "424,86 Kč" },
       { id: "traffic-fb-merilin-sampon", rowLabel: "fb | merilin-sampon-novinka | statika | 06-26", title: "Merilin šampon novinka", platform: "Facebook", results: 172, cost: 2.9, ctr: 2.58, reach: "5 737", impressions: "9 602", spend: "498,50 Kč" },
       { id: "traffic-fb-vlasske-orechy", rowLabel: "fb | blog-vlasske-orechy | statika | 06-26", title: "Blog: vlašské ořechy", platform: "Facebook", results: 125, cost: 4, ctr: 1.99, reach: "6 082", impressions: "8 453", spend: "499,78 Kč" },
-      { id: "traffic-fb-novy-kamzik", rowLabel: "fb | novy-kamzik | album | 06-26", title: "Nový Kamzík", platform: "Facebook", asset: "traffic-facebook-detail", results: 124, cost: 8.06, ctr: 1.78, reach: "5 102", impressions: "9 746", spend: "999,65 Kč" },
-      { id: "traffic-ig-novy-kamzik", rowLabel: "ig | novy-kamzik | statika | 06-26", title: "Nový Kamzík", platform: "Instagram", asset: "traffic-instagram-detail", results: 124, cost: 8.06, ctr: 1.92, reach: "4 082", impressions: "7 804", spend: "999,52 Kč" },
+      { id: "traffic-fb-letni-slevy", title: "Týden letních slev", platform: "Facebook", asset: "boost-traffic-facebook-low", classification: "low", results: 124, cost: 8.06, ctr: 1.78, reach: "5 102", impressions: "9 746", spend: "999,65 Kč" },
+      { id: "traffic-ig-letni-slevy", title: "Týden letních slev", platform: "Instagram", asset: "boost-traffic-instagram-low", classification: "low", results: 124, cost: 8.06, ctr: 1.92, reach: "4 082", impressions: "7 804", spend: "999,52 Kč" },
       { id: "traffic-ig-merilin-sampon", rowLabel: "ig | merilin-sampon-novinka | statika | 06-26", title: "Merilin šampon novinka", platform: "Instagram", results: 115, cost: 4.34, ctr: 2.37, reach: "3 718", impressions: "5 448", spend: "498,54 Kč" },
       { id: "traffic-fb-kamzik-foto", rowLabel: "fb | kamzik-novy-foto | statika | 06-26", title: "Kamzík nový foto", platform: "Facebook", results: 102, cost: 4.87, ctr: 2.14, reach: "3 859", impressions: "6 498", spend: "496,41 Kč" },
       { id: "traffic-ig-gs-merilin", rowLabel: "ig | gs-merillin | statika | 06-26", title: "GS Merilin", platform: "Instagram", results: 100, cost: 4.99, ctr: 1.82, reach: "4 738", impressions: "6 979", spend: "498,59 Kč" },
@@ -364,10 +370,10 @@ const boostSections = [
 ];
 
 const boostTakeaways = [
-  "V každém boostovacím bloku je nejdřív Business Manager přehled jako zdroj pravdy.",
-  "Nejúspěšnější příspěvky jsou odvozené z řádků přehledu, ne z ručně vybraných kreativ.",
-  "Kreativa v kartě vždy odkazuje na konkrétní řádek a používá stejné metriky jako přehled.",
-  "Příspěvky s prostorem ke zlepšení se zobrazí jen tam, kde je slabší výkon jednoznačný."
+  "HIGH příspěvky ukazují formáty, které v červnu nejlépe spojily výsledek a cenu.",
+  "LOW příspěvky bereme jako prostor k úpravě kreativy, claimu nebo cílení.",
+  "Engagement dobře vytáhl edukativní obsah ke klíšťatům.",
+  "Traffic nejlépe fungoval u menopauzálního tématu, slabší byla letní slevová komunikace."
 ];
 
 const assetById = Object.fromEntries(metaAssets.map((asset) => [asset.id, asset]));
@@ -391,31 +397,27 @@ export const metaSectionHtml = `
 function renderLongTermCampaign(campaign) {
   return `
     <details class="metaCampaign metaLongTerm">
-      <summary>
+      <summary class="metaCampaignHeader">
         <div class="metaSummary">
           <h3>${campaign.title}</h3>
-          <p>${campaign.period} · ${campaign.conclusion}</p>
+          <p><span>${campaign.period}</span><span>Meta kampaň</span><span>${campaign.conclusion}</span></p>
         </div>
-        <div class="metaKpis">
+        <div class="metaKpis metaHeaderKpis">
           ${metaKpi("Nákupy", campaign.current.purchases, campaign.deltas[0])}
           ${metaKpi("PNO", campaign.current.pno, campaign.deltas[1])}
           ${metaKpi("Investice", campaign.current.spend, campaign.deltas[2])}
-          <span class="detailBtn">Detail ⌄</span>
         </div>
+        <span class="metaDetailIcon" aria-hidden="true">⌄</span>
       </summary>
-      <div class="metaBody">
-        <div class="detailGrid">
-          <div>
-            <span class="pill">Aktuální měsíc vs. předchozí měsíc</span>
-            ${comparisonGrid(campaign)}
-            ${interpretationBlock(campaign.interpretation)}
-          </div>
-          <div class="metaSourceBlock">
-            <span class="pill blue">Kreativa a výkon</span>
-            ${renderAssetGallery(campaignGalleryAssets(campaign))}
-          </div>
+      <div class="metaBody metaCampaignBody">
+        <div class="metaCampaignKpiRow">
+          ${comparisonGrid(campaign)}
         </div>
-        ${campaign.creatives ? `<div class="metaCreativeSection"><span class="pill blue">Top kreativy</span><div class="creativeGrid">${campaign.creatives.map(renderCreative).join("")}</div></div>` : ""}
+        <div class="metaEditorialGrid ${campaign.creatives ? "" : "evidenceOnly"}">
+          ${renderCampaignPrimaryVisual(campaign)}
+          ${renderEvidenceSection(campaign)}
+        </div>
+        ${interpretationBlock(campaign.interpretation)}
       </div>
     </details>
   `;
@@ -424,25 +426,19 @@ function renderLongTermCampaign(campaign) {
 function renderLeadCampaign(lead) {
   return `
     <details class="metaCampaign metaLead">
-      <summary>
-        <div class="metaSummary"><h3>${lead.title}</h3><p>${lead.period} · stabilní počet výsledků při mírně lepší ceně za výsledek.</p></div>
-        <div class="metaKpis">
+      <summary class="metaCampaignHeader">
+        <div class="metaSummary"><h3>${lead.title}</h3><p><span>${lead.period}</span><span>Lead kampaň</span><span>Stabilní počet výsledků při mírně lepší ceně za výsledek.</span></p></div>
+        <div class="metaKpis metaHeaderKpis">
           ${lead.metrics.map((metric) => `<div class="metaKpi"><span>${metric.label}</span><strong>${metric.value}</strong><small>${metric.previous}</small></div>`).join("")}
-          <span class="detailBtn">Detail ⌄</span>
         </div>
+        <span class="metaDetailIcon" aria-hidden="true">⌄</span>
       </summary>
-      <div class="metaBody">
-        <div class="detailGrid">
-          <div>
-            <span class="pill">Lead výkon</span>
-            <div class="metaLeadMetrics">${lead.metrics.map((metric) => `<div><span>${metric.label}</span><strong>${metric.value}</strong><small>${metric.previous}</small></div>`).join("")}</div>
-            <div class="metaInterpretation"><h4>Interpretace</h4><p>${lead.interpretation}</p></div>
-          </div>
-          <div class="metaSourceBlock">
-            <span class="pill blue">Kreativa a výkon</span>
-            ${renderAssetGallery(lead.assets)}
-          </div>
+      <div class="metaBody metaCampaignBody">
+        <div class="metaLeadMetrics metaCampaignKpiRow">${lead.metrics.map((metric) => `<div><span>${metric.label}</span><strong>${metric.value}</strong><small>${metric.previous}</small></div>`).join("")}</div>
+        <div class="metaEditorialGrid evidenceOnly">
+          ${renderEvidenceSection(lead)}
         </div>
+        <div class="metaInterpretation"><h4>Insight</h4><p>${lead.interpretation}</p></div>
       </div>
     </details>
   `;
@@ -531,8 +527,9 @@ function comparisonGrid(campaign) {
 
 function interpretationBlock(copy) {
   return `<div class="metaInterpretation">
-    <h4>Co se stalo</h4><p>${copy.happened}</p>
-    <h4>Co data pravděpodobně znamenají</h4><p>${copy.meaning}</p>
+    <h4>Insight</h4>
+    <p>${copy.happened}</p>
+    <p>${copy.meaning}</p>
   </div>`;
 }
 
@@ -547,6 +544,31 @@ function renderCreative(item) {
     </a>
     ${resultAsset ? assetThumb(resultAsset, resultAsset.label) : ""}
   </div>`;
+}
+
+function renderCampaignPrimaryVisual(campaign) {
+  const creative = campaign.creatives?.[0];
+  if (!creative) return "";
+  const asset = assetById[creative.asset];
+  if (!asset) return "";
+
+  return `<section class="metaPrimaryVisual">
+    <div class="metaSectionLabel">Creative preview</div>
+    <a class="creativeThumb metaPrimaryCreative" href="${asset.fullSrc}">
+      <img src="${asset.src}" alt="${asset.alt}" loading="lazy" decoding="async">
+      <span>${creative.title}<small>${creative.metrics}</small><small>${creative.label}</small></span>
+    </a>
+  </section>`;
+}
+
+function renderEvidenceSection(item) {
+  const evidenceAssets = evidenceAssetIds(item);
+  if (!evidenceAssets.length) return "";
+
+  return `<section class="metaEvidenceSection">
+    <div class="metaSectionLabel">Evidence</div>
+    ${renderAssetGallery(evidenceAssets, "metaEvidenceGallery")}
+  </section>`;
 }
 
 function renderAssetGallery(assetIds, className = "") {
@@ -567,20 +589,20 @@ function assetThumb(asset, customLabel = asset.label) {
   </a>`;
 }
 
-function campaignGalleryAssets(campaign) {
-  const topCreativeAssets = campaign.creatives
-    ? campaign.creatives.flatMap((creative) => [creative.asset, creative.resultAsset].filter(Boolean))
+function evidenceAssetIds(item) {
+  const creativeResultAssets = item.creatives
+    ? item.creatives.map((creative) => creative.resultAsset).filter(Boolean)
     : [];
 
-  return [...topCreativeAssets, ...campaign.assets];
+  return [...creativeResultAssets, ...item.assets];
 }
 
 function renderBoostingSection() {
   return `<div class="metaBoostingPanel glass">
     <div class="metaBoostVerdict">
       <span class="pill systemPill">${SystemLogo({ system: "meta", label: "Meta", className: "channelLogo" })}Meta · boostování</span>
-      <h2>Boostování v červnu čteme od přehledu v Business Manageru: nejdřív zdroj pravdy, potom navázané příspěvky a jejich metriky.</h2>
-      <p>Každá karta níže vychází z konkrétního řádku v přehledu. Díky tomu je jasné, která kreativa patří ke kterým výsledkům a proč se dostala mezi nejúspěšnější příspěvky nebo mezi položky s prostorem ke zlepšení.</p>
+      <h2>Boostování v červnu ukazuje jasný rozdíl mezi příspěvky, které táhly reakce nebo návštěvy, a těmi, které potřebují doladit.</h2>
+      <p>Každá karta pracuje se samostatným výřezem konkrétního příspěvku. Palec ve výřezu drží zařazení do HIGH nebo LOW performerů, metriky pak doplňují rychlé čtení výkonu.</p>
     </div>
     ${boostSections.map(renderBoostSection).join("")}
     <div class="metaBoostTakeaways">
@@ -591,8 +613,8 @@ function renderBoostingSection() {
 }
 
 function renderBoostSection(section) {
-  const highlights = boostHighlights(section);
-  const needsAttention = boostNeedsAttention(section);
+  const highlights = boostPerformers(section, "high");
+  const needsAttention = boostPerformers(section, "low");
 
   return `<div class="metaBoostSection">
     <div class="metaBoostSectionHead">
@@ -600,11 +622,10 @@ function renderBoostSection(section) {
         <h3>${section.title}</h3>
         <p>${section.objective}</p>
         <div class="metaBoostTruthNote">
-          <b>Přehled z Business Manageru je zdroj pravdy.</b>
-          <span>Výběr příspěvků níže vzniká z řádků v tomto přehledu a drží vazbu řádek → kreativa → metriky.</span>
+          <b>Palec ve výřezu určuje zařazení.</b>
+          <span>Zobrazujeme jen příspěvky, kde je klasifikace jasně viditelná.</span>
         </div>
       </div>
-      ${boostAssetThumb(section.overview, `${section.title} overview`, "wide")}
     </div>
     ${renderBoostPerformerGroup(section, highlights, "highlight")}
     ${needsAttention.length ? renderBoostPerformerGroup(section, needsAttention, "attention") : ""}
@@ -612,14 +633,14 @@ function renderBoostSection(section) {
 }
 
 function renderBoostPerformerGroup(section, rows, role) {
-  const title = role === "highlight" ? "Nejúspěšnější příspěvky" : "Příspěvky s prostorem ke zlepšení";
+  const title = role === "highlight" ? "HIGH performers" : "LOW performers";
   const lead = role === "highlight"
-    ? "Výběr vzniká automaticky z nejsilnějších řádků podle platformy."
-    : "Zobrazujeme jen příspěvky, kde je slabší výkon dostatečně jednoznačný.";
+    ? "Příspěvky s palcem nahoru a nejsilnějším čtením výkonu."
+    : "Příspěvky s palcem dolů, kde je prostor zlepšit kreativu nebo očekávání uživatele.";
 
   return `<div class="metaBoostPerformerGroup ${role}">
     <div class="metaBoostPerformerHead">
-      <span>${role === "highlight" ? "Highlights" : "Needs Attention"}</span>
+      <span>${role === "highlight" ? "HIGH performer" : "LOW performer"}</span>
       <h4>${title}</h4>
       <p>${lead}</p>
     </div>
@@ -630,48 +651,30 @@ function renderBoostPerformerGroup(section, rows, role) {
 }
 
 function renderBoostPerformerCard(section, row, role) {
+  const asset = boostAssetById[row.asset];
+  if (!asset) return "";
+  const performerLabel = role === "highlight" ? "HIGH performer" : "LOW performer";
   return `<article class="metaBoostPerformer ${role}">
-    ${boostAssetThumb(row.asset, `Kreativa · ${row.platform}`, "performer")}
+    ${boostPostThumb(asset, row, performerLabel, role)}
     <div class="metaBoostPerformerBody">
       <div class="metaBoostPerformerTop">
         <span>${row.platform}</span>
-        <i>${role === "highlight" ? "Nejúspěšnější" : "Prostor ke zlepšení"}</i>
+        <i>${performerLabel}</i>
       </div>
       <h5>${row.title}</h5>
-      <div class="metaBoostRowLink">
-        <span>Vazba na přehled</span>
-        <b>${row.rowLabel}</b>
-      </div>
       <div class="metaBoostMetricGrid">
         ${boostMetrics(section, row).map((metric) => `<div><span>${metric.label}</span><strong>${metric.value}</strong></div>`).join("")}
       </div>
       <p>${boostAutoComment(section, row, role)}</p>
+      <a class="metaBoostOpen" href="${asset.fullSrc}">Otevřít detail</a>
     </div>
   </article>`;
 }
 
-function boostHighlights(section) {
-  const leaders = new Map();
-  section.rows
-    .filter((row) => row.asset)
-    .forEach((row) => {
-      const current = leaders.get(row.platform);
-      if (!current || row.results > current.results || (row.results === current.results && row.cost < current.cost)) {
-        leaders.set(row.platform, row);
-      }
-    });
-
-  return [...leaders.values()].sort((a, b) => b.results - a.results);
-}
-
-function boostNeedsAttention(section) {
-  if (section.id !== "traffic") return [];
-  const avgCost = section.rows.reduce((sum, row) => sum + row.cost, 0) / section.rows.length;
-  const avgCtr = section.rows.reduce((sum, row) => sum + row.ctr, 0) / section.rows.length;
-
+function boostPerformers(section, classification) {
   return section.rows
-    .filter((row) => row.asset && row.cost >= avgCost * 1.45 && row.ctr < avgCtr)
-    .sort((a, b) => b.cost - a.cost || a.ctr - b.ctr);
+    .filter((row) => row.asset && row.classification === classification)
+    .sort((a, b) => b.results - a.results || a.cost - b.cost);
 }
 
 function boostMetrics(section, row) {
@@ -688,7 +691,7 @@ function boostMetrics(section, row) {
 function boostAutoComment(section, row, role) {
   if (section.id === "engagement") {
     return role === "highlight"
-      ? `Nejsilnější ${row.platform} řádek v engagement přehledu: vysoký počet interakcí při ceně ${row.cost.toFixed(2).replace(".", ",")} Kč za výsledek.`
+      ? `Silný edukativní příspěvek: vysoký počet interakcí při ceně ${row.cost.toFixed(2).replace(".", ",")} Kč za výsledek.`
       : `Nižší počet engagementů při vyšší ceně za výsledek oproti ostatním boostovaným příspěvkům.`;
   }
 
@@ -699,15 +702,12 @@ function boostAutoComment(section, row, role) {
   return `Vyšší cena za návštěvu a podprůměrné CTR oproti ostatním trafficovým příspěvkům. Tady výkon stojí za další úpravu nebo opatrnější podporu.`;
 }
 
-function boostAssetThumb(assetId, customLabel, variant = "") {
-  const asset = boostAssetById[assetId];
-  if (!asset) return "";
-  const label = customLabel || asset.label;
+function boostPostThumb(asset, row, performerLabel, role) {
   const { width = 0, height = 0 } = asset.image_size || {};
-  const isWide = variant === "wide" || (variant !== "performer" && width && height && width / height >= 1.8);
   const ratioStyle = width && height ? ` style="--asset-ratio:${width} / ${height}"` : "";
-  return `<a class="creativeThumb metaAssetThumb metaBoostThumb${isWide ? " wideAsset" : ""}${variant === "performer" ? " performerAsset" : ""}" href="${asset.fullSrc}"${ratioStyle}>
+  return `<a class="metaBoostPostThumb ${role}" href="${asset.fullSrc}"${ratioStyle} aria-label="Otevřít detail: ${row.title}">
+    <span class="metaBoostPostBadge">${performerLabel}</span>
     <img src="${asset.src}" alt="${asset.alt}" loading="lazy" decoding="async">
-    <span>${label}</span>
+    <span class="metaBoostPostCta">Otevřít detail</span>
   </a>`;
 }

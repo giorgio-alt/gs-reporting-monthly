@@ -13,7 +13,7 @@ export function initLightbox() {
   const lightbox = document.getElementById("imageLightbox");
   const lightboxImg = lightbox?.querySelector("img");
   const lightboxClose = lightbox?.querySelector(".lightboxClose");
-  const triggers = document.querySelectorAll("a.creativeThumb, a.visualItem");
+  const triggers = document.querySelectorAll("a.creativeThumb, a.visualItem, a.metaBoostPostThumb, a.metaBoostOpen");
 
   function closeLightbox() {
     if (!lightbox || !lightboxImg) return;
