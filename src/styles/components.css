@@ -672,6 +672,388 @@ h2 .sectionLogo {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
+.delta.neutral {
+  background: rgba(100, 117, 107, 0.13);
+  color: var(--muted);
+}
+
+.businessYtdPanel {
+  margin-top: clamp(22px, 3vw, 38px);
+}
+
+.businessYtdHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.businessYtdHeader h2 {
+  margin: 0;
+  color: #0d261b;
+  font-size: clamp(28px, 3.1vw, 42px);
+  line-height: 1.05;
+  letter-spacing: 0;
+}
+
+.businessYtdHeader p {
+  max-width: 760px;
+  margin-top: 8px;
+  color: #52675c;
+  font-size: 14px;
+  font-weight: 650;
+}
+
+.businessDataPill {
+  background: rgba(5, 74, 49, 0.1);
+  color: #075235;
+}
+
+.businessPeriodBadge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 9px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.66);
+  border: 1px solid rgba(255, 255, 255, 0.82);
+  color: #405648;
+  font-size: 12px;
+  font-weight: 950;
+  white-space: nowrap;
+}
+
+.businessYtdGrid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(12px, 1.5vw, 18px);
+  margin: 18px 0 0;
+}
+
+.businessYtdKpi {
+  min-width: 0;
+  background: rgba(255, 255, 255, 0.72);
+  border-color: rgba(255, 255, 255, 0.86);
+}
+
+.businessYtdKpi strong {
+  font-size: clamp(20px, 1.9vw, 28px);
+}
+
+.businessYtdKpi .delta {
+  width: fit-content;
+  max-width: 100%;
+  white-space: normal;
+}
+
+.businessDynamicsKpi dl {
+  display: grid;
+  gap: 8px;
+  margin: 12px 0 0;
+}
+
+.businessDynamicsKpi dl div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-width: 0;
+  padding: 9px 10px;
+  border-radius: 14px;
+  background: rgba(0, 107, 63, 0.055);
+}
+
+.businessDynamicsKpi dt,
+.businessDynamicsKpi dd {
+  margin: 0;
+}
+
+.businessDynamicsKpi dt {
+  color: #66786e;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.businessDynamicsKpi dd {
+  color: #173324;
+  font-size: 13px;
+  font-weight: 900;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.businessMonthContext,
+.businessTrendPanel,
+.businessYtdComment,
+.ga4MethodNote {
+  margin-top: clamp(16px, 2vw, 24px);
+}
+
+.businessMonthContext {
+  padding: clamp(16px, 1.8vw, 22px);
+  border-radius: 24px;
+  background: rgba(247, 251, 248, 0.72);
+  border: 1px solid rgba(0, 107, 63, 0.1);
+}
+
+.businessMonthHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.businessMonthHead span {
+  color: #6a7d72;
+  font-size: 11px;
+  font-weight: 950;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.businessMonthHead strong {
+  color: var(--gs-green);
+  font-size: 13px;
+  font-weight: 950;
+}
+
+.businessMonthGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.businessMonthItem {
+  min-width: 0;
+  padding: 14px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.82);
+}
+
+.businessMonthItem span,
+.businessMonthItem small {
+  display: block;
+}
+
+.businessMonthItem span {
+  color: #66786e;
+  font-size: 11px;
+  font-weight: 950;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.businessMonthItem strong {
+  display: block;
+  margin-top: 6px;
+  color: #10231b;
+  font-size: clamp(18px, 1.8vw, 24px);
+  font-weight: 850;
+  line-height: 1.05;
+  white-space: nowrap;
+}
+
+.businessMonthItem small {
+  margin-top: 7px;
+  color: #66786e;
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.businessMonthItem small.up {
+  color: #087a43;
+}
+
+.businessMonthItem small.down {
+  color: #b91c1c;
+}
+
+.businessTrendPanel {
+  padding: clamp(16px, 1.8vw, 22px);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid rgba(255, 255, 255, 0.78);
+}
+
+.businessTrendHead {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.businessTrendHead .sectionSubhead {
+  display: block;
+  margin: 0 0 6px;
+}
+
+.businessTrendHead p {
+  color: #66786e;
+  font-size: 12px;
+  font-weight: 720;
+}
+
+.businessTrendLegend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.businessTrendLegend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #66786e;
+  font-size: 11px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.businessTrendLegend i {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+}
+
+.businessTrendLegend .previous {
+  background: #b7c2bc;
+}
+
+.businessTrendLegend .current {
+  background: var(--gs-green);
+}
+
+.businessTrendLegend .costs {
+  background: #0f766e;
+}
+
+.businessTrendChart {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.businessTrendGroup {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-rows: 150px auto;
+  gap: 10px 12px;
+  min-width: 0;
+  padding: 14px;
+  border-radius: 20px;
+  background: rgba(247, 251, 248, 0.72);
+  border: 1px solid rgba(0, 107, 63, 0.08);
+}
+
+.businessTrendGroup > strong {
+  grid-column: 1 / -1;
+  color: #405648;
+  font-size: 12px;
+  font-weight: 950;
+  text-align: center;
+}
+
+.businessTrendBars {
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  gap: 8px;
+  min-width: 0;
+  min-height: 130px;
+  padding: 12px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.68);
+  border: 1px solid rgba(255, 255, 255, 0.72);
+}
+
+.businessTrendBars::before {
+  align-self: flex-start;
+  margin-right: auto;
+  color: #829188;
+  font-size: 10px;
+  font-weight: 950;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+.revenueBars::before {
+  content: "Tržby";
+}
+
+.costBars::before {
+  content: "Náklady";
+}
+
+.businessTrendBars > i {
+  align-self: end;
+  display: block;
+  width: clamp(20px, 3vw, 32px);
+  height: var(--bar-height);
+  min-height: 10px;
+  border-radius: 999px 999px 8px 8px;
+  background: var(--gs-green);
+  box-shadow: 0 10px 22px rgba(0, 107, 63, 0.16);
+}
+
+.businessTrendBars > i.previous {
+  background: #b7c2bc;
+  box-shadow: none;
+}
+
+.businessTrendBars > i.costs {
+  background: #0f766e;
+  box-shadow: 0 10px 22px rgba(15, 118, 110, 0.14);
+}
+
+.businessTrendMissing {
+  align-self: center;
+  color: #829188;
+  font-size: 11px;
+  font-weight: 850;
+  line-height: 1.25;
+  text-align: center;
+}
+
+.businessYtdComment {
+  display: grid;
+  gap: 8px;
+  padding: clamp(17px, 1.9vw, 24px);
+  border-radius: 24px;
+  background: rgba(0, 107, 63, 0.06);
+  border: 1px solid rgba(0, 107, 63, 0.1);
+}
+
+.businessYtdComment h3 {
+  margin: 0;
+  color: #173324;
+  font-size: 22px;
+  letter-spacing: -0.035em;
+}
+
+.businessYtdComment p {
+  color: #405648;
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1.58;
+}
+
+.ga4MethodNote {
+  padding: 13px 16px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.56);
+  border: 1px solid rgba(0, 107, 63, 0.08);
+  color: #5b7065;
+  font-size: 13px;
+  font-weight: 720;
+  line-height: 1.45;
+}
+
 .compactSourceTable {
   font-size: 12px;
 }
@@ -3668,6 +4050,10 @@ details[open] > summary {
 }
 
 @media (max-width: 1180px) {
+  .businessYtdGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .behaviorJourneyGrid,
   .behaviorTrendGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -3679,6 +4065,30 @@ details[open] > summary {
 }
 
 @media (max-width: 760px) {
+  .businessYtdHeader,
+  .businessTrendHead {
+    display: grid;
+  }
+
+  .businessPeriodBadge {
+    justify-self: start;
+  }
+
+  .businessYtdGrid,
+  .businessMonthGrid,
+  .businessTrendChart {
+    grid-template-columns: 1fr;
+  }
+
+  .businessTrendLegend {
+    justify-content: flex-start;
+  }
+
+  .businessTrendGroup {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 138px) auto;
+  }
+
   .behaviorJourneyGrid,
   .behaviorTrendGrid,
   .behaviorInsightGrid,

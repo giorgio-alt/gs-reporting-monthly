@@ -147,6 +147,7 @@ const brandCostRows = [
 const normalizeNumberSpacing = (value) => value.replace(/\u00a0/g, " ");
 const formatCurrency = (value) => `${normalizeNumberSpacing(new Intl.NumberFormat("cs-CZ").format(value))} Kč`;
 const formatPercent = (value) => `${normalizeNumberSpacing(new Intl.NumberFormat("cs-CZ", { minimumFractionDigits: 1, maximumFractionDigits: 1 }).format(value))} %`;
+const formatPercentPrecise = (value) => `${normalizeNumberSpacing(new Intl.NumberFormat("cs-CZ", { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(value))} %`;
 const formatBudgetMonth = (month) => {
   const [year, monthNumber] = month.split("-");
   return `${monthNumber}/${year}`;
@@ -169,8 +170,82 @@ const ytdFulfillment = (ytdActual / ytdPlanned) * 100;
 const ytdVariance = ytdActual - ytdPlanned;
 const budgetPeriodLabel = `${formatBudgetMonth(mediaBudget[0].month)}–${formatBudgetMonth(activeBudgetMonth.month)}`;
 const signedCurrency = (value) => `${value > 0 ? "+" : value < 0 ? "-" : ""}${formatCurrency(Math.abs(value))}`;
+const unavailableLabel = "Data nejsou k dispozici";
+
+const isNumber = (value) => typeof value === "number" && Number.isFinite(value);
+const safePercentChange = (current, previous) => isNumber(current) && isNumber(previous) && previous !== 0
+  ? ((current - previous) / previous) * 100
+  : null;
+const safePno = (costs, revenue) => isNumber(costs) && isNumber(revenue) && revenue !== 0
+  ? (costs / revenue) * 100
+  : null;
+const maybeCurrency = (value) => isNumber(value) ? formatCurrency(value) : unavailableLabel;
+const maybePercent = (value, formatter = formatPercent) => isNumber(value) ? formatter(value) : unavailableLabel;
+const signedPercent = (value, formatter = formatPercentPrecise) => isNumber(value)
+  ? `${value > 0 ? "+" : ""}${formatter(value)}`
+  : unavailableLabel;
+const signedPp = (value) => isNumber(value)
+  ? `${value > 0 ? "+" : ""}${formatPercent(value).replace(" %", " p. b.")}`
+  : unavailableLabel;
+
+const businessPerformance = {
+  label: "Business / interní data",
+  ytd: {
+    period: "01–06/2026",
+    revenue: 22701398,
+    revenuePreviousYear: 22179907,
+    marketingCosts: ytdActual,
+    marketingCostsPreviousYear: null
+  },
+  currentMonth: {
+    period: "06/2026",
+    revenue: 3768005,
+    revenuePreviousYear: 3416196,
+    marketingCosts: activeBudgetMonth.actual,
+    marketingCostsPreviousYear: null
+  },
+  trend: [
+    {
+      label: "YTD 01–06",
+      revenue: 22701398,
+      revenuePreviousYear: 22179907,
+      marketingCosts: ytdActual,
+      marketingCostsPreviousYear: null
+    },
+    {
+      label: "06/2026",
+      revenue: 3768005,
+      revenuePreviousYear: 3416196,
+      marketingCosts: activeBudgetMonth.actual,
+      marketingCostsPreviousYear: null
+    }
+  ]
+};
+
+const businessYtdRevenueYoY = safePercentChange(businessPerformance.ytd.revenue, businessPerformance.ytd.revenuePreviousYear);
+const businessYtdRevenueDiff = businessPerformance.ytd.revenue - businessPerformance.ytd.revenuePreviousYear;
+const businessYtdCostsYoY = safePercentChange(businessPerformance.ytd.marketingCosts, businessPerformance.ytd.marketingCostsPreviousYear);
+const businessYtdPno = safePno(businessPerformance.ytd.marketingCosts, businessPerformance.ytd.revenue);
+const businessYtdPnoPrevious = safePno(businessPerformance.ytd.marketingCostsPreviousYear, businessPerformance.ytd.revenuePreviousYear);
+const businessYtdPnoChange = isNumber(businessYtdPno) && isNumber(businessYtdPnoPrevious) ? businessYtdPno - businessYtdPnoPrevious : null;
+const businessDynamicsGap = isNumber(businessYtdRevenueYoY) && isNumber(businessYtdCostsYoY)
+  ? businessYtdRevenueYoY - businessYtdCostsYoY
+  : null;
+const businessMonthRevenueYoY = safePercentChange(businessPerformance.currentMonth.revenue, businessPerformance.currentMonth.revenuePreviousYear);
+const businessMonthCostsYoY = safePercentChange(businessPerformance.currentMonth.marketingCosts, businessPerformance.currentMonth.marketingCostsPreviousYear);
+const businessMonthPno = safePno(businessPerformance.currentMonth.marketingCosts, businessPerformance.currentMonth.revenue);
+const businessMonthPnoPrevious = safePno(businessPerformance.currentMonth.marketingCostsPreviousYear, businessPerformance.currentMonth.revenuePreviousYear);
+const businessTrendMaxRevenue = Math.max(...businessPerformance.trend.flatMap((item) => [item.revenue, item.revenuePreviousYear].filter(isNumber)));
+const businessTrendMaxCosts = Math.max(...businessPerformance.trend.flatMap((item) => [item.marketingCosts, item.marketingCostsPreviousYear].filter(isNumber)));
 
 const changeClass = (value) => value.trim().startsWith("+") ? "good" : value.trim().startsWith("-") ? "bad" : "neutral";
+
+const businessDeltaTone = (value, positiveIsGood = true) => {
+  if (!isNumber(value)) return "neutral";
+  if (value === 0) return "neutral";
+  const isPositive = value > 0;
+  return isPositive === positiveIsGood ? "up" : "down";
+};
 
 const sourceName = (source) => {
   const logo = logoBySource[source];
@@ -280,6 +355,141 @@ const renderMediaBudgetSummary = () => `
     <p>Červnové přečerpání tedy zatím neznamená překročení kumulativního budgetu, ale výrazně snížilo rezervu vytvořenou v předchozích měsících.</p>
   </div>`;
 
+const renderBusinessKpi = ({ label, value, comparison, delta, tone = "neutral" }) => `
+  <div class="metricTile businessYtdKpi">
+    <span>${label}</span>
+    <strong>${value}</strong>
+    <small>${comparison}</small>
+    <div class="delta ${tone}">${delta}</div>
+  </div>`;
+
+const renderBusinessContextItem = ({ label, value, meta, tone = "neutral" }) => `
+  <div class="businessMonthItem">
+    <span>${label}</span>
+    <strong>${value}</strong>
+    <small class="${tone}">${meta}</small>
+  </div>`;
+
+const renderBusinessTrendBar = (value, max, className, label) => {
+  if (!isNumber(value) || !isNumber(max) || max === 0) {
+    return `<span class="businessTrendMissing">${unavailableLabel}</span>`;
+  }
+
+  const height = Math.max((value / max) * 100, 8);
+  return `<i class="${className}" style="--bar-height:${height}%" title="${label}: ${formatCurrency(value)}"></i>`;
+};
+
+const renderBusinessTrendGroup = (item) => `
+  <div class="businessTrendGroup">
+    <div class="businessTrendBars revenueBars" aria-label="${item.label} tržby">
+      ${renderBusinessTrendBar(item.revenuePreviousYear, businessTrendMaxRevenue, "previous", "Tržby 2025")}
+      ${renderBusinessTrendBar(item.revenue, businessTrendMaxRevenue, "current", "Tržby 2026")}
+    </div>
+    <div class="businessTrendBars costBars" aria-label="${item.label} náklady">
+      ${renderBusinessTrendBar(item.marketingCostsPreviousYear, businessTrendMaxCosts, "previous costs", "Náklady 2025")}
+      ${renderBusinessTrendBar(item.marketingCosts, businessTrendMaxCosts, "current costs", "Náklady 2026")}
+    </div>
+    <strong>${item.label}</strong>
+  </div>`;
+
+const renderBusinessYtdContext = () => `
+  <div class="panel glass businessYtdPanel">
+    <div class="businessYtdHeader">
+      <div>
+        <span class="pill businessDataPill">Business / interní data</span>
+        <h2>Celkový business kontext YTD</h2>
+        <p>Celkové tržby a marketingové náklady započítané do PNO, odděleně od GA4 analytiky.</p>
+      </div>
+      <div class="businessPeriodBadge">${businessPerformance.ytd.period}</div>
+    </div>
+
+    <div class="metricGrid businessYtdGrid">
+      ${renderBusinessKpi({
+        label: "Celkové tržby YTD",
+        value: formatCurrency(businessPerformance.ytd.revenue),
+        comparison: `vs. ${formatCurrency(businessPerformance.ytd.revenuePreviousYear)}`,
+        delta: `${signedPercent(businessYtdRevenueYoY)} · ${signedCurrency(businessYtdRevenueDiff)} YoY`,
+        tone: businessDeltaTone(businessYtdRevenueYoY)
+      })}
+      ${renderBusinessKpi({
+        label: "Marketingové náklady YTD",
+        value: formatCurrency(businessPerformance.ytd.marketingCosts),
+        comparison: `vs. ${maybeCurrency(businessPerformance.ytd.marketingCostsPreviousYear)}`,
+        delta: "YoY nelze vyčíslit",
+        tone: "neutral"
+      })}
+      ${renderBusinessKpi({
+        label: "PNO z celkových tržeb",
+        value: maybePercent(businessYtdPno),
+        comparison: `vs. ${maybePercent(businessYtdPnoPrevious)}`,
+        delta: signedPp(businessYtdPnoChange),
+        tone: businessDeltaTone(businessYtdPnoChange, false)
+      })}
+      <div class="metricTile businessYtdKpi businessDynamicsKpi">
+        <span>Tržby vs. náklady</span>
+        <strong>${isNumber(businessDynamicsGap) ? signedPp(businessDynamicsGap) : unavailableLabel}</strong>
+        <small>rozdíl dynamiky YoY</small>
+        <dl>
+          <div><dt>Tržby YoY</dt><dd>${signedPercent(businessYtdRevenueYoY)}</dd></div>
+          <div><dt>Náklady YoY</dt><dd>${signedPercent(businessYtdCostsYoY)}</dd></div>
+        </dl>
+      </div>
+    </div>
+
+    <div class="businessMonthContext">
+      <div class="businessMonthHead">
+        <span>Aktuální měsíc v kontextu</span>
+        <strong>${businessPerformance.currentMonth.period}</strong>
+      </div>
+      <div class="businessMonthGrid">
+        ${renderBusinessContextItem({
+          label: "Celkové tržby",
+          value: formatCurrency(businessPerformance.currentMonth.revenue),
+          meta: `${signedPercent(businessMonthRevenueYoY, formatPercent)} YoY`,
+          tone: businessDeltaTone(businessMonthRevenueYoY)
+        })}
+        ${renderBusinessContextItem({
+          label: "Marketingové náklady",
+          value: formatCurrency(businessPerformance.currentMonth.marketingCosts),
+          meta: isNumber(businessMonthCostsYoY) ? `${signedPercent(businessMonthCostsYoY, formatPercent)} YoY` : unavailableLabel,
+          tone: "neutral"
+        })}
+        ${renderBusinessContextItem({
+          label: "PNO měsíce",
+          value: maybePercent(businessMonthPno),
+          meta: `vs. ${maybePercent(businessMonthPnoPrevious)} loni`,
+          tone: businessDeltaTone(businessMonthPno - businessYtdPno, false)
+        })}
+      </div>
+    </div>
+
+    <div class="businessTrendPanel">
+      <div class="businessTrendHead">
+        <div>
+          <span class="sectionSubhead">Trendový kontext</span>
+          <p>Graf ukazuje dostupné business hodnoty. Historické marketingové náklady 2025 zatím nejsou ve strukturovaných datech.</p>
+        </div>
+        <div class="businessTrendLegend">
+          <span><i class="previous"></i>2025</span>
+          <span><i class="current"></i>2026</span>
+          <span><i class="costs"></i>Náklady</span>
+        </div>
+      </div>
+      <div class="businessTrendChart">
+        ${businessPerformance.trend.map(renderBusinessTrendGroup).join("")}
+      </div>
+    </div>
+
+    <div class="businessYtdComment">
+      <h3>Celkový YTD komentář</h3>
+      <p>Celkové tržby jsou od začátku roku meziročně výš o ${signedPercent(businessYtdRevenueYoY)} (${signedCurrency(businessYtdRevenueDiff)}). Marketingové náklady započítané do PNO jsou zatím ${formatCurrency(businessPerformance.ytd.marketingCosts)}, což dává PNO z celkových tržeb ${maybePercent(businessYtdPno)}. Protože loňské marketingové náklady nejsou v datech k dispozici, nepočítáme meziroční změnu nákladů ani PNO.</p>
+      <p>Červen je proti loňsku tržebně silnější (${signedPercent(businessMonthRevenueYoY, formatPercent)} YoY), ale zároveň má výraznější marketingovou investici ${formatCurrency(businessPerformance.currentMonth.marketingCosts)} a měsíční PNO ${maybePercent(businessMonthPno)}. Další krok je doplnit historické náklady 2025 a do té doby držet kontrolu hlavně nad kanálovou efektivitou a čerpáním budgetové rezervy.</p>
+    </div>
+  </div>
+  <div class="ga4MethodNote">
+    Celková obchodní data ukazují skutečný vývoj tržeb a marketingových nákladů. GA4 část níže slouží k interpretaci webového chování, objednávek a zdrojů návštěvnosti. Hodnoty se kvůli rozdílné metodice nemusí přesně shodovat.
+  </div>`;
+
 export const dashboardSectionHtml = `<section class="chapter" id="dashboard">
   <div class="chapterHead glass">
     <div class="chapterTitle">
@@ -359,6 +569,8 @@ export const dashboardSectionHtml = `<section class="chapter" id="dashboard">
       </table>
     </div>
   </div>
+
+  ${renderBusinessYtdContext()}
 
   <div class="contentGrid dashboardBottomGrid">
     <div class="panel glass">
