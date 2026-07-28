@@ -252,68 +252,44 @@ const flightCampaigns = [
 
 const boostAssets = [
   {
-    id: "slide-58-engagement-overview",
-    label: "Engagement · přehled",
-    alt: "Engagement přehled boostovaných příspěvků",
-    src: "assets/report-jun-26/meta/boosting/slide-58-engagement-overview-thumb.webp",
-    fullSrc: "assets/report-jun-26/meta/boosting/slide-58-engagement-overview.webp",
-    image_size: { width: 2048, height: 278 }
+    id: "bm-engagement-overview",
+    label: "Engagement overview · Business Manager",
+    alt: "Business Manager přehled engagement boostovaných příspěvků",
+    src: "assets/report-jun-26/meta/boosting/bm-engagement-overview-thumb.png",
+    fullSrc: "assets/report-jun-26/meta/boosting/bm-engagement-overview.png",
+    image_size: { width: 3374, height: 830 }
   },
   {
-    id: "slide-59-engagement-facebook",
-    label: "Engagement · Facebook",
-    alt: "Engagement vyhodnocení pro Facebook",
-    src: "assets/report-jun-26/meta/boosting/slide-59-engagement-facebook-thumb.webp",
-    fullSrc: "assets/report-jun-26/meta/boosting/slide-59-engagement-facebook.webp",
-    image_size: { width: 430, height: 750 }
+    id: "engagement-fb-ig-detail",
+    label: "Kreativa · klíště jak vybrat",
+    alt: "Engagement kreativa klíště jak vybrat pro Facebook a Instagram",
+    src: "assets/report-jun-26/meta/boosting/engagement-fb-ig-detail-thumb.png",
+    fullSrc: "assets/report-jun-26/meta/boosting/engagement-fb-ig-detail.png",
+    image_size: { width: 3402, height: 1888 }
   },
   {
-    id: "slide-59-engagement-instagram",
-    label: "Engagement · Instagram",
-    alt: "Engagement vyhodnocení pro Instagram",
-    src: "assets/report-jun-26/meta/boosting/slide-59-engagement-instagram-thumb.webp",
-    fullSrc: "assets/report-jun-26/meta/boosting/slide-59-engagement-instagram.webp",
-    image_size: { width: 420, height: 744 }
+    id: "bm-traffic-overview",
+    label: "Traffic overview · Business Manager",
+    alt: "Business Manager přehled traffic boostovaných příspěvků",
+    src: "assets/report-jun-26/meta/boosting/bm-traffic-overview-thumb.png",
+    fullSrc: "assets/report-jun-26/meta/boosting/bm-traffic-overview.png",
+    image_size: { width: 3420, height: 1822 }
   },
   {
-    id: "slide-60-traffic-overview",
-    label: "Traffic · přehled",
-    alt: "Traffic přehled boostovaných příspěvků",
-    src: "assets/report-jun-26/meta/boosting/slide-60-traffic-overview-thumb.webp",
-    fullSrc: "assets/report-jun-26/meta/boosting/slide-60-traffic-overview.webp",
-    image_size: { width: 2048, height: 817 }
+    id: "traffic-facebook-detail",
+    label: "Traffic kreativy · Facebook",
+    alt: "Traffic kreativy pro Facebook: menopauza a letní slevy",
+    src: "assets/report-jun-26/meta/boosting/traffic-facebook-detail-thumb.png",
+    fullSrc: "assets/report-jun-26/meta/boosting/traffic-facebook-detail.png",
+    image_size: { width: 1458, height: 1420 }
   },
   {
-    id: "slide-61-traffic-facebook-top",
-    label: "Traffic · Facebook",
-    alt: "Traffic vyhodnocení pro Facebook",
-    src: "assets/report-jun-26/meta/boosting/slide-61-traffic-facebook-top-thumb.webp",
-    fullSrc: "assets/report-jun-26/meta/boosting/slide-61-traffic-facebook-top.webp",
-    image_size: { width: 422, height: 754 }
-  },
-  {
-    id: "slide-61-traffic-facebook-low",
-    label: "Traffic · Facebook · slabší varianta",
-    alt: "Slabší traffic varianta pro Facebook",
-    src: "assets/report-jun-26/meta/boosting/slide-61-traffic-facebook-low-thumb.webp",
-    fullSrc: "assets/report-jun-26/meta/boosting/slide-61-traffic-facebook-low.webp",
-    image_size: { width: 422, height: 748 }
-  },
-  {
-    id: "slide-61-traffic-instagram-top",
-    label: "Traffic · Instagram",
-    alt: "Traffic vyhodnocení pro Instagram",
-    src: "assets/report-jun-26/meta/boosting/slide-61-traffic-instagram-top-thumb.webp",
-    fullSrc: "assets/report-jun-26/meta/boosting/slide-61-traffic-instagram-top.webp",
-    image_size: { width: 422, height: 746 }
-  },
-  {
-    id: "slide-61-traffic-instagram-low",
-    label: "Traffic · Instagram · slabší varianta",
-    alt: "Slabší traffic varianta pro Instagram",
-    src: "assets/report-jun-26/meta/boosting/slide-61-traffic-instagram-low-thumb.webp",
-    fullSrc: "assets/report-jun-26/meta/boosting/slide-61-traffic-instagram-low.webp",
-    image_size: { width: 432, height: 756 }
+    id: "traffic-instagram-detail",
+    label: "Traffic kreativy · Instagram",
+    alt: "Traffic kreativy pro Instagram: menopauza a letní slevy",
+    src: "assets/report-jun-26/meta/boosting/traffic-instagram-detail-thumb.png",
+    fullSrc: "assets/report-jun-26/meta/boosting/traffic-instagram-detail.png",
+    image_size: { width: 1502, height: 1402 }
   }
 ];
 
@@ -321,63 +297,77 @@ const boostAssetById = Object.fromEntries(boostAssets.map((asset) => [asset.id, 
 
 const boostSections = [
   {
+    id: "engagement",
     title: "Engagement",
     objective: "Cílem engagement boostu jsou reakce, komentáře, sdílení a interakce s příspěvkem. Tady nejde primárně o návštěvu webu, ale o to, které téma dokáže samo vytáhnout odezvu publika.",
-    overview: "slide-58-engagement-overview",
-    channels: [
+    overview: "bm-engagement-overview",
+    rows: [
       {
-        channel: "Facebook",
-        comment: "Facebook u engagementu táhl hlavně obsah s jasným praktickým benefitem. Kopřiva ve statice byla nejsilnější kus: 804 výsledků při ceně 0,51 Kč. Slabší preventivní témata ukazují, že i zdravotní obsah potřebuje ostrý hook hned v prvních vteřinách čtení.",
-        highlights: [
-          { tone: "top", label: "Top engagement post", title: "Kopřiva · statika", metric: "804 výsledků · 0,51 Kč" },
-          { tone: "low", label: "Slabší engagement post", title: "Klíšťová encefalitida", metric: "slabší odezva publika" }
-        ],
-        assets: ["slide-59-engagement-facebook"]
+        id: "engagement-fb-kliste",
+        rowLabel: "fb | kliste-jak-vybrat | statika | 06-26",
+        title: "Klíště: jak vybrat",
+        platform: "Facebook",
+        asset: "engagement-fb-ig-detail",
+        results: 596,
+        cost: 0.84,
+        reactions: 233,
+        comments: 6,
+        linkClicks: 2,
+        spend: "499,92 Kč",
+        metrics: [
+          { label: "Výsledky", value: "596 engagement" },
+          { label: "Cena za engagement", value: "0,84 Kč" },
+          { label: "Reakce", value: "233" },
+          { label: "Komentáře", value: "6" }
+        ]
       },
       {
-        channel: "Instagram",
-        comment: "Instagram v engagementu dobře reagoval na stresová a praktická témata. Stresové signály přinesly 303 výsledků za 1,64 Kč a Kopřiva 243 výsledků za 1,68 Kč. Obecnější lifestyle motivy byly slabší, takže IG potřebuje konkrétní emoci nebo situaci.",
-        highlights: [
-          { tone: "top", label: "Top engagement post", title: "Stresové signály", metric: "303 výsledků · 1,64 Kč" },
-          { tone: "low", label: "Slabší engagement post", title: "6 podob sebelásky", metric: "nižší tah na reakce" }
-        ],
-        assets: ["slide-59-engagement-instagram"]
+        id: "engagement-ig-kliste",
+        rowLabel: "ig | kliste-jak-vybrat | statika | 06-26",
+        title: "Klíště: jak vybrat",
+        platform: "Instagram",
+        asset: "engagement-fb-ig-detail",
+        results: 263,
+        cost: 1.9,
+        reactions: 120,
+        comments: 1,
+        linkClicks: 0,
+        spend: "499,69 Kč",
+        metrics: [
+          { label: "Výsledky", value: "263 engagement" },
+          { label: "Cena za engagement", value: "1,90 Kč" },
+          { label: "Reakce", value: "120" },
+          { label: "Komentáře", value: "1" }
+        ]
       }
     ]
   },
   {
+    id: "traffic",
     title: "Traffic",
     objective: "Traffic boost hodnotí schopnost příspěvků přivést uživatele na web nebo landing page. Tady je důležitější klik, cena za návštěvu a CTR než samotná reakce pod příspěvkem.",
-    overview: "slide-60-traffic-overview",
-    channels: [
-      {
-        channel: "Facebook",
-        comment: "Facebook uměl přivést návštěvy hlavně přes konkrétní obsahová témata. TEP kolene a Mg recenze drží rozumnou cenu za výsledek, zatímco Betakaroten byl v traffic režimu slabší. Pro Facebook se tedy vyplatí posílat lidi na jasně užitečný obsah, ne jen na produktový motiv.",
-        highlights: [
-          { tone: "top", label: "Top traffic post", title: "TEP kolene · album", metric: "161 výsledků · 3,11 Kč · CTR 1,19 %" },
-          { tone: "top", label: "Další silný post", title: "Mg recenze · statika", metric: "96 výsledků · 3,98 Kč · CTR 2,18 %" },
-          { tone: "low", label: "Slabší traffic post", title: "Betakaroten", metric: "slabší proklikový tah" }
-        ],
-        assets: ["slide-61-traffic-facebook-top", "slide-61-traffic-facebook-low"]
-      },
-      {
-        channel: "Instagram",
-        comment: "Instagram měl nejlepší traffic výkon u carouselu TEP kolene: 171 výsledků, cena 2,92 Kč a CTR 4,68 %. To je výrazně silnější proklikový signál než u slabších IG variant. Pro další měsíc dává smysl držet carousel a konkrétní problémové téma.",
-        highlights: [
-          { tone: "top", label: "Top traffic post", title: "TEP kolene · carousel", metric: "171 výsledků · 2,92 Kč · CTR 4,68 %" },
-          { tone: "low", label: "Slabší traffic post", title: "V kopci nezpomalit", metric: "nižší proklikový výkon" }
-        ],
-        assets: ["slide-61-traffic-instagram-top", "slide-61-traffic-instagram-low"]
-      }
+    overview: "bm-traffic-overview",
+    rows: [
+      { id: "traffic-ig-menopauza", rowLabel: "ig | netypicke-priznaky-menopauzy | statika", title: "Netypické příznaky menopauzy", platform: "Instagram", asset: "traffic-instagram-detail", results: 341, cost: 1.46, ctr: 4.48, reach: "7 220", impressions: "9 114", spend: "499,31 Kč" },
+      { id: "traffic-fb-menopauza", rowLabel: "fb | netypicke-priznaky-menopauzy | statika", title: "Netypické příznaky menopauzy", platform: "Facebook", asset: "traffic-facebook-detail", results: 286, cost: 1.49, ctr: 4.67, reach: "6 609", impressions: "7 829", spend: "424,86 Kč" },
+      { id: "traffic-fb-merilin-sampon", rowLabel: "fb | merilin-sampon-novinka | statika | 06-26", title: "Merilin šampon novinka", platform: "Facebook", results: 172, cost: 2.9, ctr: 2.58, reach: "5 737", impressions: "9 602", spend: "498,50 Kč" },
+      { id: "traffic-fb-vlasske-orechy", rowLabel: "fb | blog-vlasske-orechy | statika | 06-26", title: "Blog: vlašské ořechy", platform: "Facebook", results: 125, cost: 4, ctr: 1.99, reach: "6 082", impressions: "8 453", spend: "499,78 Kč" },
+      { id: "traffic-fb-novy-kamzik", rowLabel: "fb | novy-kamzik | album | 06-26", title: "Nový Kamzík", platform: "Facebook", asset: "traffic-facebook-detail", results: 124, cost: 8.06, ctr: 1.78, reach: "5 102", impressions: "9 746", spend: "999,65 Kč" },
+      { id: "traffic-ig-novy-kamzik", rowLabel: "ig | novy-kamzik | statika | 06-26", title: "Nový Kamzík", platform: "Instagram", asset: "traffic-instagram-detail", results: 124, cost: 8.06, ctr: 1.92, reach: "4 082", impressions: "7 804", spend: "999,52 Kč" },
+      { id: "traffic-ig-merilin-sampon", rowLabel: "ig | merilin-sampon-novinka | statika | 06-26", title: "Merilin šampon novinka", platform: "Instagram", results: 115, cost: 4.34, ctr: 2.37, reach: "3 718", impressions: "5 448", spend: "498,54 Kč" },
+      { id: "traffic-fb-kamzik-foto", rowLabel: "fb | kamzik-novy-foto | statika | 06-26", title: "Kamzík nový foto", platform: "Facebook", results: 102, cost: 4.87, ctr: 2.14, reach: "3 859", impressions: "6 498", spend: "496,41 Kč" },
+      { id: "traffic-ig-gs-merilin", rowLabel: "ig | gs-merillin | statika | 06-26", title: "GS Merilin", platform: "Instagram", results: 100, cost: 4.99, ctr: 1.82, reach: "4 738", impressions: "6 979", spend: "498,59 Kč" },
+      { id: "traffic-fb-zelezo", rowLabel: "fb | zelezo-sleva | statika | 06-26", title: "Železo sleva", platform: "Facebook", results: 93, cost: 5.37, ctr: 1.56, reach: "6 372", impressions: "9 152", spend: "499,67 Kč" },
+      { id: "traffic-ig-bestsellers", rowLabel: "ig | bestsellers | statika | 06-26", title: "Bestsellers", platform: "Instagram", results: 91, cost: 5.49, ctr: 2.39, reach: "4 367", impressions: "5 184", spend: "500,00 Kč" }
     ]
   }
 ];
 
 const boostTakeaways = [
-  "Engagement nejlépe fungoval u praktických zdravotních témat, která mají rychle pochopitelný benefit.",
-  "Traffic byl silnější u obsahových témat a carouselu, hlavně u TEP kolene.",
-  "Facebook se hodí víc pro edukativní obsah s jasným tématem, Instagram lépe vytěžil vizuálnější carousel.",
-  "Pro další měsíc dává smysl oddělit boosty podle cíle: reakce hodnotit přes engagement, návštěvnost přes kliky a CTR."
+  "V každém boostovacím bloku je nejdřív Business Manager přehled jako zdroj pravdy.",
+  "Nejúspěšnější příspěvky jsou odvozené z řádků přehledu, ne z ručně vybraných kreativ.",
+  "Kreativa v kartě vždy odkazuje na konkrétní řádek a používá stejné metriky jako přehled.",
+  "Příspěvky s prostorem ke zlepšení se zobrazí jen tam, kde je slabší výkon jednoznačný."
 ];
 
 const assetById = Object.fromEntries(metaAssets.map((asset) => [asset.id, asset]));
@@ -554,8 +544,8 @@ function renderBoostingSection() {
   return `<div class="metaBoostingPanel glass">
     <div class="metaBoostVerdict">
       <span class="pill systemPill">${SystemLogo({ system: "meta", label: "Meta", className: "channelLogo" })}Meta · boostování</span>
-      <h2>Boostování v červnu rozdělilo výkon na dvě logiky: engagement ukazuje, které příspěvky táhnou reakce, traffic zase které formáty přivádějí uživatele na web.</h2>
-      <p>Proto dává smysl hodnotit Facebook a Instagram odděleně. Stejný vizuál nebo téma může fungovat dobře pro reakce, ale už nemusí být nejlepší pro návštěvnost.</p>
+      <h2>Boostování v červnu čteme od přehledu v Business Manageru: nejdřív zdroj pravdy, potom navázané příspěvky a jejich metriky.</h2>
+      <p>Každá karta níže vychází z konkrétního řádku v přehledu. Díky tomu je jasné, která kreativa patří ke kterým výsledkům a proč se dostala mezi nejúspěšnější příspěvky nebo mezi položky s prostorem ke zlepšení.</p>
     </div>
     ${boostSections.map(renderBoostSection).join("")}
     <div class="metaBoostTakeaways">
@@ -566,42 +556,112 @@ function renderBoostingSection() {
 }
 
 function renderBoostSection(section) {
+  const highlights = boostHighlights(section);
+  const needsAttention = boostNeedsAttention(section);
+
   return `<div class="metaBoostSection">
     <div class="metaBoostSectionHead">
       <div>
         <h3>${section.title}</h3>
         <p>${section.objective}</p>
+        <div class="metaBoostTruthNote">
+          <b>Přehled z Business Manageru je zdroj pravdy.</b>
+          <span>Výběr příspěvků níže vzniká z řádků v tomto přehledu a drží vazbu řádek → kreativa → metriky.</span>
+        </div>
       </div>
-      ${boostAssetThumb(section.overview, section.title === "Engagement" ? "Engagement · přehled" : "Traffic · přehled", "wide")}
+      ${boostAssetThumb(section.overview, `${section.title} overview`, "wide")}
     </div>
-    <div class="metaBoostChannels">
-      ${section.channels.map(renderBoostChannel).join("")}
-    </div>
+    ${renderBoostPerformerGroup(section, highlights, "highlight")}
+    ${needsAttention.length ? renderBoostPerformerGroup(section, needsAttention, "attention") : ""}
   </div>`;
 }
 
-function renderBoostChannel(channel) {
-  return `<div class="metaBoostChannel">
-    <div class="metaBoostChannelHead">
-      <span>${channel.channel}</span>
-      <h4>${channel.channel === "Facebook" ? "Facebook vyhodnocení" : "Instagram vyhodnocení"}</h4>
-      <p>${channel.comment}</p>
+function renderBoostPerformerGroup(section, rows, role) {
+  const title = role === "highlight" ? "Nejúspěšnější příspěvky" : "Příspěvky s prostorem ke zlepšení";
+  const lead = role === "highlight"
+    ? "Výběr vzniká automaticky z nejsilnějších řádků podle platformy."
+    : "Zobrazujeme jen příspěvky, kde je slabší výkon dostatečně jednoznačný.";
+
+  return `<div class="metaBoostPerformerGroup ${role}">
+    <div class="metaBoostPerformerHead">
+      <span>${role === "highlight" ? "Highlights" : "Needs Attention"}</span>
+      <h4>${title}</h4>
+      <p>${lead}</p>
     </div>
-    <div class="metaBoostHighlights">
-      ${channel.highlights.map(renderBoostHighlight).join("")}
+    <div class="metaBoostPerformerGrid">
+      ${rows.map((row) => renderBoostPerformerCard(section, row, role)).join("")}
     </div>
-    <div class="metaBoostVisuals">
-      ${channel.assets.map((assetId) => boostAssetThumb(assetId)).join("")}
-    </div>
-  </div>`;
+  </div>`
 }
 
-function renderBoostHighlight(item) {
-  return `<div class="metaBoostHighlight ${item.tone}">
-    <span>${item.label}</span>
-    <b>${item.title}</b>
-    <small>${item.metric}</small>
-  </div>`;
+function renderBoostPerformerCard(section, row, role) {
+  return `<article class="metaBoostPerformer ${role}">
+    ${boostAssetThumb(row.asset, `Kreativa · ${row.platform}`, "performer")}
+    <div class="metaBoostPerformerBody">
+      <div class="metaBoostPerformerTop">
+        <span>${row.platform}</span>
+        <i>${role === "highlight" ? "Nejúspěšnější" : "Prostor ke zlepšení"}</i>
+      </div>
+      <h5>${row.title}</h5>
+      <div class="metaBoostRowLink">
+        <span>Vazba na přehled</span>
+        <b>${row.rowLabel}</b>
+      </div>
+      <div class="metaBoostMetricGrid">
+        ${boostMetrics(section, row).map((metric) => `<div><span>${metric.label}</span><strong>${metric.value}</strong></div>`).join("")}
+      </div>
+      <p>${boostAutoComment(section, row, role)}</p>
+    </div>
+  </article>`;
+}
+
+function boostHighlights(section) {
+  const leaders = new Map();
+  section.rows
+    .filter((row) => row.asset)
+    .forEach((row) => {
+      const current = leaders.get(row.platform);
+      if (!current || row.results > current.results || (row.results === current.results && row.cost < current.cost)) {
+        leaders.set(row.platform, row);
+      }
+    });
+
+  return [...leaders.values()].sort((a, b) => b.results - a.results);
+}
+
+function boostNeedsAttention(section) {
+  if (section.id !== "traffic") return [];
+  const avgCost = section.rows.reduce((sum, row) => sum + row.cost, 0) / section.rows.length;
+  const avgCtr = section.rows.reduce((sum, row) => sum + row.ctr, 0) / section.rows.length;
+
+  return section.rows
+    .filter((row) => row.asset && row.cost >= avgCost * 1.45 && row.ctr < avgCtr)
+    .sort((a, b) => b.cost - a.cost || a.ctr - b.ctr);
+}
+
+function boostMetrics(section, row) {
+  if (section.id === "engagement") return row.metrics;
+
+  return [
+    { label: "LPV", value: `${row.results} LPV` },
+    { label: "Cena za LPV", value: `${row.cost.toFixed(2).replace(".", ",")} Kč` },
+    { label: "CTR", value: `${row.ctr.toFixed(2).replace(".", ",")} %` },
+    { label: "Spend", value: row.spend }
+  ];
+}
+
+function boostAutoComment(section, row, role) {
+  if (section.id === "engagement") {
+    return role === "highlight"
+      ? `Nejsilnější ${row.platform} řádek v engagement přehledu: vysoký počet interakcí při ceně ${row.cost.toFixed(2).replace(".", ",")} Kč za výsledek.`
+      : `Nižší počet engagementů při vyšší ceně za výsledek oproti ostatním boostovaným příspěvkům.`;
+  }
+
+  if (role === "highlight") {
+    return `Nejvyšší počet návštěv cílové stránky na platformě ${row.platform} při velmi dobré ceně za LPV a nadprůměrném CTR.`;
+  }
+
+  return `Vyšší cena za návštěvu a podprůměrné CTR oproti ostatním trafficovým příspěvkům. Tady výkon stojí za další úpravu nebo opatrnější podporu.`;
 }
 
 function boostAssetThumb(assetId, customLabel, variant = "") {
@@ -609,9 +669,9 @@ function boostAssetThumb(assetId, customLabel, variant = "") {
   if (!asset) return "";
   const label = customLabel || asset.label;
   const { width = 0, height = 0 } = asset.image_size || {};
-  const isWide = variant === "wide" || (width && height && width / height >= 1.8);
+  const isWide = variant === "wide" || (variant !== "performer" && width && height && width / height >= 1.8);
   const ratioStyle = width && height ? ` style="--asset-ratio:${width} / ${height}"` : "";
-  return `<a class="creativeThumb metaAssetThumb metaBoostThumb${isWide ? " wideAsset" : ""}" href="${asset.fullSrc}"${ratioStyle}>
+  return `<a class="creativeThumb metaAssetThumb metaBoostThumb${isWide ? " wideAsset" : ""}${variant === "performer" ? " performerAsset" : ""}" href="${asset.fullSrc}"${ratioStyle}>
     <img src="${asset.src}" alt="${asset.alt}" loading="lazy" decoding="async">
     <span>${label}</span>
   </a>`;

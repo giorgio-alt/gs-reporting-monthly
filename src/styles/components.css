@@ -1186,6 +1186,347 @@ h2 .sectionLogo {
   line-height: 1.35;
 }
 
+.behaviorAnalyticsBlock {
+  --behavior-ink: #16223f;
+  --behavior-muted: #536174;
+  --behavior-line: rgba(78, 99, 181, 0.18);
+  --behavior-soft: rgba(88, 105, 190, 0.08);
+  --behavior-accent: #5667c9;
+  overflow: hidden;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.88), rgba(246, 248, 255, 0.64)),
+    radial-gradient(circle at top right, rgba(86, 103, 201, 0.1), transparent 34%);
+  border-color: rgba(205, 213, 243, 0.82);
+}
+
+.behaviorAnalyticsBlock h2 {
+  color: var(--behavior-ink);
+}
+
+.behaviorAnalyticsBlock .sectionLead {
+  color: var(--behavior-muted);
+}
+
+.behaviorHero,
+.behaviorBlock {
+  margin-top: clamp(22px, 3vw, 38px);
+}
+
+.behaviorHero {
+  background: rgba(255, 255, 255, 0.72);
+  border-color: rgba(205, 213, 243, 0.78);
+  box-shadow: 0 18px 44px rgba(38, 52, 105, 0.08);
+}
+
+.behaviorHero h3,
+.behaviorBlock h3 {
+  color: var(--behavior-ink);
+}
+
+.behaviorHero p,
+.behaviorBlock p {
+  color: var(--behavior-muted);
+}
+
+.behaviorHeroGrid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.behaviorHeroItem {
+  background: rgba(246, 248, 255, 0.86);
+  border-color: rgba(78, 99, 181, 0.14);
+}
+
+.behaviorHeroItem b,
+.behaviorInsightCard b {
+  color: var(--behavior-accent);
+}
+
+.behaviorBlock {
+  padding: clamp(18px, 2vw, 26px);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.64);
+  border: 1px solid rgba(205, 213, 243, 0.68);
+  box-shadow: 0 16px 38px rgba(38, 52, 105, 0.06);
+}
+
+.behaviorBlockHead {
+  max-width: 920px;
+  margin-bottom: clamp(14px, 2vw, 22px);
+}
+
+.behaviorBlockHead h3 {
+  margin: 0 0 8px;
+  font-size: clamp(22px, 2vw, 28px);
+  letter-spacing: -0.035em;
+}
+
+.behaviorBlockHead p {
+  max-width: 820px;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.behaviorHealthGrid {
+  gap: 14px;
+}
+
+.behaviorHealthCard {
+  min-height: 100%;
+  background: rgba(255, 255, 255, 0.82);
+  border-color: rgba(205, 213, 243, 0.74);
+}
+
+.behaviorHealthCard.good {
+  border-color: rgba(48, 167, 124, 0.22);
+}
+
+.behaviorHealthCard.neutral,
+.behaviorHealthCard.watch {
+  border-color: rgba(86, 103, 201, 0.2);
+}
+
+.behaviorHealthCard .clarityMetricTop i {
+  padding: 0;
+  background: transparent;
+}
+
+.behaviorHealthCard strong {
+  color: var(--behavior-ink);
+}
+
+.behaviorHealthCard small {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+.behaviorHealthCard p {
+  margin-top: 12px;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.behaviorAnalyticsBlock .clarityMiniTrend {
+  background: rgba(86, 103, 201, 0.08);
+}
+
+.behaviorAnalyticsBlock .clarityMiniTrend span {
+  background: linear-gradient(180deg, #7b8cff, #5667c9);
+}
+
+.behaviorJourneyGrid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.behaviorJourneyCard {
+  background: rgba(255, 255, 255, 0.78);
+  border-color: rgba(205, 213, 243, 0.76);
+  box-shadow: 0 14px 34px rgba(38, 52, 105, 0.07);
+}
+
+.behaviorJourneyCard:hover,
+.behaviorJourneyCard:focus-visible {
+  border-color: rgba(86, 103, 201, 0.42) !important;
+  box-shadow: 0 20px 48px rgba(38, 52, 105, 0.14) !important;
+}
+
+.behaviorJourneyCard.is-active {
+  border-color: rgba(86, 103, 201, 0.48);
+  box-shadow: 0 20px 52px rgba(38, 52, 105, 0.15), inset 0 0 0 2px rgba(123, 140, 255, 0.18);
+}
+
+.behaviorAnalyticsBlock .funnelCardMetric {
+  background: var(--behavior-soft);
+  border-color: var(--behavior-line);
+}
+
+.behaviorAnalyticsBlock .funnelSegmentBar {
+  background: linear-gradient(90deg, #5667c9, #8a9aff);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.42), 0 8px 18px rgba(38, 52, 105, 0.13);
+}
+
+.funnelSegmentMeta small {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  margin-top: 4px;
+  color: var(--behavior-muted);
+  font-size: 11px;
+  font-weight: 850;
+  line-height: 1.25;
+}
+
+.behaviorAnalyticsBlock .funnelDropNote,
+.behaviorAnalyticsBlock .funnelTrendRow,
+.behaviorAnalyticsBlock .funnelTrendSummary,
+.behaviorAnalyticsBlock .funnelComment {
+  background: rgba(246, 248, 255, 0.82);
+  border-color: rgba(78, 99, 181, 0.14);
+}
+
+.behaviorAnalyticsBlock .funnelMetricToggle {
+  background: rgba(86, 103, 201, 0.1);
+  color: var(--behavior-accent);
+}
+
+.behaviorAnalyticsBlock .funnelMetricToggle.is-active {
+  background: var(--behavior-accent);
+  color: #fff;
+}
+
+.behaviorInsightGrid {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.behaviorInsightCard {
+  background: rgba(255, 255, 255, 0.78);
+  border-color: rgba(205, 213, 243, 0.68);
+}
+
+.behaviorInsightCard .clarityMetricTop {
+  margin-bottom: 10px;
+}
+
+.behaviorInsightCard .clarityMetricTop i {
+  padding: 0;
+  background: transparent;
+}
+
+.behaviorInsightCard b {
+  font-size: clamp(20px, 2vw, 28px);
+  white-space: nowrap;
+}
+
+.behaviorInsightCard p {
+  margin-top: 10px;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.behaviorTrendGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.behaviorTrendCard {
+  padding: 16px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(205, 213, 243, 0.72);
+  box-shadow: 0 12px 30px rgba(38, 52, 105, 0.06);
+}
+
+.behaviorTrendTop,
+.behaviorTrendBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.behaviorTrendTop span {
+  color: var(--behavior-ink);
+  font-size: 13px;
+  font-weight: 950;
+  line-height: 1.2;
+}
+
+.behaviorSparkline {
+  display: block;
+  width: 100%;
+  height: 58px;
+  margin: 12px 0;
+  overflow: visible;
+}
+
+.behaviorSparkline polyline {
+  stroke: var(--behavior-accent);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 5px 10px rgba(86, 103, 201, 0.18));
+}
+
+.behaviorSparkline circle {
+  fill: #fff;
+  stroke: var(--behavior-accent);
+  stroke-width: 3;
+}
+
+.behaviorTrendBottom small,
+.behaviorTrendBottom strong {
+  color: var(--behavior-muted);
+  font-size: 11px;
+  font-weight: 850;
+  line-height: 1.25;
+}
+
+.behaviorTrendBottom strong {
+  color: var(--behavior-ink);
+  text-align: right;
+}
+
+.behaviorScreenshotBlock {
+  padding: 0;
+}
+
+.behaviorScreenshotBlock summary {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px 14px;
+  align-items: center;
+  padding: clamp(16px, 2vw, 22px);
+  list-style: none;
+  cursor: pointer;
+}
+
+.behaviorScreenshotBlock summary::-webkit-details-marker {
+  display: none;
+}
+
+.behaviorScreenshotBlock summary > span {
+  grid-column: 1 / -1;
+  color: var(--behavior-muted);
+  font-size: 11px;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.behaviorScreenshotBlock summary b {
+  color: var(--behavior-ink);
+  font-size: clamp(18px, 1.8vw, 24px);
+  letter-spacing: -0.03em;
+}
+
+.behaviorScreenshotGallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  padding: 0 clamp(16px, 2vw, 22px) clamp(16px, 2vw, 22px);
+}
+
+.behaviorShotThumb {
+  border-color: rgba(205, 213, 243, 0.72);
+  background: rgba(255, 255, 255, 0.86);
+}
+
+.behaviorShotThumb img {
+  width: 100%;
+  height: auto;
+  max-height: 340px;
+  object-fit: contain;
+  object-position: center;
+}
+
+.behaviorShotThumb span {
+  color: var(--behavior-muted);
+}
+
 .ppcSummary,
 .ppcSection {
   margin-top: 14px;
@@ -2054,6 +2395,29 @@ h2 .sectionLogo {
   font-size: 14px;
 }
 
+.metaBoostTruthNote {
+  display: grid;
+  gap: 5px;
+  margin-top: 14px;
+  padding: 13px 14px;
+  border-radius: 18px;
+  background: rgba(24, 119, 242, 0.075);
+  border: 1px solid rgba(24, 119, 242, 0.14);
+}
+
+.metaBoostTruthNote b {
+  color: #10231b;
+  font-size: 13px;
+  line-height: 1.25;
+}
+
+.metaBoostTruthNote span {
+  color: #405648;
+  font-size: 12px;
+  font-weight: 760;
+  line-height: 1.4;
+}
+
 .metaBoostChannels {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2146,6 +2510,205 @@ h2 .sectionLogo {
 
 .metaBoostVisuals .metaBoostThumb:only-child {
   grid-column: 1 / -1;
+}
+
+.metaBoostPerformerGroup {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 26px;
+  background: rgba(255, 255, 255, 0.56);
+  border: 1px solid rgba(255, 255, 255, 0.74);
+}
+
+.metaBoostPerformerGroup.attention {
+  background: rgba(255, 255, 255, 0.62);
+  border-color: rgba(239, 68, 68, 0.14);
+}
+
+.metaBoostPerformerHead {
+  display: grid;
+  gap: 5px;
+  max-width: 820px;
+}
+
+.metaBoostPerformerHead > span {
+  display: inline-flex;
+  width: fit-content;
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: rgba(0, 107, 63, 0.1);
+  color: var(--gs-green);
+  font-size: 11px;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.metaBoostPerformerGroup.attention .metaBoostPerformerHead > span {
+  background: rgba(239, 68, 68, 0.1);
+  color: #b42318;
+}
+
+.metaBoostPerformerHead h4 {
+  margin: 0;
+  font-size: clamp(22px, 2.2vw, 30px);
+  letter-spacing: -0.04em;
+}
+
+.metaBoostPerformerHead p {
+  font-size: 13px;
+  color: #405648;
+}
+
+.metaBoostPerformerGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.metaBoostPerformer {
+  display: grid;
+  grid-template-columns: minmax(180px, 0.82fr) minmax(0, 1.18fr);
+  gap: 14px;
+  align-items: stretch;
+  padding: 12px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.82);
+  box-shadow: 0 14px 34px rgba(16, 35, 27, 0.07);
+}
+
+.metaBoostPerformer.attention {
+  border-color: rgba(239, 68, 68, 0.16);
+}
+
+.metaBoostPerformer .performerAsset {
+  min-height: 100%;
+}
+
+.metaBoostPerformer .performerAsset img {
+  width: 100%;
+  height: 100%;
+  max-height: 300px;
+  object-fit: contain;
+  object-position: center;
+}
+
+.metaBoostPerformerBody {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  min-width: 0;
+}
+
+.metaBoostPerformerTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.metaBoostPerformerTop span,
+.metaBoostPerformerTop i {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  border-radius: 999px;
+  padding: 6px 9px;
+  background: rgba(24, 119, 242, 0.1);
+  color: #1877f2;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 950;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.metaBoostPerformerTop i {
+  background: rgba(0, 107, 63, 0.1);
+  color: var(--gs-green);
+}
+
+.metaBoostPerformer.attention .metaBoostPerformerTop i {
+  background: rgba(239, 68, 68, 0.1);
+  color: #b42318;
+}
+
+.metaBoostPerformer h5 {
+  margin: 0;
+  color: #10231b;
+  font-size: 20px;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+}
+
+.metaBoostRowLink {
+  display: grid;
+  gap: 4px;
+  padding: 10px 11px;
+  border-radius: 16px;
+  background: rgba(24, 119, 242, 0.06);
+  border: 1px solid rgba(24, 119, 242, 0.1);
+}
+
+.metaBoostRowLink span {
+  color: var(--gs-muted);
+  font-size: 10px;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.metaBoostRowLink b {
+  color: #243a31;
+  font-size: 12px;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.metaBoostMetricGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.metaBoostMetricGrid div {
+  min-width: 0;
+  padding: 10px;
+  border-radius: 16px;
+  background: rgba(0, 107, 63, 0.055);
+  border: 1px solid rgba(0, 107, 63, 0.09);
+}
+
+.metaBoostPerformer.attention .metaBoostMetricGrid div {
+  background: rgba(239, 68, 68, 0.055);
+  border-color: rgba(239, 68, 68, 0.1);
+}
+
+.metaBoostMetricGrid span {
+  display: block;
+  color: var(--gs-muted);
+  font-size: 10px;
+  font-weight: 950;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.metaBoostMetricGrid strong {
+  display: block;
+  margin-top: 4px;
+  color: #10231b;
+  font-size: clamp(14px, 1.2vw, 18px);
+  line-height: 1.05;
+  white-space: nowrap;
+}
+
+.metaBoostPerformerBody p {
+  color: #405648;
+  font-size: 13px;
+  line-height: 1.45;
 }
 
 .metaBoostThumb {
@@ -2241,7 +2804,9 @@ h2 .sectionLogo {
   .metaFlightGrid,
   .metaBoostSectionHead,
   .metaBoostChannels,
-  .metaBoostTakeaways {
+  .metaBoostTakeaways,
+  .metaBoostPerformer,
+  .metaBoostPerformerGrid {
     grid-template-columns: 1fr;
   }
 
@@ -2264,7 +2829,8 @@ h2 .sectionLogo {
 
   .metaFlightKpis,
   .metaBoostHighlights,
-  .metaBoostVisuals {
+  .metaBoostVisuals,
+  .metaBoostMetricGrid {
     grid-template-columns: 1fr;
   }
 }
@@ -2621,5 +3187,56 @@ details[open] > summary {
   .clarityInsightItem,
   details[open] > :not(summary) {
     animation: none !important;
+  }
+}
+
+/* Behavior Analytics final overrides */
+.behaviorAnalyticsBlock .behaviorHero,
+.behaviorAnalyticsBlock .behaviorBlock,
+.behaviorAnalyticsBlock .clarityMetricCard,
+.behaviorAnalyticsBlock .clarityInsightItem,
+.behaviorAnalyticsBlock .clarityGlossaryItem,
+.behaviorAnalyticsBlock .funnelTimeCard,
+.behaviorAnalyticsBlock .funnelDetailPanel,
+.behaviorAnalyticsBlock .behaviorTrendCard {
+  background: rgba(255, 255, 255, 0.78);
+  border-color: rgba(205, 213, 243, 0.72);
+}
+
+.behaviorAnalyticsBlock .behaviorHero {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.behaviorAnalyticsBlock .behaviorHealthCard,
+.behaviorAnalyticsBlock .behaviorInsightCard,
+.behaviorAnalyticsBlock .behaviorTrendCard {
+  box-shadow: 0 12px 30px rgba(38, 52, 105, 0.06);
+}
+
+@media (max-width: 1180px) {
+  .behaviorJourneyGrid,
+  .behaviorTrendGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .behaviorInsightGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .behaviorJourneyGrid,
+  .behaviorTrendGrid,
+  .behaviorInsightGrid,
+  .behaviorScreenshotGallery {
+    grid-template-columns: 1fr;
+  }
+
+  .behaviorScreenshotBlock summary {
+    grid-template-columns: 1fr;
+  }
+
+  .behaviorScreenshotBlock .detailBtn {
+    justify-self: start;
   }
 }

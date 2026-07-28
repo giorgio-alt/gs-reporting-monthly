@@ -39,118 +39,211 @@ const devices = [
   { name: "web / tablet", users: "1 069", usersChange: "+38,47 %", orders: "36", ordersChange: "+28,57 %", revenue: "29 119 Kč", revenueChange: "+1,84 %", note: "Malý segment, růstově pozitivní, bez zásadního vlivu na celek." }
 ];
 
-const funnelData = [
+const behaviorHealthMetrics = [
   {
-    id: "purchase_funnel",
-    title: "Nákupní funnel",
+    id: "rage-clicks",
+    title: "Rage Clicks",
+    values: [
+      { period: "2026-05", value: 0.09, sessions: 46 },
+      { period: "2026-06", value: 0.02, sessions: 9 }
+    ],
+    displayValue: "0,02 %",
+    max: 0.12,
+    trend: "good",
+    comment: "Opakované klikání na stejné místo v červnu výrazně ustoupilo. Tohle je dobrý signál: méně momentů, kdy uživatel zkouší stránku přemluvit silou.",
+    plainInsight: "Frustrační klikání je v červnu nízké a proti květnu se citelně zlepšilo."
+  },
+  {
+    id: "dead-clicks",
+    title: "Dead Clicks",
+    values: [
+      { period: "2026-05", value: 7.86, sessions: 3853 },
+      { period: "2026-06", value: 0.58, sessions: 297 }
+    ],
+    displayValue: "0,58 %",
+    max: 8,
+    trend: "good",
+    comment: "Kliknutí na nereagující prvky spadla z 7,86 % na 0,58 %. Uživatelé tak v červnu mnohem méně naráželi na prvky, které vypadají klikatelné, ale nic neudělají.",
+    plainInsight: "Největší meziměsíční zlepšení ve zdraví webu je právě u dead clicks."
+  },
+  {
+    id: "quick-backs",
+    title: "Quick Backs",
+    values: [
+      { period: "2026-05", value: 12.82, sessions: 6289 },
+      { period: "2026-06", value: 12.33, sessions: 6367 }
+    ],
+    displayValue: "12,33 %",
+    max: 14,
+    trend: "good",
+    comment: "Rychlé návraty lehce klesly, i když počet zasažených sessions zůstal objemově podobný. Chování je stabilnější, ale pořád jde o metriky, které stojí za pravidelné sledování.",
+    plainInsight: "Quick backs jsou o něco lepší, ale stále představují nejsilnější behaviorální signál v Clarity."
+  },
+  {
+    id: "excessive-scrolling",
+    title: "Excessive Scrolling",
+    values: [
+      { period: "2026-05", value: 0.01, sessions: 2 },
+      { period: "2026-06", value: 0.01, sessions: 6 }
+    ],
+    displayValue: "0,01 %",
+    max: 0.12,
+    trend: "neutral",
+    comment: "Nadměrné scrollování zůstává prakticky zanedbatelné. V červnu jde jen o 6 sessions, takže zde není vidět plošný problém s dohledatelností obsahu.",
+    plainInsight: "Excessive scrolling je nízké a nevypadá jako širší UX problém."
+  }
+];
+
+const behaviorJourneys = [
+  {
+    id: "homepage-journey",
+    title: "Homepage Journey",
     month: "06/2026",
-    path: "Návštěvy → zapojené návštěvy → objednávky",
-    conversion: "3,96 %",
-    change: "+0,02 p. b. MoM",
-    biggestDrop: "Zapojení → objednávka",
-    comment: "Návštěvnost i objednávky proti květnu rostou. Konverzní míra se drží stabilně, takže hlavní příležitost je dál zvyšovat hodnotu objednávky a zrychlovat cestu z aktivní návštěvy k nákupu.",
+    path: "Homepage → Product → Cart → Checkout → Purchase",
+    conversion: "4,83 %",
+    change: "-1,79 p. b. MoM",
+    biggestDrop: "Homepage → Product",
+    comment: "Cesta z homepage v červnu ztrácí hlavně hned na přechodu do produktu. Celkový průchod k objednávce klesl z 6,62 % na 4,83 %, takže úvodní stránka posílá do produktové části menší podíl návštěv než v květnu.",
     months: [
-      { month: "05/2026", steps: [{ label: "Návštěvy", value: 89324, change: "0 %" }, { label: "Zapojené návštěvy", value: 56245, change: "0 %" }, { label: "Objednávky", value: 3522, change: "0 %" }] },
-      { month: "06/2026", steps: [{ label: "Návštěvy", value: 95742, change: "+7,18 %" }, { label: "Zapojené návštěvy", value: 61626, change: "+9,57 %" }, { label: "Objednávky", value: 3788, change: "+7,55 %" }] }
+      {
+        month: "05/2026",
+        steps: [
+          { label: "Homepage", value: 2688, rate: 100, change: "0 %" },
+          { label: "Product", value: 973, rate: 36.2, change: "0 %" },
+          { label: "Cart", value: 482, rate: 49.54, change: "0 %" },
+          { label: "Checkout", value: 275, rate: 57.05, change: "0 %" },
+          { label: "Purchase", value: 178, rate: 64.73, change: "0 %" }
+        ]
+      },
+      {
+        month: "06/2026",
+        steps: [
+          { label: "Homepage", value: 2879, rate: 100, change: "+7,11 %" },
+          { label: "Product", value: 1006, rate: 34.94, change: "+3,39 %" },
+          { label: "Cart", value: 463, rate: 46.02, change: "-3,94 %" },
+          { label: "Checkout", value: 229, rate: 49.46, change: "-16,73 %" },
+          { label: "Purchase", value: 139, rate: 60.7, change: "-21,91 %" }
+        ]
+      }
     ]
   },
   {
-    id: "product_funnel",
-    title: "Produktový funnel",
+    id: "product-journey",
+    title: "Product Journey",
     month: "06/2026",
-    path: "Zobrazení produktu → přidání do košíku → zakoupené položky",
-    conversion: "11,93 %",
-    change: "-2,71 p. b. MoM",
-    biggestDrop: "Košík → zakoupení",
-    comment: "Produktové zobrazení výrazně narostlo a košíků je víc, ale finální zakoupené položky lehce klesly. To říká, že produktový mix táhne tržbu, ale košík a dokončení nákupu si zaslouží pozornost.",
+    path: "Product → Cart → Checkout → Purchase",
+    conversion: "4,78 %",
+    change: "-0,53 p. b. MoM",
+    biggestDrop: "Product → Cart",
+    comment: "Produktová cesta má v červnu vyšší počet produktových sessions, ale slabší přechod do košíku. Pozitivní je, že samotný krok checkout → purchase se zlepšil, takže největší pozornost dává smysl držet před košíkem.",
     months: [
-      { month: "05/2026", steps: [{ label: "Zobrazení produktu", value: 66446, change: "0 %" }, { label: "Přidání do košíku", value: 22213, change: "0 %" }, { label: "Zakoupené položky", value: 9726, change: "0 %" }] },
-      { month: "06/2026", steps: [{ label: "Zobrazení produktu", value: 79599, change: "+19,8 %" }, { label: "Přidání do košíku", value: 24327, change: "+9,52 %" }, { label: "Zakoupené položky", value: 9499, change: "-2,33 %" }] }
+      {
+        month: "05/2026",
+        steps: [
+          { label: "Product", value: 24208, rate: 100, change: "0 %" },
+          { label: "Cart", value: 4084, rate: 16.87, change: "0 %" },
+          { label: "Checkout", value: 2182, rate: 53.43, change: "0 %" },
+          { label: "Purchase", value: 1285, rate: 58.89, change: "0 %" }
+        ]
+      },
+      {
+        month: "06/2026",
+        steps: [
+          { label: "Product", value: 27235, rate: 100, change: "+12,50 %" },
+          { label: "Cart", value: 4028, rate: 14.79, change: "-1,37 %" },
+          { label: "Checkout", value: 2115, rate: 52.51, change: "-3,07 %" },
+          { label: "Purchase", value: 1301, rate: 61.51, change: "+1,25 %" }
+        ]
+      }
     ]
   },
   {
-    id: "content_funnel",
-    title: "Obsahový funnel",
+    id: "checkout-journey",
+    title: "Checkout Journey",
     month: "06/2026",
-    path: "Zobrazení článků → aktivní uživatelé → další zobrazení",
-    conversion: "69,05 %",
-    change: "+0,20 p. b. MoM",
-    biggestDrop: "Zobrazení → aktivní uživatel",
-    comment: "Blog má o něco nižší objem, ale kvalita čtení se drží. Článek o sluneční alergii roste sezonálně velmi dobře a dává smysl ho napojit na letní produkty i newsletter.",
+    path: "Checkout → Purchase",
+    conversion: "60,68 %",
+    change: "+3,53 p. b. MoM",
+    biggestDrop: "Checkout → Purchase",
+    comment: "Samotné dokončení z checkoutu do objednávky se v červnu zlepšilo z 57,15 % na 60,68 %. To pomáhá oddělit problém před checkoutem od toho, co se děje přímo v závěru nákupní cesty.",
     months: [
-      { month: "05/2026", steps: [{ label: "Zobrazení článků", value: 27529, change: "0 %" }, { label: "Aktivní uživatelé", value: 18955, change: "0 %" }, { label: "Další zobrazení", value: 8574, change: "0 %" }] },
-      { month: "06/2026", steps: [{ label: "Zobrazení článků", value: 26277, change: "-4,55 %" }, { label: "Aktivní uživatelé", value: 18146, change: "-4,27 %" }, { label: "Další zobrazení", value: 8131, change: "-5,17 %" }] }
-    ]
-  },
-  {
-    id: "device_funnel",
-    title: "Zařízení / UX funnel",
-    month: "06/2026",
-    path: "Aktivní uživatelé → zapojení → objednávky",
-    conversion: "6,79 %",
-    change: "+0,77 p. b. YoY",
-    biggestDrop: "Zapojení → objednávka",
-    comment: "Mobile drží objem, desktop drží hodnotu. Celkově je objednávek meziročně víc i při nižším počtu aktivních uživatelů, což ukazuje na lepší schopnost dovést návštěvu k objednávce.",
-    months: [
-      { month: "06/2025", steps: [{ label: "Aktivní uživatelé", value: 59574, change: "0 %" }, { label: "Zapojení", value: 38042, change: "0 %" }, { label: "Objednávky", value: 3587, change: "0 %" }] },
-      { month: "06/2026", steps: [{ label: "Aktivní uživatelé", value: 55806, change: "-6,32 %" }, { label: "Zapojení", value: 35931, change: "-5,55 %" }, { label: "Objednávky", value: 3788, change: "+5,6 %" }] }
+      {
+        month: "05/2026",
+        steps: [
+          { label: "Checkout", value: 3300, rate: 100, change: "0 %" },
+          { label: "Purchase", value: 1886, rate: 57.15, change: "0 %" }
+        ]
+      },
+      {
+        month: "06/2026",
+        steps: [
+          { label: "Checkout", value: 3243, rate: 100, change: "-1,73 %" },
+          { label: "Purchase", value: 1968, rate: 60.68, change: "+4,35 %" }
+        ]
+      }
     ]
   }
 ];
 
-const clarityInsights = [
-  { label: "Sledujeme", value: "4 hlavní cesty", text: "Nákupní, produktovou, obsahovou a UX cestu podle zařízení." },
-  { label: "Největší propad", value: "Košík → zakoupení", text: "Produktový funnel má silný zájem, ale dokončení nákupu je slabší místo." },
-  { label: "Roste", value: "+7,55 % objednávky", text: "Nákupní cesta drží stabilní konverzi a objem objednávek roste." },
-  { label: "Klesá", value: "-2,33 % položky", text: "Zakoupené položky klesly i přes růst zobrazení produktů a košíků." },
-  { label: "Proč to sledovat", value: "Objem vs. průchod", text: "Díky funnelům poznáme, jestli výkon mění návštěvnost, zapojení nebo ztráta v konkrétním kroku." }
-];
-
-const clarityFrictionMetrics = [
+const behaviorInsights = [
   {
-    label: "Quick backs",
-    value: "12,82 %",
-    sessions: "6 289 sessions",
-    mom: "bez srovnání",
-    tone: "neutral",
-    max: 15,
-    months: [{ month: "06/2026", value: 12.82 }]
-  },
-  {
-    label: "Dead clicks",
-    value: "7,86 %",
-    sessions: "3 853 sessions",
-    mom: "bez srovnání",
-    tone: "neutral",
-    max: 15,
-    months: [{ month: "06/2026", value: 7.86 }]
-  },
-  {
-    label: "Rage clicks",
-    value: "0,09 %",
-    sessions: "46 sessions",
-    mom: "bez srovnání",
+    title: "Dead Clicks",
+    value: "0,58 %",
+    mom: "-7,28 p. b.",
     tone: "good",
-    max: 2,
-    months: [{ month: "06/2026", value: 0.09 }]
+    comment: "Největší zlepšení v červnu. Stránka působí pro uživatele jednoznačněji a méně často svádí ke kliknutí na nereagující prvky."
   },
   {
-    label: "Excessive scrolling",
-    value: "< 0,01 %",
-    sessions: "2 sessions",
-    mom: "bez srovnání",
+    title: "Quick Backs",
+    value: "12,33 %",
+    mom: "-0,49 p. b.",
     tone: "good",
-    max: 2,
-    months: [{ month: "06/2026", value: 0.01 }]
+    comment: "Metrika se lehce zlepšila, ale pořád je nejvýraznější ze všech behaviorálních signálů. Stojí za to sledovat hlavně stránky, ze kterých se lidé rychle vrací."
+  },
+  {
+    title: "Rage Clicks",
+    value: "0,02 %",
+    mom: "-0,07 p. b.",
+    tone: "good",
+    comment: "Frustrační klikání je v červnu nízké. Tady se web tváří klidněji a uživatelé méně bojují s interakcemi."
+  },
+  {
+    title: "Excessive Scrolling",
+    value: "0,01 %",
+    mom: "0,00 p. b.",
+    tone: "neutral",
+    comment: "Pouze jednotky sessions. Nevidíme signál, že by lidé plošně hledali důležité informace příliš dlouho."
+  },
+  {
+    title: "Registrace do klubu",
+    value: "0,16 %",
+    mom: "-0,05 p. b.",
+    tone: "watch",
+    comment: "Průchod k registraci je v červnu nižší a objem dokončení klesl ze 103 na 85 sessions. Je to samostatná behaviorální cesta, ne hlavní nákupní funnel."
   }
 ];
 
-const clarityGlossary = [
-  { term: "Dead clicks", text: "Kliknutí na prvek, který nereaguje.", why: "Pomáhá odhalit místa, kde uživatel čeká akci, ale stránka mu ji nenabídne." },
-  { term: "Rage clicks", text: "Rychlé opakované klikání na stejné místo.", why: "Typicky ukazuje frustraci nebo nejasný prvek v nákupní cestě." },
-  { term: "Excessive scrolling", text: "Neobvykle dlouhé scrollování.", why: "Může značit, že uživatel hledá důležitou informaci příliš dlouho." },
-  { term: "Quick backs", text: "Rychlý návrat zpět po otevření stránky.", why: "Často ukazuje nesoulad očekávání, slabý landing page match nebo horší navigaci." },
-  { term: "JavaScript errors", text: "Chyby na stránce, které mohou ovlivnit chování webu.", why: "Důležité hlavně tam, kde mohou brzdit dokončení objednávky." }
+const behaviorTrendSeries = [
+  { id: "homepage-product", title: "Homepage → Product", unit: "%", values: [{ period: "05/2026", value: 36.2 }, { period: "06/2026", value: 34.94 }] },
+  { id: "product-cart", title: "Product → Cart", unit: "%", values: [{ period: "05/2026", value: 16.87 }, { period: "06/2026", value: 14.79 }] },
+  { id: "cart-checkout", title: "Cart → Checkout", unit: "%", values: [{ period: "05/2026", value: 56.45 }, { period: "06/2026", value: 54.69 }] },
+  { id: "checkout-purchase", title: "Checkout → Purchase", unit: "%", values: [{ period: "05/2026", value: 57.15 }, { period: "06/2026", value: 60.68 }] },
+  { id: "dead-clicks", title: "Dead Clicks", unit: "%", values: [{ period: "05/2026", value: 7.86 }, { period: "06/2026", value: 0.58 }] },
+  { id: "quick-backs", title: "Quick Backs", unit: "%", values: [{ period: "05/2026", value: 12.82 }, { period: "06/2026", value: 12.33 }] },
+  { id: "rage-clicks", title: "Rage Clicks", unit: "%", values: [{ period: "05/2026", value: 0.09 }, { period: "06/2026", value: 0.02 }] }
+];
+
+const clarityScreenshots = [
+  { title: "Homepage Journey · 06/2026", full: "assets/report-jun-26/clarity/06-1.png", thumb: "assets/report-jun-26/clarity/06-1-thumb.png" },
+  { title: "Product Journey · 06/2026", full: "assets/report-jun-26/clarity/06-2.png", thumb: "assets/report-jun-26/clarity/06-2-thumb.png" },
+  { title: "Checkout Journey · 06/2026", full: "assets/report-jun-26/clarity/06-3.png", thumb: "assets/report-jun-26/clarity/06-3-thumb.png" },
+  { title: "Registrace do klubu · 06/2026", full: "assets/report-jun-26/clarity/06-4.png", thumb: "assets/report-jun-26/clarity/06-4-thumb.png" },
+  { title: "Behavioral Insights · 06/2026", full: "assets/report-jun-26/clarity/06-5.png", thumb: "assets/report-jun-26/clarity/06-5-thumb.png" },
+  { title: "Homepage Journey · 05/2026", full: "assets/report-jun-26/clarity/05-1.png", thumb: "assets/report-jun-26/clarity/05-1-thumb.png" },
+  { title: "Product Journey · 05/2026", full: "assets/report-jun-26/clarity/05-2.png", thumb: "assets/report-jun-26/clarity/05-2-thumb.png" },
+  { title: "Checkout Journey · 05/2026", full: "assets/report-jun-26/clarity/05-3.png", thumb: "assets/report-jun-26/clarity/05-3-thumb.png" },
+  { title: "Registrace do klubu · 05/2026", full: "assets/report-jun-26/clarity/05-4.png", thumb: "assets/report-jun-26/clarity/05-4-thumb.png" },
+  { title: "Behavioral Insights · 05/2026", full: "assets/report-jun-26/clarity/05-5.png", thumb: "assets/report-jun-26/clarity/05-5-thumb.png" }
 ];
 
 const changeClass = (value) => value.trim().startsWith("+") ? "good" : value.trim().startsWith("-") ? "bad" : "neutral";
@@ -197,30 +290,39 @@ const renderDeviceCard = (item) => `
     <p>${item.note}</p>
   </div>`;
 
+const currentPoint = (items) => items.at(-1);
+
+const previousPoint = (items) => items.at(-2) ?? items[0];
+
 const conversionRate = (month) => month.steps.at(-1).value / month.steps[0].value * 100;
 
 const dropOffRate = (month) => (1 - month.steps.at(-1).value / month.steps[0].value) * 100;
 
+const decimalText = (value, digits = 2) => value.toFixed(digits).replace(".", ",");
+
 const renderMiniFunnel = (funnel, variant = "mini") => {
   const current = funnel.months.at(-1);
+  const previous = previousPoint(funnel.months);
   const max = current.steps[0].value;
 
   return `<div class="funnelShape funnelShape--${variant}">
-    ${current.steps.map((step) => {
+    ${current.steps.map((step, index) => {
+      const previousStep = previous.steps[index];
+      const rateChange = previousStep ? step.rate - previousStep.rate : 0;
       const width = Math.max(22, step.value / max * 100);
       return `<div class="funnelSegment" style="--segment-width:${width}%">
         <div class="funnelSegmentBar"></div>
         <div class="funnelSegmentMeta">
           <span>${step.label}</span>
-          <b>${formatValue(step.value)}</b>
-          ${changeChip(step.change)}
+          <b>${formatValue(step.value)} sessions</b>
+          <small>${decimalText(step.rate)} % průchod ${index === 0 ? changeChip(step.change) : changeChip(percentPointText(rateChange))}</small>
         </div>
       </div>`;
     }).join("")}
   </div>`;
 };
 
-const percentText = (value) => `${value.toFixed(1).replace(".", ",")} %`;
+const percentText = (value, digits = 1) => `${decimalText(value, digits)} %`;
 
 const percentPointText = (value) => `${value > 0 ? "+" : ""}${value.toFixed(2).replace(".", ",")} p. b.`;
 
@@ -241,7 +343,7 @@ const renderTrendPane = (funnel, metric, active = false) => {
             <div class="funnelTrendValues">
               <b>${formatValue(previousValue)}</b>
               <i aria-hidden="true">→</i>
-              <strong>${formatValue(step.value)}</strong>
+              <strong>${formatValue(step.value)} sessions</strong>
               ${numericChangeChip(change)}
             </div>
           </div>`;
@@ -262,7 +364,7 @@ const renderTrendPane = (funnel, metric, active = false) => {
         <strong>${percentText(currentRate)}</strong>
         ${changeChip(percentPointText(currentRate - previousRate))}
       </div>
-      <p>Konverze porovnává první a poslední krok funnelu. U dvou měsíců je přesnější číst ji jako jednoduché srovnání, ne jako dlouhý trend.</p>
+      <p>Celkový průchod porovnává první a poslední krok cesty. U dvou měsíců je přesnější číst ho jako jednoduché srovnání, ne jako dlouhý trend.</p>
     </div>`;
   }
 
@@ -277,21 +379,21 @@ const renderTrendPane = (funnel, metric, active = false) => {
       <strong>${percentText(currentDropOff)}</strong>
       ${changeChip(percentPointText(currentDropOff - previousDropOff))}
     </div>
-    <p>Drop-off ukazuje, jaká část uživatelů se mezi prvním a posledním krokem ztratí. Nižší hodnota je lepší.</p>
+    <p>Drop-off ukazuje, jaká část sessions se mezi prvním a posledním krokem ztratí. Nižší hodnota je lepší.</p>
   </div>`;
 };
 
 const renderDropTable = (funnel) => {
   const current = funnel.months.at(-1);
+  const previous = previousPoint(funnel.months);
   return `<table class="dashTable funnelDropTable">
-    <thead><tr><th>Krok</th><th>Objem</th><th>Průchod</th><th>Změna</th></tr></thead>
+    <thead><tr><th>Krok</th><th>Sessions</th><th>Průchod krokem</th><th>MoM</th></tr></thead>
     <tbody>
       ${current.steps.map((step, index) => {
-        const previous = index === 0 ? current.steps[0].value : current.steps[index - 1].value;
-        const rate = index === 0 ? "100 %" : `${(step.value / previous * 100).toFixed(1).replace(".", ",")} %`;
-        const previousValue = funnel.months[0].steps[index].value;
-        const change = previousValue === 0 ? 0 : (step.value / previousValue - 1) * 100;
-        return `<tr><td>${step.label}</td><td>${formatValue(step.value)}</td><td>${rate}</td><td>${numericChangeChip(change)}</td></tr>`;
+        const previousStep = previous.steps[index];
+        const rateChange = previousStep ? step.rate - previousStep.rate : 0;
+        const mom = index === 0 ? changeChip(step.change) : changeChip(percentPointText(rateChange));
+        return `<tr><td>${step.label}</td><td>${formatValue(step.value)}</td><td>${percentText(step.rate, 2)}</td><td>${mom}</td></tr>`;
       }).join("")}
     </tbody>
   </table>`;
@@ -299,7 +401,7 @@ const renderDropTable = (funnel) => {
 
 const renderFunnelCard = (funnel, index) => `
   <article
-    class="funnelTimeCard${index === 0 ? " is-active" : ""}"
+    class="funnelTimeCard behaviorJourneyCard${index === 0 ? " is-active" : ""}"
     role="button"
     tabindex="0"
     data-funnel-card="${funnel.id}"
@@ -312,7 +414,7 @@ const renderFunnelCard = (funnel, index) => `
     </div>
     <h3>${funnel.title}</h3>
     <p>${funnel.path}</p>
-    <div class="funnelCardMetric"><span>Konverze</span><strong>${funnel.conversion}</strong></div>
+    <div class="funnelCardMetric"><span>Celkový průchod</span><strong>${funnel.conversion}</strong></div>
     ${renderMiniFunnel(funnel)}
     <div class="funnelDropNote">Největší propad: <b>${funnel.biggestDrop}</b></div>
     <span class="funnelCardCta">${index === 0 ? "Detail otevřený" : "Zobrazit detail"}</span>
@@ -332,15 +434,15 @@ const renderFunnelDetailPanel = (funnel, index) => `
     </div>
     <div class="funnelDetailGrid">
       <div>
-        <h4>Aktuální trychtýř</h4>
+        <h4>Aktuální cesta</h4>
         ${renderMiniFunnel(funnel, "large")}
       </div>
       <div>
         <div class="funnelTrendHead">
           <h4>Trend v čase</h4>
           <div class="funnelMetricTabs" role="tablist" aria-label="Přepnutí metriky trendu">
-            <button class="funnelMetricToggle is-active" type="button" data-funnel-metric="volume">Objem</button>
-            <button class="funnelMetricToggle" type="button" data-funnel-metric="conversion">Konverze</button>
+            <button class="funnelMetricToggle is-active" type="button" data-funnel-metric="volume">Sessions</button>
+            <button class="funnelMetricToggle" type="button" data-funnel-metric="conversion">Průchod</button>
             <button class="funnelMetricToggle" type="button" data-funnel-metric="dropoff">Drop-off</button>
           </div>
         </div>
@@ -360,35 +462,90 @@ const renderFunnelDetailPanel = (funnel, index) => `
     </div>
   </div>`;
 
-const renderClarityInsight = (item) => `
-  <div class="clarityInsightItem">
-    <span>${item.label}</span>
-    <b>${item.value}</b>
-    <p>${item.text}</p>
+const renderBehaviorHeroInsight = (item) => `
+  <div class="clarityInsightItem behaviorHeroItem">
+    <span>${item.title}</span>
+    <b>${item.displayValue}</b>
+    <p>${item.plainInsight}</p>
   </div>`;
 
-const renderClarityTrend = (metric) => `
-  <div class="clarityMiniTrend" aria-label="Trend ${metric.label}">
-    ${metric.months.map((point) => `<span style="--bar-height:${Math.max(4, Math.min(100, point.value / metric.max * 100))}%" title="${point.month}: ${point.value} %"></span>`).join("")}
+const renderBehaviorHealthTrend = (metric) => `
+  <div class="clarityMiniTrend" aria-label="Trend ${metric.title}">
+    ${metric.values.map((point) => `<span style="--bar-height:${Math.max(4, Math.min(100, point.value / metric.max * 100))}%" title="${point.period}: ${decimalText(point.value)} %"></span>`).join("")}
   </div>`;
 
-const renderClarityMetric = (metric) => `
-  <article class="clarityMetricCard ${metric.tone}">
+const renderBehaviorHealthMetric = (metric) => {
+  const previous = previousPoint(metric.values);
+  const current = currentPoint(metric.values);
+  const valueChange = current.value - previous.value;
+  const sessionChange = current.sessions - previous.sessions;
+
+  return `<article class="clarityMetricCard behaviorHealthCard ${metric.trend}">
     <div class="clarityMetricTop">
-      <span>${metric.label}</span>
-      <i>${metric.mom}</i>
+      <span>${metric.title}</span>
+      <i>${changeChip(percentPointText(valueChange))}</i>
     </div>
-    <strong>${metric.value}</strong>
-    <small>${metric.sessions}</small>
-    ${renderClarityTrend(metric)}
+    <strong>${metric.displayValue}</strong>
+    <small>${formatValue(current.sessions)} sessions ${changeChip(`${sessionChange > 0 ? "+" : ""}${formatValue(sessionChange)}`)}</small>
+    ${renderBehaviorHealthTrend(metric)}
+    <p>${metric.comment}</p>
+  </article>`;
+};
+
+const renderBehaviorInsight = (item) => `
+  <article class="clarityGlossaryItem behaviorInsightCard ${item.tone}">
+    <div class="clarityMetricTop">
+      <span>${item.title}</span>
+      <i>${changeChip(item.mom)}</i>
+    </div>
+    <b>${item.value}</b>
+    <p>${item.comment}</p>
   </article>`;
 
-const renderGlossaryItem = (item) => `
-  <div class="clarityGlossaryItem">
-    <b>${item.term}</b>
-    <p>${item.text}</p>
-    <small>${item.why}</small>
-  </div>`;
+const renderSparkline = (series) => {
+  const width = 160;
+  const height = 54;
+  const pad = 8;
+  const values = series.values.map((point) => point.value);
+  const min = Math.min(...values);
+  const max = Math.max(...values);
+  const range = max - min || 1;
+  const points = series.values.map((point, index) => {
+    const x = pad + (index / Math.max(1, series.values.length - 1)) * (width - pad * 2);
+    const y = height - pad - ((point.value - min) / range) * (height - pad * 2);
+    return { x, y, point };
+  });
+  const pointString = points.map(({ x, y }) => `${x.toFixed(1)},${y.toFixed(1)}`).join(" ");
+
+  return `<svg class="behaviorSparkline" viewBox="0 0 ${width} ${height}" role="img" aria-label="Trend ${series.title}">
+    <polyline points="${pointString}" fill="none" />
+    ${points.map(({ x, y, point }) => `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="3.5"><title>${point.period}: ${decimalText(point.value)} ${series.unit}</title></circle>`).join("")}
+  </svg>`;
+};
+
+const renderBehaviorTrend = (series) => {
+  const previous = previousPoint(series.values);
+  const current = currentPoint(series.values);
+  const change = current.value - previous.value;
+
+  return `<article class="behaviorTrendCard">
+    <div class="behaviorTrendTop">
+      <span>${series.title}</span>
+      ${changeChip(percentPointText(change))}
+    </div>
+    ${renderSparkline(series)}
+    <div class="behaviorTrendBottom">
+      <small>${previous.period}: ${decimalText(previous.value)} ${series.unit}</small>
+      <strong>${current.period}: ${decimalText(current.value)} ${series.unit}</strong>
+    </div>
+  </article>`;
+};
+
+const renderClarityScreenshot = (item) => `
+  <a class="creativeThumb behaviorShotThumb" href="${item.full}" aria-label="Otevřít detail: ${item.title}">
+    <img src="${item.thumb}" alt="${item.title}" loading="lazy" />
+    <span>${item.title}</span>
+  </a>`;
 
 export const productsSectionHtml = `<section class="chapter" id="produkty">
   <div class="chapterHead glass">
@@ -487,39 +644,62 @@ export const productsSectionHtml = `<section class="chapter" id="produkty">
     </div>
   </div>
 
-  <div class="panel glass funnelTimeBlock">
-    <span class="pill systemPill">${SystemLogo({ system: "microsoftClarity", label: "Clarity", className: "channelLogo" })}Vývoj funnelů</span>
-    <h2>Funnel vývoj v čase</h2>
-    <p class="sectionLead">Trychtýře ukazují, kde se v čase mění průchod nákupní a obsahovou cestou. Cílem není sledovat jen finální nákup, ale pochopit, ve kterém kroku se výkon zlepšuje nebo ztrácí.</p>
-    <div class="clarityOverview">
+  <div class="panel glass funnelTimeBlock behaviorAnalyticsBlock">
+    <span class="pill systemPill">${SystemLogo({ system: "microsoftClarity", label: "Clarity", className: "channelLogo" })}Behavior Analytics</span>
+    <h2>MS Clarity · Behavior Analytics</h2>
+    <p class="sectionLead">Tahle část sleduje, jak se lidé na webu skutečně chovají: kde klikají zbytečně, kde se rychle vrací a jak se mění průchod hlavními cestami. Clarity zde stojí samostatně, bez míchání s reklamními nebo obchodními KPI.</p>
+    <div class="clarityMetricSection behaviorBlock">
       <div>
-        <h3>MS Clarity přehled</h3>
-        <p>MS Clarity část sleduje, jak uživatelé procházejí klíčovými cestami webu. Neřeší jen finální objednávku, ale i mezikroky: zobrazení produktu, přidání do košíku, zapojení, objednávku nebo práci s obsahem. Díky tomu vidíme, jestli se výkon mění kvůli nižšímu objemu návštěv, slabšímu zapojení, nebo ztrátám v konkrétním kroku.</p>
+        <h3>1. Web Health</h3>
+        <p>Web je v behaviorálních signálech čistší než v květnu. Největší zlepšení vidíme u dead clicks a rage clicks, zatímco quick backs zůstávají nejvýraznější metrikou pro další sledování.</p>
       </div>
-      <div class="clarityInsightGrid">
-        ${clarityInsights.map(renderClarityInsight).join("")}
-      </div>
-    </div>
-    <div class="clarityMetricSection">
-      <div>
-        <h3>Clarity signály chování</h3>
-        <p>Tyto metriky pomáhají rychle odlišit zdravé procházení webu od míst, kde uživatelé narážejí na nejasný prvek, frustraci nebo slabší navigaci.</p>
-      </div>
-      <div class="clarityMetricGrid">
-        ${clarityFrictionMetrics.map(renderClarityMetric).join("")}
+      <div class="clarityMetricGrid behaviorHealthGrid">
+        ${behaviorHealthMetrics.map(renderBehaviorHealthMetric).join("")}
       </div>
     </div>
-    <div class="funnelTimeGrid">
-      ${funnelData.map(renderFunnelCard).join("")}
-    </div>
-    <div class="funnelDetailPanels">
-      ${funnelData.map(renderFunnelDetailPanel).join("")}
-    </div>
-    <div class="clarityGlossary">
-      <h3>MS Clarity slovníček</h3>
-      <div class="clarityGlossaryGrid">
-        ${clarityGlossary.map(renderGlossaryItem).join("")}
+
+    <div class="behaviorBlock behaviorJourneysBlock">
+      <div class="behaviorBlockHead">
+        <h3>2-4. Journey vývoj v čase</h3>
+        <p>Homepage, produktová část a checkout jsou oddělené, aby bylo jasné, jestli se chování mění na začátku cesty, před košíkem, nebo až při dokončení objednávky.</p>
+      </div>
+      <div class="funnelTimeGrid behaviorJourneyGrid">
+        ${behaviorJourneys.map(renderFunnelCard).join("")}
+      </div>
+      <div class="funnelDetailPanels">
+        ${behaviorJourneys.map(renderFunnelDetailPanel).join("")}
       </div>
     </div>
+
+    <div class="clarityGlossary behaviorBlock behaviorInsightsBlock">
+      <div class="behaviorBlockHead">
+        <h3>5. Behavioral Insights</h3>
+        <p>Krátké signály z Clarity, které nejsou samostatným marketingovým výkonem. Pomáhají rychle rozlišit, jestli uživatelé naráží na nejasnou interakci, návrat zpět, nebo dlouhé hledání obsahu.</p>
+      </div>
+      <div class="clarityGlossaryGrid behaviorInsightGrid">
+        ${behaviorInsights.map(renderBehaviorInsight).join("")}
+      </div>
+    </div>
+
+    <div class="behaviorBlock behaviorTrendsBlock">
+      <div class="behaviorBlockHead">
+        <h3>6. Behavior Trends</h3>
+        <p>Trendová vrstva je připravená na další měsíce. Jakmile přibude další období, stačí doplnit dataset a mini grafy se automaticky rozšíří.</p>
+      </div>
+      <div class="behaviorTrendGrid">
+        ${behaviorTrendSeries.map(renderBehaviorTrend).join("")}
+      </div>
+    </div>
+
+    <details class="behaviorBlock behaviorScreenshotBlock">
+      <summary>
+        <span>Clarity náhledy</span>
+        <b>Podpůrné vizuály z května a června</b>
+        <i class="detailBtn">Detail ⌄</i>
+      </summary>
+      <div class="behaviorScreenshotGallery">
+        ${clarityScreenshots.map(renderClarityScreenshot).join("")}
+      </div>
+    </details>
   </div>
 </section>`;
