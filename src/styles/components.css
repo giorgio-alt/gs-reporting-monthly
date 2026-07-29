@@ -746,6 +746,25 @@ h2 .sectionLogo {
   white-space: normal;
 }
 
+.businessYtdMiniContext {
+  margin-top: clamp(24px, 3vw, 32px);
+  padding-top: clamp(20px, 2.6vw, 28px);
+  border-top: 1px solid rgba(0, 107, 63, 0.12);
+}
+
+.businessYtdMiniContext .businessDataPill {
+  margin-bottom: 2px;
+}
+
+.businessMiniMetricGrid {
+  margin-top: 16px;
+}
+
+.businessYtdMiniComment {
+  background: rgba(0, 107, 63, 0.055);
+  border-color: rgba(0, 107, 63, 0.12);
+}
+
 .businessDynamicsKpi dl {
   display: grid;
   gap: 8px;
@@ -2129,6 +2148,50 @@ h2 .sectionLogo {
   font-weight: 820;
 }
 
+.pmaxDeltaNote {
+  margin: 4px 0 8px;
+  color: #6a7d72;
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.pmaxMetricCell {
+  display: inline-grid;
+  gap: 6px;
+  justify-items: end;
+  min-width: max-content;
+}
+
+.pmaxMetricCell strong {
+  font-weight: 820;
+  white-space: nowrap;
+}
+
+.pmaxDeltaBadge {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  min-height: 23px;
+  padding: 5px 8px;
+  border-radius: 999px;
+  background: rgba(100, 117, 107, 0.12);
+  color: #66786e;
+  font-size: 10.5px;
+  font-weight: 950;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.pmaxDeltaBadge.bad {
+  background: rgba(239, 68, 68, 0.12);
+  color: #b91c1c;
+}
+
+.pmaxDeltaBadge.good {
+  background: rgba(22, 163, 97, 0.13);
+  color: #087a43;
+}
+
 .ppcAssetGrid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -3354,33 +3417,40 @@ h2 .sectionLogo {
 .flightCards {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
+  gap: 24px;
+}
+
+.metaFlightEditorial {
+  display: grid;
+  gap: 16px;
+  padding: 24px;
+}
+
+.metaFlightHead {
+  display: grid;
+  gap: 12px;
 }
 
 .metaFlightCard h3 {
-  font-size: 24px;
+  margin: 0;
+  font-size: clamp(24px, 2vw, 32px);
+  line-height: 1.05;
 }
 
-.metaFlightGrid {
-  display: grid;
-  grid-template-columns: minmax(260px, 0.95fr) minmax(240px, 1.05fr);
-  gap: 12px;
-  align-items: start;
-}
-
-.metaFlightKpis {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+.metaFlightEditorial .metaFlightKpis {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
   margin-top: 0;
 }
 
-.metaFlightKpis > div {
-  min-height: 82px;
-  padding: 15px 16px;
+.metaFlightEditorial .metaFlightKpis > div {
+  min-height: 74px;
+  padding: 14px 16px;
   border-color: rgba(0, 107, 63, 0.18);
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(239, 246, 241, 0.78));
+  background: rgba(255, 255, 255, 0.76);
 }
 
-.metaFlightKpis strong {
+.metaFlightEditorial .metaFlightKpis strong {
   font-size: clamp(15px, 1.15vw, 18px);
   letter-spacing: -0.015em;
   line-height: 1.02;
@@ -3389,22 +3459,91 @@ h2 .sectionLogo {
   text-overflow: clip;
 }
 
-.metaFlightAssets {
-  margin-top: 12px;
+.metaFlightVisualGrid {
+  display: grid;
+  grid-template-columns: minmax(190px, 0.78fr) minmax(260px, 1.22fr);
+  gap: 16px;
+  align-items: start;
 }
 
-.metaFlightAssets .metaAssetThumb:first-child img {
+.metaFlightPrimary,
+.metaFlightEvidence {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+
+.metaFlightCreative img {
+  width: 100%;
   height: auto;
-  max-height: 280px;
+  max-height: 390px;
+  object-fit: contain;
+  object-position: center;
 }
 
-.metaFlightAssets .metaAssetThumb img {
+.metaFlightCreative span {
+  padding: 10px 14px;
+  font-size: 12px;
+}
+
+.metaFlightEvidenceHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.metaFlightEvidenceHead small {
+  color: #718277;
+  font-size: 11px;
+  font-weight: 850;
+}
+
+.metaFlightEvidenceGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  margin-top: 0;
+}
+
+.metaFlightEvidenceGrid .metaAssetThumb,
+.metaFlightEvidenceGrid .metaAssetThumb.wideAsset {
+  grid-column: auto;
+}
+
+.metaFlightEvidenceGrid .metaAssetThumb img,
+.metaFlightEvidenceGrid .metaAssetThumb.wideAsset img {
+  width: 100%;
   height: auto;
-  max-height: 180px;
+  max-height: 132px;
+  object-fit: contain;
+  object-position: center;
 }
 
-.metaFlightAssets .metaAssetThumb.wideAsset img {
-  max-height: 320px;
+.metaFlightEvidenceGrid .metaAssetThumb span {
+  padding: 8px 10px;
+  font-size: 11px;
+}
+
+.metaFlightEditorial .creativeThumb::after {
+  content: "Detail";
+  min-height: 24px;
+  padding: 6px 8px;
+  background: rgba(0, 107, 63, 0.88);
+  box-shadow: 0 8px 18px rgba(0, 107, 63, 0.18);
+  font-size: 10px;
+}
+
+.metaFlightInsight {
+  margin-top: 0;
+  padding: 16px 20px;
+  border: 0;
+  background: rgba(0, 107, 63, 0.06);
+  box-shadow: none;
+}
+
+.metaFlightInsight h4 {
+  color: var(--gs-green);
 }
 
 .metaBoostingPanel {
@@ -4056,12 +4195,286 @@ h2 .sectionLogo {
   font-size: 13px;
 }
 
+/* META boosting tidy layout */
+.metaBoostingPanel {
+  gap: 32px;
+}
+
+.metaBoostVerdict {
+  display: grid;
+  gap: 10px;
+}
+
+.metaBoostVerdict h2 {
+  max-width: 1040px;
+  font-size: clamp(28px, 3vw, 42px);
+}
+
+.metaBoostNav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: -8px;
+}
+
+.metaBoostNav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 8px 13px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(0, 107, 63, 0.12);
+  color: var(--gs-green);
+  font-size: 12px;
+  font-weight: 950;
+  text-decoration: none;
+}
+
+.metaBoostSection {
+  gap: 24px;
+  padding: clamp(20px, 2.4vw, 28px);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.58);
+  box-shadow: 0 14px 34px rgba(16, 35, 27, 0.06);
+}
+
+.metaBoostSection + .metaBoostSection {
+  margin-top: 8px;
+}
+
+.metaBoostSectionHead {
+  max-width: 940px;
+}
+
+.metaBoostSectionHead h3 {
+  margin-bottom: 8px;
+  font-size: clamp(26px, 2.6vw, 38px);
+}
+
+.metaBoostSystemOverview {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.95fr) minmax(260px, 1.05fr);
+  gap: 16px;
+  align-items: center;
+  padding: 16px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid rgba(0, 107, 63, 0.09);
+}
+
+.metaBoostSystemOverview > div {
+  display: grid;
+  gap: 5px;
+}
+
+.metaBoostSystemOverview > div > span,
+.metaBoostPlatformHead span,
+.metaBoostPerformerTop span,
+.metaBoostPerformerTop i {
+  font-size: 11px;
+  font-weight: 950;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.metaBoostSystemOverview h4 {
+  margin: 0;
+  color: #10231b;
+  font-size: clamp(20px, 2vw, 26px);
+  letter-spacing: -0.03em;
+}
+
+.metaBoostSystemOverview p {
+  color: #52675c;
+  font-size: 13px;
+}
+
+.metaBoostSystemThumb {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: center;
+  min-height: 112px;
+  padding: 10px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.78);
+  border-color: rgba(0, 107, 63, 0.1);
+  box-shadow: none;
+}
+
+.metaBoostSystemThumb::after {
+  content: none;
+}
+
+.metaBoostSystemThumb img {
+  width: 100%;
+  height: 92px;
+  aspect-ratio: var(--asset-ratio, auto);
+  object-fit: contain;
+  object-position: center;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.metaBoostSystemThumb span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 32px;
+  padding: 8px 11px;
+  border-radius: 999px;
+  background: rgba(0, 107, 63, 0.09);
+  color: var(--gs-green);
+  font-size: 11px;
+  font-weight: 950;
+  white-space: nowrap;
+}
+
+.metaBoostPlatform {
+  display: grid;
+  gap: 16px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(0, 107, 63, 0.08);
+}
+
+.metaBoostPlatformHead {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.metaBoostPlatformHead h4 {
+  margin: 0;
+  color: #10231b;
+  font-size: clamp(20px, 2vw, 28px);
+  letter-spacing: -0.035em;
+}
+
+.platformLogo {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  flex: 0 0 auto;
+}
+
+.metaBoostPlatform .metaBoostPerformerGrid {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.metaBoostPlatform .metaBoostPerformer {
+  align-content: start;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.68);
+  border-color: rgba(0, 107, 63, 0.1);
+  box-shadow: 0 10px 28px rgba(16, 35, 27, 0.055);
+}
+
+.metaBoostPlatform .metaBoostPerformer.attention {
+  border-color: rgba(239, 68, 68, 0.13);
+}
+
+.metaBoostPlatform .metaBoostPerformerTop {
+  justify-content: space-between;
+}
+
+.metaBoostPlatform .metaBoostPerformerTop span {
+  gap: 7px;
+  padding: 0;
+  background: transparent;
+  color: #405648;
+}
+
+.metaBoostPlatform .metaBoostPerformerTop i {
+  padding: 6px 8px;
+  border-radius: 999px;
+  background: rgba(0, 107, 63, 0.09);
+  color: var(--gs-green);
+  font-style: normal;
+  white-space: nowrap;
+}
+
+.metaBoostPlatform .metaBoostPerformer.attention .metaBoostPerformerTop i {
+  background: rgba(239, 68, 68, 0.09);
+  color: #b42318;
+}
+
+.metaBoostPlatform .metaBoostPerformerBody {
+  gap: 12px;
+}
+
+.metaBoostPlatform .metaBoostPerformer h5 {
+  font-size: clamp(18px, 1.7vw, 22px);
+}
+
+.metaBoostPerformerMain {
+  display: grid;
+  grid-template-columns: 118px minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+}
+
+.metaBoostPerformerCopy {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+}
+
+.metaBoostPlatform .metaBoostPostThumb {
+  align-self: start;
+  width: 118px;
+  border-radius: 16px;
+  box-shadow: none;
+}
+
+.metaBoostPlatform .metaBoostPostThumb::after {
+  content: none;
+}
+
+.metaBoostPlatform .metaBoostPostThumb img {
+  width: 100%;
+  height: 158px;
+  aspect-ratio: auto;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.metaBoostPlatform .metaBoostMetricGrid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.metaBoostPlatform .metaBoostMetricGrid div {
+  padding: 9px 10px;
+  background: rgba(0, 107, 63, 0.045);
+  border-color: rgba(0, 107, 63, 0.08);
+}
+
+.metaBoostPlatform .metaBoostPerformer.attention .metaBoostMetricGrid div {
+  background: rgba(239, 68, 68, 0.045);
+  border-color: rgba(239, 68, 68, 0.08);
+}
+
+.metaBoostPlatform .metaBoostMetricGrid strong {
+  font-size: clamp(14px, 1.1vw, 16px);
+}
+
+.metaBoostPlatform .metaBoostPerformerBody p {
+  max-width: 680px;
+  color: #52675c;
+  font-size: 13px;
+}
+
 @media (max-width: 980px) {
   .metaSectionIntro,
   .metaCompareGrid,
   .metaLeadMetrics,
   .flightCards,
   .metaFlightGrid,
+  .metaFlightVisualGrid,
   .metaBoostSectionHead,
   .metaBoostChannels,
   .metaBoostTakeaways,
@@ -4076,6 +4489,26 @@ h2 .sectionLogo {
   .metaBoostTakeaways > div {
     grid-template-columns: 1fr;
   }
+
+  .metaFlightEditorial .metaFlightKpis {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .metaFlightEvidenceGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .metaBoostSystemOverview {
+    grid-template-columns: 1fr;
+  }
+
+  .metaBoostSystemThumb {
+    grid-template-columns: 1fr;
+  }
+
+  .metaBoostSystemThumb span {
+    justify-self: start;
+  }
 }
 
 @media (max-width: 640px) {
@@ -4089,10 +4522,25 @@ h2 .sectionLogo {
   }
 
   .metaFlightKpis,
+  .metaFlightEditorial .metaFlightKpis,
+  .metaFlightEvidenceGrid,
   .metaBoostHighlights,
   .metaBoostVisuals,
   .metaBoostMetricGrid {
     grid-template-columns: 1fr;
+  }
+
+  .metaBoostPerformerMain {
+    grid-template-columns: 92px minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .metaBoostPlatform .metaBoostPostThumb {
+    width: 92px;
+  }
+
+  .metaBoostPlatform .metaBoostPostThumb img {
+    height: 124px;
   }
 }
 

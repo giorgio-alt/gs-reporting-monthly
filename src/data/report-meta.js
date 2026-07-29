@@ -21,7 +21,7 @@ export const reportMeta = {
       title: "Dashboard",
       description: "Obchodní realita června, plán, PNO z reality a referenční analytický trend GA4.",
       defaultOpen: true,
-      chips: ["Realita 26: 3,75 mil. Kč", "Plán 26: 4,06 mil. Kč", "PNO 18,89 %", "YoY +9,77 %"]
+      chips: ["Realita 26: 3,77 mil. Kč", "Plán 26: 4,06 mil. Kč", "PNO 18,80 %", "YoY +10,30 %"]
     },
     {
       id: "produkty",

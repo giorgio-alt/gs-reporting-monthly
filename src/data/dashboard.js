@@ -187,37 +187,40 @@ const signedPercent = (value, formatter = formatPercentPrecise) => isNumber(valu
 const signedPp = (value) => isNumber(value)
   ? `${value > 0 ? "+" : ""}${formatPercent(value).replace(" %", " p. b.")}`
   : unavailableLabel;
+const signedPpPrecise = (value) => isNumber(value)
+  ? `${value > 0 ? "+" : ""}${formatPercentPrecise(value).replace(" %", " p. b.")}`
+  : unavailableLabel;
 
 const businessPerformance = {
   label: "Business / interní data",
   ytd: {
     period: "01–06/2026",
-    revenue: 22701398,
-    revenuePreviousYear: 22179907,
+    revenue: 24508254,
+    revenuePreviousYear: 22704394.7,
     marketingCosts: ytdActual,
-    marketingCostsPreviousYear: null
+    marketingCostsPreviousYear: 2849397
   },
   currentMonth: {
     period: "06/2026",
     revenue: 3768005,
     revenuePreviousYear: 3416196,
     marketingCosts: activeBudgetMonth.actual,
-    marketingCostsPreviousYear: null
+    marketingCostsPreviousYear: 497102
   },
   trend: [
     {
       label: "YTD 01–06",
-      revenue: 22701398,
-      revenuePreviousYear: 22179907,
+      revenue: 24508254,
+      revenuePreviousYear: 22704394.7,
       marketingCosts: ytdActual,
-      marketingCostsPreviousYear: null
+      marketingCostsPreviousYear: 2849397
     },
     {
       label: "06/2026",
       revenue: 3768005,
       revenuePreviousYear: 3416196,
       marketingCosts: activeBudgetMonth.actual,
-      marketingCostsPreviousYear: null
+      marketingCostsPreviousYear: 497102
     }
   ]
 };
@@ -363,6 +366,38 @@ const renderBusinessKpi = ({ label, value, comparison, delta, tone = "neutral" }
     <div class="delta ${tone}">${delta}</div>
   </div>`;
 
+const renderBusinessYtdMiniContext = () => `
+  <div class="businessYtdMiniContext">
+    <span class="pill businessDataPill">Business YTD kontext</span>
+    <div class="metricGrid ga4Top dashboardMetricGrid businessMiniMetricGrid">
+      ${renderBusinessKpi({
+        label: "Reálné tržby YTD",
+        value: formatCurrency(businessPerformance.ytd.revenue),
+        comparison: `vs. ${formatCurrency(businessPerformance.ytd.revenuePreviousYear)}`,
+        delta: `${signedPercent(businessYtdRevenueYoY)} YoY`,
+        tone: businessDeltaTone(businessYtdRevenueYoY)
+      })}
+      ${renderBusinessKpi({
+        label: "Náklady YTD",
+        value: formatCurrency(businessPerformance.ytd.marketingCosts),
+        comparison: `vs. ${maybeCurrency(businessPerformance.ytd.marketingCostsPreviousYear)}`,
+        delta: `${signedPercent(businessYtdCostsYoY)} YoY`,
+        tone: businessDeltaTone(businessYtdCostsYoY, false)
+      })}
+      ${renderBusinessKpi({
+        label: "Reálné PNO YTD",
+        value: maybePercent(businessYtdPno, formatPercentPrecise),
+        comparison: `vs. ${maybePercent(businessYtdPnoPrevious, formatPercentPrecise)}`,
+        delta: signedPpPrecise(businessYtdPnoChange),
+        tone: businessDeltaTone(businessYtdPnoChange, false)
+      })}
+    </div>
+    <div class="sourceSummary compactSummary businessYtdMiniComment">
+      <h3>Business YTD komentář</h3>
+      <p>Reálné tržby YTD jsou meziročně výš o ${signedPercent(businessYtdRevenueYoY)} (${signedCurrency(businessYtdRevenueDiff)}), zatímco náklady započítané do PNO rostou o ${signedPercent(businessYtdCostsYoY)}. Díky mírně rychlejšímu růstu tržeb se reálné PNO posouvá z ${maybePercent(businessYtdPnoPrevious, formatPercentPrecise)} na ${maybePercent(businessYtdPno, formatPercentPrecise)}. Červen je ale nákladově výraznější: tržby rostly o ${signedPercent(businessMonthRevenueYoY, formatPercent)} YoY a náklady o ${signedPercent(businessMonthCostsYoY, formatPercent)} YoY.</p>
+    </div>
+  </div>`;
+
 const renderBusinessContextItem = ({ label, value, meta, tone = "neutral" }) => `
   <div class="businessMonthItem">
     <span>${label}</span>
@@ -415,14 +450,14 @@ const renderBusinessYtdContext = () => `
         label: "Marketingové náklady YTD",
         value: formatCurrency(businessPerformance.ytd.marketingCosts),
         comparison: `vs. ${maybeCurrency(businessPerformance.ytd.marketingCostsPreviousYear)}`,
-        delta: "YoY nelze vyčíslit",
-        tone: "neutral"
+        delta: `${signedPercent(businessYtdCostsYoY)} YoY`,
+        tone: businessDeltaTone(businessYtdCostsYoY, false)
       })}
       ${renderBusinessKpi({
         label: "PNO z celkových tržeb",
-        value: maybePercent(businessYtdPno),
-        comparison: `vs. ${maybePercent(businessYtdPnoPrevious)}`,
-        delta: signedPp(businessYtdPnoChange),
+        value: maybePercent(businessYtdPno, formatPercentPrecise),
+        comparison: `vs. ${maybePercent(businessYtdPnoPrevious, formatPercentPrecise)}`,
+        delta: signedPpPrecise(businessYtdPnoChange),
         tone: businessDeltaTone(businessYtdPnoChange, false)
       })}
       <div class="metricTile businessYtdKpi businessDynamicsKpi">
@@ -456,8 +491,8 @@ const renderBusinessYtdContext = () => `
         })}
         ${renderBusinessContextItem({
           label: "PNO měsíce",
-          value: maybePercent(businessMonthPno),
-          meta: `vs. ${maybePercent(businessMonthPnoPrevious)} loni`,
+          value: maybePercent(businessMonthPno, formatPercentPrecise),
+          meta: `vs. ${maybePercent(businessMonthPnoPrevious, formatPercentPrecise)} loni`,
           tone: businessDeltaTone(businessMonthPno - businessYtdPno, false)
         })}
       </div>
@@ -467,7 +502,7 @@ const renderBusinessYtdContext = () => `
       <div class="businessTrendHead">
         <div>
           <span class="sectionSubhead">Trendový kontext</span>
-          <p>Graf ukazuje dostupné business hodnoty. Historické marketingové náklady 2025 zatím nejsou ve strukturovaných datech.</p>
+          <p>Graf odděluje interní tržby a marketingové náklady započítané do PNO. GA4 tržby se do této vrstvy nepoužívají.</p>
         </div>
         <div class="businessTrendLegend">
           <span><i class="previous"></i>2025</span>
@@ -482,8 +517,8 @@ const renderBusinessYtdContext = () => `
 
     <div class="businessYtdComment">
       <h3>Celkový YTD komentář</h3>
-      <p>Celkové tržby jsou od začátku roku meziročně výš o ${signedPercent(businessYtdRevenueYoY)} (${signedCurrency(businessYtdRevenueDiff)}). Marketingové náklady započítané do PNO jsou zatím ${formatCurrency(businessPerformance.ytd.marketingCosts)}, což dává PNO z celkových tržeb ${maybePercent(businessYtdPno)}. Protože loňské marketingové náklady nejsou v datech k dispozici, nepočítáme meziroční změnu nákladů ani PNO.</p>
-      <p>Červen je proti loňsku tržebně silnější (${signedPercent(businessMonthRevenueYoY, formatPercent)} YoY), ale zároveň má výraznější marketingovou investici ${formatCurrency(businessPerformance.currentMonth.marketingCosts)} a měsíční PNO ${maybePercent(businessMonthPno)}. Další krok je doplnit historické náklady 2025 a do té doby držet kontrolu hlavně nad kanálovou efektivitou a čerpáním budgetové rezervy.</p>
+      <p>Celkové tržby jsou od začátku roku meziročně výš o ${signedPercent(businessYtdRevenueYoY)} (${signedCurrency(businessYtdRevenueDiff)}). Marketingové náklady započítané do PNO rostou o ${signedPercent(businessYtdCostsYoY)}, tedy mírně pomaleji než tržby. PNO z celkových tržeb se proto zlepšuje z ${maybePercent(businessYtdPnoPrevious)} na ${maybePercent(businessYtdPno)}.</p>
+      <p>Červen je proti loňsku tržebně silnější (${signedPercent(businessMonthRevenueYoY, formatPercent)} YoY), ale náklady rostou výrazně rychleji (${signedPercent(businessMonthCostsYoY, formatPercent)} YoY). Měsíční PNO tak vychází ${maybePercent(businessMonthPno)} proti loňským ${maybePercent(businessMonthPnoPrevious)}. Další krok je držet růst rozpočtu víc navázaný na kanálovou efektivitu, aby vyšší investice netlačila PNO rychleji než tržby.</p>
     </div>
   </div>
   <div class="ga4MethodNote">
@@ -501,28 +536,14 @@ export const dashboardSectionHtml = `<section class="chapter" id="dashboard">
 
   <div class="panel glass dashboardVerdict">
     <div class="mainKpiGrid dashboardKpis businessKpiGrid">
-      <div class="mainKpi primaryBusinessKpi"><span>Realita 26</span><strong>3 750 000 Kč</strong><small>hlavní obchodní realita za červen</small><div class="delta up">+9,77 % vs. Realita Korekce 2025</div></div>
-      <div class="mainKpi"><span>Plán 26</span><strong>4 064 219 Kč</strong><small>plán tržeb na červen</small><div class="delta down">plnění 92,27 %</div></div>
-      <div class="mainKpi"><span>Rozdíl vs. plán</span><strong>-314 219 Kč</strong><small>Realita 26 minus Plán 26</small><div class="delta down">-7,73 %</div></div>
-      <div class="mainKpi"><span>PNO z reality</span><strong>18,89 %</strong><small>708 539 Kč / Realita 26</small><div class="delta down">reálné náklady</div></div>
+      <div class="mainKpi primaryBusinessKpi"><span>Realita 26</span><strong>3 768 005 Kč</strong><small>hlavní obchodní realita za červen</small><div class="delta up">+10,30 % vs. Realita Korekce 2025</div></div>
+      <div class="mainKpi"><span>Plán 26</span><strong>4 064 219 Kč</strong><small>plán tržeb na červen</small><div class="delta down">plnění 92,71 %</div></div>
+      <div class="mainKpi"><span>Rozdíl vs. plán</span><strong>-296 214 Kč</strong><small>Realita 26 minus Plán 26</small><div class="delta down">-7,29 %</div></div>
+      <div class="mainKpi"><span>PNO z reality</span><strong>18,80 %</strong><small>708 539 Kč / Realita 26</small><div class="delta down">reálné náklady</div></div>
     </div>
   </div>
 
   <div class="contentGrid dashboardTopGrid">
-    <div class="panel glass">
-      <span class="pill">Realita 26 vs. plán a loňská korekce</span>
-      <div class="miniCards dashboardReality businessRealityGrid">
-        <div class="miniCard"><span>Realita Korekce 2025</span><strong>3 416 196 Kč</strong></div>
-        <div class="miniCard"><span>Rozdíl YoY</span><strong>+333 804 Kč</strong></div>
-        <div class="miniCard"><span>YoY proti korekci</span><strong>+9,77 %</strong></div>
-        <div class="miniCard"><span>Realita vs. plán</span><strong>-314 219 Kč</strong></div>
-      </div>
-      <div class="sourceSummary">
-        <h3>Obchodní komentář</h3>
-        <p>Červen nedosáhl na plán o 314 tis. Kč, ale proti Realita Korekce 2025 je výš o 334 tis. Kč. Obchodně tedy nejde o slabý měsíc v meziročním pohledu, jen je potřeba hlídat, že vyšší reálné náklady posouvají PNO z reality na 18,89 %.</p>
-      </div>
-    </div>
-
     <div class="panel glass">
       <span class="pill">Reálné náklady a PNO</span>
       <div class="costHero businessCostHero">

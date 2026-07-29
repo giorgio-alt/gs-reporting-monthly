@@ -238,12 +238,10 @@ const clarityScreenshots = [
   { title: "Product Journey · 06/2026", full: "assets/report-jun-26/clarity/06-2.png", thumb: "assets/report-jun-26/clarity/06-2-thumb.png" },
   { title: "Checkout Journey · 06/2026", full: "assets/report-jun-26/clarity/06-3.png", thumb: "assets/report-jun-26/clarity/06-3-thumb.png" },
   { title: "Registrace do klubu · 06/2026", full: "assets/report-jun-26/clarity/06-4.png", thumb: "assets/report-jun-26/clarity/06-4-thumb.png" },
-  { title: "Behavioral Insights · 06/2026", full: "assets/report-jun-26/clarity/06-5.png", thumb: "assets/report-jun-26/clarity/06-5-thumb.png" },
   { title: "Homepage Journey · 05/2026", full: "assets/report-jun-26/clarity/05-1.png", thumb: "assets/report-jun-26/clarity/05-1-thumb.png" },
   { title: "Product Journey · 05/2026", full: "assets/report-jun-26/clarity/05-2.png", thumb: "assets/report-jun-26/clarity/05-2-thumb.png" },
   { title: "Checkout Journey · 05/2026", full: "assets/report-jun-26/clarity/05-3.png", thumb: "assets/report-jun-26/clarity/05-3-thumb.png" },
-  { title: "Registrace do klubu · 05/2026", full: "assets/report-jun-26/clarity/05-4.png", thumb: "assets/report-jun-26/clarity/05-4-thumb.png" },
-  { title: "Behavioral Insights · 05/2026", full: "assets/report-jun-26/clarity/05-5.png", thumb: "assets/report-jun-26/clarity/05-5-thumb.png" }
+  { title: "Registrace do klubu · 05/2026", full: "assets/report-jun-26/clarity/05-4.png", thumb: "assets/report-jun-26/clarity/05-4-thumb.png" }
 ];
 
 const changeClass = (value) => value.trim().startsWith("+") ? "good" : value.trim().startsWith("-") ? "bad" : "neutral";
@@ -671,19 +669,9 @@ export const productsSectionHtml = `<section class="chapter" id="produkty">
       </div>
     </div>
 
-    <div class="clarityGlossary behaviorBlock behaviorInsightsBlock">
-      <div class="behaviorBlockHead">
-        <h3>5. Behavioral Insights</h3>
-        <p>Krátké signály z Clarity, které nejsou samostatným marketingovým výkonem. Pomáhají rychle rozlišit, jestli uživatelé naráží na nejasnou interakci, návrat zpět, nebo dlouhé hledání obsahu.</p>
-      </div>
-      <div class="clarityGlossaryGrid behaviorInsightGrid">
-        ${behaviorInsights.map(renderBehaviorInsight).join("")}
-      </div>
-    </div>
-
     <div class="behaviorBlock behaviorTrendsBlock">
       <div class="behaviorBlockHead">
-        <h3>6. Behavior Trends</h3>
+        <h3>5. Behavior Trends</h3>
         <p>Trendová vrstva je připravená na další měsíce. Jakmile přibude další období, stačí doplnit dataset a mini grafy se automaticky rozšíří.</p>
       </div>
       <div class="behaviorTrendGrid">
@@ -691,15 +679,5 @@ export const productsSectionHtml = `<section class="chapter" id="produkty">
       </div>
     </div>
 
-    <details class="behaviorBlock behaviorScreenshotBlock">
-      <summary>
-        <span>Clarity náhledy</span>
-        <b>Podpůrné vizuály z května a června</b>
-        <i class="detailBtn">Detail ⌄</i>
-      </summary>
-      <div class="behaviorScreenshotGallery">
-        ${clarityScreenshots.map(renderClarityScreenshot).join("")}
-      </div>
-    </details>
   </div>
 </section>`;

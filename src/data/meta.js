@@ -254,54 +254,75 @@ const boostAssets = [
   {
     id: "boost-engagement-facebook-high",
     label: "Klíště: jak vybrat",
-    alt: "Facebook příspěvek Klíště jak vybrat s palcem nahoru",
-    src: "assets/report-jun-26/meta/boosting/posts/engagement-facebook-high-thumb.png",
-    fullSrc: "assets/report-jun-26/meta/boosting/posts/engagement-facebook-high.png",
-    image_size: { width: 535, height: 1226 }
+    alt: "Facebook příspěvek Klíště jak vybrat",
+    src: "assets/report-jun-26/meta/boosting/posts/engagement-facebook-high-clean-thumb.png",
+    fullSrc: "assets/report-jun-26/meta/boosting/posts/engagement-facebook-high-clean.png",
+    image_size: { width: 535, height: 993 }
   },
   {
     id: "boost-engagement-instagram-high",
     label: "Klíště: jak vybrat",
-    alt: "Instagram příspěvek Klíště jak vybrat s palcem nahoru",
-    src: "assets/report-jun-26/meta/boosting/posts/engagement-instagram-high-thumb.png",
-    fullSrc: "assets/report-jun-26/meta/boosting/posts/engagement-instagram-high.png",
-    image_size: { width: 560, height: 1234 }
+    alt: "Instagram příspěvek Klíště jak vybrat",
+    src: "assets/report-jun-26/meta/boosting/posts/engagement-instagram-high-clean-thumb.png",
+    fullSrc: "assets/report-jun-26/meta/boosting/posts/engagement-instagram-high-clean.png",
+    image_size: { width: 560, height: 1000 }
   },
   {
     id: "boost-traffic-facebook-high",
     label: "Netypické příznaky menopauzy",
-    alt: "Facebook příspěvek Netypické příznaky menopauzy s palcem nahoru",
-    src: "assets/report-jun-26/meta/boosting/posts/traffic-facebook-high-thumb.png",
-    fullSrc: "assets/report-jun-26/meta/boosting/posts/traffic-facebook-high.png",
-    image_size: { width: 510, height: 1167 }
+    alt: "Facebook příspěvek Netypické příznaky menopauzy",
+    src: "assets/report-jun-26/meta/boosting/posts/traffic-facebook-high-clean-thumb.png",
+    fullSrc: "assets/report-jun-26/meta/boosting/posts/traffic-facebook-high-clean.png",
+    image_size: { width: 510, height: 945 }
   },
   {
     id: "boost-traffic-facebook-low",
     label: "Týden letních slev",
-    alt: "Facebook příspěvek Týden letních slev s palcem dolů",
-    src: "assets/report-jun-26/meta/boosting/posts/traffic-facebook-low-thumb.png",
-    fullSrc: "assets/report-jun-26/meta/boosting/posts/traffic-facebook-low.png",
-    image_size: { width: 445, height: 1156 }
+    alt: "Facebook příspěvek Týden letních slev",
+    src: "assets/report-jun-26/meta/boosting/posts/traffic-facebook-low-clean-thumb.png",
+    fullSrc: "assets/report-jun-26/meta/boosting/posts/traffic-facebook-low-clean.png",
+    image_size: { width: 445, height: 936 }
   },
   {
     id: "boost-traffic-instagram-high",
     label: "Netypické příznaky menopauzy",
-    alt: "Instagram příspěvek Netypické příznaky menopauzy s palcem nahoru",
-    src: "assets/report-jun-26/meta/boosting/posts/traffic-instagram-high-thumb.png",
-    fullSrc: "assets/report-jun-26/meta/boosting/posts/traffic-instagram-high.png",
-    image_size: { width: 540, height: 1132 }
+    alt: "Instagram příspěvek Netypické příznaky menopauzy",
+    src: "assets/report-jun-26/meta/boosting/posts/traffic-instagram-high-clean-thumb.png",
+    fullSrc: "assets/report-jun-26/meta/boosting/posts/traffic-instagram-high-clean.png",
+    image_size: { width: 540, height: 917 }
   },
   {
     id: "boost-traffic-instagram-low",
     label: "Týden letních slev",
-    alt: "Instagram příspěvek Týden letních slev s palcem dolů",
-    src: "assets/report-jun-26/meta/boosting/posts/traffic-instagram-low-thumb.png",
-    fullSrc: "assets/report-jun-26/meta/boosting/posts/traffic-instagram-low.png",
-    image_size: { width: 442, height: 1105 }
+    alt: "Instagram příspěvek Týden letních slev",
+    src: "assets/report-jun-26/meta/boosting/posts/traffic-instagram-low-clean-thumb.png",
+    fullSrc: "assets/report-jun-26/meta/boosting/posts/traffic-instagram-low-clean.png",
+    image_size: { width: 442, height: 895 }
   }
 ];
 
 const boostAssetById = Object.fromEntries(boostAssets.map((asset) => [asset.id, asset]));
+
+const boostOverviewAssets = {
+  engagement: {
+    title: "Engagement overview",
+    subtitle: "Přehled všech boostovaných příspěvků",
+    cta: "Otevřít seznam příspěvků",
+    fullSrc: "assets/report-jun-26/meta/boosting/bm-engagement-overview.png",
+    src: "assets/report-jun-26/meta/boosting/bm-engagement-overview-thumb.png",
+    alt: "Engagement overview ze systému Business Manager",
+    image_size: { width: 3374, height: 830 }
+  },
+  traffic: {
+    title: "Traffic overview",
+    subtitle: "Přehled všech boostovaných příspěvků",
+    cta: "Otevřít seznam příspěvků",
+    fullSrc: "assets/report-jun-26/meta/boosting/bm-traffic-overview.png",
+    src: "assets/report-jun-26/meta/boosting/bm-traffic-overview-thumb.png",
+    alt: "Traffic overview ze systému Business Manager",
+    image_size: { width: 3420, height: 1822 }
+  }
+};
 
 const boostSections = [
   {
@@ -367,13 +388,6 @@ const boostSections = [
       { id: "traffic-ig-bestsellers", rowLabel: "ig | bestsellers | statika | 06-26", title: "Bestsellers", platform: "Instagram", results: 91, cost: 5.49, ctr: 2.39, reach: "4 367", impressions: "5 184", spend: "500,00 Kč" }
     ]
   }
-];
-
-const boostTakeaways = [
-  "HIGH příspěvky ukazují formáty, které v červnu nejlépe spojily výsledek a cenu.",
-  "LOW příspěvky bereme jako prostor k úpravě kreativy, claimu nebo cílení.",
-  "Engagement dobře vytáhl edukativní obsah ke klíšťatům.",
-  "Traffic nejlépe fungoval u menopauzálního tématu, slabší byla letní slevová komunikace."
 ];
 
 const assetById = Object.fromEntries(metaAssets.map((asset) => [asset.id, asset]));
@@ -446,22 +460,22 @@ function renderLeadCampaign(lead) {
 
 function renderFlightCampaign(flight) {
   return `
-    <div class="flight metaFlightCard">
-      <span class="pill">Kampaň · ${flight.period}</span>
-      <h3>${flight.title}</h3>
-      <div class="metaFlightGrid">
-        <div class="metaFlightKpis">
-          <div><span>Investice</span><strong>${flight.spend}</strong></div>
-          <div><span>Výsledky</span><strong>${flight.results}</strong></div>
-          <div><span>Efektivita</span><strong>${flight.cost}</strong></div>
-          <div><span>Hodnota</span><strong>${flight.value}</strong></div>
-        </div>
-        <div class="metaSourceBlock metaFlightSourceBlock">
-          <span class="pill blue">Kreativa a výkon</span>
-          ${renderAssetGallery(flight.assets, "metaFlightAssets")}
-        </div>
+    <div class="flight metaFlightCard metaFlightEditorial">
+      <div class="metaFlightHead">
+        <span class="pill">Kampaň · ${flight.period}</span>
+        <h3>${flight.title}</h3>
       </div>
-      <div class="metaInterpretation compact"><h4>Interpretace</h4><p>${flight.note}</p></div>
+      <div class="metaFlightKpis">
+        <div><span>Investice</span><strong>${flight.spend}</strong></div>
+        <div><span>Výsledky</span><strong>${flight.results}</strong></div>
+        <div><span>Efektivita</span><strong>${flight.cost}</strong></div>
+        <div><span>Hodnota</span><strong>${flight.value}</strong></div>
+      </div>
+      <div class="metaFlightVisualGrid">
+        ${renderFlightPrimaryVisual(flight)}
+        ${renderFlightEvidence(flight)}
+      </div>
+      <div class="metaInterpretation compact metaFlightInsight"><h4>Interpretace</h4><p>${flight.note}</p></div>
     </div>
   `;
 }
@@ -561,6 +575,40 @@ function renderCampaignPrimaryVisual(campaign) {
   </section>`;
 }
 
+function flightPrimaryAssetId(flight) {
+  return flight.assets.find((assetId) => assetById[assetId]?.type === "creative") || flight.assets.find((assetId) => assetById[assetId]);
+}
+
+function renderFlightPrimaryVisual(flight) {
+  const assetId = flightPrimaryAssetId(flight);
+  const asset = assetById[assetId];
+  if (!asset) return "";
+  const { width = 0, height = 0 } = asset.image_size || {};
+  const ratioStyle = width && height ? ` style="--asset-ratio:${width} / ${height}"` : "";
+
+  return `<section class="metaFlightPrimary">
+    <div class="metaSectionLabel">Kreativa</div>
+    <a class="creativeThumb metaFlightCreative" href="${asset.fullSrc}"${ratioStyle}>
+      <img src="${asset.src}" alt="${asset.alt}" loading="lazy" decoding="async">
+      <span>${asset.label || "Ukázka kreativy"}</span>
+    </a>
+  </section>`;
+}
+
+function renderFlightEvidence(flight) {
+  const primaryAssetId = flightPrimaryAssetId(flight);
+  const evidenceAssetIds = flight.assets.filter((assetId) => assetId !== primaryAssetId && assetById[assetId]);
+  if (!evidenceAssetIds.length) return "";
+
+  return `<section class="metaFlightEvidence">
+    <div class="metaFlightEvidenceHead">
+      <div class="metaSectionLabel">Evidence</div>
+      <small>Výkonové náhledy</small>
+    </div>
+    ${renderAssetGallery(evidenceAssetIds, "metaFlightEvidenceGrid")}
+  </section>`;
+}
+
 function renderEvidenceSection(item) {
   const evidenceAssets = evidenceAssetIds(item);
   if (!evidenceAssets.length) return "";
@@ -602,159 +650,139 @@ function renderBoostingSection() {
     <div class="metaBoostVerdict">
       <span class="pill systemPill">${SystemLogo({ system: "meta", label: "Meta", className: "channelLogo" })}Meta · boostování</span>
       <h2>Boostování v červnu ukazuje jasný rozdíl mezi příspěvky, které táhly reakce nebo návštěvy, a těmi, které potřebují doladit.</h2>
-      <p>Každá karta pracuje se samostatným výřezem konkrétního příspěvku. Palec ve výřezu drží zařazení do HIGH nebo LOW performerů, metriky pak doplňují rychlé čtení výkonu.</p>
+      <p>Výsledky jsou rozdělené podle cíle a platformy. Přehled ze systému drží kontext, performer karty ukazují pouze ověřené příspěvky s jasnou vazbou na konkrétní řádek výkonu.</p>
     </div>
-    ${renderBoostOverview()}
+    <nav class="metaBoostNav" aria-label="Navigace boosting příspěvků">
+      <a href="#boost-engagement">Engagement</a>
+      <a href="#boost-traffic">Traffic</a>
+    </nav>
     ${boostSections.map(renderBoostSection).join("")}
-    <div class="metaBoostTakeaways">
-      <h3>Co si z boostování odnést</h3>
-      <div>${boostTakeaways.map((item) => `<p>${item}</p>`).join("")}</div>
-    </div>
   </div>`;
 }
 
-function renderBoostOverview() {
-  const posts = boostSections.flatMap((section) =>
-    section.rows
-      .filter((row) => row.asset && boostAssetById[row.asset])
-      .map((row) => ({ ...row, supportType: section.title }))
-  );
-
-  return `<section class="metaBoostOverview">
-    <div class="metaBoostOverviewHead">
-      <span>Přehled všech boostovaných příspěvků</span>
-      <h3>Všechny dostupné výřezy příspěvků</h3>
-      <p>Duplicitní téma na Facebooku a Instagramu je uvedené samostatně, pokud má vlastní data nebo vlastní výřez.</p>
-    </div>
-    <div class="metaBoostOverviewGrid">
-      ${posts.map(renderBoostOverviewCard).join("")}
-    </div>
-  </section>`;
-}
-
-function renderBoostOverviewCard(row) {
-  const asset = boostAssetById[row.asset];
-  const { width = 0, height = 0 } = asset.image_size || {};
+function renderBoostSystemOverview(section) {
+  const overview = boostOverviewAssets[section.id];
+  if (!overview) return "";
+  const { width = 0, height = 0 } = overview.image_size || {};
   const ratioStyle = width && height ? ` style="--asset-ratio:${width} / ${height}"` : "";
-  const classification = row.classification === "high"
-    ? `<i class="high">HIGH performer</i>`
-    : row.classification === "low"
-      ? `<i class="low">LOW performer</i>`
-      : "";
 
-  return `<article class="metaBoostOverviewCard">
-    <a class="metaBoostPostThumb overview" href="${asset.fullSrc}"${ratioStyle} aria-label="Otevřít detail: ${row.title}">
-      ${classification}
-      <img src="${asset.src}" alt="${asset.alt}" loading="lazy" decoding="async">
-      <span class="metaBoostPostCta">Otevřít detail</span>
-    </a>
-    <div class="metaBoostOverviewBody">
-      <h4>${row.title}</h4>
-      <div>
-        <span>${row.platform}</span>
-        <span>${row.supportType}</span>
-        ${classification}
-      </div>
+  return `<article class="metaBoostSystemOverview">
+    <div>
+      <span>Přehled příspěvků ze systému</span>
+      <h4>${overview.title}</h4>
+      <p>${overview.subtitle}</p>
     </div>
+    <a class="metaBoostSystemThumb metaBoostPostThumb" href="${overview.fullSrc}"${ratioStyle} aria-label="${overview.cta}: ${overview.title}">
+      <img src="${overview.src}" alt="${overview.alt}" loading="lazy" decoding="async">
+      <span>${overview.cta}</span>
+    </a>
   </article>`;
 }
 
 function renderBoostSection(section) {
-  const highlights = boostPerformers(section, "high");
-  const needsAttention = boostPerformers(section, "low");
-
-  return `<div class="metaBoostSection">
+  return `<section class="metaBoostSection" id="boost-${section.id}">
     <div class="metaBoostSectionHead">
       <div>
         <h3>${section.title}</h3>
         <p>${section.objective}</p>
-        <div class="metaBoostTruthNote">
-          <b>Palec ve výřezu určuje zařazení.</b>
-          <span>Zobrazujeme jen příspěvky, kde je klasifikace jasně viditelná.</span>
-        </div>
       </div>
     </div>
-    ${renderBoostPerformerGroup(section, highlights, "highlight")}
-    ${needsAttention.length ? renderBoostPerformerGroup(section, needsAttention, "attention") : ""}
-  </div>`;
+    ${renderBoostSystemOverview(section)}
+    ${["Facebook", "Instagram"].map((platform) => renderBoostPlatform(section, platform)).join("")}
+  </section>`;
 }
 
-function renderBoostPerformerGroup(section, rows, role) {
-  const title = role === "highlight" ? "HIGH performers" : "LOW performers";
-  const lead = role === "highlight"
-    ? "Příspěvky s palcem nahoru a nejsilnějším čtením výkonu."
-    : "Příspěvky s palcem dolů, kde je prostor zlepšit kreativu nebo očekávání uživatele.";
+function renderBoostPlatform(section, platform) {
+  const rows = boostPlatformPerformers(section, platform);
+  if (!rows.length) return "";
 
-  return `<div class="metaBoostPerformerGroup ${role}">
-    <div class="metaBoostPerformerHead">
-      <span>${role === "highlight" ? "HIGH performer" : "LOW performer"}</span>
-      <h4>${title}</h4>
-      <p>${lead}</p>
+  return `<section class="metaBoostPlatform">
+    <div class="metaBoostPlatformHead">
+      ${boostPlatformLogo(platform)}
+      <h4>${platform}</h4>
     </div>
     <div class="metaBoostPerformerGrid">
-      ${rows.map((row) => renderBoostPerformerCard(section, row, role)).join("")}
+      ${rows.map((row) => renderBoostPerformerCard(section, row)).join("")}
     </div>
-  </div>`
+  </section>`;
 }
 
-function renderBoostPerformerCard(section, row, role) {
+function renderBoostPerformerCard(section, row) {
   const asset = boostAssetById[row.asset];
   if (!asset) return "";
-  const performerLabel = role === "highlight" ? "HIGH performer" : "LOW performer";
+  const isLow = row.classification === "low";
+  const performerLabel = isLow ? "LOW performer" : "HIGH performer";
+  const role = isLow ? "attention" : "highlight";
+
   return `<article class="metaBoostPerformer ${role}">
-    ${boostPostThumb(asset, row, performerLabel, role)}
+    <div class="metaBoostPerformerTop">
+      <span>${boostPlatformLogo(row.platform)}${row.platform}</span>
+      <i>${performerLabel}</i>
+    </div>
     <div class="metaBoostPerformerBody">
-      <div class="metaBoostPerformerTop">
-        <span>${row.platform}</span>
-        <i>${performerLabel}</i>
-      </div>
       <h5>${row.title}</h5>
-      <div class="metaBoostMetricGrid">
-        ${boostMetrics(section, row).map((metric) => `<div><span>${metric.label}</span><strong>${metric.value}</strong></div>`).join("")}
+      <div class="metaBoostPerformerMain">
+        ${boostPostThumb(asset, row, performerLabel, role)}
+        <div class="metaBoostPerformerCopy">
+          <div class="metaBoostMetricGrid">
+            ${boostMetrics(section, row).map((metric) => `<div><span>${metric.label}</span><strong>${metric.value}</strong></div>`).join("")}
+          </div>
+          <p>${boostAutoComment(section, row, role)}</p>
+        </div>
       </div>
-      <p>${boostAutoComment(section, row, role)}</p>
-      <a class="metaBoostOpen" href="${asset.fullSrc}">Otevřít detail</a>
     </div>
   </article>`;
 }
 
-function boostPerformers(section, classification) {
+function boostPlatformPerformers(section, platform) {
   return section.rows
-    .filter((row) => row.asset && row.classification === classification)
-    .sort((a, b) => b.results - a.results || a.cost - b.cost);
+    .filter((row) => row.asset && row.classification && row.platform === platform)
+    .sort((a, b) => {
+      if (a.classification !== b.classification) return a.classification === "high" ? -1 : 1;
+      return b.results - a.results || a.cost - b.cost;
+    });
+}
+
+function boostPlatformLogo(platform) {
+  const system = platform === "Instagram" ? "instagram" : "facebook";
+  return SystemLogo({ system, label: platform, className: "platformLogo" });
 }
 
 function boostMetrics(section, row) {
-  if (section.id === "engagement") return row.metrics;
+  if (section.id === "engagement") {
+    return [
+      { label: "Spend", value: row.spend },
+      { label: "Engagements", value: `${row.results}` },
+      { label: "Cena / result", value: `${row.cost.toFixed(2).replace(".", ",")} Kč` }
+    ];
+  }
 
   return [
-    { label: "LPV", value: `${row.results} LPV` },
-    { label: "Cena za LPV", value: `${row.cost.toFixed(2).replace(".", ",")} Kč` },
-    { label: "CTR", value: `${row.ctr.toFixed(2).replace(".", ",")} %` },
-    { label: "Spend", value: row.spend }
+    { label: "Spend", value: row.spend },
+    { label: "LPV", value: `${row.results}` },
+    { label: "Cena / LPV", value: `${row.cost.toFixed(2).replace(".", ",")} Kč` },
+    { label: "CTR", value: `${row.ctr.toFixed(2).replace(".", ",")} %` }
   ];
 }
 
 function boostAutoComment(section, row, role) {
   if (section.id === "engagement") {
     return role === "highlight"
-      ? `Silný edukativní příspěvek: vysoký počet interakcí při ceně ${row.cost.toFixed(2).replace(".", ",")} Kč za výsledek.`
-      : `Nižší počet engagementů při vyšší ceně za výsledek oproti ostatním boostovaným příspěvkům.`;
+      ? `Příspěvek doručil ${row.results} engagementů při ceně ${row.cost.toFixed(2).replace(".", ",")} Kč za výsledek. Téma i formát dávají smysl zopakovat v další obsahové vlně.`
+      : `Příspěvek měl slabší objem engagementů a vyšší cenu za výsledek. Příště dává smysl otestovat ostřejší první sdělení nebo jiný vizuální vstup.`;
   }
 
   if (role === "highlight") {
-    return `Nejvyšší počet návštěv cílové stránky na platformě ${row.platform} při velmi dobré ceně za LPV a nadprůměrném CTR.`;
+    return `Příspěvek přivedl ${row.results} návštěv cílové stránky při ceně ${row.cost.toFixed(2).replace(".", ",")} Kč a CTR ${row.ctr.toFixed(2).replace(".", ",")} %. Kombinace objemu a ceny ukazuje formát vhodný pro další podporu.`;
   }
 
-  return `Vyšší cena za návštěvu a podprůměrné CTR oproti ostatním trafficovým příspěvkům. Tady výkon stojí za další úpravu nebo opatrnější podporu.`;
+  return `Příspěvek má vyšší cenu za návštěvu (${row.cost.toFixed(2).replace(".", ",")} Kč) a slabší CTR ${row.ctr.toFixed(2).replace(".", ",")} %. Před další podporou bychom upravili claim nebo kreativní vstup.`;
 }
 
 function boostPostThumb(asset, row, performerLabel, role) {
   const { width = 0, height = 0 } = asset.image_size || {};
   const ratioStyle = width && height ? ` style="--asset-ratio:${width} / ${height}"` : "";
-  return `<a class="metaBoostPostThumb ${role}" href="${asset.fullSrc}"${ratioStyle} aria-label="Otevřít detail: ${row.title}">
-    <span class="metaBoostPostBadge">${performerLabel}</span>
+  return `<a class="metaBoostPostThumb ${role}" href="${asset.fullSrc}"${ratioStyle} aria-label="Otevřít detail: ${row.title} · ${performerLabel}">
     <img src="${asset.src}" alt="${asset.alt}" loading="lazy" decoding="async">
-    <span class="metaBoostPostCta">Otevřít detail</span>
   </a>`;
 }

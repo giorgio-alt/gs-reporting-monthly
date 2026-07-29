@@ -44,6 +44,13 @@ const pmaxClusters = [
     conversions: "376,73",
     value: "310 tis. Kč",
     interactions: "7,61 tis.",
+    mom: {
+      pno: { value: 24.13, tone: "bad" },
+      roas: { value: -19.44, tone: "bad" },
+      cost: { value: -3.56, tone: "neutral" },
+      allConversions: { value: -20.24, tone: "bad" },
+      allConversionValue: { value: -26.95, tone: "bad" }
+    },
     comment: "Cluster 3 je největší objemový tahoun PMax části. ROAS je lehce nad cílem, ale PNO je už potřeba hlídat, protože právě tady leží největší část investice.",
     assets: [
       { label: "Výkon clusteru", full: "assets/report-jun-26/ppc/extracted/slide-24-asset-01.webp", thumb: "assets/report-jun-26/ppc/extracted/slide-24-asset-01-thumb.webp" },
@@ -60,6 +67,13 @@ const pmaxClusters = [
     conversions: "138,21",
     value: "113 tis. Kč",
     interactions: "3,13 tis.",
+    mom: {
+      pno: { value: 23.51, tone: "bad" },
+      roas: { value: -19.03, tone: "bad" },
+      cost: { value: -5.01, tone: "neutral" },
+      allConversions: { value: -55.82, tone: "bad" },
+      allConversionValue: { value: -40.57, tone: "bad" }
+    },
     comment: "Cluster 2 je nad cílovou ROAS, ale efektivita je slabší než u clusteru 3. Dává smysl sledovat, které produktové skupiny v něm táhnou hodnotu a které pouze spotřebovávají rozpočet.",
     assets: [
       { label: "Výkon clusteru", full: "assets/report-jun-26/ppc/extracted/slide-27-asset-01.webp", thumb: "assets/report-jun-26/ppc/extracted/slide-27-asset-01-thumb.webp" },
@@ -263,6 +277,30 @@ const renderKarsaRow = (row) => `
     <td>${row.campaign}</td>
   </tr>`;
 
+const pmaxDeltaBadge = (delta) => {
+  if (!delta) return "";
+  const direction = delta.value > 0 ? "↑" : delta.value < 0 ? "↓" : "→";
+  const value = Math.abs(delta.value).toFixed(2).replace(".", ",");
+  return `<span class="pmaxDeltaBadge ${delta.tone}">${direction} ${value} %</span>`;
+};
+
+const renderPmaxCell = (value, delta) => `
+  <span class="pmaxMetricCell">
+    <strong>${value}</strong>
+    ${pmaxDeltaBadge(delta)}
+  </span>`;
+
+const renderPmaxOverviewRow = (cluster) => `
+  <tr>
+    <td>PMax cluster ${cluster.id}</td>
+    <td>${renderPmaxCell(cluster.roas, cluster.mom?.roas)}</td>
+    <td>${cluster.targetRoas}</td>
+    <td>${renderPmaxCell(cluster.pno, cluster.mom?.pno)}</td>
+    <td>${renderPmaxCell(cluster.cost, cluster.mom?.cost)}</td>
+    <td>${cluster.conversions}</td>
+    <td>${cluster.value}</td>
+  </tr>`;
+
 const formatSklikMetric = (value, format = "number", decimals = format === "percent" ? 2 : 0) => {
   if (!Number.isFinite(value)) return "—";
   if (format === "currency") return `${formatDecimal(value, decimals)} Kč`;
@@ -364,11 +402,12 @@ export const ppcSectionHtml = `<section class="chapter" id="ppc">
 
   <div class="panel glass ppcSection" id="pmax-overview">
     <span class="pill systemPill">${SystemLogo({ system: "googleAds", label: "Google Ads", className: "channelLogo" })}PMax overview</span>
+    <p class="pmaxDeltaNote">Změna oproti květnu 2026</p>
     <div class="dashboardTable">
       <table class="dashTable ppcNativeTable">
         <thead><tr><th>Cluster</th><th>ROAS</th><th>Cílová ROAS</th><th>PNO</th><th>Cena</th><th>Konverze</th><th>Hodnota konverze</th></tr></thead>
         <tbody>
-          ${pmaxClusters.map((cluster) => `<tr><td>PMax cluster ${cluster.id}</td><td>${cluster.roas}</td><td>${cluster.targetRoas}</td><td>${cluster.pno}</td><td>${cluster.cost}</td><td>${cluster.conversions}</td><td>${cluster.value}</td></tr>`).join("")}
+          ${pmaxClusters.map(renderPmaxOverviewRow).join("")}
         </tbody>
       </table>
     </div>
@@ -418,22 +457,22 @@ export const ppcSectionHtml = `<section class="chapter" id="ppc">
 
   <div class="panel glass ppcSection" id="sklik-results">
     <span class="pill orange systemPill">${SystemLogo({ system: "seznamSklik", label: "Seznam / Sklik", className: "channelLogo" })}Sklik výsledky</span>
-    <div class="contentGrid wideLeft">
-      <div>
-        <h2>Sklik v červnu doručil 241 konverzí a zároveň navýšil objem.</h2>
-        <p class="sectionLead">Hlavním výsledkem Skliku jsou konverze, vedle nich je vidět i silnější objem prokliků a zobrazení. CPC klesá na 8,22 Kč, takže nárůst čerpání je spojený hlavně s vyšším rozsahem kampaní, ne s dražším klikem.</p>
-        <div class="sourceSummary compactSummary">
-          <h3>Čtení Skliku</h3>
-          <p>${sklikComment}</p>
-        </div>
-        <div class="dashboardTable">
-          <table class="dashTable ppcNativeTable">
-            <thead><tr><th>Metrika</th><th>Červen 2026</th><th>Květen 2026</th><th class="changeCol">Změna</th></tr></thead>
-            <tbody>${sklikRows.map(renderSklikRow).join("")}</tbody>
-          </table>
-        </div>
+    <div class="sklikResultsContent">
+      <h2>Sklik v červnu doručil 241 konverzí a zároveň navýšil objem.</h2>
+      <p class="sectionLead">Hlavním výsledkem Skliku jsou konverze, vedle nich je vidět i silnější objem prokliků a zobrazení. CPC klesá na 8,22 Kč, takže nárůst čerpání je spojený hlavně s vyšším rozsahem kampaní, ne s dražším klikem.</p>
+      <div class="sourceSummary compactSummary">
+        <h3>Čtení Skliku</h3>
+        <p>${sklikComment}</p>
       </div>
-      <div>${renderShot(ppcAssets.sklik, "Sklik detail výsledků")}</div>
+      <div class="dashboardTable">
+        <table class="dashTable ppcNativeTable">
+          <thead><tr><th>Metrika</th><th>Červen 2026</th><th>Květen 2026</th><th class="changeCol">Změna</th></tr></thead>
+          <tbody>${sklikRows.map(renderSklikRow).join("")}</tbody>
+        </table>
+      </div>
+      <div class="ppcAssetGrid sklikResultSource">
+        ${renderShot(ppcAssets.sklik, "Sklik detail výsledků · červen 2026")}
+      </div>
     </div>
     <div id="sklik-campaign-types">
       ${renderSklikCampaignTypeBlock()}

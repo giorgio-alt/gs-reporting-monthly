@@ -19,6 +19,18 @@
     "source": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Meta_Platforms_Inc._logo.svg",
     "officialReference": "https://www.facebook.com/brand/resources/meta/company-brand/"
   },
+  "facebook": {
+    "label": "Facebook",
+    "file": "/assets/logos/facebook.svg",
+    "source": "local SVG brand mark",
+    "officialReference": "https://www.facebook.com/brand/resources/facebookapp/logo"
+  },
+  "instagram": {
+    "label": "Instagram",
+    "file": "/assets/logos/instagram.svg",
+    "source": "local SVG brand mark",
+    "officialReference": "https://about.meta.com/brand/resources/instagram/instagram-brand/"
+  },
   "seznamSklik": {
     "label": "Seznam / Sklik",
     "file": "/assets/logos/seznam.svg",

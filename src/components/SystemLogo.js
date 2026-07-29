@@ -13,6 +13,14 @@ export const systemLogos = {
     label: "Meta",
     file: "assets/logos/meta.svg"
   },
+  facebook: {
+    label: "Facebook",
+    file: "assets/logos/facebook.svg"
+  },
+  instagram: {
+    label: "Instagram",
+    file: "assets/logos/instagram.svg"
+  },
   seznamSklik: {
     label: "Seznam / Sklik",
     file: "assets/logos/seznam.svg"
