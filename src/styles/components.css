@@ -2276,6 +2276,281 @@ h2 .sectionLogo {
   font-size: 13px;
 }
 
+.sklikTypeBlock {
+  display: grid;
+  gap: 16px;
+  margin-top: clamp(22px, 3vw, 34px);
+}
+
+.sklikTypeIntro {
+  max-width: 920px;
+}
+
+.sklikTypeIntro h3 {
+  margin: 0;
+  color: #10231b;
+  font-size: clamp(26px, 2.8vw, 38px);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.sklikTypeIntro p {
+  margin-top: 8px;
+  color: #52675c;
+  font-size: 14px;
+  font-weight: 680;
+}
+
+.sklikTypeGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.sklikTypeCard {
+  --sklik-tone: var(--gs-green);
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  min-width: 0;
+  padding: 16px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.82);
+  box-shadow: 0 14px 34px rgba(16, 35, 27, 0.08);
+}
+
+.sklikTypeCard.stable {
+  --sklik-tone: #0f766e;
+}
+
+.sklikTypeCard.watch {
+  --sklik-tone: #b7791f;
+}
+
+.sklikTypeCard.critical {
+  --sklik-tone: #b42318;
+}
+
+.sklikTypeCard.muted {
+  --sklik-tone: #66786e;
+}
+
+.sklikTypeHead {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.sklikTypeHead span {
+  color: #10231b;
+  font-size: 22px;
+  font-weight: 850;
+  letter-spacing: -0.035em;
+}
+
+.sklikTypeHead i {
+  display: inline-flex;
+  width: fit-content;
+  min-width: max-content;
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--sklik-tone) 12%, white);
+  color: var(--sklik-tone);
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 950;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.sklikTypePrimary {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.sklikTypePrimary div,
+.sklikTypeDetail div {
+  min-width: 0;
+  padding: 10px;
+  border-radius: 16px;
+  background: rgba(0, 107, 63, 0.055);
+  border: 1px solid rgba(0, 107, 63, 0.09);
+}
+
+.sklikTypePrimary span,
+.sklikTypeDetail dt {
+  display: block;
+  color: #66786e;
+  font-size: 10px;
+  font-weight: 950;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.sklikTypePrimary strong,
+.sklikTypeDetail dd {
+  display: block;
+  margin: 5px 0 0;
+  color: #10231b;
+  font-size: clamp(13px, 1.1vw, 16px);
+  font-weight: 880;
+  line-height: 1.05;
+  white-space: nowrap;
+}
+
+.sklikTypeDetail {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0;
+}
+
+.sklikTypeDetail dd {
+  font-size: 13px;
+}
+
+.sklikTypeCard p {
+  color: #405648;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.sklikAccountCheck {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  padding: 13px 15px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.66);
+  border: 1px solid rgba(0, 107, 63, 0.08);
+}
+
+.sklikAccountCheck span {
+  color: #66786e;
+  font-size: 11px;
+  font-weight: 950;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.sklikAccountCheck b {
+  color: #173324;
+  font-size: 13px;
+  font-weight: 850;
+}
+
+.sklikChart {
+  display: grid;
+  gap: 14px;
+  padding: 16px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid rgba(255, 255, 255, 0.78);
+}
+
+.sklikChartHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.sklikChartHead h4 {
+  margin: 0;
+  color: #10231b;
+  font-size: 22px;
+  letter-spacing: -0.035em;
+}
+
+.sklikChartTabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.sklikChartTabs button {
+  min-height: 34px;
+  padding: 8px 11px;
+  border: 1px solid rgba(0, 107, 63, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  color: #52675c;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 950;
+}
+
+.sklikChartTabs button.is-active,
+.sklikChartTabs button:hover,
+.sklikChartTabs button:focus-visible {
+  background: var(--gs-green);
+  border-color: var(--gs-green);
+  color: #fff;
+}
+
+.sklikChartPanel {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+  min-height: 240px;
+}
+
+.sklikChartPanel[hidden] {
+  display: none;
+}
+
+.sklikChartBar {
+  display: grid;
+  grid-template-rows: auto minmax(120px, 1fr) auto;
+  gap: 8px;
+  min-width: 0;
+  padding: 12px;
+  border-radius: 18px;
+  background: rgba(247, 251, 248, 0.76);
+  border: 1px solid rgba(0, 107, 63, 0.08);
+  text-align: center;
+}
+
+.sklikChartBar span,
+.sklikChartBar strong {
+  overflow-wrap: anywhere;
+}
+
+.sklikChartBar span {
+  color: #66786e;
+  font-size: 11px;
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.sklikChartBar i {
+  align-self: end;
+  justify-self: center;
+  display: block;
+  width: clamp(26px, 4vw, 44px);
+  height: var(--bar-height);
+  min-height: 0;
+  border-radius: 999px 999px 8px 8px;
+  background: linear-gradient(180deg, var(--gs-lime), var(--gs-green));
+  box-shadow: 0 12px 28px rgba(0, 107, 63, 0.18);
+}
+
+.sklikChartBar strong {
+  color: #10231b;
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.sklikTypeSources {
+  margin-top: 0;
+}
+
 @media (max-width: 980px) {
   .dashboardReality {
     grid-template-columns: 1fr;
@@ -2323,6 +2598,10 @@ h2 .sectionLogo {
     grid-template-columns: 1fr;
   }
 
+  .sklikTypeGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .ppcCluster summary {
     grid-template-columns: 1fr;
   }
@@ -2358,6 +2637,40 @@ h2 .sectionLogo {
 
   .ppcClusterKpis {
     grid-template-columns: 1fr;
+  }
+
+  .sklikTypeGrid,
+  .sklikTypePrimary,
+  .sklikTypeDetail,
+  .sklikChartPanel {
+    grid-template-columns: 1fr;
+  }
+
+  .sklikChartHead {
+    display: grid;
+  }
+
+  .sklikChartTabs {
+    justify-content: flex-start;
+  }
+
+  .sklikChartPanel {
+    min-height: 0;
+  }
+
+  .sklikChartBar {
+    grid-template-columns: minmax(80px, 0.7fr) minmax(0, 1fr) minmax(84px, 0.7fr);
+    grid-template-rows: auto;
+    align-items: center;
+    text-align: left;
+  }
+
+  .sklikChartBar i {
+    justify-self: stretch;
+    width: var(--bar-height);
+    max-width: 100%;
+    height: 14px;
+    border-radius: 999px;
   }
 }
 
@@ -3166,6 +3479,129 @@ h2 .sectionLogo {
   line-height: 1.4;
 }
 
+.metaBoostOverview {
+  display: grid;
+  gap: 14px;
+  padding: 18px;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.58);
+  border: 1px solid rgba(255, 255, 255, 0.76);
+  box-shadow: 0 14px 34px rgba(16, 35, 27, 0.07);
+}
+
+.metaBoostOverviewHead {
+  display: grid;
+  gap: 5px;
+  max-width: 860px;
+}
+
+.metaBoostOverviewHead > span {
+  color: #66786e;
+  font-size: 11px;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.metaBoostOverviewHead h3 {
+  margin: 0;
+  color: #10231b;
+  font-size: clamp(24px, 2.5vw, 34px);
+  letter-spacing: -0.04em;
+}
+
+.metaBoostOverviewHead p {
+  color: #405648;
+  font-size: 13px;
+}
+
+.metaBoostOverviewGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.metaBoostOverviewCard {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  min-width: 0;
+  padding: 12px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.82);
+  box-shadow: 0 12px 30px rgba(16, 35, 27, 0.07);
+}
+
+.metaBoostPostThumb.overview > i {
+  position: absolute;
+  z-index: 1;
+  top: 12px;
+  left: 12px;
+  display: inline-flex;
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: rgba(0, 107, 63, 0.92);
+  color: #fff;
+  box-shadow: 0 12px 26px rgba(16, 35, 27, 0.16);
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 950;
+  line-height: 1;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.metaBoostPostThumb.overview > i.low {
+  background: rgba(185, 28, 28, 0.92);
+}
+
+.metaBoostOverviewBody {
+  display: grid;
+  gap: 8px;
+}
+
+.metaBoostOverviewBody h4 {
+  margin: 0;
+  color: #10231b;
+  font-size: 18px;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+}
+
+.metaBoostOverviewBody > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.metaBoostOverviewBody span,
+.metaBoostOverviewBody i {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 6px 9px;
+  border-radius: 999px;
+  background: rgba(24, 119, 242, 0.1);
+  color: #1877f2;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 950;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.metaBoostOverviewBody i.high {
+  background: rgba(0, 107, 63, 0.1);
+  color: var(--gs-green);
+}
+
+.metaBoostOverviewBody i.low {
+  background: rgba(239, 68, 68, 0.1);
+  color: #b42318;
+}
+
 .metaBoostChannels {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -3630,7 +4066,8 @@ h2 .sectionLogo {
   .metaBoostChannels,
   .metaBoostTakeaways,
   .metaBoostPerformer,
-  .metaBoostPerformerGrid {
+  .metaBoostPerformerGrid,
+  .metaBoostOverviewGrid {
     grid-template-columns: 1fr;
   }
 
@@ -3660,6 +4097,7 @@ h2 .sectionLogo {
 }
 
 @media (max-width: 1180px) and (min-width: 701px) {
+  .metaBoostOverviewGrid,
   .metaBoostPerformerGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }

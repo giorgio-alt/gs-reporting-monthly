@@ -4,6 +4,7 @@ export function Lightbox() {
       <div class="lightboxInner">
         <button class="lightboxClose" type="button" aria-label="Zavřít náhled">×</button>
         <img alt="Zvětšený náhled kreativy" loading="lazy" decoding="async">
+        <a class="lightboxFull" href="#" target="_blank" rel="noopener">Otevřít v plné velikosti</a>
       </div>
     </div>
   `;
@@ -13,6 +14,7 @@ export function initLightbox() {
   const lightbox = document.getElementById("imageLightbox");
   const lightboxImg = lightbox?.querySelector("img");
   const lightboxClose = lightbox?.querySelector(".lightboxClose");
+  const lightboxFull = lightbox?.querySelector(".lightboxFull");
   const triggers = document.querySelectorAll("a.creativeThumb, a.visualItem, a.metaBoostPostThumb, a.metaBoostOpen");
 
   function closeLightbox() {
@@ -20,6 +22,7 @@ export function initLightbox() {
     lightbox.classList.remove("open");
     lightbox.setAttribute("aria-hidden", "true");
     lightboxImg.removeAttribute("src");
+    lightboxFull?.setAttribute("href", "#");
   }
 
   triggers.forEach((trigger) => {
@@ -30,6 +33,8 @@ export function initLightbox() {
 
       event.preventDefault();
       lightboxImg.src = src;
+      lightboxImg.alt = trigger.querySelector("img")?.alt || trigger.textContent?.trim() || "Zvětšený náhled";
+      lightboxFull?.setAttribute("href", src);
       lightbox.classList.add("open");
       lightbox.setAttribute("aria-hidden", "false");
     });

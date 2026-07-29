@@ -604,12 +604,59 @@ function renderBoostingSection() {
       <h2>Boostování v červnu ukazuje jasný rozdíl mezi příspěvky, které táhly reakce nebo návštěvy, a těmi, které potřebují doladit.</h2>
       <p>Každá karta pracuje se samostatným výřezem konkrétního příspěvku. Palec ve výřezu drží zařazení do HIGH nebo LOW performerů, metriky pak doplňují rychlé čtení výkonu.</p>
     </div>
+    ${renderBoostOverview()}
     ${boostSections.map(renderBoostSection).join("")}
     <div class="metaBoostTakeaways">
       <h3>Co si z boostování odnést</h3>
       <div>${boostTakeaways.map((item) => `<p>${item}</p>`).join("")}</div>
     </div>
   </div>`;
+}
+
+function renderBoostOverview() {
+  const posts = boostSections.flatMap((section) =>
+    section.rows
+      .filter((row) => row.asset && boostAssetById[row.asset])
+      .map((row) => ({ ...row, supportType: section.title }))
+  );
+
+  return `<section class="metaBoostOverview">
+    <div class="metaBoostOverviewHead">
+      <span>Přehled všech boostovaných příspěvků</span>
+      <h3>Všechny dostupné výřezy příspěvků</h3>
+      <p>Duplicitní téma na Facebooku a Instagramu je uvedené samostatně, pokud má vlastní data nebo vlastní výřez.</p>
+    </div>
+    <div class="metaBoostOverviewGrid">
+      ${posts.map(renderBoostOverviewCard).join("")}
+    </div>
+  </section>`;
+}
+
+function renderBoostOverviewCard(row) {
+  const asset = boostAssetById[row.asset];
+  const { width = 0, height = 0 } = asset.image_size || {};
+  const ratioStyle = width && height ? ` style="--asset-ratio:${width} / ${height}"` : "";
+  const classification = row.classification === "high"
+    ? `<i class="high">HIGH performer</i>`
+    : row.classification === "low"
+      ? `<i class="low">LOW performer</i>`
+      : "";
+
+  return `<article class="metaBoostOverviewCard">
+    <a class="metaBoostPostThumb overview" href="${asset.fullSrc}"${ratioStyle} aria-label="Otevřít detail: ${row.title}">
+      ${classification}
+      <img src="${asset.src}" alt="${asset.alt}" loading="lazy" decoding="async">
+      <span class="metaBoostPostCta">Otevřít detail</span>
+    </a>
+    <div class="metaBoostOverviewBody">
+      <h4>${row.title}</h4>
+      <div>
+        <span>${row.platform}</span>
+        <span>${row.supportType}</span>
+        ${classification}
+      </div>
+    </div>
+  </article>`;
 }
 
 function renderBoostSection(section) {

@@ -21,6 +21,16 @@ const ppcAssets = {
     full: "assets/report-jun-26/ppc/sklik-june-2026-account.png",
     thumb: "assets/report-jun-26/ppc/sklik-june-2026-account-thumb.png",
     image_size: { width: 4414, height: 1356 }
+  },
+  sklikSearch: {
+    full: "assets/report-jun-26/ppc/sklik/search.png",
+    thumb: "assets/report-jun-26/ppc/sklik/search-thumb.png",
+    image_size: { width: 2890, height: 1618 }
+  },
+  sklikCampaignTypes: {
+    full: "assets/report-jun-26/ppc/sklik/campaign-types.png",
+    thumb: "assets/report-jun-26/ppc/sklik/campaign-types-thumb.png",
+    image_size: { width: 2864, height: 648 }
   }
 };
 
@@ -92,14 +102,76 @@ const pmaxClusters = [
 ];
 
 const sklikRows = [
-  { metric: "Konverze", current: 241, previous: null, format: "number", primary: true },
-  { metric: "Cena za konverzi", current: 780.61, previous: null, format: "currency", decimals: 2 },
-  { metric: "Hodnota konverzí", current: 244561, previous: null, format: "currency" },
-  { metric: "CTR", current: 0.41, previous: null, format: "percent", decimals: 2 },
+  { metric: "Konverze", current: 241, previous: 200, format: "number", primary: true, tone: "higher-good" },
+  { metric: "Cena za konverzi", current: 780.61, previous: 639.78, format: "currency", decimals: 2, tone: "lower-good" },
+  { metric: "Hodnota konverzí", current: 244561, previous: 193437, format: "currency", tone: "higher-good" },
+  { metric: "CTR", current: 0.41, previous: 13874 / 4081763 * 100, format: "percent", decimals: 2, tone: "higher-good" },
   { metric: "Prokliky", current: 22873, previous: 13874, format: "number" },
   { metric: "Zobrazení", current: 5606961, previous: 4081763, format: "number" },
-  { metric: "CPC", current: 8.22, previous: 9.22, format: "currency", decimals: 2 },
-  { metric: "Cena", current: 188127, previous: 127956, format: "currency" }
+  { metric: "CPC", current: 8.22, previous: 9.22, format: "currency", decimals: 2, tone: "lower-good" },
+  { metric: "Cena", current: 188127, previous: 127955.89, format: "currency", tone: "neutral" }
+];
+
+const sklikCampaignRows = [
+  { group: "Search", campaign: "Search kampaně", clicks: 862, impressions: 5950, cost: 5957.37, conversions: 49, value: 47905 },
+  { group: "PMax", campaign: "PMax", clicks: 6159, impressions: 1572259, cost: 58443.66, conversions: 41, value: 67622 },
+  { group: "Display", campaign: "Display · nativní prospecting", clicks: 4541, impressions: 836666, cost: 22510.41, conversions: 2, value: 1835 },
+  { group: "Display", campaign: "Dynamický banner", clicks: 2050, impressions: 656819, cost: 12736.19, conversions: 0, value: 0 },
+  { group: "Retargeting", campaign: "DRM dynamický banner", clicks: 4283, impressions: 638520, cost: 37229.08, conversions: 93, value: 76483 },
+  { group: "Retargeting", campaign: "Remarketing statika", clicks: 2296, impressions: 1571555, cost: 18548.12, conversions: 53, value: 47717 },
+  { group: "Retargeting", campaign: "DRTG návštěvníci", clicks: 930, impressions: 257634, cost: 4289.89, conversions: 3, value: 2999 },
+  { group: "PLA", campaign: "PLA · seznam.cz", clicks: 1473, impressions: 51245, cost: 23548.20, conversions: 0, value: 0 },
+  { group: "PLA", campaign: "PLA · zbozi.cz", clicks: 279, impressions: 16313, cost: 4864.08, conversions: 0, value: 0 }
+];
+
+const sklikGroupConfig = {
+  Search: { status: "Velmi efektivní", tone: "good", description: "Vyhledávání má nejnižší PNO a nejlevnější konverzi. Malý objem, ale velmi zdravá efektivita." },
+  Retargeting: { status: "Stabilní", tone: "stable", description: "Retargeting drží největší počet konverzí a dobrou hodnotu. Efektivita je výrazně lepší než u většiny objemových typů." },
+  PMax: { status: "Slabá efektivita", tone: "watch", description: "PMax přináší objem, ale PNO je vysoké. Potřebuje detailnější řízení produktů a rozpočtu." },
+  Display: { status: "Kritická efektivita", tone: "critical", description: "Display má slušný objem návštěv, ale jen dvě konverze. Tady je výkon spíš podpůrný než prodejní." },
+  PLA: { status: "Bez konverzí", tone: "muted", description: "PLA čerpá rozpočet bez konverzí, proto ho nedává smysl hodnotit přes PNO. Potřebuje samostatnou kontrolu feedu a relevance." }
+};
+
+const sklikGroupOrder = ["Search", "PMax", "Display", "Retargeting", "PLA"];
+
+const sklikCampaignGroups = sklikGroupOrder.map((group) => {
+  const campaigns = sklikCampaignRows.filter((row) => row.group === group);
+  const sum = (key) => campaigns.reduce((total, row) => total + row[key], 0);
+  const cost = sum("cost");
+  const clicks = sum("clicks");
+  const impressions = sum("impressions");
+  const conversions = sum("conversions");
+  const value = sum("value");
+  return {
+    group,
+    campaigns,
+    ...sklikGroupConfig[group],
+    cost,
+    clicks,
+    impressions,
+    conversions,
+    value,
+    ctr: impressions > 0 ? clicks / impressions * 100 : null,
+    cpc: clicks > 0 ? cost / clicks : null,
+    conversionRate: clicks > 0 ? conversions / clicks * 100 : null,
+    costPerConversion: conversions > 0 ? cost / conversions : null,
+    pno: value > 0 ? cost / value * 100 : null
+  };
+});
+
+const sklikAccountTotals = {
+  cost: sklikCampaignGroups.reduce((total, group) => total + group.cost, 0),
+  clicks: sklikCampaignGroups.reduce((total, group) => total + group.clicks, 0),
+  impressions: sklikCampaignGroups.reduce((total, group) => total + group.impressions, 0),
+  conversions: sklikCampaignGroups.reduce((total, group) => total + group.conversions, 0),
+  value: sklikCampaignGroups.reduce((total, group) => total + group.value, 0)
+};
+
+const sklikChartMetrics = [
+  { id: "cost", label: "Náklady", value: (group) => group.cost, format: "currency" },
+  { id: "conversions", label: "Konverze", value: (group) => group.conversions, format: "number" },
+  { id: "value", label: "Hodnota konverzí", value: (group) => group.value, format: "currency" },
+  { id: "pno", label: "PNO", value: (group) => group.pno, format: "percent" }
 ];
 
 const karsaClusterRows = [
@@ -114,8 +186,12 @@ const karsaComment = "Clusterový pohled pomáhá rozpadnout PMax výkon podle p
 const sklikComment = "Sklik v červnu doručil 241 konverzí při ceně 780,61 Kč za konverzi. Objem prokliků a zobrazení roste, CPC je nižší, takže kanál škáluje levněji; dál dává smysl hlídat hlavně kvalitu konverzí a jejich hodnotu.";
 
 const changeClass = (value) => value.trim().startsWith("+") ? "good" : value.trim().startsWith("-") ? "bad" : "neutral";
-const chip = (value) => `<span class="labelChange ${changeClass(value)}">${value}</span>`;
+const chip = (value, tone = changeClass(value)) => `<span class="labelChange ${tone}">${value}</span>`;
 const formatNumber = new Intl.NumberFormat("cs-CZ", { maximumFractionDigits: 0 });
+const formatDecimal = (value, decimals = 2) => new Intl.NumberFormat("cs-CZ", {
+  minimumFractionDigits: decimals,
+  maximumFractionDigits: decimals
+}).format(value);
 
 const formatSklikValue = (row, value) => {
   if (value === null || value === undefined) return "—";
@@ -133,11 +209,16 @@ const getSklikChange = (row) => {
   if (!Number.isFinite(row.current) || !Number.isFinite(row.previous) || row.previous === 0) return null;
   const change = ((row.current / row.previous) - 1) * 100;
   const sign = change > 0 ? "+" : "";
-  return `${sign}${formatNumber.format(change)} %`;
+  const tone = row.tone === "neutral"
+    ? "neutral"
+    : row.tone === "lower-good"
+      ? change < 0 ? "good" : change > 0 ? "bad" : "neutral"
+      : change > 0 ? "good" : change < 0 ? "bad" : "neutral";
+  return { label: `${sign}${formatNumber.format(change)} %`, tone };
 };
 
 const renderShot = (item, label = item.label) => `
-  <a class="visualItem ppcAssetShot" href="${item.full}">
+  <a class="visualItem ppcAssetShot" href="${item.full}"${item.image_size ? ` style="--asset-ratio:${item.image_size.width} / ${item.image_size.height}"` : ""}>
     <img src="${item.thumb}" alt="${label}" loading="lazy">
     <span>${label}</span>
   </a>`;
@@ -169,7 +250,7 @@ const renderSklikRow = (row) => {
     <td>${row.metric}</td>
     <td>${formatSklikValue(row, row.current)}</td>
     <td>${formatSklikValue(row, row.previous)}</td>
-    <td class="deltaCell">${change ? chip(change) : ""}</td>
+    <td class="deltaCell">${change ? chip(change.label, change.tone) : ""}</td>
   </tr>`;
 };
 
@@ -181,6 +262,83 @@ const renderKarsaRow = (row) => `
     <td>${row.value}</td>
     <td>${row.campaign}</td>
   </tr>`;
+
+const formatSklikMetric = (value, format = "number", decimals = format === "percent" ? 2 : 0) => {
+  if (!Number.isFinite(value)) return "—";
+  if (format === "currency") return `${formatDecimal(value, decimals)} Kč`;
+  if (format === "percent") return `${formatDecimal(value, decimals)} %`;
+  return formatNumber.format(value);
+};
+
+const renderSklikTypeCard = (group) => `
+  <article class="sklikTypeCard ${group.tone}">
+    <div class="sklikTypeHead">
+      <span>${group.group}</span>
+      <i>${group.status}</i>
+    </div>
+    <div class="sklikTypePrimary">
+      <div><span>Náklady</span><strong>${formatSklikMetric(group.cost, "currency", 2)}</strong></div>
+      <div><span>Konverze</span><strong>${formatSklikMetric(group.conversions)}</strong></div>
+      <div><span>Hodnota konverzí</span><strong>${formatSklikMetric(group.value, "currency")}</strong></div>
+      <div><span>PNO</span><strong>${formatSklikMetric(group.pno, "percent", 2)}</strong></div>
+    </div>
+    <dl class="sklikTypeDetail">
+      <div><dt>Prokliky</dt><dd>${formatSklikMetric(group.clicks)}</dd></div>
+      <div><dt>Zobrazení</dt><dd>${formatSklikMetric(group.impressions)}</dd></div>
+      <div><dt>CTR</dt><dd>${formatSklikMetric(group.ctr, "percent", 2)}</dd></div>
+      <div><dt>CPC</dt><dd>${formatSklikMetric(group.cpc, "currency", 2)}</dd></div>
+      <div><dt>Konv. poměr</dt><dd>${formatSklikMetric(group.conversionRate, "percent", 2)}</dd></div>
+      <div><dt>Cena za konverzi</dt><dd>${formatSklikMetric(group.costPerConversion, "currency", 2)}</dd></div>
+    </dl>
+    <p>${group.description}</p>
+  </article>`;
+
+const renderSklikChartPanel = (metric, active = false) => {
+  const values = sklikCampaignGroups.map((group) => metric.value(group)).filter(Number.isFinite);
+  const max = Math.max(...values, 1);
+  return `<div class="sklikChartPanel${active ? " is-active" : ""}" data-sklik-chart-panel="${metric.id}" ${active ? "" : "hidden"}>
+    ${sklikCampaignGroups.map((group) => {
+      const value = metric.value(group);
+      const height = Number.isFinite(value) ? Math.max(value / max * 100, 5) : 0;
+      return `<div class="sklikChartBar">
+        <span>${group.group}</span>
+        <i style="--bar-height:${height}%"></i>
+        <strong>${formatSklikMetric(value, metric.format, metric.format === "currency" ? 0 : 2)}</strong>
+      </div>`;
+    }).join("")}
+  </div>`;
+};
+
+const renderSklikCampaignTypeBlock = () => `
+  <div class="sklikTypeBlock">
+    <div class="sklikTypeIntro">
+      <span class="pill orange">Sklik podle typu kampaní</span>
+      <h3>Sklik podle typu kampaní</h3>
+      <p>Agregovaný pohled na výkon vyhledávání, obsahových kampaní, retargetingu a produktové inzerce.</p>
+    </div>
+    <div class="sklikTypeGrid">
+      ${sklikCampaignGroups.map(renderSklikTypeCard).join("")}
+    </div>
+    <div class="sklikAccountCheck">
+      <span>Součet skupin</span>
+      <b>${formatSklikMetric(sklikAccountTotals.cost, "currency")} · ${formatSklikMetric(sklikAccountTotals.clicks)} prokliků · ${formatSklikMetric(sklikAccountTotals.impressions)} zobrazení · ${formatSklikMetric(sklikAccountTotals.conversions)} konverzí · ${formatSklikMetric(sklikAccountTotals.value, "currency")}</b>
+    </div>
+    <div class="sklikChart" data-sklik-chart>
+      <div class="sklikChartHead">
+        <h4>Porovnání skupin</h4>
+        <div class="sklikChartTabs" role="tablist" aria-label="Přepnutí metriky grafu Sklik">
+          ${sklikChartMetrics.map((metric, index) => `<button type="button" class="${index === 0 ? "is-active" : ""}" data-sklik-chart-toggle="${metric.id}" aria-selected="${index === 0 ? "true" : "false"}">${metric.label}</button>`).join("")}
+        </div>
+      </div>
+      <div class="sklikChartPanels">
+        ${sklikChartMetrics.map((metric, index) => renderSklikChartPanel(metric, index === 0)).join("")}
+      </div>
+    </div>
+    <div class="ppcAssetGrid ppcAssetGridTwo sklikTypeSources">
+      ${renderShot(ppcAssets.sklikSearch, "Sklik · Search")}
+      ${renderShot(ppcAssets.sklikCampaignTypes, "Sklik · PMax, Display, Retargeting a PLA")}
+    </div>
+  </div>`;
 
 export const ppcSectionHtml = `<section class="chapter" id="ppc">
   <div class="chapterHead glass">
@@ -200,6 +358,7 @@ export const ppcSectionHtml = `<section class="chapter" id="ppc">
       <a href="#pmax-clusters">Clustery</a>
       <a href="#karsa-ai">Karsa AI</a>
       <a href="#sklik-results">Sklik</a>
+      <a href="#sklik-campaign-types">Sklik typy kampaní</a>
     </div>
   </div>
 
@@ -275,6 +434,9 @@ export const ppcSectionHtml = `<section class="chapter" id="ppc">
         </div>
       </div>
       <div>${renderShot(ppcAssets.sklik, "Sklik detail výsledků")}</div>
+    </div>
+    <div id="sklik-campaign-types">
+      ${renderSklikCampaignTypeBlock()}
     </div>
   </div>
 </section>`;

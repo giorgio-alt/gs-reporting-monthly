@@ -1,16 +1,23 @@
 .lightbox {
+  position: fixed;
+  inset: 0;
   align-items: center;
   justify-content: center;
-  padding: clamp(18px, 4vw, 42px);
+  width: 100vw;
+  height: 100vh;
+  padding: clamp(16px, 3vw, 34px);
+  overflow: hidden;
 }
 
 .lightboxInner {
   position: relative;
   display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
   place-items: center;
-  width: min(90vw, 1440px);
-  max-width: 90vw;
-  max-height: 85vh;
+  gap: 10px;
+  width: min(92vw, 1600px);
+  max-width: 92vw;
+  max-height: 88vh;
   overflow: visible;
 }
 
@@ -18,16 +25,40 @@
   display: block;
   width: auto;
   height: auto;
-  max-width: 90vw;
-  max-height: 85vh;
+  max-width: min(92vw, 1600px);
+  max-height: 82vh;
   object-fit: contain;
+  object-position: center;
   margin: auto;
+  border-radius: 20px;
 }
 
 .lightboxClose {
-  right: -14px;
-  top: -14px;
-  z-index: 2;
+  right: 0;
+  top: 0;
+  z-index: 3;
+  transform: translate(42%, -42%);
+}
+
+.lightboxFull {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  padding: 9px 13px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  color: #10231b;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.22);
+  font-size: 12px;
+  font-weight: 950;
+  text-decoration: none;
+}
+
+.lightboxFull:hover,
+.lightboxFull:focus-visible {
+  color: var(--gs-green);
 }
 
 .lightbox.open {
@@ -64,5 +95,29 @@
   .lightbox.open,
   .lightbox.open .lightboxInner {
     animation: none !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .lightbox {
+    padding: 12px;
+  }
+
+  .lightboxInner {
+    width: 94vw;
+    max-width: 94vw;
+    max-height: 90vh;
+  }
+
+  .lightbox img {
+    max-width: 94vw;
+    max-height: 80vh;
+    border-radius: 16px;
+  }
+
+  .lightboxClose {
+    right: 4px;
+    top: 4px;
+    transform: none;
   }
 }

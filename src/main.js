@@ -12,6 +12,7 @@ import { initLightbox } from "./components/Lightbox.js";
 import { initYoYTables } from "./components/DataTable.js";
 import { initFunnelTrendToggles } from "./components/FunnelTrend.js";
 import { initDetailsEnhancements } from "./components/DetailsEnhancements.js";
+import { initSklikCharts } from "./components/SklikCharts.js";
 
 const root = document.querySelector("#app");
 
@@ -22,3 +23,4 @@ initYoYTables();
 initLightbox();
 initFunnelTrendToggles();
 initDetailsEnhancements();
+initSklikCharts();
