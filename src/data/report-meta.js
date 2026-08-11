@@ -1,10 +1,10 @@
 export const reportMeta = {
   client: "Green Swan / GS Klub",
   brand: "GS Klub.cz",
-  title: "Vyhodnocení 06/2026 · červen 2026",
+  title: "Vyhodnocení 07/2026 · červenec 2026",
   eyebrow: "Měsíční vyhodnocení výkonu",
-  version: "Červen 2026",
-  footer: "GS Klub · měsíční vyhodnocení výkonu · červen 2026",
+  version: "Červenec 2026",
+  footer: "GS Klub · měsíční vyhodnocení výkonu · červenec 2026",
   logo: "assets/brand/gs-klub-logo-transparent.png",
   agencyLogo: "assets/brand/deserved-agency-logo.png",
   navigation: [
@@ -19,23 +19,23 @@ export const reportMeta = {
       id: "dashboard",
       number: "01",
       title: "Dashboard",
-      description: "Obchodní realita června, plán, PNO z reality a referenční analytický trend GA4.",
+      description: "Obchodní realita července, plán, PNO z reality a referenční analytický trend GA4.",
       defaultOpen: true,
-      chips: ["Realita 26: 3,77 mil. Kč", "Plán 26: 4,06 mil. Kč", "PNO 18,80 %", "YoY +10,30 %"]
+      chips: ["Realita 26: 3,60 mil. Kč", "Plán 26: 4,74 mil. Kč", "PNO 18,77 %", "YoY -22,23 %"]
     },
     {
       id: "produkty",
       number: "02",
       title: "Výkon produktů",
-      description: "Červnový produktový výkon, produktové skupiny, blog a zařízení v klientském reportovém pohledu.",
-      chips: ["Tržba z položek +6,2 %", "Zakoupené položky 9 499", "Blog -4,55 %", "Desktop tržby +2,74 %"]
+      description: "Červencový produktový výkon, produktové skupiny, blog, zařízení a behaviorální vývoj v čase.",
+      chips: ["Tržba z položek +0,89 %", "Zakoupené položky 9 661", "Blog +0,89 %", "Clarity 3 měsíce"]
     },
     {
       id: "ppc",
       number: "03",
       title: "Google Ads & Sklik",
-      description: "PMax výkon, produktové clustery z Karsa AI, ROAS vs. tROAS a červnové výsledky Skliku.",
-      chips: ["PMax clustery", "Karsa AI", "ROAS vs. tROAS", "Sklik +65 % prokliků"]
+      description: "Červencový PMax výkon, produktové clustery z Karsa AI, AI Max a výsledky Skliku.",
+      chips: ["PMax 07/2026", "AI Max", "Karsa AI", "Sklik CPC 7,49 Kč"]
     },
     {
       id: "meta",

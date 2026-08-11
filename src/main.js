@@ -13,6 +13,7 @@ import { initYoYTables } from "./components/DataTable.js";
 import { initFunnelTrendToggles } from "./components/FunnelTrend.js";
 import { initDetailsEnhancements } from "./components/DetailsEnhancements.js";
 import { initSklikCharts } from "./components/SklikCharts.js";
+import { initMetaBoostingTabs } from "./components/MetaBoosting.js";
 
 const root = document.querySelector("#app");
 
@@ -24,3 +25,4 @@ initLightbox();
 initFunnelTrendToggles();
 initDetailsEnhancements();
 initSklikCharts();
+initMetaBoostingTabs();

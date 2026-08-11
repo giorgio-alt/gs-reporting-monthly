@@ -1,16 +1,16 @@
 import { SystemLogo } from "../components/SystemLogo.js";
 
 const topProducts = [
-  { name: "GS Condro® DIAMANT, 720 tablet", revenue: "187 432 Kč", purchased: "103", change: "+26,59 %" },
-  { name: "Cemio RED3®, 360 kapslí, NOVÝ", revenue: "137 479 Kč", purchased: "84", change: "+13,33 %" },
-  { name: "GS Merilin, 4 × 60 tablet", revenue: "133 994 Kč", purchased: "103", change: "-22,96 %" },
-  { name: "GS Condro® DIAMANT, 200 tablet", revenue: "120 866 Kč", purchased: "203", change: "-6,53 %" },
-  { name: "GS Koenzym Lipo Q10® 100 mg, 4 × 60 kapslí", revenue: "108 208 Kč", purchased: "114", change: "+6,22 %" },
-  { name: "GS Omega 3 citrus, 2 × 150 kapslí", revenue: "107 914 Kč", purchased: "200", change: "-11,69 %" },
-  { name: "Cemio Kamzík® NOVINKA, 180 kapslí", revenue: "106 443 Kč", purchased: "135", change: "+1 552,33 %" },
-  { name: "Cemio Kamzík® NOVINKA, 360 kapslí", revenue: "103 232 Kč", purchased: "73", change: "+955,22 %" },
-  { name: "Cemio RED3®, 90 kapslí, NOVÝ", revenue: "95 572 Kč", purchased: "210", change: "+17,13 %" },
-  { name: "Cemio Kamzík® NOVINKA, 90 kapslí", revenue: "85 189 Kč", purchased: "201", change: "+1 364,74 %" }
+  { name: "GS Condro® DIAMANT, 200 tablet", revenue: "249 951 Kč", purchased: "380", change: "+106,80 %" },
+  { name: "Cemio RED3®, 90 kapslí, NOVÝ", revenue: "146 749 Kč", purchased: "263", change: "+53,55 %" },
+  { name: "Cemio RED3®, 180 kapslí, NOVÝ", revenue: "144 374 Kč", purchased: "147", change: "+82,99 %" },
+  { name: "GS Merilin, 60 tablet", revenue: "144 032 Kč", purchased: "308", change: "+157,90 %" },
+  { name: "GS Merilin, 4 × 60 tablet", revenue: "140 317 Kč", purchased: "106", change: "+4,72 %" },
+  { name: "Cemio RED3®, 360 kapslí, NOVÝ", revenue: "136 947 Kč", purchased: "82", change: "-0,39 %" },
+  { name: "GS Omega 3 citrus, 100+50 kapslí", revenue: "132 155 Kč", purchased: "404", change: "+83,54 %" },
+  { name: "GS Condro® DIAMANT, 720 tablet", revenue: "126 260 Kč", purchased: "67", change: "-32,64 %" },
+  { name: "GS Condro® DIAMANT, 360 tablet", revenue: "94 924 Kč", purchased: "79", change: "+26,89 %" },
+  { name: "Cemio Kamzík® NOVINKA, 180 kapslí", revenue: "88 825 Kč", purchased: "106", change: "-16,55 %" }
 ];
 
 const productGroups = [
@@ -26,17 +26,17 @@ const productGroups = [
 ];
 
 const blogRows = [
-  { url: "/gs-magazin/nezadouci-ucinky-statinu-leku-na-snizeni-cholesterolu/", views: "2 094", viewsChange: "-2,56 %", users: "1 774", usersChange: "+0,62 %" },
-  { url: "/gs-magazin/jak-vypada-slunecni-alergie-poznejte-jeji-nejcastejsi-projevy/", views: "1 563", viewsChange: "+40,18 %", users: "1 273", usersChange: "+36,73 %" },
-  { url: "/gs-magazin/priznaky-menopauzy-kompletni-seznam-ktery-byste-mela-znat/", views: "1 398", viewsChange: "-33,71 %", users: "1 044", usersChange: "-7,77 %" },
-  { url: "/gs-magazin/tep-kolene-co-vas-ceka-pri-operaci-i-po-ni/", views: "1 329", viewsChange: "+0,53 %", users: "1 060", usersChange: "-0,09 %" },
-  { url: "/gs-magazin/bolest-kycle-co-ji-zpusobuje-a-jak-se-ji-zbavit/", views: "1 325", viewsChange: "-19,75 %", users: "1 086", usersChange: "-20,03 %" }
+  { url: "/gs-magazin/vse-co-potrebujete-vedet-o-ovsim-bodnuti/", views: "2 534", viewsChange: "+247,12 %", users: "2 104", usersChange: "+237,18 %" },
+  { url: "/gs-magazin/nezadouci-ucinky-statinu-leku-na-snizeni-cholesterolu/", views: "1 676", viewsChange: "-19,96 %", users: "1 406", usersChange: "-20,74 %" },
+  { url: "/gs-magazin/bolest-kycle-co-ji-zpusobuje-a-jak-se-ji-zbavit/", views: "1 254", viewsChange: "-5,36 %", users: "968", usersChange: "-10,87 %" },
+  { url: "/gs-magazin/tep-kolene-co-vas-ceka-pri-operaci-i-po-ni/", views: "1 190", viewsChange: "-10,46 %", users: "927", usersChange: "-12,55 %" },
+  { url: "/gs-magazin/jak-vypada-slunecni-alergie-poznejte-jeji-nejcastejsi-projevy/", views: "1 037", viewsChange: "-33,65 %", users: "900", usersChange: "-29,30 %" }
 ];
 
 const devices = [
-  { name: "web / mobile", users: "40 571", usersChange: "-10,57 %", orders: "2 035", ordersChange: "+5,82 %", revenue: "1 622 430 Kč", revenueChange: "-3,6 %", note: "Největší objem uživatelů i objednávek, ale nižší hodnota tržeb." },
-  { name: "web / desktop", users: "14 381", usersChange: "+8,27 %", orders: "1 717", ordersChange: "+4,95 %", revenue: "1 859 624 Kč", revenueChange: "+2,74 %", note: "Nižší objem než mobile, ale silnější tržby a vyšší hodnota nákupu." },
-  { name: "web / tablet", users: "1 069", usersChange: "+38,47 %", orders: "36", ordersChange: "+28,57 %", revenue: "29 119 Kč", revenueChange: "+1,84 %", note: "Malý segment, růstově pozitivní, bez zásadního vlivu na celek." }
+  { name: "web / mobile", users: "41 818", usersChange: "-11,80 %", orders: "1 670", ordersChange: "-27,49 %", revenue: "1 519 167 Kč", revenueChange: "-28,61 %", note: "Mobile drží největší objem, ale meziročně ztrácí objednávky i tržby. Tady je potřeba hlídat kvalitu návštěvnosti a průchod do nákupu." },
+  { name: "web / desktop", users: "14 406", usersChange: "+3,28 %", orders: "1 641", ordersChange: "-18,72 %", revenue: "1 855 248 Kč", revenueChange: "-17,72 %", note: "Desktop má menší objem, ale nejvyšší tržební váhu. Slabší objednávky ukazují, že meziročně neklesá jen návštěvnost, ale i konverzní síla." },
+  { name: "web / tablet", users: "1 462", usersChange: "+53,41 %", orders: "30", ordersChange: "-31,82 %", revenue: "32 419 Kč", revenueChange: "-24,61 %", note: "Tablet roste v uživatelích, ale obchodně zůstává malý a konverzně slabší. Je to spíš kontrolní segment než hlavní priorita." }
 ];
 
 const behaviorHealthMetrics = [
@@ -45,52 +45,56 @@ const behaviorHealthMetrics = [
     title: "Rage Clicks",
     values: [
       { period: "2026-05", value: 0.09, sessions: 46 },
-      { period: "2026-06", value: 0.02, sessions: 9 }
+      { period: "2026-06", value: 0.02, sessions: 9 },
+      { period: "2026-07", value: 0.005, sessions: 1 }
     ],
-    displayValue: "0,02 %",
+    displayValue: "<0,01 %",
     max: 0.12,
     trend: "good",
-    comment: "Opakované klikání na stejné místo v červnu výrazně ustoupilo. Tohle je dobrý signál: méně momentů, kdy uživatel zkouší stránku přemluvit silou.",
-    plainInsight: "Frustrační klikání je v červnu nízké a proti květnu se citelně zlepšilo."
+    comment: "Rage clicks v červenci klesly prakticky na minimum. Z pohledu frustrace při interakcích web působí klidněji a uživatelé méně narážejí na prvky, které by je nutily opakovaně klikat.",
+    plainInsight: "Frustrační klikání je v červenci velmi nízké a dál se zlepšilo."
   },
   {
     id: "dead-clicks",
     title: "Dead Clicks",
     values: [
       { period: "2026-05", value: 7.86, sessions: 3853 },
-      { period: "2026-06", value: 0.58, sessions: 297 }
+      { period: "2026-06", value: 0.58, sessions: 297 },
+      { period: "2026-07", value: 0.41, sessions: 214 }
     ],
-    displayValue: "0,58 %",
+    displayValue: "0,41 %",
     max: 8,
     trend: "good",
-    comment: "Kliknutí na nereagující prvky spadla z 7,86 % na 0,58 %. Uživatelé tak v červnu mnohem méně naráželi na prvky, které vypadají klikatelné, ale nic neudělají.",
-    plainInsight: "Největší meziměsíční zlepšení ve zdraví webu je právě u dead clicks."
+    comment: "Dead clicks dál klesají, tentokrát na 0,41 %. Po velkém červnovém zlepšení je důležité, že se metrika nevrací zpět nahoru a web zůstává pro uživatele srozumitelnější.",
+    plainInsight: "Dead clicks drží po červnovém zlepšení nízkou úroveň."
   },
   {
     id: "quick-backs",
     title: "Quick Backs",
     values: [
       { period: "2026-05", value: 12.82, sessions: 6289 },
-      { period: "2026-06", value: 12.33, sessions: 6367 }
+      { period: "2026-06", value: 12.33, sessions: 6367 },
+      { period: "2026-07", value: 11.89, sessions: 6181 }
     ],
-    displayValue: "12,33 %",
+    displayValue: "11,89 %",
     max: 14,
     trend: "good",
-    comment: "Rychlé návraty lehce klesly, i když počet zasažených sessions zůstal objemově podobný. Chování je stabilnější, ale pořád jde o metriky, které stojí za pravidelné sledování.",
-    plainInsight: "Quick backs jsou o něco lepší, ale stále představují nejsilnější behaviorální signál v Clarity."
+    comment: "Quick backs se zlepšují třetí měsíc v řadě, ale pořád jde o nejsilnější behaviorální signál. Neznamená to automaticky problém v nákupu, spíš stránky nebo vstupy, kde očekávání uživatele není hned naplněné.",
+    plainInsight: "Quick backs klesají, ale zůstávají nejvýraznější behaviorální metrikou."
   },
   {
     id: "excessive-scrolling",
     title: "Excessive Scrolling",
     values: [
       { period: "2026-05", value: 0.01, sessions: 2 },
-      { period: "2026-06", value: 0.01, sessions: 6 }
+      { period: "2026-06", value: 0.01, sessions: 6 },
+      { period: "2026-07", value: 0.005, sessions: 3 }
     ],
-    displayValue: "0,01 %",
+    displayValue: "<0,01 %",
     max: 0.12,
     trend: "neutral",
-    comment: "Nadměrné scrollování zůstává prakticky zanedbatelné. V červnu jde jen o 6 sessions, takže zde není vidět plošný problém s dohledatelností obsahu.",
-    plainInsight: "Excessive scrolling je nízké a nevypadá jako širší UX problém."
+    comment: "Nadměrné scrollování je i v červenci pouze v jednotkách sessions. Nevidíme signál, že by lidé plošně hledali klíčový obsah příliš dlouho.",
+    plainInsight: "Excessive scrolling zůstává nízké a nevypadá jako širší UX problém."
   }
 ];
 
@@ -98,12 +102,12 @@ const behaviorJourneys = [
   {
     id: "homepage-journey",
     title: "Homepage Journey",
-    month: "06/2026",
+    month: "07/2026",
     path: "Homepage → Product → Cart → Checkout → Purchase",
-    conversion: "4,83 %",
-    change: "-1,79 p. b. MoM",
-    biggestDrop: "Homepage → Product",
-    comment: "Cesta z homepage v červnu ztrácí hlavně hned na přechodu do produktu. Celkový průchod k objednávce klesl z 6,62 % na 4,83 %, takže úvodní stránka posílá do produktové části menší podíl návštěv než v květnu.",
+    conversion: "5,33 %",
+    change: "+0,50 p. b. MoM",
+    biggestDrop: "Product → Cart",
+    comment: "Homepage cesta se v červenci lehce zlepšila v celkovém průchodu k objednávce. Startovní objem sessions je nižší, ale poslední krok na objednávku přidal. Nejcitlivější místo zůstává přechod z produktu do košíku: tady se rozhoduje, jestli návštěva pokračuje v nákupní logice.",
     months: [
       {
         month: "05/2026",
@@ -124,18 +128,28 @@ const behaviorJourneys = [
           { label: "Checkout", value: 229, rate: 49.46, change: "-16,73 %" },
           { label: "Purchase", value: 139, rate: 60.7, change: "-21,91 %" }
         ]
+      },
+      {
+        month: "07/2026",
+        steps: [
+          { label: "Homepage", value: 2719, rate: 100, change: "-5,56 %" },
+          { label: "Product", value: 956, rate: 35.16, change: "-4,97 %" },
+          { label: "Cart", value: 428, rate: 44.77, change: "-7,56 %" },
+          { label: "Checkout", value: 228, rate: 53.27, change: "-0,44 %" },
+          { label: "Purchase", value: 145, rate: 63.6, change: "+4,32 %" }
+        ]
       }
     ]
   },
   {
     id: "product-journey",
     title: "Product Journey",
-    month: "06/2026",
+    month: "07/2026",
     path: "Product → Cart → Checkout → Purchase",
-    conversion: "4,78 %",
-    change: "-0,53 p. b. MoM",
+    conversion: "3,89 %",
+    change: "-0,89 p. b. MoM",
     biggestDrop: "Product → Cart",
-    comment: "Produktová cesta má v červnu vyšší počet produktových sessions, ale slabší přechod do košíku. Pozitivní je, že samotný krok checkout → purchase se zlepšil, takže největší pozornost dává smysl držet před košíkem.",
+    comment: "Produktová cesta v červenci nabírá víc produktových sessions, ale celkový průchod k objednávce klesá na 3,89 %. Problém není v samotném checkoutu, ale hlavně před košíkem: z produktového detailu do košíku projde jen 14,02 % sessions.",
     months: [
       {
         month: "05/2026",
@@ -154,18 +168,27 @@ const behaviorJourneys = [
           { label: "Checkout", value: 2115, rate: 52.51, change: "-3,07 %" },
           { label: "Purchase", value: 1301, rate: 61.51, change: "+1,25 %" }
         ]
+      },
+      {
+        month: "07/2026",
+        steps: [
+          { label: "Product", value: 29440, rate: 100, change: "+8,10 %" },
+          { label: "Cart", value: 4128, rate: 14.02, change: "+2,48 %" },
+          { label: "Checkout", value: 2068, rate: 50.1, change: "-2,22 %" },
+          { label: "Purchase", value: 1144, rate: 55.32, change: "-12,07 %" }
+        ]
       }
     ]
   },
   {
     id: "checkout-journey",
     title: "Checkout Journey",
-    month: "06/2026",
+    month: "07/2026",
     path: "Checkout → Purchase",
-    conversion: "60,68 %",
-    change: "+3,53 p. b. MoM",
+    conversion: "56,52 %",
+    change: "-4,16 p. b. MoM",
     biggestDrop: "Checkout → Purchase",
-    comment: "Samotné dokončení z checkoutu do objednávky se v červnu zlepšilo z 57,15 % na 60,68 %. To pomáhá oddělit problém před checkoutem od toho, co se děje přímo v závěru nákupní cesty.",
+    comment: "Checkout flow v červenci oslabil: z pokladny do objednávky prošlo 56,52 % sessions. Není to dramatický propad, ale proti červnu se závěr cesty zhoršil a při větším objemu košíků by se tahle ztráta rychle propsala do objednávek.",
     months: [
       {
         month: "05/2026",
@@ -180,6 +203,13 @@ const behaviorJourneys = [
           { label: "Checkout", value: 3243, rate: 100, change: "-1,73 %" },
           { label: "Purchase", value: 1968, rate: 60.68, change: "+4,35 %" }
         ]
+      },
+      {
+        month: "07/2026",
+        steps: [
+          { label: "Checkout", value: 2976, rate: 100, change: "-8,23 %" },
+          { label: "Purchase", value: 1682, rate: 56.52, change: "-14,53 %" }
+        ]
       }
     ]
   }
@@ -188,49 +218,42 @@ const behaviorJourneys = [
 const behaviorInsights = [
   {
     title: "Dead Clicks",
-    value: "0,58 %",
-    mom: "-7,28 p. b.",
+    value: "0,41 %",
+    mom: "-0,17 p. b.",
     tone: "good",
-    comment: "Největší zlepšení v červnu. Stránka působí pro uživatele jednoznačněji a méně často svádí ke kliknutí na nereagující prvky."
+    comment: "Po velkém červnovém zlepšení drží dead clicks nízko. Web dál méně často svádí ke kliknutí na prvky, které nereagují."
   },
   {
     title: "Quick Backs",
-    value: "12,33 %",
-    mom: "-0,49 p. b.",
+    value: "11,89 %",
+    mom: "-0,44 p. b.",
     tone: "good",
-    comment: "Metrika se lehce zlepšila, ale pořád je nejvýraznější ze všech behaviorálních signálů. Stojí za to sledovat hlavně stránky, ze kterých se lidé rychle vrací."
+    comment: "Metrika se dál zlepšuje, ale zůstává nejsilnějším behaviorálním signálem. Stojí za to sledovat hlavně stránky, ze kterých se lidé rychle vrací."
   },
   {
     title: "Rage Clicks",
-    value: "0,02 %",
-    mom: "-0,07 p. b.",
+    value: "<0,01 %",
+    mom: "-0,02 p. b.",
     tone: "good",
-    comment: "Frustrační klikání je v červnu nízké. Tady se web tváří klidněji a uživatelé méně bojují s interakcemi."
+    comment: "Frustrační klikání je v červenci prakticky minimální. Uživatelé méně bojují s interakcemi a web působí klidněji."
   },
   {
     title: "Excessive Scrolling",
-    value: "0,01 %",
-    mom: "0,00 p. b.",
+    value: "<0,01 %",
+    mom: "-0,01 p. b.",
     tone: "neutral",
     comment: "Pouze jednotky sessions. Nevidíme signál, že by lidé plošně hledali důležité informace příliš dlouho."
-  },
-  {
-    title: "Registrace do klubu",
-    value: "0,16 %",
-    mom: "-0,05 p. b.",
-    tone: "watch",
-    comment: "Průchod k registraci je v červnu nižší a objem dokončení klesl ze 103 na 85 sessions. Je to samostatná behaviorální cesta, ne hlavní nákupní funnel."
   }
 ];
 
 const behaviorTrendSeries = [
-  { id: "homepage-product", title: "Homepage → Product", unit: "%", values: [{ period: "05/2026", value: 36.2 }, { period: "06/2026", value: 34.94 }] },
-  { id: "product-cart", title: "Product → Cart", unit: "%", values: [{ period: "05/2026", value: 16.87 }, { period: "06/2026", value: 14.79 }] },
-  { id: "cart-checkout", title: "Cart → Checkout", unit: "%", values: [{ period: "05/2026", value: 56.45 }, { period: "06/2026", value: 54.69 }] },
-  { id: "checkout-purchase", title: "Checkout → Purchase", unit: "%", values: [{ period: "05/2026", value: 57.15 }, { period: "06/2026", value: 60.68 }] },
-  { id: "dead-clicks", title: "Dead Clicks", unit: "%", values: [{ period: "05/2026", value: 7.86 }, { period: "06/2026", value: 0.58 }] },
-  { id: "quick-backs", title: "Quick Backs", unit: "%", values: [{ period: "05/2026", value: 12.82 }, { period: "06/2026", value: 12.33 }] },
-  { id: "rage-clicks", title: "Rage Clicks", unit: "%", values: [{ period: "05/2026", value: 0.09 }, { period: "06/2026", value: 0.02 }] }
+  { id: "homepage-product", title: "Homepage → Product", unit: "%", values: [{ period: "05/2026", value: 36.2 }, { period: "06/2026", value: 34.94 }, { period: "07/2026", value: 35.16 }] },
+  { id: "product-cart", title: "Product → Cart", unit: "%", values: [{ period: "05/2026", value: 16.87 }, { period: "06/2026", value: 14.79 }, { period: "07/2026", value: 14.02 }] },
+  { id: "cart-checkout", title: "Cart → Checkout", unit: "%", values: [{ period: "05/2026", value: 56.45 }, { period: "06/2026", value: 52.51 }, { period: "07/2026", value: 50.1 }] },
+  { id: "checkout-purchase", title: "Checkout → Purchase", unit: "%", values: [{ period: "05/2026", value: 57.15 }, { period: "06/2026", value: 60.68 }, { period: "07/2026", value: 56.52 }] },
+  { id: "dead-clicks", title: "Dead Clicks", unit: "%", values: [{ period: "05/2026", value: 7.86 }, { period: "06/2026", value: 0.58 }, { period: "07/2026", value: 0.41 }] },
+  { id: "quick-backs", title: "Quick Backs", unit: "%", values: [{ period: "05/2026", value: 12.82 }, { period: "06/2026", value: 12.33 }, { period: "07/2026", value: 11.89 }] },
+  { id: "rage-clicks", title: "Rage Clicks", unit: "%", values: [{ period: "05/2026", value: 0.09 }, { period: "06/2026", value: 0.02 }, { period: "07/2026", value: 0.005 }] }
 ];
 
 const clarityScreenshots = [
@@ -550,19 +573,19 @@ export const productsSectionHtml = `<section class="chapter" id="produkty">
     <div class="chapterTitle">
       <div class="chapterNo">02 · Výkon produktů</div>
       <h2>Produkty, skupiny, blog a zařízení</h2>
-      <p>Červnový pohled na produktový výkon, produktové skupiny, obsahový výkon blogu a rozdíly mezi zařízeními.</p>
+      <p>Červencový pohled na produktový výkon, produktové skupiny, obsahový výkon blogu, zařízení a behaviorální signály.</p>
     </div>
   </div>
 
   <div class="panel glass productVerdict">
     <span class="pill systemPill">${SystemLogo({ system: "googleAnalytics", label: "Google Analytics / GA4", className: "channelLogo" })}Produktový verdict</span>
-    <h2>Produktová část června rostla v tržbách, i když počet zakoupených položek lehce klesl. Výkon táhne hodnotnější mix a několik silných produktových tahounů.</h2>
-    <p>Produktová část působí zdravě: tržby rostou meziměsíčně, přestože počet zakoupených položek lehce klesl. Tahounem jsou zejména Condro Diamant, RED3 a novinkové Kamzíky, zatímco blog ukazuje sezónní potenciál u témat spojených s létem.</p>
+    <h2>Produktová část v červenci lehce přidala v tržbě i prodaných položkách. Výkon táhne silný Condro Diamant, RED3 a Merilin, zatímco blog ukazuje sezonní skok u tématu ovšího bodnutí.</h2>
+    <p>Červenec nepřinesl dramatický skok, ale zdravé meziměsíční zlepšení: tržba z položek roste o 0,89 % a zakoupené položky o 1,71 %. Pozitivní je hlavně růst přidání do košíku, který ukazuje, že produktový zájem není jen pasivní prohlížení.</p>
     <div class="mainKpiGrid productKpiGrid">
-      <div class="mainKpi"><span>Tržba z položek</span><strong>3 426 600 Kč</strong><small>vs. květen 3 226 663 Kč</small><div class="delta up">+6,2 % MoM</div></div>
-      <div class="mainKpi"><span>Zakoupené položky</span><strong>9 499</strong><small>vs. květen 9 726</small><div class="delta down">-2,33 % MoM</div></div>
-      <div class="mainKpi"><span>Přidání do košíku</span><strong>24 327</strong><small>vs. květen 22 213</small><div class="delta up">+9,52 % MoM</div></div>
-      <div class="mainKpi"><span>Zobrazené položky</span><strong>79 599</strong><small>vs. květen 66 446</small><div class="delta up">+19,8 % MoM</div></div>
+      <div class="mainKpi"><span>Tržba z položek</span><strong>3 457 076 Kč</strong><small>vs. červen 3 426 600 Kč</small><div class="delta up">+0,89 % MoM</div></div>
+      <div class="mainKpi"><span>Zakoupené položky</span><strong>9 661</strong><small>vs. červen 9 499</small><div class="delta up">+1,71 % MoM</div></div>
+      <div class="mainKpi"><span>Přidání do košíku</span><strong>28 611</strong><small>vs. červen 24 327</small><div class="delta up">+17,61 % MoM</div></div>
+      <div class="mainKpi"><span>Zobrazené položky</span><strong>83 217</strong><small>vs. červen 79 599</small><div class="delta up">+4,55 % MoM</div></div>
     </div>
   </div>
 
@@ -573,7 +596,7 @@ export const productsSectionHtml = `<section class="chapter" id="produkty">
         <table class="dashTable productReportTable">
           <thead><tr><th>Produkt</th><th>Zakoupeno</th><th>Tržba</th><th class="changeCol">MoM tržby</th></tr></thead>
           <tbody>
-            <tr class="summaryRow"><td>Celkem</td><td>9 499</td><td class="revenueFocus">3 426 600 Kč</td><td class="deltaCell">${changeChip("+6,2 %")}</td></tr>
+            <tr class="summaryRow"><td>Celkem</td><td>9 661</td><td class="revenueFocus">3 457 076 Kč</td><td class="deltaCell">${changeChip("+0,89 %")}</td></tr>
             ${topProducts.map(renderProductRow).join("")}
           </tbody>
         </table>
@@ -584,11 +607,11 @@ export const productsSectionHtml = `<section class="chapter" id="produkty">
       <span class="pill">Čtení produktu</span>
       <div class="sourceSummary productComment">
         <h3>Co stojí za růstem</h3>
-        <p>Největší podíl drží GS Condro® DIAMANT, 720 tablet, který kombinuje vysokou hodnotu objednávek s více než stovkou zakoupených kusů. Silně se drží také Cemio RED3®, 360 kapslí a GS Merilin, 4 × 60 tablet. TOP desítka je zdravě rozložená: žádný produkt netáhne výkon úplně sám, několik produktů se pohybuje nad hranicí 100 tis. Kč.</p>
+        <p>Největší podíl drží GS Condro® DIAMANT, 200 tablet, který v červenci doručil 380 zakoupených kusů a téměř 250 tis. Kč tržby. RED3 má v TOP desítce hned tři varianty a Merilin dvě, takže růst nestojí na jedné položce, ale na širším produktovém mixu.</p>
       </div>
       <div class="sourceSummary productComment">
         <h3>Meziměsíční pohyb</h3>
-        <p>Červen je v tržbě z položek lepší o +6,2 %, i když počet zakoupených položek klesl o -2,33 %. Výkon tedy rostl spíš přes hodnotnější produktový mix než přes vyšší počet prodaných kusů. Výrazné růsty novinkových Kamzíků jsou pozitivní signál, jen je dobré je číst s rezervou kvůli nízké květnové základně.</p>
+        <p>Červenec roste hlavně přes lepší práci v košíkové části: přidání do košíku je o 17,61 % výš, zatímco tržba roste mírněji. To je dobrý signál zájmu, ale zároveň připomínka, že ne každý košík se dotáhne do objednávky.</p>
       </div>
     </div>
   </div>
@@ -609,11 +632,11 @@ export const productsSectionHtml = `<section class="chapter" id="produkty">
 
   <div class="contentGrid productBottomGrid">
     <div class="panel glass">
-      <span class="pill systemPill">${SystemLogo({ system: "googleAnalytics", label: "Google Analytics / GA4", className: "channelLogo" })}Blog · červen vs. květen</span>
+      <span class="pill systemPill">${SystemLogo({ system: "googleAnalytics", label: "Google Analytics / GA4", className: "channelLogo" })}Blog · červenec vs. červen</span>
       <div class="metricGrid ga4Top dashboardMetricGrid">
-        <div class="metricTile"><span>Zobrazení</span><strong>26 277</strong><small>vs. 27 529</small><div class="delta down">-4,55 %</div></div>
-        <div class="metricTile"><span>Aktivní uživatelé</span><strong>18 146</strong><small>vs. 18 955</small><div class="delta down">-4,27 %</div></div>
-        <div class="metricTile"><span>Doba zapojení</span><strong>2:06</strong><small>vs. 2:03</small><div class="delta up">+2,68 %</div></div>
+        <div class="metricTile"><span>Zobrazení</span><strong>26 511</strong><small>vs. 26 277</small><div class="delta up">+0,89 %</div></div>
+        <div class="metricTile"><span>Aktivní uživatelé</span><strong>18 333</strong><small>vs. 18 146</small><div class="delta up">+1,03 %</div></div>
+        <div class="metricTile"><span>Doba zapojení</span><strong>2:05</strong><small>vs. 2:06</small><div class="delta down">-0,43 %</div></div>
       </div>
       <div class="dashboardTable">
         <table class="dashTable productReportTable blogReportTable">
@@ -623,21 +646,21 @@ export const productsSectionHtml = `<section class="chapter" id="produkty">
       </div>
       <div class="sourceSummary compactSummary">
         <h3>Blogový komentář</h3>
-        <p>Blog v červnu mírně oslabil v celkových zobrazeních, ale doba zapojení se zlepšila. Největší růst má článek o sluneční alergii, což sezónně dává velký smysl. Stojí za to ho propojit s letními produkty, prevencí a newsletterem.</p>
+        <p>Blog jako celek v červenci lehce roste v návštěvnosti, ale výkon táhne hlavně nový sezonní hit o ovším bodnutí. Ostatní top články spíš klesají, takže obsahově nejde o plošné zlepšení, ale o jasný důkaz, že praktická letní témata umí rychle získat pozornost.</p>
       </div>
     </div>
 
     <div class="panel glass">
-      <span class="pill systemPill">${SystemLogo({ system: "googleAnalytics", label: "Google Analytics / GA4", className: "channelLogo" })}Zařízení · červen YoY</span>
+      <span class="pill systemPill">${SystemLogo({ system: "googleAnalytics", label: "Google Analytics / GA4", className: "channelLogo" })}Zařízení · červenec YoY</span>
       <div class="metricGrid ga4Top dashboardMetricGrid">
-        <div class="metricTile"><span>Aktivní uživatelé</span><strong>55 806</strong><small>vs. 59 574</small><div class="delta down">-6,32 %</div></div>
-        <div class="metricTile"><span>Objednávky</span><strong>3 788</strong><small>vs. 3 587</small><div class="delta up">+5,6 %</div></div>
-        <div class="metricTile"><span>Celkové tržby</span><strong>3 511 173 Kč</strong><small>vs. 3 521 512 Kč</small><div class="delta down">-0,29 %</div></div>
+        <div class="metricTile"><span>Aktivní uživatelé</span><strong>57 826</strong><small>vs. 62 294</small><div class="delta down">-7,17 %</div></div>
+        <div class="metricTile"><span>Objednávky</span><strong>3 341</strong><small>vs. 4 366</small><div class="delta down">-23,48 %</div></div>
+        <div class="metricTile"><span>Celkové tržby</span><strong>3 406 834 Kč</strong><small>vs. 4 425 821 Kč</small><div class="delta down">-23,02 %</div></div>
       </div>
       <div class="deviceMixGrid">${devices.map(renderDeviceCard).join("")}</div>
       <div class="sourceSummary compactSummary">
         <h3>Mobile drží objem, desktop hodnotu</h3>
-        <p>Mobile má pořád největší objem uživatelů i objednávek, ale tržby mu meziročně klesly o -3,6 %. Desktop naopak roste v aktivních uživatelích i tržbách. To naznačuje, že nákupní rozhodnutí s vyšší hodnotou stále častěji dobíhá na desktopu, zatímco mobile funguje jako hlavní objemový a průzkumný kanál.</p>
+        <p>V červenci je YoY pohled slabší napříč zařízeními. Mobile pořád drží největší objem, desktop nejvyšší tržby, ale obě hlavní zařízení ztrácí v objednávkách. Není to jen návštěvnostní problém; část výkonu mizí v konverzní kvalitě a hodnotě dokončených objednávek.</p>
       </div>
     </div>
   </div>
@@ -649,7 +672,7 @@ export const productsSectionHtml = `<section class="chapter" id="produkty">
     <div class="clarityMetricSection behaviorBlock">
       <div>
         <h3>1. Web Health</h3>
-        <p>Web je v behaviorálních signálech čistší než v květnu. Největší zlepšení vidíme u dead clicks a rage clicks, zatímco quick backs zůstávají nejvýraznější metrikou pro další sledování.</p>
+        <p>Web je v behaviorálních signálech stabilnější než v předchozích měsících. Rage clicks i dead clicks zůstávají nízko, zatímco quick backs jsou pořád hlavní metrika k pravidelnému sledování.</p>
       </div>
       <div class="clarityMetricGrid behaviorHealthGrid">
         ${behaviorHealthMetrics.map(renderBehaviorHealthMetric).join("")}

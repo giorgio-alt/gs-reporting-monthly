@@ -2339,6 +2339,44 @@ h2 .sectionLogo {
   font-size: 13px;
 }
 
+.ppcOneOff {
+  position: relative;
+}
+
+.ppcMiniKpiGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  align-self: start;
+}
+
+.ppcMiniKpi {
+  min-width: 0;
+  border-radius: 18px;
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.68);
+  border: 1px solid rgba(255, 255, 255, 0.78);
+  box-shadow: 0 10px 24px rgba(13, 49, 31, 0.06);
+}
+
+.ppcMiniKpi span {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 950;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.ppcMiniKpi strong {
+  display: block;
+  margin-top: 6px;
+  color: #10231b;
+  font-size: clamp(18px, 2vw, 26px);
+  line-height: 1;
+  white-space: nowrap;
+}
+
 .sklikTypeBlock {
   display: grid;
   gap: 16px;
@@ -2699,6 +2737,10 @@ h2 .sectionLogo {
   }
 
   .ppcClusterKpis {
+    grid-template-columns: 1fr;
+  }
+
+  .ppcMiniKpiGrid {
     grid-template-columns: 1fr;
   }
 
@@ -3126,7 +3168,7 @@ h2 .sectionLogo {
 
 .metaCampaignKpiRow .metaCompareGrid,
 .metaLeadMetrics.metaCampaignKpiRow {
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-columns: repeat(7, minmax(0, 1fr));
   gap: 8px;
   margin: 0;
 }
@@ -3457,6 +3499,35 @@ h2 .sectionLogo {
   font-variant-numeric: tabular-nums;
   overflow: hidden;
   text-overflow: clip;
+}
+
+.metaFlightSignals {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.metaFlightSignals span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 30px;
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid rgba(0, 107, 63, 0.12);
+  color: var(--gs-muted);
+  font-size: 12px;
+  font-weight: 820;
+  white-space: nowrap;
+}
+
+.metaFlightSignals b {
+  color: var(--gs-green);
+  font-size: 10px;
+  font-weight: 950;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 .metaFlightVisualGrid {
@@ -4200,6 +4271,74 @@ h2 .sectionLogo {
   gap: 32px;
 }
 
+.metaBoostMonthSwitcher {
+  display: grid;
+  gap: 24px;
+}
+
+.metaBoostMonthInput {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.metaBoostTabs {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  width: fit-content;
+  padding: 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 107, 63, 0.1);
+}
+
+.metaBoostTabs button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  padding: 9px 14px;
+  border-radius: 999px;
+  border: 0;
+  background: transparent;
+  color: #52675c;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 950;
+  cursor: pointer;
+  transition: background 220ms ease-out, color 220ms ease-out, box-shadow 220ms ease-out;
+}
+
+.metaBoostTabs button:hover,
+.metaBoostTabs button:focus-visible {
+  color: var(--gs-green);
+  background: rgba(0, 107, 63, 0.08);
+}
+
+.metaBoostMonthPanels {
+  display: grid;
+}
+
+.metaBoostMonthPanel {
+  display: none;
+  gap: 24px;
+}
+
+#meta-boost-07-2026:checked ~ .metaBoostTabs button[data-boost-month-target="07-2026"],
+#meta-boost-06-2026:checked ~ .metaBoostTabs button[data-boost-month-target="06-2026"] {
+  background: linear-gradient(135deg, var(--gs-green), #62c832);
+  color: #fff;
+  box-shadow: 0 12px 24px rgba(0, 107, 63, 0.18);
+}
+
+#meta-boost-07-2026:checked ~ .metaBoostMonthPanels [data-boost-month="07-2026"],
+#meta-boost-06-2026:checked ~ .metaBoostMonthPanels [data-boost-month="06-2026"] {
+  display: grid;
+}
+
 .metaBoostVerdict {
   display: grid;
   gap: 10px;
@@ -4250,6 +4389,104 @@ h2 .sectionLogo {
 .metaBoostSectionHead h3 {
   margin-bottom: 8px;
   font-size: clamp(26px, 2.6vw, 38px);
+}
+
+.metaBoostMixContext {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.metaBoostMixContext div {
+  display: grid;
+  gap: 5px;
+  min-width: 0;
+  padding: 12px 14px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.66);
+  border: 1px solid rgba(0, 107, 63, 0.08);
+}
+
+.metaBoostMixContext span {
+  color: #6b7c71;
+  font-size: 11px;
+  font-weight: 950;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.metaBoostMixContext strong {
+  color: #10231b;
+  font-size: clamp(18px, 1.6vw, 24px);
+  font-weight: 950;
+  white-space: nowrap;
+}
+
+.metaBoostEmptyState {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 18px;
+  align-items: center;
+  padding: 22px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(82, 103, 92, 0.12);
+}
+
+.metaBoostEmptyState > div {
+  display: grid;
+  gap: 8px;
+  max-width: 860px;
+}
+
+.metaBoostEmptyState span {
+  color: #6b7c71;
+  font-size: 11px;
+  font-weight: 950;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.metaBoostEmptyState h4 {
+  margin: 0;
+  color: #10231b;
+  font-size: clamp(20px, 2vw, 28px);
+  letter-spacing: -0.035em;
+}
+
+.metaBoostEmptyState p {
+  color: #52675c;
+  font-size: 14px;
+}
+
+.metaBoostEmptyState small {
+  color: #6b7c71;
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.metaBoostEmptyState button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 0;
+  background: rgba(0, 107, 63, 0.09);
+  color: var(--gs-green);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 950;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 220ms ease-out, transform 220ms ease-out;
+}
+
+.metaBoostEmptyState button:hover,
+.metaBoostEmptyState button:focus-visible {
+  background: rgba(0, 107, 63, 0.14);
+  transform: translateY(-1px);
 }
 
 .metaBoostSystemOverview {
@@ -4412,8 +4649,8 @@ h2 .sectionLogo {
 
 .metaBoostPerformerMain {
   display: grid;
-  grid-template-columns: 118px minmax(0, 1fr);
-  gap: 14px;
+  grid-template-columns: minmax(150px, 0.42fr) minmax(0, 1fr);
+  gap: 16px;
   align-items: start;
 }
 
@@ -4424,10 +4661,13 @@ h2 .sectionLogo {
 }
 
 .metaBoostPlatform .metaBoostPostThumb {
+  position: relative;
   align-self: start;
-  width: 118px;
+  width: 100%;
+  max-width: 190px;
   border-radius: 16px;
   box-shadow: none;
+  overflow: hidden;
 }
 
 .metaBoostPlatform .metaBoostPostThumb::after {
@@ -4436,10 +4676,33 @@ h2 .sectionLogo {
 
 .metaBoostPlatform .metaBoostPostThumb img {
   width: 100%;
-  height: 158px;
-  aspect-ratio: auto;
-  object-fit: cover;
+  height: auto;
+  max-height: 280px;
+  aspect-ratio: var(--asset-ratio, auto);
+  object-fit: contain;
   object-position: top center;
+  background: #fff;
+}
+
+.metaBoostPlatform .metaBoostPostThumb > span {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 7px 9px;
+  border-radius: 999px;
+  background: rgba(0, 107, 63, 0.9);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 950;
+  box-shadow: 0 10px 22px rgba(0, 107, 63, 0.24);
+}
+
+.metaBoostPlatform .metaBoostPerformer.attention .metaBoostPostThumb > span {
+  background: rgba(180, 35, 24, 0.9);
+  box-shadow: 0 10px 22px rgba(180, 35, 24, 0.18);
 }
 
 .metaBoostPlatform .metaBoostMetricGrid {
@@ -4502,6 +4765,10 @@ h2 .sectionLogo {
     grid-template-columns: 1fr;
   }
 
+  .metaBoostMixContext {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .metaBoostSystemThumb {
     grid-template-columns: 1fr;
   }
@@ -4526,21 +4793,27 @@ h2 .sectionLogo {
   .metaFlightEvidenceGrid,
   .metaBoostHighlights,
   .metaBoostVisuals,
-  .metaBoostMetricGrid {
+  .metaBoostMetricGrid,
+  .metaBoostMixContext,
+  .metaBoostEmptyState {
     grid-template-columns: 1fr;
   }
 
   .metaBoostPerformerMain {
-    grid-template-columns: 92px minmax(0, 1fr);
-    gap: 12px;
+    grid-template-columns: 1fr;
+    gap: 14px;
   }
 
   .metaBoostPlatform .metaBoostPostThumb {
-    width: 92px;
+    max-width: 100%;
   }
 
   .metaBoostPlatform .metaBoostPostThumb img {
-    height: 124px;
+    max-height: 360px;
+  }
+
+  .metaBoostEmptyState button {
+    justify-self: start;
   }
 }
 

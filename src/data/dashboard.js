@@ -6,26 +6,29 @@ const logoBySource = {
   "facebook.com / cpc": { system: "meta", label: "Meta" },
   "seznam / cpc": { system: "seznamSklik", label: "Seznam / Sklik" },
   "seznam / organic": { system: "seznamSklik", label: "Seznam" },
+  "sport.cz / clanek_10": { label: "Sport.cz" },
   "newsletter / email": { label: "Newsletter" },
-  "direct / none": { label: "Direct" }
+  "direct / none": { label: "Direct" },
+  "(direct) / (none)": { label: "Direct" }
 };
 
 const monthlySources = [
-  { source: "google / cpc", visits: "22 260", visitsChange: "+29,08 %", events: "1 022", eventsChange: "+19,39 %", revenue: "910 012 Kč", revenueChange: "+8,81 %" },
-  { source: "newsletter / email", visits: "7 585", visitsChange: "+27,87 %", events: "769", eventsChange: "+17,05 %", revenue: "724 187 Kč", revenueChange: "+10,38 %" },
-  { source: "direct / none", visits: "6 830", visitsChange: "-58,49 %", events: "377", eventsChange: "-29,53 %", revenue: "384 937 Kč", revenueChange: "-33,02 %" },
-  { source: "facebook.com / cpc", visits: "18 599", visitsChange: "+112,9 %", events: "510", eventsChange: "+36,36 %", revenue: "333 518 Kč", revenueChange: "+52,02 %" },
-  { source: "google / organic", visits: "19 050", visitsChange: "-17,27 %", events: "298", eventsChange: "-21,78 %", revenue: "278 370 Kč", revenueChange: "-23,08 %" },
-  { source: "seznam / cpc", visits: "10 608", visitsChange: "+35,53 %", events: "296", eventsChange: "+79,39 %", revenue: "268 850 Kč", revenueChange: "+62,52 %" },
-  { source: "seznam / organic", visits: "7 301", visitsChange: "-23,51 %", events: "145", eventsChange: "-12,65 %", revenue: "169 697 Kč", revenueChange: "+7,53 %" }
+  { source: "google / cpc", visits: "23 385", visitsChange: "+34,68 %", events: "969", eventsChange: "-9,35 %", revenue: "918 542 Kč", revenueChange: "-12,1 %" },
+  { source: "newsletter / email", visits: "7 996", visitsChange: "+21,67 %", events: "674", eventsChange: "-20,14 %", revenue: "708 575 Kč", revenueChange: "-18,43 %" },
+  { source: "seznam / cpc", visits: "12 356", visitsChange: "+104,81 %", events: "324", eventsChange: "+60,4 %", revenue: "337 384 Kč", revenueChange: "+62,24 %" },
+  { source: "(direct) / (none)", visits: "5 648", visitsChange: "-70,94 %", events: "288", eventsChange: "-59,26 %", revenue: "295 420 Kč", revenueChange: "-61,96 %" },
+  { source: "google / organic", visits: "20 353", visitsChange: "-12,1 %", events: "258", eventsChange: "-41,63 %", revenue: "263 122 Kč", revenueChange: "-35,21 %" },
+  { source: "facebook.com / cpc", visits: "16 579", visitsChange: "+52,86 %", events: "276", eventsChange: "0 %", revenue: "232 080 Kč", revenueChange: "+12,62 %" },
+  { source: "sport.cz / clanek_10", visits: "1 584", visitsChange: "", events: "108", eventsChange: "", revenue: "127 031 Kč", revenueChange: "" },
+  { source: "seznam / organic", visits: "6 636", visitsChange: "-28,31 %", events: "94", eventsChange: "-56,48 %", revenue: "106 320 Kč", revenueChange: "-50,25 %" }
 ];
 
 const ytdSources = [
-  { source: "facebook.com / cpc", visits: "131 630", visitsChange: "+146,01 %", events: "2 486", eventsChange: "+30,23 %", revenue: "1 638 874 Kč", revenueChange: "+32,39 %" },
-  { source: "google / cpc", visits: "126 164", visitsChange: "+11,51 %", events: "6 125", eventsChange: "+3,15 %", revenue: "5 619 333 Kč", revenueChange: "+5,54 %" },
-  { source: "seznam / cpc", visits: "56 424", visitsChange: "+39,72 %", events: "2 130", eventsChange: "+79,29 %", revenue: "1 963 730 Kč", revenueChange: "+80,3 %" },
-  { source: "newsletter / email", visits: "46 899", visitsChange: "+4,27 %", events: "5 153", eventsChange: "+0,55 %", revenue: "4 824 246 Kč", revenueChange: "+8,08 %" },
-  { source: "google / organic", visits: "120 306", visitsChange: "-38,94 %", events: "2 063", eventsChange: "-27,38 %", revenue: "1 896 092 Kč", revenueChange: "-24,35 %" }
+  { source: "google / cpc", visits: "149 549", visitsChange: "+14,59 %", events: "7 094", eventsChange: "+1,24 %", revenue: "6 537 875 Kč", revenueChange: "+2,65 %" },
+  { source: "newsletter / email", visits: "54 895", visitsChange: "+6,49 %", events: "5 827", eventsChange: "-2,38 %", revenue: "5 532 821 Kč", revenueChange: "+3,76 %" },
+  { source: "seznam / cpc", visits: "68 780", visitsChange: "+48,18 %", events: "2 454", eventsChange: "+76,54 %", revenue: "2 301 114 Kč", revenueChange: "+77,4 %" },
+  { source: "google / organic", visits: "140 659", visitsChange: "-36,12 %", events: "2 321", eventsChange: "-29,3 %", revenue: "2 159 214 Kč", revenueChange: "-25,86 %" },
+  { source: "facebook.com / cpc", visits: "148 209", visitsChange: "+130,31 %", events: "2 762", eventsChange: "+26,41 %", revenue: "1 870 954 Kč", revenueChange: "+29,57 %" }
 ];
 
 const monthlyCostModel = [
@@ -124,6 +127,22 @@ const monthlyCostModel = [
       { label: "Lipo", value: 0 },
       { label: "Bacto3", value: 0 }
     ]
+  },
+  {
+    month: "07/2026",
+    pnoCosts: [
+      { system: "googleAds", label: "Google Ads", value: 384966 },
+      { system: "seznamSklik", label: "Seznam / Sklik", value: 180497 },
+      { system: "meta", label: "Meta", value: 101005 },
+      { system: "heureka", label: "Heureka", value: 3356 },
+      { system: "zbozi", label: "Zboží.cz", value: 5770 }
+    ],
+    brandCosts: [
+      { label: "Brand SOME", value: 11191 },
+      { label: "Brand Perfect", value: 0 },
+      { label: "Lipo", value: 0 },
+      { label: "Bacto3", value: 0 }
+    ]
   }
 ];
 
@@ -133,7 +152,8 @@ const mediaBudget = [
   { month: "2026-03", planned: 595000, actual: 437013 },
   { month: "2026-04", planned: 505000, actual: 520205 },
   { month: "2026-05", planned: 555000, actual: 509356 },
-  { month: "2026-06", planned: 355000, actual: 708539 }
+  { month: "2026-06", planned: 355000, actual: 708539 },
+  { month: "2026-07", planned: 375000, actual: 675594 }
 ];
 
 const activeCostMonth = monthlyCostModel.at(-1);
@@ -171,6 +191,8 @@ const ytdVariance = ytdActual - ytdPlanned;
 const budgetPeriodLabel = `${formatBudgetMonth(mediaBudget[0].month)}–${formatBudgetMonth(activeBudgetMonth.month)}`;
 const signedCurrency = (value) => `${value > 0 ? "+" : value < 0 ? "-" : ""}${formatCurrency(Math.abs(value))}`;
 const unavailableLabel = "Data nejsou k dispozici";
+const activeMonthLocative = "červenci";
+const activeMonthGenitive = "července";
 
 const isNumber = (value) => typeof value === "number" && Number.isFinite(value);
 const safePercentChange = (current, previous) => isNumber(current) && isNumber(previous) && previous !== 0
@@ -194,33 +216,33 @@ const signedPpPrecise = (value) => isNumber(value)
 const businessPerformance = {
   label: "Business / interní data",
   ytd: {
-    period: "01–06/2026",
-    revenue: 24508254,
-    revenuePreviousYear: 22704394.7,
+    period: "01–07/2026",
+    revenue: 28108254,
+    revenuePreviousYear: 27333374.68,
     marketingCosts: ytdActual,
-    marketingCostsPreviousYear: 2849397
+    marketingCostsPreviousYear: 3268258
   },
   currentMonth: {
-    period: "06/2026",
-    revenue: 3768005,
-    revenuePreviousYear: 3416196,
+    period: "07/2026",
+    revenue: 3600000,
+    revenuePreviousYear: 4628979.98,
     marketingCosts: activeBudgetMonth.actual,
-    marketingCostsPreviousYear: 497102
+    marketingCostsPreviousYear: 418861
   },
   trend: [
     {
-      label: "YTD 01–06",
-      revenue: 24508254,
-      revenuePreviousYear: 22704394.7,
+      label: "YTD 01–07",
+      revenue: 28108254,
+      revenuePreviousYear: 27333374.68,
       marketingCosts: ytdActual,
-      marketingCostsPreviousYear: 2849397
+      marketingCostsPreviousYear: 3268258
     },
     {
-      label: "06/2026",
-      revenue: 3768005,
-      revenuePreviousYear: 3416196,
+      label: "07/2026",
+      revenue: 3600000,
+      revenuePreviousYear: 4628979.98,
       marketingCosts: activeBudgetMonth.actual,
-      marketingCostsPreviousYear: 497102
+      marketingCostsPreviousYear: 418861
     }
   ]
 };
@@ -241,7 +263,10 @@ const businessMonthPnoPrevious = safePno(businessPerformance.currentMonth.market
 const businessTrendMaxRevenue = Math.max(...businessPerformance.trend.flatMap((item) => [item.revenue, item.revenuePreviousYear].filter(isNumber)));
 const businessTrendMaxCosts = Math.max(...businessPerformance.trend.flatMap((item) => [item.marketingCosts, item.marketingCostsPreviousYear].filter(isNumber)));
 
-const changeClass = (value) => value.trim().startsWith("+") ? "good" : value.trim().startsWith("-") ? "bad" : "neutral";
+const changeClass = (value = "") => value.trim().startsWith("+") ? "good" : value.trim().startsWith("-") ? "bad" : "neutral";
+const renderChangeBadge = (value) => value
+  ? `<span class="labelChange ${changeClass(value)}">${value}</span>`
+  : `<span class="labelChange neutral">bez YoY</span>`;
 
 const businessDeltaTone = (value, positiveIsGood = true) => {
   if (!isNumber(value)) return "neutral";
@@ -262,10 +287,10 @@ const sourceName = (source) => {
 const renderSourceRow = (item) => `
   <tr>
     <td>${sourceName(item.source)}</td>
-    <td>${item.visits}<span class="labelChange ${changeClass(item.visitsChange)}">${item.visitsChange}</span></td>
-    <td>${item.events}<span class="labelChange ${changeClass(item.eventsChange)}">${item.eventsChange}</span></td>
+    <td>${item.visits}${renderChangeBadge(item.visitsChange)}</td>
+    <td>${item.events}${renderChangeBadge(item.eventsChange)}</td>
     <td class="revenueFocus">${item.revenue}</td>
-    <td class="deltaCell"><span class="labelChange ${changeClass(item.revenueChange)}">${item.revenueChange}</span></td>
+    <td class="deltaCell">${renderChangeBadge(item.revenueChange)}</td>
   </tr>`;
 
 const costValueForMonth = (month, group, label) => month[group].find((item) => item.label === label)?.value ?? 0;
@@ -353,9 +378,9 @@ const renderMediaBudgetSummary = () => `
   </div>
   <div class="budgetInterpretation">
     <h3>Čerpání mediálního budgetu</h3>
-    <p>V červnu bylo vyčerpáno ${formatCurrency(activeBudgetMonth.actual)} proti plánovaným ${formatCurrency(activeBudgetMonth.planned)}. Měsíční budget byl naplněn na ${formatPercent(monthlyFulfillment)} a překročen o ${formatCurrency(monthlyVariance)}.</p>
-    <p>V kumulativním pohledu od ledna do června bylo vyčerpáno ${formatCurrency(ytdActual)} z plánovaných ${formatCurrency(ytdPlanned)}. Dosavadní roční plán je tak naplněn na ${formatPercent(ytdFulfillment)} a proti kumulativnímu plánu zbývá ${formatCurrency(Math.abs(ytdVariance))}.</p>
-    <p>Červnové přečerpání tedy zatím neznamená překročení kumulativního budgetu, ale výrazně snížilo rezervu vytvořenou v předchozích měsících.</p>
+    <p>V ${activeMonthLocative} bylo vyčerpáno ${formatCurrency(activeBudgetMonth.actual)} proti plánovaným ${formatCurrency(activeBudgetMonth.planned)}. Měsíční budget byl naplněn na ${formatPercent(monthlyFulfillment)} a překročen o ${formatCurrency(monthlyVariance)}.</p>
+    <p>V kumulativním pohledu od ledna do ${activeMonthGenitive} bylo vyčerpáno ${formatCurrency(ytdActual)} z plánovaných ${formatCurrency(ytdPlanned)}. Dosavadní roční plán je tak naplněn na ${formatPercent(ytdFulfillment)} a proti kumulativnímu plánu zbývá ${formatCurrency(Math.abs(ytdVariance))}.</p>
+    <p>Červencové přečerpání zatím neznamená překročení kumulativního budgetu, ale rezerva vytvořená v předchozích měsících je už výrazně menší.</p>
   </div>`;
 
 const renderBusinessKpi = ({ label, value, comparison, delta, tone = "neutral" }) => `
@@ -394,7 +419,7 @@ const renderBusinessYtdMiniContext = () => `
     </div>
     <div class="sourceSummary compactSummary businessYtdMiniComment">
       <h3>Business YTD komentář</h3>
-      <p>Reálné tržby YTD jsou meziročně výš o ${signedPercent(businessYtdRevenueYoY)} (${signedCurrency(businessYtdRevenueDiff)}), zatímco náklady započítané do PNO rostou o ${signedPercent(businessYtdCostsYoY)}. Díky mírně rychlejšímu růstu tržeb se reálné PNO posouvá z ${maybePercent(businessYtdPnoPrevious, formatPercentPrecise)} na ${maybePercent(businessYtdPno, formatPercentPrecise)}. Červen je ale nákladově výraznější: tržby rostly o ${signedPercent(businessMonthRevenueYoY, formatPercent)} YoY a náklady o ${signedPercent(businessMonthCostsYoY, formatPercent)} YoY.</p>
+      <p>Reálné tržby YTD jsou meziročně výš o ${signedPercent(businessYtdRevenueYoY)} (${signedCurrency(businessYtdRevenueDiff)}), zatímco náklady započítané do PNO rostou o ${signedPercent(businessYtdCostsYoY)}. PNO se proto posouvá z ${maybePercent(businessYtdPnoPrevious, formatPercentPrecise)} na ${maybePercent(businessYtdPno, formatPercentPrecise)}. Červenec je slabší hlavně v obchodní realitě: tržby klesly o ${signedPercent(businessMonthRevenueYoY, formatPercent)} YoY, zatímco náklady rostly o ${signedPercent(businessMonthCostsYoY, formatPercent)} YoY.</p>
     </div>
   </div>`;
 
@@ -517,8 +542,8 @@ const renderBusinessYtdContext = () => `
 
     <div class="businessYtdComment">
       <h3>Celkový YTD komentář</h3>
-      <p>Celkové tržby jsou od začátku roku meziročně výš o ${signedPercent(businessYtdRevenueYoY)} (${signedCurrency(businessYtdRevenueDiff)}). Marketingové náklady započítané do PNO rostou o ${signedPercent(businessYtdCostsYoY)}, tedy mírně pomaleji než tržby. PNO z celkových tržeb se proto zlepšuje z ${maybePercent(businessYtdPnoPrevious)} na ${maybePercent(businessYtdPno)}.</p>
-      <p>Červen je proti loňsku tržebně silnější (${signedPercent(businessMonthRevenueYoY, formatPercent)} YoY), ale náklady rostou výrazně rychleji (${signedPercent(businessMonthCostsYoY, formatPercent)} YoY). Měsíční PNO tak vychází ${maybePercent(businessMonthPno)} proti loňským ${maybePercent(businessMonthPnoPrevious)}. Další krok je držet růst rozpočtu víc navázaný na kanálovou efektivitu, aby vyšší investice netlačila PNO rychleji než tržby.</p>
+      <p>Celkové tržby jsou od začátku roku meziročně výš o ${signedPercent(businessYtdRevenueYoY)} (${signedCurrency(businessYtdRevenueDiff)}). Marketingové náklady započítané do PNO ale rostou rychleji, o ${signedPercent(businessYtdCostsYoY)}, takže PNO z celkových tržeb se posouvá z ${maybePercent(businessYtdPnoPrevious)} na ${maybePercent(businessYtdPno)}.</p>
+      <p>Červenec je proti loňsku tržebně slabší (${signedPercent(businessMonthRevenueYoY, formatPercent)} YoY), zatímco náklady rostou výrazně rychleji (${signedPercent(businessMonthCostsYoY, formatPercent)} YoY). Měsíční PNO tak vychází ${maybePercent(businessMonthPno)} proti loňským ${maybePercent(businessMonthPnoPrevious)}. Další krok je držet rozpočet víc navázaný na kanálovou efektivitu, aby vyšší investice netlačila PNO rychleji než tržby.</p>
     </div>
   </div>
   <div class="ga4MethodNote">
@@ -529,17 +554,17 @@ export const dashboardSectionHtml = `<section class="chapter" id="dashboard">
   <div class="chapterHead glass">
     <div class="chapterTitle">
       <div class="chapterNo">01 · Dashboard</div>
-      <h2>Výkon červen 2026</h2>
+      <h2>Výkon červenec 2026</h2>
       <p>Executive přehled obchodní reality, plánu, PNO z reality a analytického trendu GA4.</p>
     </div>
   </div>
 
   <div class="panel glass dashboardVerdict">
     <div class="mainKpiGrid dashboardKpis businessKpiGrid">
-      <div class="mainKpi primaryBusinessKpi"><span>Realita 26</span><strong>3 768 005 Kč</strong><small>hlavní obchodní realita za červen</small><div class="delta up">+10,30 % vs. Realita Korekce 2025</div></div>
-      <div class="mainKpi"><span>Plán 26</span><strong>4 064 219 Kč</strong><small>plán tržeb na červen</small><div class="delta down">plnění 92,71 %</div></div>
-      <div class="mainKpi"><span>Rozdíl vs. plán</span><strong>-296 214 Kč</strong><small>Realita 26 minus Plán 26</small><div class="delta down">-7,29 %</div></div>
-      <div class="mainKpi"><span>PNO z reality</span><strong>18,80 %</strong><small>708 539 Kč / Realita 26</small><div class="delta down">reálné náklady</div></div>
+      <div class="mainKpi primaryBusinessKpi"><span>Realita 26</span><strong>3 600 000 Kč</strong><small>hlavní obchodní realita za červenec</small><div class="delta down">-22,23 % vs. Realita Korekce 2025</div></div>
+      <div class="mainKpi"><span>Plán 26</span><strong>4 738 842 Kč</strong><small>plán tržeb na červenec</small><div class="delta down">plnění 75,97 %</div></div>
+      <div class="mainKpi"><span>Rozdíl vs. plán</span><strong>-1 138 842 Kč</strong><small>Realita 26 minus Plán 26</small><div class="delta down">-24,03 %</div></div>
+      <div class="mainKpi"><span>PNO z reality</span><strong>18,77 %</strong><small>675 594 Kč / Realita 26</small><div class="delta down">reálné náklady</div></div>
     </div>
   </div>
 
@@ -570,10 +595,10 @@ export const dashboardSectionHtml = `<section class="chapter" id="dashboard">
   <div class="panel glass dashboardSourcePanel dashboardGa4Block">
     <span class="pill systemPill">${SystemLogo({ system: "googleAnalytics", label: "Google Analytics / GA4", className: "channelLogo" })}Analytický trend GA4</span>
     <div class="metricGrid dashboardGa4MetricGrid">
-      <div class="metricTile"><span>GA4 tržby</span><strong>3 511 173 Kč</strong><small>vs. 3 521 512 Kč</small><div class="delta down">-0,29 % YoY</div></div>
-      <div class="metricTile"><span>Objednávky</span><strong>3 788</strong><small>vs. 3 587 loni</small><div class="delta up">+5,6 % YoY</div></div>
-      <div class="metricTile"><span>Návštěvy</span><strong>95 742</strong><small>prakticky stabilní objem</small><div class="delta down">-0,03 % YoY</div></div>
-      <div class="metricTile"><span>Prům. tržba z nákupu</span><strong>926,92 Kč</strong><small>vs. 981,74 Kč loni</small><div class="delta down">-5,58 % YoY</div></div>
+      <div class="metricTile"><span>GA4 tržby</span><strong>3 406 834 Kč</strong><small>vs. 4 425 821 Kč</small><div class="delta down">-23,02 % YoY</div></div>
+      <div class="metricTile"><span>Objednávky</span><strong>3 341</strong><small>vs. 4 366 loni</small><div class="delta down">-23,48 % YoY</div></div>
+      <div class="metricTile"><span>Návštěvy</span><strong>101 769</strong><small>vs. 100 757 loni</small><div class="delta up">+1,0 % YoY</div></div>
+      <div class="metricTile"><span>Prům. tržba z nákupu</span><strong>1 019,70 Kč</strong><small>vs. 1 013,70 Kč loni</small><div class="delta up">+0,59 % YoY</div></div>
     </div>
     <span class="sectionSubhead">Výkon podle zdrojů</span>
     <div class="dashboardTable">
@@ -583,11 +608,15 @@ export const dashboardSectionHtml = `<section class="chapter" id="dashboard">
         </thead>
         <tbody>
           <tr class="summaryRow">
-            <td>Celkem</td><td>95 742 <span class="labelChange bad">-0,03 %</span></td><td>3 788 <span class="labelChange good">+5,6 %</span></td><td class="revenueFocus">3 511 173 Kč</td><td class="deltaCell"><span class="labelChange bad">-0,29 %</span></td>
+            <td>Celkem</td><td>101 769 <span class="labelChange good">+1,0 %</span></td><td>3 341 <span class="labelChange bad">-23,48 %</span></td><td class="revenueFocus">3 406 834 Kč</td><td class="deltaCell"><span class="labelChange bad">-23,02 %</span></td>
           </tr>
           ${monthlySources.map(renderSourceRow).join("")}
         </tbody>
       </table>
+    </div>
+    <div class="sourceSummary compactSummary ga4MonthlyInsight">
+      <h3>Červencový GA4 moment</h3>
+      <p>Zajímavým momentem července byl výkon zdroje sport.cz / clanek_10. Článek přivedl 1 584 návštěv, udržel velmi dobrou míru zapojení 76,2 % a zároveň vygeneroval 108 objednávek s tržbami 127 031 Kč. Nešlo tedy pouze o návštěvnostní zásah, ale o traffic, který dokázal přispět i ke konverzím.</p>
     </div>
   </div>
 
@@ -597,13 +626,13 @@ export const dashboardSectionHtml = `<section class="chapter" id="dashboard">
     <div class="panel glass">
       <span class="pill systemPill">${SystemLogo({ system: "googleAnalytics", label: "Google Analytics / GA4", className: "channelLogo" })}GA4 YTD kontext</span>
       <div class="metricGrid ga4Top dashboardMetricGrid">
-        <div class="metricTile"><span>Tržby YTD</span><strong>22 701 398 Kč</strong><small>vs. 22 179 907 Kč</small><div class="delta up">+2,35 %</div></div>
-        <div class="metricTile"><span>Objednávky</span><strong>24 189</strong><small>vs. 24 326</small><div class="delta down">-0,56 %</div></div>
-        <div class="metricTile"><span>Návštěvy</span><strong>620 701</strong><small>vs. 623 840</small><div class="delta down">-0,5 %</div></div>
+        <div class="metricTile"><span>Tržby YTD</span><strong>26 108 232 Kč</strong><small>vs. 26 605 728 Kč</small><div class="delta down">-1,87 %</div></div>
+        <div class="metricTile"><span>Objednávky</span><strong>27 530</strong><small>vs. 28 692</small><div class="delta down">-4,05 %</div></div>
+        <div class="metricTile"><span>Návštěvy</span><strong>722 470</strong><small>vs. 724 597</small><div class="delta down">-0,29 %</div></div>
       </div>
       <div class="sourceSummary compactSummary">
         <h3>GA4 YTD komentář</h3>
-        <p>Od začátku roku je e-shop v tržbách lehce nad loňskem, konkrétně o +2,35 %. Návštěvnost je přitom mírně nižší a počet objednávek téměř stejný, takže růst táhne hlavně vyšší průměrná tržba z nákupu. Velmi dobře meziročně roste Seznam CPC a Facebook CPC. Slabší zůstává Google organic a direct, kde je vidět pokles objemu i tržeb.</p>
+        <p>Po započtení července jsou GA4 tržby YTD lehce pod loňskem, konkrétně o -1,87 %. Návštěvnost zůstává prakticky stabilní, ale počet objednávek je níž o -4,05 %, takže hlavní otázka není objem návštěv, ale kvalita průchodu k objednávce. Dobře dál drží Seznam CPC a Facebook CPC, slabší zůstává Google organic.</p>
       </div>
     </div>
 
