@@ -1,6 +1,6 @@
 export function Lightbox() {
   return `
-    <div class="lightbox" id="imageLightbox" aria-hidden="true">
+    <div class="lightbox" id="imageLightbox" aria-hidden="true" aria-modal="true" role="dialog">
       <div class="lightboxInner">
         <button class="lightboxClose" type="button" aria-label="Zavřít náhled">×</button>
         <img alt="Zvětšený náhled kreativy" loading="lazy" decoding="async">
@@ -16,13 +16,19 @@ export function initLightbox() {
   const lightboxClose = lightbox?.querySelector(".lightboxClose");
   const lightboxFull = lightbox?.querySelector(".lightboxFull");
   const triggers = document.querySelectorAll("a.creativeThumb, a.visualItem, a.metaBoostPostThumb, a.metaBoostOpen");
+  let lastTrigger = null;
 
   function closeLightbox() {
     if (!lightbox || !lightboxImg) return;
+    const triggerToRestore = lastTrigger;
     lightbox.classList.remove("open");
     lightbox.setAttribute("aria-hidden", "true");
     lightboxImg.removeAttribute("src");
     lightboxFull?.setAttribute("href", "#");
+    lastTrigger = null;
+    if (triggerToRestore instanceof HTMLElement) {
+      triggerToRestore.focus({ preventScroll: true });
+    }
   }
 
   triggers.forEach((trigger) => {
@@ -32,11 +38,13 @@ export function initLightbox() {
       if (!src || !lightbox || !lightboxImg) return;
 
       event.preventDefault();
+      lastTrigger = trigger;
       lightboxImg.src = src;
       lightboxImg.alt = trigger.querySelector("img")?.alt || trigger.textContent?.trim() || "Zvětšený náhled";
       lightboxFull?.setAttribute("href", src);
       lightbox.classList.add("open");
       lightbox.setAttribute("aria-hidden", "false");
+      lightboxClose?.focus({ preventScroll: true });
     });
   });
 

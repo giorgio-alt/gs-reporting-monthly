@@ -637,7 +637,7 @@ const boostAssets = [
     alt: "Facebook příspěvek Úpal nebo úžeh",
     src: "assets/report-jul-26/meta/boosting/traffic-facebook-high-07-2026-thumb.png",
     fullSrc: "assets/report-jul-26/meta/boosting/traffic-facebook-high-07-2026.png",
-    image_size: { width: 340, height: 720 }
+    image_size: { width: 305, height: 518 }
   },
   {
     id: "boost-traffic-facebook-low-07-2026",
@@ -645,7 +645,7 @@ const boostAssets = [
     alt: "Facebook příspěvek Cestovatelský balíček",
     src: "assets/report-jul-26/meta/boosting/traffic-facebook-low-07-2026-thumb.png",
     fullSrc: "assets/report-jul-26/meta/boosting/traffic-facebook-low-07-2026.png",
-    image_size: { width: 345, height: 720 }
+    image_size: { width: 311, height: 460 }
   },
   {
     id: "boost-traffic-instagram-high-07-2026",
@@ -653,7 +653,7 @@ const boostAssets = [
     alt: "Instagram příspěvek 6 chyb při používání SPF",
     src: "assets/report-jul-26/meta/boosting/traffic-instagram-high-07-2026-thumb.png",
     fullSrc: "assets/report-jul-26/meta/boosting/traffic-instagram-high-07-2026.png",
-    image_size: { width: 345, height: 720 }
+    image_size: { width: 304, height: 512 }
   },
   {
     id: "boost-traffic-instagram-low-07-2026",
@@ -661,7 +661,7 @@ const boostAssets = [
     alt: "Instagram příspěvek Extra Multivitamin",
     src: "assets/report-jul-26/meta/boosting/traffic-instagram-low-07-2026-thumb.png",
     fullSrc: "assets/report-jul-26/meta/boosting/traffic-instagram-low-07-2026.png",
-    image_size: { width: 360, height: 720 }
+    image_size: { width: 325, height: 521 }
   }
 ];
 

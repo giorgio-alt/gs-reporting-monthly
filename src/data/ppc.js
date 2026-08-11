@@ -9,11 +9,11 @@ const ppcAsset = (name, width, height) => ({
 const ppcAssets = {
   pmaxOverview: ppcAsset("pmax-overview-07-2026", 1600, 445),
   pmaxCompare: ppcAsset("pmax-compare-07-2026", 1600, 445),
-  aiMaxCampaign: ppcAsset("ai-max-campaign-07-2026", 970, 200),
+  aiMaxCampaign: ppcAsset("ai-max-campaign-07-2026", 970, 189),
   aiMaxAdGroups: ppcAsset("ai-max-ad-groups-07-2026", 1465, 605),
   karsaRoas: ppcAsset("karsa-roas-troas-07-2026", 895, 330),
   karsaDailyProfit: ppcAsset("karsa-daily-profit-07-2026", 1010, 360),
-  karsaMainOverview: ppcAsset("karsa-main-overview-07-2026", 890, 175),
+  karsaMainOverview: ppcAsset("karsa-main-overview-07-2026", 890, 174),
   karsaClusters: ppcAsset("karsa-cluster-summary-07-2026", 555, 220),
   karsaClusterProducts: ppcAsset("karsa-cluster-products-07-2026", 735, 430),
   karsaClusterRoasHistory: ppcAsset("karsa-cluster-roas-history-07-2026", 690, 485),
@@ -40,8 +40,7 @@ const pmaxClusters = [
     },
     comment: "Cluster 3 zůstává hlavní objemový tahoun. V červenci zvládl vyšší spend s lepší efektivitou: ROAS roste a PNO klesá, takže tady dává smysl držet řízení rozpočtu aktivní, ale ne brzdit ho zbytečně brzy.",
     assets: [
-      { label: "Výkon clusteru", ...ppcAsset("pmax-cluster3-summary-07-2026", 1565, 325) },
-      { label: "Produktový tok", ...ppcAsset("pmax-cluster3-flow-07-2026", 975, 605) }
+      { label: "Výkon clusteru", ...ppcAsset("pmax-cluster3-summary-07-2026", 1565, 325) }
     ]
   },
   {
@@ -62,8 +61,7 @@ const pmaxClusters = [
     },
     comment: "Cluster 2 v červenci výrazně škáloval. Spend šel nahoru, konverze rostly ještě rychleji a PNO se zlepšilo, takže růst objemu zatím nepůsobí draze. Jen je potřeba hlídat, aby se při dalším navyšování nerozpadla hodnota objednávek.",
     assets: [
-      { label: "Výkon clusteru", ...ppcAsset("pmax-cluster2-summary-07-2026", 1565, 315) },
-      { label: "Produktový tok", ...ppcAsset("pmax-cluster2-flow-07-2026", 975, 605) }
+      { label: "Výkon clusteru", ...ppcAsset("pmax-cluster2-summary-07-2026", 1565, 315) }
     ]
   },
   {
@@ -85,7 +83,6 @@ const pmaxClusters = [
     comment: "Cluster 1 přinesl výrazně víc objemu, ale efektivita už za tím zaostala. Je to typický trade-off: více nákupů, vyšší spend a zároveň slabší ROAS. Další růst bych tu řídil opatrněji než u clusterů 2 a 3.",
     assets: [
       { label: "Výkon clusteru", ...ppcAsset("pmax-cluster1-summary-07-2026", 1565, 315) },
-      { label: "Produktový tok", ...ppcAsset("pmax-cluster1-flow-07-2026", 975, 605) },
       { label: "Vývoj nákladů", ...ppcAsset("pmax-cluster1-cost-chart-07-2026", 820, 505) }
     ]
   },
@@ -107,8 +104,7 @@ const pmaxClusters = [
     },
     comment: "Cluster 0 se z menšího základu výrazně zlepšil. Objem je pořád nižší, ale ROAS je nad cílem a PNO kleslo, takže tu dává smysl nechat prostor pro další test bez unáhleného škrtání.",
     assets: [
-      { label: "Výkon clusteru", ...ppcAsset("pmax-cluster0-summary-07-2026", 1565, 320) },
-      { label: "Produktový tok", ...ppcAsset("pmax-cluster0-flow-07-2026", 975, 605) }
+      { label: "Výkon clusteru", ...ppcAsset("pmax-cluster0-summary-07-2026", 1565, 320) }
     ]
   }
 ];
@@ -257,7 +253,14 @@ const renderShot = (item, label = item.label) => `
     <span>${label}</span>
   </a>`;
 
-const renderCluster = (cluster) => `
+const renderCluster = (cluster) => {
+  const gridClass = [
+    "ppcAssetGrid",
+    cluster.assets.length === 1 ? "ppcAssetGridSingle" : "",
+    cluster.assets.length === 2 ? "ppcAssetGridTwo" : ""
+  ].filter(Boolean).join(" ");
+
+  return `
   <details class="ppcCluster" ${cluster.id === 3 ? "open" : ""}>
     <summary>
       <div>
@@ -273,9 +276,10 @@ const renderCluster = (cluster) => `
       </div>
     </summary>
     <div class="ppcClusterBody">
-      <div class="ppcAssetGrid">${cluster.assets.map(renderShot).join("")}</div>
+      <div class="${gridClass}">${cluster.assets.map(renderShot).join("")}</div>
     </div>
   </details>`;
+};
 
 const renderSklikRow = (row) => {
   const change = getSklikChange(row);
@@ -472,8 +476,7 @@ export const ppcSectionHtml = `<section class="chapter" id="ppc">
         <tbody>${aiMaxAdGroups.map(renderAiMaxAdGroupRow).join("")}</tbody>
       </table>
     </div>
-    <div class="ppcAssetGrid ppcAssetGridTwo">
-      ${renderShot(ppcAssets.aiMaxCampaign, "AI Max · přehled kampaně")}
+    <div class="ppcAssetGrid ppcAssetGridSingle">
       ${renderShot(ppcAssets.aiMaxAdGroups, "AI Max · sestavy")}
     </div>
   </div>

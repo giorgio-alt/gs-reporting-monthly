@@ -1,12 +1,13 @@
 .lightbox {
   position: fixed;
   inset: 0;
-  align-items: center;
-  justify-content: center;
+  display: none;
+  place-items: center;
   width: 100vw;
-  height: 100vh;
-  padding: clamp(16px, 3vw, 34px);
-  overflow: hidden;
+  min-height: 100vh;
+  padding: clamp(14px, 3vw, 32px);
+  overflow: auto;
+  overscroll-behavior: contain;
 }
 
 .lightboxInner {
@@ -14,10 +15,10 @@
   display: grid;
   grid-template-rows: minmax(0, 1fr) auto;
   place-items: center;
-  gap: 10px;
-  width: min(92vw, 1600px);
-  max-width: 92vw;
-  max-height: 88vh;
+  gap: 12px;
+  width: min(96vw, 1760px);
+  max-width: 96vw;
+  max-height: none;
   overflow: visible;
 }
 
@@ -25,8 +26,8 @@
   display: block;
   width: auto;
   height: auto;
-  max-width: min(92vw, 1600px);
-  max-height: 82vh;
+  max-width: min(96vw, 1760px);
+  max-height: calc(100vh - 112px);
   object-fit: contain;
   object-position: center;
   margin: auto;
@@ -34,10 +35,11 @@
 }
 
 .lightboxClose {
-  right: 0;
-  top: 0;
+  position: fixed;
+  right: clamp(14px, 3vw, 34px);
+  top: clamp(14px, 3vw, 34px);
   z-index: 3;
-  transform: translate(42%, -42%);
+  transform: none;
 }
 
 .lightboxFull {
@@ -62,6 +64,7 @@
 }
 
 .lightbox.open {
+  display: grid;
   animation: lightboxBackdropIn 220ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
@@ -104,14 +107,13 @@
   }
 
   .lightboxInner {
-    width: 94vw;
-    max-width: 94vw;
-    max-height: 90vh;
+    width: 96vw;
+    max-width: 96vw;
   }
 
   .lightbox img {
-    max-width: 94vw;
-    max-height: 80vh;
+    max-width: 96vw;
+    max-height: calc(100vh - 104px);
     border-radius: 16px;
   }
 
