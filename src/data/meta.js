@@ -575,10 +575,10 @@ const flightCampaigns = [
     value: "61 502 Kč",
     clicks: "2 982",
     ctr: "1,52 %",
-    frequency: "neuvedeno",
-    sourceData: { period: "2026-07", spend: 27017.22, purchases: 68, pno: 43.93, purchaseValue: 61502.00, linkClicks: 2982, ctr: 1.52, frequency: null },
+    frequency: "4,60",
+    sourceData: { period: "2026-07", spend: 27017.22, purchases: 68, pno: 43.93, purchaseValue: 61502.00, linkClicks: 2982, ctr: 1.52, frequency: 4.60 },
     assets: ["flight-2plus1-creative-07-2026", "flight-2plus1-overview-07-2026", "flight-2plus1-chart-07-2026"],
-    note: "Kampaň 2+1 zdarma je největší červencový objemový tahoun: 68 nákupů a hodnota 61 502 Kč. PNO 43,93 % není nízké, ale při tomto objemu jde o nejpoužitelnější akční rámec v červencových kampaních. CTR 1,52 % ukazuje použitelnou odezvu a promo mechanika evidentně pomáhá převést pozornost do nákupů. Další navýšení dává smysl jen postupně, s kontrolou, zda se PNO nezačne při škálování rozjíždět."
+    note: "Kampaň 2+1 zdarma byla nejsilnějším objemovým flightem července: přinesla 68 nákupů při PNO 43,93 %. Promo mechanika tedy dokázala převést pozornost do nákupů, frekvence 4,60 ale už ukazuje poměrně intenzivní zásah publika. Při dalším nasazení proto dává smysl hlídat kreativní únavu a případné navyšování rozpočtu doprovodit obměnou formátů nebo sdělení."
   }
 ];
 
@@ -770,10 +770,9 @@ const julyBoostSections = [
     objective: "Engagement boost pracuje hlavně s reakcemi, komentáři a další odezvou na příspěvek. V červenci ale nevznikl dostatečný vzorek pro fér vyhodnocení.",
     status: "empty",
     emptyState: {
-      title: "V červenci bez vyhodnotitelného engagement boostu",
-      copy: "Engagement boost byl v červenci připravený k otestování, ale nevznikl dostatečný objem aktivity pro relevantní vyhodnocení. Tento měsíc proto nevybíráme HIGH ani LOW performera.",
-      secondary: "Poslední dostupné výsledky jsou z června 2026.",
-      action: "Zobrazit červen"
+      title: "Engagement v červenci bez samostatného vyhodnocení",
+      copy: "V červenci jsme engagement podporu připravili a pokusili se ji spustit, nevznikl ale dostatečný objem aktivity pro spolehlivé vyhodnocení. Tento měsíc proto nevybíráme HIGH ani LOW performera a nepřenášíme do reportu červnové výsledky.",
+      secondary: "Sekce zůstává připravená pro další reportingové období. Jakmile bude k dispozici dostatečný vzorek, doplníme přehled příspěvků, cenu za engagement a srovnání nejvýkonnějších a slabších variant."
     },
     rows: []
   },
@@ -895,7 +894,7 @@ function renderFlightCampaign(flight) {
       <div class="metaFlightKpis">
         <div><span>Investice</span><strong>${flight.spend}</strong></div>
         <div><span>Nákupy</span><strong>${flight.results}</strong></div>
-        <div><span>Efektivita</span><strong>${flight.cost}</strong></div>
+        ${renderFlightEfficiencyKpi(flight)}
         <div><span>Hodnota</span><strong>${flight.value}</strong></div>
       </div>
       ${renderFlightSignals(flight)}
@@ -906,6 +905,17 @@ function renderFlightCampaign(flight) {
       <div class="metaInterpretation compact metaFlightInsight"><h4>Interpretace</h4><p>${flight.note}</p></div>
     </div>
   `;
+}
+
+function renderFlightEfficiencyKpi(flight) {
+  const match = /^PNO\s+(.+)$/i.exec(flight.cost || "");
+  if (!match) return `<div><span>Efektivita</span><strong>${flight.cost}</strong></div>`;
+
+  return `<div class="metaFlightEfficiencyKpi">
+    <span>Efektivita</span>
+    <em>PNO</em>
+    <strong>${match[1]}</strong>
+  </div>`;
 }
 
 function renderFlightSignals(flight) {
@@ -1120,7 +1130,8 @@ function renderBoostMonthPanel(month) {
 }
 
 function renderBoostSystemOverview(section) {
-  const overview = boostOverviewAssets[section.overviewId || section.id];
+  if (!section.overviewId) return "";
+  const overview = boostOverviewAssets[section.overviewId];
   if (!overview) return "";
   const { width = 0, height = 0 } = overview.image_size || {};
   const ratioStyle = width && height ? ` style="--asset-ratio:${width} / ${height}"` : "";
@@ -1169,7 +1180,6 @@ function renderBoostEmptyState(section) {
       <p>${section.emptyState.copy}</p>
       <small>${section.emptyState.secondary}</small>
     </div>
-    <button type="button" data-boost-month-target="06-2026" onclick="document.getElementById('meta-boost-06-2026').checked=true">${section.emptyState.action}</button>
   </div>`;
 }
 

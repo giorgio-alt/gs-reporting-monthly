@@ -11,13 +11,13 @@ const ppcAssets = {
   pmaxCompare: ppcAsset("pmax-compare-07-2026", 1600, 445),
   aiMaxCampaign: ppcAsset("ai-max-campaign-07-2026", 970, 189),
   aiMaxAdGroups: ppcAsset("ai-max-ad-groups-07-2026", 1465, 605),
-  karsaRoas: ppcAsset("karsa-roas-troas-07-2026", 895, 330),
-  karsaDailyProfit: ppcAsset("karsa-daily-profit-07-2026", 1010, 360),
-  karsaMainOverview: ppcAsset("karsa-main-overview-07-2026", 890, 174),
-  karsaClusters: ppcAsset("karsa-cluster-summary-07-2026", 555, 220),
-  karsaClusterProducts: ppcAsset("karsa-cluster-products-07-2026", 735, 430),
-  karsaClusterRoasHistory: ppcAsset("karsa-cluster-roas-history-07-2026", 690, 485),
-  karsaProductMovements: ppcAsset("karsa-product-movements-07-2026", 890, 305)
+  karsaRoas: ppcAsset("karsa-roas-troas-07-2026", 1276, 418),
+  karsaDailyProfit: ppcAsset("karsa-daily-profit-07-2026", 1276, 424),
+  karsaMainOverview: ppcAsset("karsa-main-overview-07-2026", 1600, 367),
+  karsaClusters: ppcAsset("karsa-cluster-summary-07-2026", 1600, 470),
+  karsaClusterProducts: ppcAsset("karsa-cluster-products-07-2026", 1178, 758),
+  karsaClusterRoasHistory: ppcAsset("karsa-cluster-roas-history-07-2026", 1186, 756),
+  karsaProductMovements: ppcAsset("karsa-product-movements-07-2026", 1600, 448)
 };
 
 const pmaxClusters = [
@@ -310,19 +310,19 @@ const karsaClusterVisuals = [
     asset: ppcAssets.karsaClusters,
     label: "Karsa AI · souhrn clusterů",
     title: "Souhrn clusterů",
-    copy: "Souhrn ukazuje, jak Karsa rozděluje PMax produkty do výkonnostních portfolií. Pomáhá odlišit, kde se růst opírá o zdravé skupiny produktů a kde je lepší držet rozpočet opatrněji."
+    copy: "Karty shrnují posledních 30 dní jako průměrné denní hodnoty. Hlavní číslo je ROAS clusteru; vedle něj lze porovnat profit, náklady, konverze a velikost produktového portfolia."
   },
   {
     asset: ppcAssets.karsaClusterProducts,
     label: "Karsa AI · počet produktů",
     title: "Počet produktů",
-    copy: "Graf čte skladbu portfolia v jednotlivých clusterech a změnu jejich velikosti v čase. Stabilnější rozložení je dobrý signál, že se produktové rozdělení postupně usazuje."
+    copy: "Graf ukazuje skladbu portfolia v čase. Cluster 1 obvykle drží největší vrstvu produktů s nižší aktivitou, zatímco vyšší clustery soustředí aktivnější a výkonnější produkty."
   },
   {
     asset: ppcAssets.karsaClusterRoasHistory,
     label: "Karsa AI · vývoj ROAS",
     title: "Vývoj ROAS",
-    copy: "Křivky ukazují rozdílný vývoj návratnosti clusterů. Krátký pohyb nebereme jako jistou predikci, spíš jako signál, kde se výkon začíná odchylovat od zbytku portfolia."
+    copy: "Křivky ukazují historický vývoj 30denního ROAS jednotlivých clusterů. Oddělování výkonnostních vrstev pomáhá číst, zda algoritmus portfolio postupně stabilizuje; krátký výkyv ale není predikce."
   },
   {
     asset: ppcAssets.karsaProductMovements,
