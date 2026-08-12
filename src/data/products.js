@@ -247,13 +247,62 @@ const behaviorInsights = [
 ];
 
 const behaviorTrendSeries = [
-  { id: "homepage-product", title: "Homepage → Product", unit: "%", values: [{ period: "05/2026", value: 36.2 }, { period: "06/2026", value: 34.94 }, { period: "07/2026", value: 35.16 }] },
-  { id: "product-cart", title: "Product → Cart", unit: "%", values: [{ period: "05/2026", value: 16.87 }, { period: "06/2026", value: 14.79 }, { period: "07/2026", value: 14.02 }] },
-  { id: "cart-checkout", title: "Cart → Checkout", unit: "%", values: [{ period: "05/2026", value: 56.45 }, { period: "06/2026", value: 52.51 }, { period: "07/2026", value: 50.1 }] },
-  { id: "checkout-purchase", title: "Checkout → Purchase", unit: "%", values: [{ period: "05/2026", value: 57.15 }, { period: "06/2026", value: 60.68 }, { period: "07/2026", value: 56.52 }] },
-  { id: "dead-clicks", title: "Dead Clicks", unit: "%", values: [{ period: "05/2026", value: 7.86 }, { period: "06/2026", value: 0.58 }, { period: "07/2026", value: 0.41 }] },
-  { id: "quick-backs", title: "Quick Backs", unit: "%", values: [{ period: "05/2026", value: 12.82 }, { period: "06/2026", value: 12.33 }, { period: "07/2026", value: 11.89 }] },
-  { id: "rage-clicks", title: "Rage Clicks", unit: "%", values: [{ period: "05/2026", value: 0.09 }, { period: "06/2026", value: 0.02 }, { period: "07/2026", value: 0.005 }] }
+  {
+    id: "homepage-product",
+    title: "Homepage → Product",
+    unit: "%",
+    definition: "Kolik sessions z homepage pokračovalo na produkt.",
+    calculation: "Sessions, které došly na produkt / sessions na začátku homepage cesty × 100.",
+    values: [{ period: "05/2026", value: 36.2 }, { period: "06/2026", value: 34.94 }, { period: "07/2026", value: 35.16 }]
+  },
+  {
+    id: "product-cart",
+    title: "Product → Cart",
+    unit: "%",
+    definition: "Jakou část produktových sessions se podařilo posunout do košíku.",
+    calculation: "Sessions, které došly do košíku / sessions na produktu × 100.",
+    values: [{ period: "05/2026", value: 16.87 }, { period: "06/2026", value: 14.79 }, { period: "07/2026", value: 14.02 }]
+  },
+  {
+    id: "cart-checkout",
+    title: "Cart → Checkout",
+    unit: "%",
+    definition: "Jakou část košíků uživatelé posunuli do checkoutu.",
+    calculation: "Sessions, které došly do checkoutu / sessions v košíku × 100.",
+    values: [{ period: "05/2026", value: 56.45 }, { period: "06/2026", value: 52.51 }, { period: "07/2026", value: 50.1 }]
+  },
+  {
+    id: "checkout-purchase",
+    title: "Checkout → Purchase",
+    unit: "%",
+    definition: "Jakou část checkout sessions uživatelé dokončili nákupem.",
+    calculation: "Sessions s nákupem / sessions v checkoutu × 100.",
+    values: [{ period: "05/2026", value: 57.15 }, { period: "06/2026", value: 60.68 }, { period: "07/2026", value: 56.52 }]
+  },
+  {
+    id: "dead-clicks",
+    title: "Dead Clicks",
+    unit: "%",
+    definition: "Podíl sessions s kliknutím na prvek, po kterém nenastala viditelná odezva.",
+    calculation: "Sessions s alespoň jedním dead clickem / všechny sledované sessions × 100.",
+    values: [{ period: "05/2026", value: 7.86 }, { period: "06/2026", value: 0.58 }, { period: "07/2026", value: 0.41 }]
+  },
+  {
+    id: "quick-backs",
+    title: "Quick Backs",
+    unit: "%",
+    definition: "Podíl sessions, ve kterých se uživatel po otevření stránky rychle vrátil zpět.",
+    calculation: "Sessions s quick back událostí / všechny sledované sessions × 100.",
+    values: [{ period: "05/2026", value: 12.82 }, { period: "06/2026", value: 12.33 }, { period: "07/2026", value: 11.89 }]
+  },
+  {
+    id: "rage-clicks",
+    title: "Rage Clicks",
+    unit: "%",
+    definition: "Podíl sessions s opakovaným rychlým klikáním do stejné malé oblasti.",
+    calculation: "Sessions s alespoň jedním rage clickem / všechny sledované sessions × 100.",
+    values: [{ period: "05/2026", value: 0.09 }, { period: "06/2026", value: 0.02 }, { period: "07/2026", value: 0.005 }]
+  }
 ];
 
 const clarityScreenshots = [
@@ -490,11 +539,6 @@ const renderBehaviorHeroInsight = (item) => `
     <p>${item.plainInsight}</p>
   </div>`;
 
-const renderBehaviorHealthTrend = (metric) => `
-  <div class="clarityMiniTrend" aria-label="Trend ${metric.title}">
-    ${metric.values.map((point) => `<span style="--bar-height:${Math.max(4, Math.min(100, point.value / metric.max * 100))}%" title="${point.period}: ${decimalText(point.value)} %"></span>`).join("")}
-  </div>`;
-
 const renderBehaviorHealthMetric = (metric) => {
   const previous = previousPoint(metric.values);
   const current = currentPoint(metric.values);
@@ -508,7 +552,6 @@ const renderBehaviorHealthMetric = (metric) => {
     </div>
     <strong>${metric.displayValue}</strong>
     <small>${formatValue(current.sessions)} sessions ${changeChip(`${sessionChange > 0 ? "+" : ""}${formatValue(sessionChange)}`)}</small>
-    ${renderBehaviorHealthTrend(metric)}
     <p>${metric.comment}</p>
   </article>`;
 };
@@ -548,10 +591,21 @@ const renderBehaviorTrend = (series) => {
   const previous = previousPoint(series.values);
   const current = currentPoint(series.values);
   const change = current.value - previous.value;
+  const tooltipId = `behavior-tooltip-${series.id}`;
 
   return `<article class="behaviorTrendCard">
     <div class="behaviorTrendTop">
-      <span>${series.title}</span>
+      <span class="behaviorTrendTitle">${series.title}
+        <span class="behaviorInfoWrap">
+          <button class="behaviorInfoBtn" type="button" aria-label="Co znamená ${series.title}" aria-describedby="${tooltipId}">i</button>
+          <span class="behaviorTooltip" id="${tooltipId}" role="tooltip">
+            <b>Co říká</b>
+            <span>${series.definition}</span>
+            <b>Jak se počítá</b>
+            <span>${series.calculation}</span>
+          </span>
+        </span>
+      </span>
       ${changeChip(percentPointText(change))}
     </div>
     ${renderSparkline(series)}

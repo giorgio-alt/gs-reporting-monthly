@@ -14,6 +14,7 @@ import { initFunnelTrendToggles } from "./components/FunnelTrend.js";
 import { initDetailsEnhancements } from "./components/DetailsEnhancements.js";
 import { initSklikCharts } from "./components/SklikCharts.js";
 import { initMetaBoostingTabs } from "./components/MetaBoosting.js";
+import { initBehaviorTooltips } from "./components/BehaviorTooltips.js";
 
 const root = document.querySelector("#app");
 
@@ -26,3 +27,4 @@ initFunnelTrendToggles();
 initDetailsEnhancements();
 initSklikCharts();
 initMetaBoostingTabs();
+initBehaviorTooltips();

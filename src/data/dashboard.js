@@ -174,7 +174,7 @@ const formatBudgetMonth = (month) => {
 };
 
 const budgetTone = (fulfillment) => {
-  if (fulfillment > 110) return "danger";
+  if (fulfillment > 110) return "over";
   if (fulfillment > 100) return "warning";
   if (fulfillment >= 85) return "good";
   return "neutral";
@@ -333,7 +333,7 @@ const renderCostMatrix = ({ title, rows, group, totalLabel, modifier = "" }) => 
 const renderBudgetCard = ({ title, fulfillment, actual, planned, diffLabel, diffValue, status, tone }) => {
   const progress = Math.min(fulfillment, 100);
   const overBudget = Math.max(fulfillment - 100, 0);
-  return `<article class="budgetCard ${tone}" style="--budget-progress:${progress}%">
+  return `<article class="budgetCard ${tone}" style="--budget-progress:${progress}%; --budget-over:${Math.min(overBudget, 100)}%">
     <div class="budgetCardHead">
       <span>${title}</span>
       <b>${status}</b>
@@ -344,7 +344,6 @@ const renderBudgetCard = ({ title, fulfillment, actual, planned, diffLabel, diff
     <div class="budgetProgress" aria-label="Plnění budgetu ${formatPercent(fulfillment)}">
       <i></i>
     </div>
-    ${overBudget > 0 ? `<div class="budgetOverrun">Přesah nad plán ${formatPercent(overBudget)}</div>` : ""}
     <dl class="budgetFacts">
       <div><dt>Plán</dt><dd>${formatCurrency(planned)}</dd></div>
       <div><dt>Čerpání</dt><dd>${formatCurrency(actual)}</dd></div>
@@ -362,7 +361,7 @@ const renderMediaBudgetSummary = () => `
       planned: activeBudgetMonth.planned,
       diffLabel: "Rozdíl",
       diffValue: signedCurrency(monthlyVariance),
-      status: `Přečerpáno o ${formatPercent(monthlyFulfillment - 100)}`,
+      status: `Nad plánem o ${formatPercent(monthlyFulfillment - 100)}`,
       tone: budgetTone(monthlyFulfillment)
     })}
     ${renderBudgetCard({
@@ -427,7 +426,7 @@ const renderBusinessContextItem = ({ label, value, meta, tone = "neutral" }) => 
   <div class="businessMonthItem">
     <span>${label}</span>
     <strong>${value}</strong>
-    <small class="${tone}">${meta}</small>
+    <small class="businessMonthDelta ${tone}">${meta}</small>
   </div>`;
 
 const renderBusinessTrendBar = (value, max, className, label) => {
@@ -512,7 +511,7 @@ const renderBusinessYtdContext = () => `
           label: "Marketingové náklady",
           value: formatCurrency(businessPerformance.currentMonth.marketingCosts),
           meta: isNumber(businessMonthCostsYoY) ? `${signedPercent(businessMonthCostsYoY, formatPercent)} YoY` : unavailableLabel,
-          tone: "neutral"
+          tone: "up"
         })}
         ${renderBusinessContextItem({
           label: "PNO měsíce",
